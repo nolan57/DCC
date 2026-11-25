@@ -1,0 +1,64 @@
+{
+  "lock_version": 1,
+  "locked_at": "2026-11-22T15:40:00+08:00",
+  "locked_by": "AI executor, before src/route/structure_tiers.py existed",
+  "spec_sha256": "c5e239178b0dade91487140d3b714a4ae3c092529730e4deba14d1d0b45a07d8",
+  "spec_path": "docs/specs/intrinsic_structure_tiers_v1.md",
+  "declared_constants": {
+    "grid": [128, 128],
+    "bins": 64,
+    "cells_side_h": 1.0,
+    "null_realisations": 16,
+    "null_seed_start": 4000,
+    "context_levels": 16,
+    "sigma_eye_cells": 2.0,
+    "C_eye_weber": 0.01,
+    "q_instrumented": 1.0,
+    "q_reflection": 0.0,
+    "precondition_contrast_min": 0.01,
+    "precondition_scale_min_cells": 2.0
+  },
+  "tiers": {
+    "L0": {
+      "name": "topological organization",
+      "definition_a": "P0(u) = (1/|Lambda|) * sum over the 0-dim persistence diagram of the superlevel filtration of (b - d)/du. Q0 = 1 - P0(u)/P0(null). Precondition sigma_u/du >= 0.01, else no verdict.",
+      "quantity_b": "Q0",
+      "threshold_c": 0.5,
+      "comparison": ">="
+    },
+    "L1": {
+      "name": "characteristic scale in the scene's own metric",
+      "definition_a": "R(l) is the axis-averaged normalised autocorrelation of u; xi = min{ l : R(l) < exp(-1) } in cells. Q1 = xi/h. Precondition none.",
+      "quantity_b": "Q1",
+      "threshold_c": 4.0,
+      "comparison": ">="
+    },
+    "L2": {
+      "name": "predictability, self-referenced",
+      "definition_a": "q2(u) = 1 - H(u|context)/H(u) with 16-level west and north neighbours; Q2 = (q2(u) - q2(null))/(1 - q2(null)). Precondition H(u) > 0.",
+      "quantity_b": "Q2",
+      "threshold_c": 0.5,
+      "comparison": ">="
+    },
+    "L3": {
+      "name": "legibility through a declared observer",
+      "definition_a": "u_xi = DoG(u; sigma1 = xi/2, sigma2 = 2 xi); C_xi = std(u_xi)/mean(u); Q3 = log2(1 + C_xi * q / C_eye). Precondition xi/h >= 2, else no verdict. q is the declared channel factor.",
+      "quantity_b": "Q3",
+      "threshold_c": 2.0,
+      "comparison": ">="
+    }
+  },
+  "forbidden_in_definition_a": [
+    "original",
+    "original object",
+    "pre-conversion",
+    "preconversion",
+    "3D object",
+    "three-dimensional object",
+    "chi of the object",
+    "preserves the",
+    "Hausdorff",
+    "Wasserstein",
+    "mutual information"
+  ]
+}

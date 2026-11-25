@@ -1,0 +1,14 @@
+DISPLAY-DECLARATION v1
+FRAME:            plate_array_figure_v1.png
+PROVENANCE:       NEITHER
+STAGE:            S0
+FIDELITY:         FL1
+BAND:             NONE (geometry only)
+COLOUR:           DECLARED-CONVENTION
+COLOUR-BASIS:     Panels 1-2 are greyscale: brightness encodes the declared field value u, which takes exactly two values (plate = 1, gap = 0) in a synthetic array generated from pitch p and side s. No spectral quantity of any object is encoded, because no object was rendered. In panel 3 hue is categorical series identity (Q0, Q2, xi/h, shuffle control, two thresholds) and is a palette choice, not a measurement.
+SCALAR:           u (dimensionless binary, declared); Q0, Q2 (dimensionless); xi/h (cells); thresholds 0.5 and 4.0 read from runs/MATRIX/threshold_lock.json
+TIME:             t_span = 0 s (static, three panels, no animation) ; compression = 1 ; t_rip = 1.0850e-09 s ; ratio = 0
+GEOMETRY:         PRESCRIBED (D2)
+ENHANCEMENT:      none
+ME5-COROLLARY:    NOT-APPLICABLE
+NOTE:             Geometry declared as a square lattice of pitch p cells with plates of side s = 0.75 p (p = 8, 16, 32); D2 performs no deformation, so no geometry is derived from a physical process and no stage of the S-chain is entered. The figure carries its own exclusion on the image: DEPOSIT-BLIND (six physically distinct objects share one digest, I(canvas; r4) = 0). It is not a depiction of the deposit and may not be cited as one (MR1.6).

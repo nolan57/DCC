@@ -1,0 +1,7 @@
+{
+  "file": "docs/specs/surface_conductivity_v1.md",
+  "sha256": "91eca7acf6400bac11699a71d55c3a5644c114a52d067eae5225fc33d211a50f",
+  "locked": "2026-11-22",
+  "note": "Acceptance criteria S1-S9 are locked by this digest. A candidate that misses one is reported as a miss; no threshold is widened after measurement.",
+  "locked_before": "no candidate sigma_s exists; the criteria were written from the checks they name, then applied to the record module (s6)."
+}

@@ -1,0 +1,187 @@
+
+  PROVENANCE: NEITHER  (a measurement of the deposit's own construction; establishes no physics
+              and creates no readable cell)
+
+================================================================================================
+[S] HILBERT SELF-CHECK -- a wrong curve invalidates every picture above it
+================================================================================================
+  order  3:       64 indices   vectorised == reference: True   bijection: True
+  order  6:     4096 indices   vectorised == reference: True   bijection: True
+  order  9:   262144 indices   vectorised == reference: True   bijection: True
+  order  9: consecutive indices are 4-adjacent in 100.0000% of steps (the Hilbert property; a raster order gives 99.61%)
+
+  curve usable: True   -- if False, stop: the figure below would be meaningless
+
+  X1 (post-hoc, not a registered prediction) -- audit of src/route/demo_2d_map.py line 213:
+     d2xy(16, q) is called on a 512^2 = 2^18 index range. order 16 means n = 2^16, and the
+     recurrence spends its last 7 iterations on an exhausted t, each of which performs the
+     'x, y = y, x' exchange with rx = ry = 0. Seven exchanges = one net transpose.
+     indices where d2xy(16, q) differs from d2xy(9, q): 261,632 of 262,144
+     indices where it is exactly the transpose:         262,144 of 262,144
+     => the round-28 canvas panel is drawn on the TRANSPOSED order-9 curve. Transposition
+        preserves 4-adjacency, the bijection, the single-shell fraction and the straddle
+        counts, so no conclusion of that round changes. It is a convention defect, not a
+        measurement defect -- and it only matters to a reader who reads coordinates off
+        the figure, which MR1.0 forbids. Recorded, not repaired: the run stands.
+
+================================================================================================
+[A] WHAT THE DEPOSIT CONSTRUCTOR IS ALLOWED TO READ  (P1)
+================================================================================================
+  declared parameters in the object: 12  (dict keys 9, of which 'rho' expands to 4)
+  keys the constructor read        : ['H', 'M']
+
+  geometric / material keys read: 0  []
+  visible keys                 : ['H', 'M']
+   => P1 (the constructor reads (M, H) and nothing else): PASS   [0 geometry reads, visible = ['H', 'M']]
+
+  N = floor(H/delta) = floor(0.2300/2.150e-10) = 1,069,767,441
+  pieces = M*N = 4,279,069,764   cells = 4,294,967,296   occupancy = 0.996299
+
+================================================================================================
+[B] WHAT THE PAINTER READS  (P2, P6)
+================================================================================================
+  the PAINTED panel (the one people read as 'the object'):
+    brightness source : object: areas(z) from r1, r2_0, r2_a, r3_0, r3_a, r4
+    keys read         : ['H', 'M', 'r1', 'r2_0', 'r2_a', 'r3_0', 'r3_a', 'r4']
+    geometric keys    : ['r1', 'r2_0', 'r2_a', 'r3_0', 'r3_a', 'r4']
+
+  the CANVAS-ONLY panel:
+    brightness source : canvas: n/N, the axial index the address already carries
+    keys read         : none   (the object dict is not consulted at all)
+
+  hue is k on both panels, and k is decoded from the address as k = d // N, i.e. legitimately
+  canvas content. Holding hue and the brightness ENCODING fixed, only the SOURCE of brightness
+  changes. So the difference between the panels is exactly 'what the object adds'.
+   => P2 (the painter reads >= 3 geometric keys): PASS   [6 keys: ['r1', 'r2_0', 'r2_a', 'r3_0', 'r3_a', 'r4']]
+   => P6 (0 of the painted values come from the canvas alone): PASS   [object mode reads 8 keys; canvas mode reads 0]
+
+================================================================================================
+[C] THE COLLISION: SIX PHYSICALLY DISTINCT OBJECTS, ONE DEPOSIT  (P3, P7)
+================================================================================================
+  object                    N              pieces         deposit sha256[0:16]  r4 (m)  2r4 (m)  A3   cut area (m^2)
+  ------------------------  -------------  -------------  --------------------  ------  -------  ---  --------------
+  O1 reference              1,069,767,441  4,279,069,764  558d30e08fd32cf6      0.0900  0.1800   yes  2.7222e+07    
+  O2 jacket r4=0.150        1,069,767,441  4,279,069,764  558d30e08fd32cf6      0.1500  0.3000   yes  7.5617e+07    
+  O3 modulation inverted    1,069,767,441  4,279,069,764  558d30e08fd32cf6      0.0900  0.1800   yes  2.7222e+07    
+  O4 densities reversed     1,069,767,441  4,279,069,764  558d30e08fd32cf6      0.0900  0.1800   yes  2.7222e+07    
+  O5 radii re-stacked       1,069,767,441  4,279,069,764  558d30e08fd32cf6      0.0900  0.1800   yes  2.7222e+07    
+  O6 jacket r4=0.495        1,069,767,441  4,279,069,764  558d30e08fd32cf6      0.4950  0.9900   NO   8.2347e+08    
+
+  distinct deposit digests among 6 physically distinct objects: 1
+
+  A3 (2*r4 <= pitch = 0.4001) holds for 5 of 6: ['O1 reference            ', 'O2 jacket r4=0.150      ', 'O3 modulation inverted  ', 'O4 densities reversed   ', 'O5 radii re-stacked     ']
+  O6 is outside DEMO-1's own admissibility envelope and is reported as such -- it is NOT part
+  of the claim. The claim rests on the 5 admissible objects:
+    their outer radii span 0.0900 .. 0.1500 m  (1.667x)
+    their cut areas span   2.7222e+07 .. 7.5617e+07 m^2  (2.778x)
+    distinct digests among them: 1
+  over all six (including the out-of-envelope O6):
+    radii 0.0900 .. 0.4950 m (5.50x), cut areas 30.25x, distinct digests 1
+   => P3 (all objects give a byte-identical deposit): PASS   [1 distinct digest(s); 1 within the A3 envelope]
+
+  I(canvas ; r4):
+    r4 takes values [0.09, 0.15, 0.495]
+    the canvas is constant on every fibre of (M, N), so H(r4 | canvas) = H(r4), and
+    I(canvas ; r4) = 0.0 bits exactly -- a 2.78x change in cut area
+    is invisible, and the 30.25x case adds nothing to it.
+   => P7 (I(canvas ; r4) = 0 bits): PASS   [0.0 bits over 2.78x admissible / 30.25x total]
+
+================================================================================================
+[D] NEGATIVE CONTROLS: DOES THE TEST HAVE POWER?  (P4, P5)
+================================================================================================
+  NC1  H halved to 0.1150 m:
+         N = 534,883,720   pieces = 2,139,534,880   sha256[0:16] = 12c3b2810e160ea9
+         differs from O1: True
+   => P4 (halving H changes the deposit): PASS   [12c3b2810e16 vs 558d30e08fd3]
+
+  NC2  M = 5 at H = 0.2300 m:
+         pieces = 5*1,069,767,441 = 5,348,837,205   cells = 4,294,967,296
+         pieces <= cells: False   -> inadmissible (A1 of demo_object_v1 s3)
+         the largest admissible H at M = 5 is cells*delta/M = 0.184684 m
+   => P5 (M=5 at this H is infeasible): FAIL   [pieces 5,348,837,205 > cells 4,294,967,296; H_max 0.184684]
+
+================================================================================================
+[E] THE PARAMETER COUNT AND THE DICHOTOMY  (P8, P9, P10, P11)
+================================================================================================
+  visible   : ['M', 'N']
+  invisible : ['r1', 'r2_0', 'r2_a', 'r3_0', 'r3_a', 'r4', 'rho[0]', 'rho[1]', 'rho[2]', 'rho[3]']
+  declared  : 12   visible fraction 2/12
+   => P8 (2 of 12 declared parameters are visible): PASS   [2/12]
+
+  injective at full resolution: side >= ceil(sqrt(pieces)) = 65,415 -> 65536 = 2^16
+  a display a person can look at: 512^2 = 2^18 pixels
+  decimation = 16,384 = 2^14   (exact, both are powers of two)
+  a 4K frame (8,294,400 px) would still show 0.19% of the deposit
+   => P9 (the dichotomy is an exact power-of-two decimation): PASS   [16,384]
+
+  sup d_3D inside the object = sqrt((2r4)^2 + H^2) = 0.292062 m
+  inf d_2D between two sites = pitch              = 0.400100 m
+  ratio sup/inf = 0.7300  -> the 3D support lies STRICTLY INSIDE the 2D gap
+  so d_2D/d_3D has no upper bound at small d, and there is no scale s with d_2D ~ s*d_3D:
+  the deposit is not a similarity image of the object at any magnification.
+   => P10 (no single scale factor relates deposit to object): PASS   [0.292062 < 0.400100]
+
+  a 4-byte-per-plate record: 4,279,069,764 * 4 = 17,116,279,056 B = 15.9408 GiB
+  sequential read visits plates in address order, which is k-major then axial:
+  contiguity along the curve = 100.0000% (measured in [S])
+   => P11 (the surviving positive is a 15.94 GiB serialization): PASS   [15.9408 GiB]
+
+================================================================================================
+[F] THE FIGURE
+================================================================================================
+  panel C uses object O6 (modulation inverted, r4 = 0.495), painted on the SAME canvas:
+    deposit digest O6 == digest O1: True
+    painter keys read: ['r1', 'r2_0', 'r2_a', 'r3_0', 'r3_a', 'r4']
+  written: runs/ROUTE/deposit_blindness_figure.png
+   => P12 (round-28's canvas panel was a legitimate read of k and n, an illegitimate source for brightness): PASS   [shell_of = dc // N_LAYER (canvas); area_of = areas(z) (object)]
+
+================================================================================================
+[G] VERDICTS
+================================================================================================
+
+  P1:P   P2:P   P3:P   P4:P   P5:F   P6:P   P7:P   P8:P   P9:P   P10:P   P11:P   P12:P
+  11 / 12 predictions hold
+
+  FAILED: P5 -- inspect before reading any verdict from its section.
+
+  The deposit is a function of (M, N) = (4, 1,069,767,441) and of nothing else.
+  Visible declared parameters: 2 of 12.
+  Distinct objects collapsing to one deposit, measured: 6.
+  I(canvas ; any radial quantity) = 0.0 bits.
+  Decimation forced by renderability: 16,384:1, exactly 2^14.
+  Surviving positive: a 15.94 GiB lossless serialization with 100.00% contiguity.
+
+================================================================================================
+[H] ERRATA -- appended to this run, which is not edited
+================================================================================================
+  E1  P5's registered constant is wrong; its claim is not.
+      registered  H_max = 0.184699 m
+      derived     H_max = cells*delta/M = 4294967296*2.150e-10/5 = 0.184684 m
+      the registration tested a 5-decimal constant at 1e-6, so P5 recorded FAIL although
+      the substantive claim -- 5*N = 5,348,837,205 > 4,294,967,296 cells, hence inadmissible
+      at H = 0.2300 -- is true and independently confirmed above.
+      This is the FOURTH instance of the defect class 'a derived constant registered tighter
+      than its derivation supports' (after t4 P5, DEMO-1 P1, DEMO-1 P11). The FAIL stands in
+      the record; the claim is re-read as PASS on the exact inequality, not on the constant.
+   => P5 (M=5 at this H is infeasible (re-read on the exact inequality)): PASS   [5,348,837,205 > 4,294,967,296; constant 0.184684 vs registered 0.184699]
+
+  E2  X1 (above) is a defect in the round-28 figure's addressing convention:
+      demo_2d_map.py calls d2xy(order=16, q) over a 2^18 index range; the last 7 iterations
+      run on an exhausted accumulator and exchange x<->y each time, so the drawn layout is
+      the transpose of the order-9 curve (262,144/262,144 indices exact).
+      No conclusion of that round changes: transposition preserves the bijection, 4-adjacency,
+      the single-shell fraction and the straddle counts, all of which were computed on the
+      same transposed grid. This figure uses the correct order 9.
+
+  E3  P7 as registered cited a 30.25x cut-area spread. One of the two objects that produces it
+      (r4 = 0.4950 m) violates demo_object_v1 s3 A3, which requires 2*r4 <= pitch = 0.4001.
+      Substituting an ADMISSIBLE r4 = 0.1500 m gives a 2.78x spread, and the
+      collision holds there too (1 distinct digest among the 5 admissible objects).
+      So the claim never depended on the inadmissible member -- but the registered number was
+      inflated by choosing an extreme the object's own admissibility check forbids. That is the
+      third instance of 'a figure chosen before its constraints were checked' in this project.
+      Both numbers are carried in the record; the claim is read on the admissible one.
+
+  P1:P   P2:P   P3:P   P4:P   P5:P   P6:P   P7:P   P8:P   P9:P   P10:P   P11:P   P12:P
+  as registered (P5 tested on the constant 0.184699): 11 / 12
+  with P5 re-read on the exact inequality (E1)      : 12 / 12

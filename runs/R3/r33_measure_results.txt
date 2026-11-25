@@ -1,0 +1,66 @@
+
+==============================================================================
+R3-3:  Sigma = int rho sqrt(g_zz) dz = int rho B dz  (v1.4 5.4 / 8.11)
+==============================================================================
+dim = 1 (slice integration over z; transverse (x,y) factorized, area fixed = H2).
+profile: B(z) = B0*(1 + eps*z^2/L^2), B0 = 1.00, eps = 0.30, z in [-L/2, L/2], L = 1.00
+rho: uniform; measure convention is stated per delivery (8.11 requirement).
+
+[T1] Simpson (N = 4001 nodes) vs analytic:
+     Sigma_numeric   = 1.025000e+00
+     Sigma_analytic  = rho0*B0*L*(1 + eps/12) = 1.025000e+00   (int z^2/L^2 dz over [-L/2,L/2] = L/12)
+     np.trapezoid cross-check (2nd order, evidence only) = 1.025000e+00 (diff 3.13e-09)
+     rel diff = 1.100e-13   threshold 1.0e-10 -> PASS
+
+==============================================================================
+COMPRESSION B -> c*B:  TWO INDEPENDENT PATHS (H2 area fixed, H3 N fixed)
+==============================================================================
+path 1 'coordinate density': rho per coordinate volume dz, held fixed -> Sigma_A(c) = rho0*int cB dz.
+path 2 'proper density':     rho per PROPER volume; H3 (N fixed) forces rho(c) = rho0/c
+                             -> Sigma_B(c) = int (rho0/c)(cB) dz.
+
+c      Sigma_A/Sigma_A(1)     Sigma_B/Sigma_B(1)     N check: SigB(c)/SigB(1)
+0.50   0.500000000000000      1.000000000000000      1.000000000000000     
+1.00   1.000000000000000      1.000000000000000      1.000000000000000     
+2.00   2.000000000000000      1.000000000000000      1.000000000000000     
+
+[T2] proper-density path: max |Sigma_B(c)/Sigma_B(1) - 1| = 0.000e+00  threshold 1.0e-12 -> PASS
+     => Sigma is INVARIANT under B -> c*B on the proper-density path
+       (because the measure itself carries B: Sigma = int rho_proper B dz, and H3
+        rescales rho_proper by 1/c). This is the G0 column-density consistency:
+        d(Sigma)/dB = 0 under H2 + H3 (v1.4 5.4, 8.11 acceptance).
+[T3] coordinate-density path (CONTROL): max |Sigma_A(c)/Sigma_A(1) - c| = 0.000e+00  threshold 1.0e-12 -> PASS
+     => on this convention Sigma scales as Sigma_A ~ c*B (NOT conserved).
+
+WHICH PATH CONSERVES: the PROPER-DENSITY path. Per v1.4 5.4, rho in Sigma = int rho sqrt(g_zz) dz
+is the density per unit PROPER 3-volume; writing Sigma = int rho dz without sqrt(g_zz),
+or holding a coordinate-volume density fixed, is exactly the forbidden move that the
+T3 control exhibits. The measure convention is therefore necessary, not cosmetic.
+Also forbidden (5.4): treating rho(x,y,0)*L_z as a general result.
+
+==============================================================================
+SURFACE CHARGE AND SURFACE ENTROPY: SAME-MEASURE FORMULAS (equation level)
+==============================================================================
+Same measure as Sigma; each delivery must state the rho definition and the slice
+volume element (8.11):
+
+  surface charge density:
+    sigma_q(x,y) = int rho_q(x,y,z) sqrt(g_zz) dz = int rho_q(x,y,z) B dz,
+    with rho_q the PROPER-volume charge density;
+  surface entropy density:
+    s_sur(x,y) = int s(x,y,z) sqrt(g_zz) dz = int s(x,y,z) B dz,
+    with s the PROPER-volume entropy density (for a degenerate gas, s is computed
+    from the same rho and dispersion used in G0; no separate universal constant).
+  particle/mass check: N/A = int rho_proper B dz = Sigma (verified in the table above).
+  general slicing: use dV_3 = sqrt(det h_ij) d^3x (5.4); sqrt(g_zz) = B is the
+  simple-orthogonal-slicing specialization used here and stated per delivery.
+
+==============================================================================
+VERDICTS
+==============================================================================
+T1  Simpson vs analytic Sigma (rel, tol 1.0e-10): PASS (1.100e-13)
+T2  Sigma invariant under B -> c*B on the proper-density path (tol 1.0e-12): PASS (0.000e+00)
+T3  coordinate-density control Sigma_A ~ c (tol 1.0e-12): PASS (0.000e+00)
+OVERALL: PASS
+EVIDENCE LEVEL: MODEL RESULT (v1.4 8.11 mapping layer; designated background;
+no visibility claim; measure convention stated per quantity as required by 8.11).

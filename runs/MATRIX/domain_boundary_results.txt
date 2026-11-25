@@ -1,0 +1,101 @@
+
+================================================================================================
+[0] INPUTS -- constants read from the lock, function bodies extracted from the executor
+================================================================================================
+  lock file              : runs\MATRIX\threshold_lock.json
+  lock sha256            : 5f324e1513c5df0a8c60539c0c50af6e...
+  spec sha256 (recorded) : c5e239178b0dade91487140d3b714a4a...
+  spec sha256 (actual)   : c5e239178b0dade91487140d3b714a4a...   -> UNCHANGED
+  declared: GRID=128  BINS=64  CTX=16  null=16 realisations from seed 4000
+  locked:   Q0 >= 0.50   Q2 >= 0.50   (both unchanged by this run)
+  extracted bodies       : char_scale, gauss_blur, plug_q2, quant, total_persistence
+  extracted-body sha256  : b3ba3d0e714ab15f6149aa3337208c1b   (3459 bytes)
+  -> the measured bodies are byte-identical to the executor's; P5 proves the path end to end.
+
+================================================================================================
+[1] DECLARED NULLS -- reproduced, not retyped
+================================================================================================
+  P0(null) = 5.639903e-02   q2(null) = 0.138201   (admitted run printed 0.138)
+  q2(null) at B = 16      = 0.046108   <- renormalisation is alphabet-dependent, see P8
+
+================================================================================================
+[2] P5 -- HARNESS VALIDATION: rebuild DITHER verbatim and demand the admitted number back
+================================================================================================
+  rebuilt DITHER: Q0 = 0.775194 (want 0.775)   cv = 0.115878 (want 0.119)   -> P5 FAIL
+  the extraction path reproduces the admitted verdicts, so what follows is measured by the same code.
+
+================================================================================================
+[3] T1 DOMAIN -- Q0 against modal mass m at A = 0.3, and against amplitude at m = 0.05
+================================================================================================
+  m       A        sigma/du  modal     P0        Q0        verdict
+  ----------------------------------------------------------------------------
+  0.005   0.300    0.0369    0.9946    1.3321e-03 0.9764    PASS
+  0.020   0.300    0.0716    0.9795    5.5794e-03 0.9011    PASS
+  0.050   0.300    0.1131    0.9489    1.2555e-02 0.7774    PASS
+  0.100   0.300    0.1591    0.8987    2.3374e-02 0.5856    PASS
+  0.200   0.300    0.2232    0.8007    4.1106e-02 0.2712    fail
+  0.350   0.300    0.2971    0.6470    5.8293e-02 -0.0336   fail
+  0.500   0.300    0.3558    0.4936    6.7889e-02 -0.2037   fail
+  0.750   0.300    0.4336    0.3819    6.5734e-02 -0.1655   fail
+  1.000   0.300    0.5000    0.5014    6.7200e-02 -0.1915   fail
+
+  amplitude sweep at m = 0.05 -- if P1/P2 hold, Q0 does not move:
+  m       A        sigma/du  modal     P0        P0/A      Q0
+  ----------------------------------------------------------------------------
+  0.050   0.005    0.1127    0.9492    1.1804e-02 2.3608e+00 0.7907   
+  0.050   0.050    0.1108    0.9509    1.2090e-02 2.4180e-01 0.7856   
+  0.050   0.150    0.1150    0.9471    1.2134e-02 8.0896e-02 0.7848   
+  0.050   0.300    0.1083    0.9531    1.1191e-02 3.7302e-02 0.8016   
+  0.050   0.600    0.1134    0.9485    1.3175e-02 2.1958e-02 0.7664   
+
+================================================================================================
+[4] T2 DOMAIN -- Q2 on the same family, plus the alphabet probe
+================================================================================================
+  m       modal     q2 raw    Q2        verdict
+  ------------------------------------------------------------
+  0.005   0.9946    0.0041    -0.1556   fail
+  0.020   0.9795    0.0177    -0.1399   fail
+  0.050   0.9489    0.0023    -0.1577   fail
+  0.100   0.8987    0.0043    -0.1554   fail
+  0.200   0.8007    0.0022    -0.1578   fail
+  0.350   0.6470    0.0016    -0.1585   fail
+  0.500   0.4936    0.0004    -0.1599   fail
+  0.750   0.3819    0.0004    -0.1599   fail
+  1.000   0.5014    0.0001    -0.1603   fail
+
+  alphabet probe -- NOISE measured at B = 16 and B = 64, each against its own null:
+    B = 64 : q2 raw = 0.139622   null = 0.138201   renormalised = 0.001649
+    B = 16 : q2 raw = 0.046419   null = 0.046108   renormalised = 0.000326
+    |q2(16) - q2(64)| = 0.093203   -> P8 PASS
+
+================================================================================================
+[5] BOUNDARY INTERVALS AND PREDICTION LEDGER
+================================================================================================
+  Q0: PASS observed up to m = 0.100 ; crossover m* = 0.1272
+  Q2: crossover m* = none
+  P1   FAIL  Q0 spread over A in [0.005, 0.60] = 0.0243 (< 0.02)
+  P2   FAIL  P0/A over the amplitude sweep in [2.1958e-02, 2.3608e+00], spread 99.07% (< 2%)
+  P3   FAIL  every m <= 0.20 passes Q0 (no, fails at [0.2])
+  P4   PASS  Q0 at m = 1.00 is -0.1915 (< 0.50)
+  P5   FAIL  verbatim DITHER reproduces Q0 0.775 / cv 0.119
+  P6   PASS  Q2 at m = 0.75 is -0.1599 (< 0)
+  P7   FAIL  every m <= 0.20 passes Q2 (no, fails at [0.005, 0.02, 0.05, 0.1, 0.2])
+  P8   PASS  |q2(16) - q2(64)| = 0.0932 (> 0.05)
+  P9   FAIL  crossover gap |m*(Q0) - m*(Q2)| = undefined (> 0.10)
+
+================================================================================================
+SUMMARY
+================================================================================================
+  predictions confirmed  : 3 of 9
+  predictions FAILED     : 6  P1, P2, P3, P5, P7, P9
+
+  applicability domain of Q0 (may NOT be cited as evidence):
+    modal mass m > 0.100, where the crossover sits at m* = 0.1272
+    and NOTE: Q0 is invariant to amplitude (spread %.4f over a 120x amplitude range), so
+    no sigma/du precondition can substitute for the modal-mass bound.
+  applicability domain of Q2 (may NOT be cited as evidence):
+    modal mass m > 0.000 (crossover m* = undefined), and any alphabet other than B = 64
+
+  These are PROHIBITIONS, not tolerances. No threshold in the lock was read, written or changed.
+
+PROVENANCE: NEITHER  (domain characterisation of two estimators; establishes no physics)

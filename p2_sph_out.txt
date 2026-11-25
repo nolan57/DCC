@@ -1,0 +1,36 @@
+D:\Docs\DCC\DCC_P2_wall_sph.py:178: RuntimeWarning: invalid value encountered in log
+  u[IDX['lnA']] = np.log(A)
+D:\Docs\DCC\DCC_P2_wall_sph.py:179: RuntimeWarning: invalid value encountered in log
+  u[IDX['a']] = D(np.log(A), self.dx)
+==================================================================================
+DCC P2 — Spherically Symmetric (B=C=R) Coupled Solver: Spherical Bubble Wall + Geometry
+==================================================================================
+Machine-generated equations loaded (Ham/Mom/M/b/phiddot/Kretschmann/T)
+----------------------------------------------------------------------------------
+[S1-static] eps=0.00 R0=20 r∈[0,60] N=601 T=15
+Traceback (most recent call last):
+  File "D:\Docs\DCC\DCC_P2_wall_sph.py", line 406, in <module>
+    main()
+    ~~~~^^
+  File "D:\Docs\DCC\DCC_P2_wall_sph.py", line 317, in main
+    u0, info = sim.initial_data()
+               ~~~~~~~~~~~~~~~~^^
+  File "D:\Docs\DCC\DCC_P2_wall_sph.py", line 215, in initial_data
+    A, n_it, rh = self._newton_A(u, A0)
+                  ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Docs\DCC\DCC_P2_wall_sph.py", line 202, in _newton_A
+    A = A + solve_banded((1, 1), ab, rhs_v)
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\Applications\miniconda3\Lib\site-packages\scipy\linalg\_basic.py", line 473, in solve_banded
+    return _solve_banded(nlower, nupper, ab, b, overwrite_ab=overwrite_ab,
+                         overwrite_b=overwrite_b, check_finite=check_finite)
+  File "D:\Applications\miniconda3\Lib\site-packages\scipy\_lib\_util.py", line 1136, in wrapper
+    return f(*arrays, *other_args, **kwargs)
+  File "D:\Applications\miniconda3\Lib\site-packages\scipy\linalg\_basic.py", line 479, in _solve_banded
+    a1 = _asarray_validated(ab, check_finite=check_finite, as_inexact=True)
+  File "D:\Applications\miniconda3\Lib\site-packages\scipy\_lib\_util.py", line 410, in _asarray_validated
+    a = toarray(a)
+  File "D:\Applications\miniconda3\Lib\site-packages\numpy\lib\_function_base_impl.py", line 673, in asarray_chkfinite
+    raise ValueError(
+        "array must not contain infs or NaNs")
+ValueError: array must not contain infs or NaNs

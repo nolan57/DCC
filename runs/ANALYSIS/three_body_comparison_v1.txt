@@ -1,0 +1,87 @@
+================================================================================
+[three_body_comparison v1] ¬E 7 cm slab vs Three-Body dual-vector foil: unfold or overlap
+================================================================================
+
+[1] Geometry of three candidates
+  Volume conservation: V = M/rho = 0.0700 m^3  — **area and thickness have a hyperbolic relationship**
+  A*L = V always holds. So 'how thin it is spread' and 'how large it is spread' are not two degrees of freedom, but one.
+
+  Configuration            Area (m^2)     Thickness (m)  Flattening ratio L/sqrt(A) What it is
+  ----------------------------------------------------------------------------------
+  E holds @1 m^2           1.000e+00      1.000e-15      1.00e-15     mirror (no atoms)
+  ¬E holds @1 m^2          1.000e+00      7.000e-02      7.00e-02     7 cm slab
+  ¬area @unfolded          3.249e+08      2.154e-10      1.20e-14     monolayer
+
+[2] Key quantity: unfolding factor
+  Number of atoms N = 7.00e+27; average atomic spacing d inferred from bulk density = 0.215 nm
+  Number of layers = L_reg/d = 3.249e+08 = 3.25e+08 layers of atoms stacked along one line of sight
+  Unfolded area = N*d^2 = 3.2491e+08 m^2 = 324.9 km^2
+  [CHECK   ] T1_unfold_area                       PASS   Spreading the 7 cm stack side by side requires 325 km^2, 3e+08 times 1 m^2
+  [CHECK   ] T2_unfold_equals_monolayer           PASS   When spread to that area the thickness is exactly d = 0.215 nm — i.e., a monolayer
+
+[3] Why 'overlap' necessarily hides the interior (consistent with slab_visibility)
+  With N = 3.2e+08 overlapping layers, any line of sight passes through all N layers:
+    · The first 1 mm (about 5e+06 layers) absorbs all visible light -> the remaining N layers contribute nothing to imaging
+    · After unfolding N = 1 layer, **no layer is hidden** -> all information is on the surface
+  [ARGUMENT] T3_overlap_vs_unfold                 PASS   Overlap buries information in depth (unreadable); unfolding puts information on the surface (directly readable)
+
+[4] Optics of the monolayer: it is a 'picture', but a very faint one
+  Monolayer areal density n_atom = 2.154e+19 m^-2 (spacing 0.215 nm)
+  Chromophore                    sigma (m^2)    fraction 1%  fraction 10%
+  --------------------------------------------------------------------
+  weak chromophore (eps=1e3)     3.82e-22       0.008%       0.08%       
+  melanin/heme (1e4)             3.82e-21       0.082%       0.82%       
+  strong absorption region (3e4) 1.15e-20       0.247%       2.47%       
+  => If chromophores make up 1%-10% of atoms, the monolayer visible absorptance is about 0.08%-3%.
+     (The previous version computed this as 2.3%; the order of magnitude was right but the derivation treated cm^2 as m^2; recomputed with the correct cross section.)
+     This is a **low-contrast image with a pattern**: like an extremely faint stained-glass window, not an oil painting.
+     For comparison: although the 7 cm stack is thick, absorption is saturated (R=35%), leaving only uniform color -> no pattern.
+  [ESTIMATE] T4_monolayer_is_faint_but_patterned  PASS   Unfolding gives a pattern but low contrast (0.1-1%); overlap gives high reflectivity but no pattern (35% uniform color)
+
+[5] Position of the 2D criterion on the monolayer (avoiding again conflating inner/outer bounds)
+  n_2D = 2.154e+19 m^-2 ; k_F = 1.163e+10 m^-1
+  E_F   = 0.002 MeV = 2296 eV
+  E_sub = pi*hbarc/L = 0.003 MeV = 2877 eV  (L=0.215 nm)
+  Inner bound E_F/E_sub = 0.798  -> satisfied (margin only 1.25 times)
+  Outer bound 2.5 eV / E_sub = 8.69e-04  -> satisfied (visible light cannot excite the z direction by far)
+  => The monolayer **simultaneously** satisfies the inner and outer bounds; it is the only configuration in the whole project that 'has atoms and is also two-dimensional'.
+     But the inner margin is only 1.25 times; a slightly higher density drops it out of 2D — this is a fragile window.
+  [CHECK   ] T5_monolayer_passes_both_bounds      PASS   Inner bound 0.80 < 1, outer bound 10^3; both pass, but the inner margin is only 1.3 times
+
+[6] Comparison with the description in The Three-Body Problem
+  In the novel the solar system is flattened into 'a gigantic flat picture'; note three points:
+    (a) The canvas area **explodes** (solar system -> a huge plane)  -> consistent with 'unfold' ✓
+    (b) The picture **preserves internal structure** (mountains, cities, planetary interiors) -> only 'unfold' can do this ✓
+    (c) The flattened being **dies immediately** (not 'a flattened person still alive')    -> consistent with the DCC seven-line verdict ✓
+  That is: Liu Cixin's intuition is self-consistent regarding area and information; his canvas is indeed the huge plane after unfolding,
+      not '300 million layers stacked on 1 square meter'.
+
+  Only one point truly conflicts with physics: the **contrast** of the picture.
+  The monolayer absorptance is about 0.1%-1%, while the picture in the novel has normal light/dark and color.
+  To obtain such contrast one needs **bulk thickness** (saturated absorption), which returns to 'overlap'.
+  This is where the whole contradiction lies: **contrast requires thickness, pattern requires unfolding; both draw from the same volume and cannot be had together.**
+
+[7] 2x2 verdict: 'being a picture' requires two independent conditions simultaneously
+
+                    with atoms (color/structure)         without atoms
+  Unfolded (thin)   ¬area: 325 km^2 monolayer picture  <-Three-Body   E: 1 m^2 mirror
+  Overlapped (thick) ¬E: 1 m^2 7 cm slab              E+¬E both fail: mirror
+
+  => The Three-Body effect falls in the upper-left cell: **unfolded + with atoms**.
+     Its correct branch name is not 'abandon effective 2D' but 'abandon 1 square meter'.
+     Abandoning E only gives you the 'slab' between lower-right and upper-right; abandoning area gives you the 'picture'.
+
+[8] Conclusion
+  1) 'The ¬E scene resembles Three-Body' — close in **composition** (the only branch preserving atoms and color),
+     not close in **geometry** (7 cm / 1 m^2 is a slab with flattening ratio 0.07, not a picture).
+  2) Three-Body effect = unfolding, which requires 325 km^2, i.e. 3e+08 times 1 m^2.
+  3) Spread to that area, the thickness automatically becomes 0.22 nm — i.e. **a true monolayer**,
+     so the Three-Body effect is itself two-dimensional; it's just that its area is not 1 square meter.
+  4) Cost: contrast only 0.1%-1%, an 'extremely faint stained-glass window'; and a 325 km^2 freely suspended film
+     cannot support itself (requires a substrate or support).
+
+  In one sentence: Three-Body got the area of '2D reduction' right but the contrast wrong.
+          While the DCC ¬E branch got 'contrast' right and area wrong.
+          The two are two sides of the same coin, separated by 3e+08 times in area.
+
+================================================================================

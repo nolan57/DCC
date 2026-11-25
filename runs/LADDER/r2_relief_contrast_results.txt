@@ -1,0 +1,196 @@
+
+==================================================================================================
+RL-2 -- RELIEF CONTRAST AGAINST A FLAT CONTROL   (round 49, RQ-13)
+==================================================================================================
+  flat   : the PA-16 plate, no relief      relief : same plate, z(x) with amplitude a, period 4 cells
+  metric : C_w = std(I)/mean(I) over the plate interior (registration erratum E1)
+           the locked DoG contrast at xi = 4 cells is printed beside it, in its own column
+  forms  : S sinusoidal   T terraced, riser = 1 px = 3.13 mm of run
+
+==================================================================================================
+[0] ESTIMATOR IDENTITY -- the imported module must still reproduce the archived table
+==================================================================================================
+  PA-16 xi/h 3.3186 vs 3.32   C_xi 0.5232 vs 0.5232   Q3 5.737 vs 5.737  -> YES
+  (the archive prints xi in the estimator unit h = 1 px; 3.32 is the archived PA-16 row. The DoG band
+   used for the relief scenes below is 32 px, ten times the plate own correlation length -- erratum E1)
+  C_eye 0.0100   Q3 threshold 2.00   C at threshold 0.0300 (both from threshold_lock.json)
+
+==================================================================================================
+[1] THE FLAT CONTROL -- interior contrast with no relief at all
+==================================================================================================
+  C_w(flat) = 0.000e+00 exactly    C_DoG(flat) = 1.616e-09
+  A flat plate has no interior structure at ANY band: every relief number below is an INCREMENT
+  from zero, so the "ratio to flat" is 0/0 and the ratio form is not used. The control still does
+  work: it shows that the do-nothing case is exactly zero, not small.
+
+==================================================================================================
+[2] SWEEP -- Weber contrast against relief amplitude
+==================================================================================================
+  a (m)        S/E1 uniform  S/E2 glint   S/E4 diffuse   T/E1 uniform  T/E2 glint   T/E4 diffuse
+  ------------------------------------------------------------------------------------------------
+  1.000e-07    0.000e+00     0.000e+00    3.487e-06      0.000e+00     0.000e+00    3.738e-06    
+  5.623e-07    0.000e+00     0.000e+00    1.961e-05      0.000e+00     0.000e+00    2.102e-05    
+  3.162e-06    0.000e+00     0.000e+00    1.103e-04      0.000e+00     0.000e+00    1.182e-04    
+  1.778e-05    0.000e+00     0.000e+00    6.200e-04      0.000e+00     0.000e+00    6.648e-04    
+  1.000e-04    0.000e+00     7.071e-01    3.487e-03      0.000e+00     2.804e-01    3.740e-03    
+  5.623e-04    0.000e+00     3.317e+00    1.961e-02      0.000e+00     2.804e-01    2.106e-02    
+  3.162e-03    0.000e+00     3.317e+00    1.101e-01      0.000e+00     2.804e-01    1.167e-01    
+  1.778e-02    0.000e+00     3.317e+00    5.969e-01      0.000e+00     2.804e-01    2.718e-01    
+  1.000e-01    0.000e+00     3.317e+00    9.567e-01      0.000e+00     2.804e-01    2.562e-01    
+
+==================================================================================================
+[3] a* -- THE AMPLITUDE AT WHICH C_w REACHES 0.03, PER FORM AND ENVIRONMENT
+==================================================================================================
+  form  env  a* (m)     eps* = a*/pitch  max C_w  Q3 at max
+  ----  ---  ---------  ---------------  -------  ---------
+  S     E1   never      --               0.0000   0.00     
+  S     E2   6.881e-05  1.720e-04        3.3166   8.38     
+  S     E4   8.579e-04  2.144e-03        0.9567   6.60     
+  T     E1   never      --               0.0000   0.00     
+  T     E2   2.664e-05  6.659e-05        0.2804   4.86     
+  T     E4   7.991e-04  1.997e-03        0.2727   4.82     
+
+  E1 for BOTH forms: max C_w = 0.000e+00 over the whole 6-decade sweep, i.e. the flat control value 0.000e+00.
+
+  HOW WIDE IS THE THRESHOLD CROSSING -- factor in `a` between C = 0.01 and 90% of that series' peak:
+  form  env  a at C=0.01  a at 0.9 max  width    
+  ----  ---  -----------  ------------  ---------
+  S     E2   6.836e-05    3.680e-04     5.3841x  
+  S     E4   2.855e-04    4.229e-02     148.1267x
+  T     E2   2.628e-05    3.102e-05     1.1804x  
+  T     E4   2.667e-04    7.748e-03     29.0487x 
+
+  CONTRAST AT THREE AMPLITUDES AN ENGINEER WOULD RECOGNISE, so the plateau is visible:
+  form  env  C at 10 um  C at 100 um  C at 1 mm
+  ----  ---  ----------  -----------  ---------
+  S     E2   0.000       0.707        3.317    
+  S     E4   0.000       0.003        0.035    
+  T     E2   0.000       0.280        0.280    
+  T     E4   0.000       0.004        0.037    
+
+  A width near 1.00x is a switch, not a lever: the scene is invisible or fully contrasted, and there
+  is no amplitude at which it sits at 3e-2 for any duration. Contrast is not a continuous function
+  of the price variable.
+
+==================================================================================================
+[4] THE 1/c^2 LAW -- exact in C, and not a law in relief
+==================================================================================================
+  shortfall(C) = 3.4387e+10 (1e-7/C)^2   d log10(shortfall)/d log10(C) = -2.000000000   (registered law: -2)
+
+  The same derivative in RELIEF, over the decade below a* and the decade above it:
+  form  env  window    dlogC/dloga  dlog(shortfall)/dloga
+  ----  ---  --------  -----------  ---------------------
+  S     E2   above a*  0.893        -1.786               
+  S     E4   below a*  1.000        -2.000               
+  S     E4   above a*  0.996        -1.993               
+  T     E2   above a*  0.000        -0.000               
+  T     E4   below a*  1.001        -2.001               
+  T     E4   above a*  0.966        -1.932               
+
+  Read the third column against the first. Terraced glint (T/E2) is exactly flat: dlogC/dloga = 0.000,
+  so its shortfall does not move for decades. Sinusoidal glint (S/E2) rises ~a^0.9 but only across the
+  5.4x ramp. A true 1/c^2 lever in relief exists ONLY in the diffuse channel -- which is the model the
+  deposit material excludes. The ladder's "+2.9 orders" is therefore not a purchase in amplitude.
+
+==================================================================================================
+[5] WHAT BOUNDS eps -- the deposit clearance, not the optics
+==================================================================================================
+  sup d_3D (flat) = sqrt((2 r4)^2 + H^2) = 0.292062 m     (registered 0.292062)
+  headroom        = sqrt(pitch^2 - (2 r4)^2) - H = 0.127323 m = 127.3 mm
+  eps_max         = 0.318229       (registration Y6: 0.3183)
+  The same number closes DEPOSIT-DICHOTOMY: at eps_max the 3D support touches the 2D pitch.
+
+  form  env  eps*      share of eps_max  V range that buys no photons
+  ----  ---  --------  ----------------  ----------------------------
+  S     E2   1.72e-04  0.0540%           99.95%                      
+  S     E4   2.14e-03  0.6738%           99.33%                      
+  T     E2   6.66e-05  0.0209%           99.98%                      
+  T     E4   2.00e-03  0.6276%           99.37%                      
+
+==================================================================================================
+[6] PREDICTIONS -- Y1..Y7 of r2_relief_registration.md
+==================================================================================================
+
+  Y1  CONFIRMED   E1 gives C_relief = C_flat for every a
+       measured: max |C_w - C_flat| = 0.000e+00 over 73 amplitudes, both forms
+
+  Y2  CONFIRMED   E2/S a*(0.03) in [40, 150] um (predicted 74 um)
+       measured: a* = 68.8 um   predicted beta*LAM/(2 pi) = 74.0 um
+
+  Y3  CONFIRMED   E2/S at a = 1 mm has C_w > 0.5
+       measured: C_w(1 mm) = 3.3166, Q3 = 8.38
+
+  Y4  CONFIRMED   E4/S a*(0.03) in [0.2, 1.0] mm, and C ~ a^[0.8,1.2]
+       measured: a* = 0.858 mm ; exponent k = 1.000
+
+  Y5  CONFIRMED   a*(E4)/a*(E2) in [3, 15]
+       measured: ratio = 12.47
+
+  Y6  CONFIRMED   eps_max = 0.3183 +/- 1e-4
+       measured: eps_max = 0.318229
+
+  Y7  CONFIRMED   a*(E2)/pitch <= 3e-3 (declared ~1.8e-4)
+       measured: eps* = 1.720e-04, i.e. 0.0540% of eps_max
+
+==================================================================================================
+[7] WHAT THE NUMBERS SAY -- derived from the tables above, not from the registration
+==================================================================================================
+  1. RELIEF IS NOT WHAT MAKES CONTRAST. The deposit is a near-mirror (|dR| = 1e-3), and under a
+     uniform environment a mirror is invisible: every reflected ray carries the same radiance, so
+     relief changes the path and not the pixel. C_w equals C_flat EXACTLY (difference 0e+00)
+     for both forms, over six decades -- not "to within noise", exactly.
+     "Topographic contrast" is a property of the ENVIRONMENT, which
+     theta = (aperture, gate, band, distance) does not carry. That is the missing term, and it is
+     the one the experimenter sets when the source is brought -- at 284 eV there is no sun.
+
+  2. In the collimated channel ("full sun", beta = 4.65e-3) the number is reachable, but as a
+     narrow ramp: the sine reaches C_w = 0.01 at 68.4 um and 90% of its peak by 368.0 um, a factor
+     5.38 in amplitude -- and the terraced form is an outright switch at 1.18.
+     The crossing a* = 68.8 um sits inside that ramp, and it is the geometric condition
+     2*alpha_max = beta. Below it the plate is a mirror-reflected sun; above it, a fringe pattern.
+
+  3. The price variable does not enter. Terraced relief switches at 26.6 um (factor 1.18) and then
+     holds C_w = 0.280 for a further 3.6 decades: 0.280 at 100 um, 0.280 at 1 mm. Contrast for a
+     topographic EDGE is set by the riser width and by the environment, not by the step height.
+     RL-2 is priced in a/pitch. The measurement says a/pitch is not the variable that buys anything.
+
+  4. So the 3e-2 is DECLARED, and it is the criterion restated as a measurement: Q3 = 2 needs
+     C = 3*C_eye = 0.030000 and the ladder wrote 3e-2. Round 48's "zero margin" is not the
+     measurement of a cliff in physics; it is what one significant figure looks like when it is
+     copied from the criterion it is supposed to test. Measured, the rung sits at 0.28 for a 1 mm
+     step and at 3.32 for a 1 mm corrugation, and at neither of those is it near 3e-2.
+
+  5. eps_max = 0.3182 is real and it is the deposit's own number, but the useful part of the rung is
+     [0, 1.7e-04]: 99.95% of its declared V range buys nothing at all.
+
+  6. What is left of the rung after this: relief is a real knob and it is nearly free (eps ~ 1e-4),
+     but its price cannot be quoted as a number until theta carries an environment term and the
+     relief form is declared. Both are declarations, not measurements -- which is why this round
+     closes the question "is 3e-2 measured" with NO, and leaves "what is the rung worth" to a
+     declaration the ladder has not made.
+
+==================================================================================================
+[8] THE HEIGHT DISCREPANCY CARRIED ALONGSIDE (registration s5)
+==================================================================================================
+  r1 s1 used H = 1.75 m -> t_rip = 8.255290e-09 s ; DEMO-1 declares H = 0.2300 m -> 1.084981e-09 s
+  ratio 7.609 : per-frame flux scales linearly in t_rip, so the shortfall at fixed contrast is 7.609x
+  LARGER under the declared height. Recorded, not repaired.
+
+==================================================================================================
+SUMMARY
+==================================================================================================
+  declaration order : NOT EVIDENCED BY MTIME -- the registration carries an appended erratum, so its
+                      mtime is the append time. Order is asserted by the erratum, which names the
+                      smoke test and the band arithmetic, and by the untouched predictions above.
+  RL-2 verdict      : ADMISSIBLE and CHEAP, but priced in the WRONG VARIABLE. Contrast is a function
+                      of the environment (absent from theta) and of the relief FORM, not of a/pitch.
+                      In the collimated channel it is a switch at 2*alpha = beta, not a 1/c^2 lever.
+  the 3e-2          : DECLARED. It equals 3*C_eye to the digit, i.e. the criterion restated as a
+                      measurement. Measured, the rung sits at 0.28 (1 mm step) or 3.32 (1 mm corrugation),
+                      and at neither of those is it anywhere near 3e-2.
+  what is NOT claimed: any statement about the deposit. The plate is a declared stand-in;
+                      DEPOSIT-BLIND and MR1.6 are untouched. No threshold written, no rung re-priced.
+
+  predictions Y1-Y7  : 7 CONFIRMED, 0 FALSIFIED
+
+PROVENANCE: NEITHER  (locked estimator on declared fields + geometric optics + budget arithmetic)

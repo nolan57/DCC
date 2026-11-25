@@ -1,0 +1,64 @@
+============================================================================================
+check (3) v3: real exterior derivative + parameter-free sign contradiction
+============================================================================================
+v2 defect fixed: dF_A/dF_B were hand-written dict entries compared to
+  themselves (C3_A = simplify(d_t f - d_t f) == 0, tautology). v3 builds
+  actual 2-form objects and differentiates them with ext_d().
+
+[T1] implementation self-test: d(d(omega)) = 0 on omega = a(t,x,y,z) dx
+     omega  = (x**2*exp(z) + x*y*sin(t))*dx
+     d omega = (x*y*cos(t))*dt^dx + (-x*sin(t))*dx^dy + (-x**2*exp(z))*dx^dz
+     d d omega = 0   -> PASS
+
+[T2] ansatz A: F = f(t,x) dx^dy
+     dF = (Derivative(f(t, x), t))*dt^dx^dy
+     expected (hand derivation, used ONLY as comparison): dt f
+     -> PASS
+
+[T3] ansatz B: F = f(t,x) dx^dy + E(t,x) dt^dy   (E along y: F_ty)
+     dF = (-Derivative(E(t, x), x) + Derivative(f(t, x), t))*dt^dx^dy
+     expected: dt f - dx E
+     -> PASS
+
+[T4] substituting the constraint (f = integral of d_x E over t):
+     dF = 0  -> PASS
+
+[T5] Einstein tensor of diag(-1, e^2ht, e^2ht, e^-2gt)  [independently rebuilt]
+     kappa*rho = h*(-2*gamma + h)
+     kappa*px  = -gamma**2 + gamma*h - h**2
+     kappa*py  = -gamma**2 + gamma*h - h**2
+     kappa*pz  = -3*h**2
+
+[T6] Maxwell stress of F_xy (same metric):
+     kappa*rho_B = f_amp**2*kappa*exp(-4*h*t)/2
+     kappa*px_B  = f_amp**2*kappa*exp(-4*h*t)/2
+     kappa*pz_B  = -f_amp**2*kappa*exp(-4*h*t)/2
+
+[T7] parameter-free sign contradiction  (the actual proof, not a solve() miss)
+     kappa*px_req = -gamma**2 + gamma*h - h**2  =  -[(gamma-h/2)^2 + 3h^2/4]  : identity=YES
+       -> px_req <= 0, and < 0 for all (h,gamma) != (0,0)
+     kappa*px_B   = f_amp**2*kappa*exp(-4*h*t)/2  =  +f^2 e^{-4ht}/2 : identity=YES
+       -> px_B > 0 for any f != 0
+      => sign incompatibility, independent of the values of (h, gamma, f). Maxwell F_xy cannot realize this target.
+      (v2 only stated that solve() returned an empty set, which could be questioned as solver inadequacy; an identity proof is given here.)
+
+[T8] full simultaneous solve (rho,px,py,pz) for (h,gamma,f): empty set
+
+[verdicts]
+  T1_dd_zero                   PASS
+  T2_dF_ansatzA                PASS
+  T3_dF_ansatzB                PASS
+  T4_constraint_zeroes_dF      PASS
+  T5_px_req_identity           PASS
+  T6_px_Maxwell_identity       PASS
+  T7_no_solution               PASS
+
+  check3 statement (strengthened):
+    (i)  dF = 0 for F = f dx^dy + E dt^dy  <=>  d_t f = d_x E   [machine, T2-T4]
+     (ii) Maxwell F_xy stress can never equal the const-rate target: the sign of px
+          is always opposite [machine, T5-T7], independent of parameters.
+     (iii) Therefore no Maxwell field exists that can self-consistently generate this geometry -- not 'not found', but 'does not exist'.
+
+check (3) v3 OVERALL: PASS
+evidence level: ESTABLISHED (identity-level, within pinned conventions)
+residual: G3' gate still OPEN on P2-C6 and N11 boundary condition.

@@ -1,0 +1,182 @@
+==================================================================================================
+PROPOSED R1 §4.6 — KINEMATIC vs DYNAMIC UNFOLDING : ADJUDICATION RUN
+==================================================================================================
+   declared: G = 1e+09 Pa, rho = 1000 kg/m^3 -> c_s(mantle) = 1000 m/s, c_s(core) = 3162 m/s
+   R = 0.18 m, delta = 2.150e-10 m, t_rip = 8.2553e-09 s
+
+C1 — is the distinction correct? (relabelling vs dynamics)
+   The submission says D2 'contains no force, no stress, no constitutive law'.
+   The record says something stronger, and the strength matters:
+     front_sweep_v1: | ② Spread | the whole layer is translated to its lattice site as a 2D rigid body | **intralayer (x,y) identity map → intralayer strain always 0**. |
+
+   => D2 does not omit a constitutive law; it performs no deformation. Each layer is translated as a
+      rigid body and joined edge-to-edge, and the space between pieces is vacuum (step 3). Zero strain
+      energy follows from the construction, not from an idealisation of the material.
+   Verdict: the distinction is CORRECT. The stated reason understates it.
+
+C2 — the prescribed map, and what it does to the radius
+reading                                      image radius  unit                          
+-------------------------------------------  ------------  ------------------------------
+prose: 'disc of radius R/delta array sites'  8.372e+08     count of sites (dimensionless)
+formula u = (R/delta)·r at r = R             1.507e+08     length (m)                    
+   NOTE ON THIS CHECK (corrected before publication): the first encoding called the formula 'one factor R
+   larger'. That is wrong in both directions. A count and a length are not comparable, so no numeric ratio
+   between the two rows means anything. The unit-free statement is the one that matters:
+
+     prose needs the coefficient  1/delta      (so that r = R maps to R/delta sites)
+     the formula has the coefficient R/delta   (so that r = R maps to R^2/delta)
+     the two coefficients differ by the factor R = 0.18 - i.e. the map dilates by R/delta when the
+     prose describes a dilation by 1/delta. The map is not the rule its own text states.
+
+C3 — in-plane strain implied by the example's map, against D2's registered map
+map                                     in-plane strain  source                       
+--------------------------------------  ---------------  -----------------------------
+example's Pi (uniform radial dilation)  8.3721e+08       R/delta - 1                  
+D2, front_sweep_v1 §2 step 2            0 exactly        intralayer (x,y) identity map
+   the quantity already corrected by front_sweep_v1 §2 line 49: 9.28e+08
+   example's strain / corrected quantity = 0.9022  (agreement 9.78% against a declared +/-10% tolerance)
+   => a MARGINAL pass at 9.78%: same order of magnitude, same construction, NOT the same number. The
+      residual is the difference between the registered delta and the one behind the 9.28e8 figure. The
+      finding rests on C3's second row, not on this agreement: D2's map is the identity and implies 0.
+   => the worked example's Pi is not D2. A uniform dilation by R/delta reintroduces the 'displacement
+      gradient presented as strain' confusion that the mechanism document corrected one round ago.
+
+C4 — what is continuous across a bonded interface?
+quantity                  at r = r_c  reason                                                        
+------------------------  ----------  --------------------------------------------------------------
+radial displacement u_r   continuous  perfect bonding, no slip                                      
+radial traction sigma_rr  CONTINUOUS  Newton's third law across the interface, no interface stresses
+radial strain eps_rr      JUMPS       eps = sigma/E, so the jump factor is mu_1/mu_2 = 10           
+   submission: 'radial displacement is continuous but radial stress is not'  -> traction and strain are
+   swapped. The bonded interface is exactly where traction continuity holds by construction.
+
+C5 — the timescales the example does not compute
+   through-thickness release  t_z = 2*delta/c_s = 4.300e-13 s
+   radial equilibration       t_r = R/c_s       = 1.800e-04 s
+   ratio t_r/t_z = R/(2*delta)                  = 4.186e+08   (= 8.62 decades)
+   NOTE: R/(2*delta) is independent of mu and rho - purely geometric.
+
+   the registered conversion time t_rip        = 8.2553e-09 s
+   t_r / t_rip                                 = 2.180e+04   (= 4.34 decades)
+
+   => the release the example describes is a UNIAXIAL release along z, and for a 2*delta-thick body it
+      completes in 4e-13 s. The body is then equilibrated through its thickness essentially at once;
+      what is sequential is the RADIAL response, 8.6 decades later, and 4.3 decades after the
+      conversion itself has ended.
+
+   the OTHER side of the bracket: t_rip / t_z = 1.920e+04  (= 4.28 decades)
+   So for the counterfactual body the example posits (bonded, compressed to 2*delta, released), the two
+   response times sit on opposite sides of the frame: thickness returns 1.9e+04x BEFORE t_rip ends, and
+   the in-plane arrangement settles 2.2e+04x AFTER it. There is no instant at which that body
+   looks like the kinematic map. That, and not 'sequential propagation', is the real discrepancy.
+
+   But note what D2 actually builds: a RELAXED single layer, not a compressed one. It has no stored
+   energy to release, so no rebound question arises for it. The bracket applies to the example's own
+   counterfactual object, which the framework never constructs - which is the strongest form of the
+   submission's point, and the reason its 'zero stored energy' row is right for a reason it did not give.
+
+C6 — the '1 : 10' strain ratio: which boundary condition does it belong to?
+condition                                       mantle : core strain  comment                                      
+----------------------------------------------  --------------------  ---------------------------------------------
+equal applied stress (unbonded, free-standing)  10 : 1                eps = sigma/mu — what the example computes   
+equal displacement (perfect bonding)            1 : 1                 eps = u/r — what 'must remain bonded' imposes
+bonded body, finite r_c                         between 1 and 10      geometry decides the partition               
+   The example posits a bonded interface AND quotes the unbonded ratio in its summary table.
+   The two cannot both hold: bonding is what forbids a 10x strain jump.
+
+C7 — are 'bone-like' and 'soft-tissue-like' consistent with mu_1 = 10 mu_2?
+quantity                             value           note              
+-----------------------------------  --------------  ------------------
+bone (cortical), shear modulus       ~1e9 - 1e10 Pa  order of magnitude
+soft tissue, shear modulus           ~1e3 - 1e5 Pa   order of magnitude
+implied contrast bone / soft tissue  1e4 - 1e7       4 to 7 decades    
+example's contrast                   10              1 decade          
+   => the example's contrast is 3-6 decades below the pair it names. As two unspecified polymers it is
+      fine; as bone versus soft tissue it is not.
+
+C8 — do the three cross-reference anchors exist?
+pattern        in R1
+-------------  -----
+`4\.5\.1`      0    
+`^## 7\.`      1    
+`gap list`     0    
+`gap summary`  0    
+   R1 §7 heading: ## 7. Correction 1 (ledger): "C3 relaxed" in the ladder mislabels a *different* object
+
+C9 — is `T5` available?
+   tier_admission_v1.md: 1 occurrence(s)
+     `T5` — `L3` is still empty under `C1` in reflection, and now we know why
+
+C10 — 'simultaneity would violate causality'
+   A relabelling makes no causal claim, so it cannot violate causality. Treating the map as a process
+   that could violate something is the conflation the section exists to forbid.
+
+C11 — does R1 §3 contain a D2 statement to append to?
+   `D2` in R1: 7 occurrence(s); `## 3.` heading present: True
+   (the anchor exists AND names D2 - this is the one cross-reference of the three that is mechanically
+    possible; the other two are anchored to a section that was refused and to a section that is not a
+    gap list)
+
+==================================================================================================
+PREDICTION LEDGER
+==================================================================================================
+#    result  prediction                                                                  
+---  ------  ----------------------------------------------------------------------------
+P1   PASS    formula and prose differ by the factor R                                    
+P2   PASS    example's Pi implies strain 8.372e8; D2's map implies 0                     
+P3   PASS    8.372e8 is the 9.28e8 already corrected as a displacement gradient          
+P4   PASS    traction continuous / strain discontinuous - submission states the reverse  
+P5   PASS    t_r/t_z = R/(2delta) = 4.19e8, material-independent                         
+P6   PASS    t_r/t_rip = 2.2e4 - radial response is 4.3 decades after the conversion ends
+P7   PASS    the 1:10 ratio is the unbonded one; the example posits bonding              
+P11  PASS    bone/soft-tissue labels misstate the contrast by 3-6 decades                
+P9   PASS    R1 has no section 4.5.1                                                     
+P10  PASS    R1 has no section 7 gap list                                                
+P8   PASS    T5 already in force in tier_admission_v1                                    
+P12  PASS    the causality sentence commits the conflation it forbids                    
+
+   passed 12 / failed 0 / pending 0  (of 12)
+
+==================================================================================================
+DISPOSITION (derived from the flags)
+==================================================================================================
+   ACCEPT, separately from everything else: the distinction itself (C1). D2 is a relabelling and the
+   framework makes no claim that physical unfolding reproduces it. That is correct, needed, and it is
+   the one thing in this submission that should survive.
+
+   REJECT: the worked example. Its Pi is not D2's map (C3), and at 8.37e8 it reproduces the exact
+           quantity front_sweep_v1 corrected as 'a displacement gradient, not a strain'.
+   REJECT: the interface argument. Traction is continuous at a bonded interface; strain is what jumps.
+   REJECT: the 1:10 strain ratio. It is the unbonded ratio in a body the example declares bonded.
+   NOT APPLICABLE: two of the three cross-references. §4.5.1 was refused last round and does not exist;
+           §7 is Correction 1 on the C3 label, not a gap list.
+   REFUSE: the label T5. It is in force in tier_admission_v1 for a different object - the second
+           label collision in two submissions.
+
+   NEW, and it inverts the submission's conclusion:
+           t_radial / t_rip = 2.18e+04 = 4.3 decades.
+           A physical body does not unfold sequentially within the conversion; it barely responds at
+           all. The dynamic correction is real but has a response time 4.3 decades after the frame
+           freezes, so no rendering at t <= t_rip can show it - in either direction.
+
+   The sentence that survives, and that the record can defend:
+     'D2 performs no deformation: each layer is translated as a rigid body and joined edge-to-edge,
+      with vacuum between pieces. Zero intralayer strain is therefore a property of the construction,
+      not an idealisation of the material. No claim is made that a body driven by its own constitutive
+      law would unfold the way D2 arranges it; the question is not merely unanswered but unaddressed,
+      and its response time exceeds the conversion by four decades.'
+
+==================================================================================================
+ENCODING NOTES (defects in this executor, corrected before the file was cited; the physics findings
+do not depend on any of them)
+  E1  C2 first called the formula 'one factor R larger'. Wrong direction, and void: a count and a
+      length are not comparable. Replaced with the unit-free coefficient comparison.
+  E2  count() ran without re.MULTILINE (a first patch of it silently failed to apply, so this note was
+      briefly false). Effect: the `^## 7.` row of C8 read 0 when it is 1. Fixed and re-run; the
+      `4.5.1` = 0 result is unaffected (that pattern is unanchored).
+  E3  r'\bD2\b' was double-escaped and matched a literal backslash, so C11 reported 0 occurrences of
+      D2 and a missing `## 3.` heading regardless of the file. Both recomputed above.
+
+==================================================================================================
+PROVENANCE: NEITHER  (adjudication of a submitted claim against the registered record; establishes no physics)
+

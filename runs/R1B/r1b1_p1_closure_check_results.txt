@@ -1,0 +1,77 @@
+
+==============================================================================
+R1 : CHRISTOFFEL SYMBOLS OF THE B(t) BACKGROUND
+==============================================================================
+non-zero Christoffel symbols (indices in t,x,y,z order):
+  Gamma^t_{zz} = B(t)*Derivative(B(t), t)
+  Gamma^z_{tz} = Derivative(B(t), t)/B(t)
+  Gamma^z_{zt} = Derivative(B(t), t)/B(t)
+  [R1] only two independent symbols, Gamma^t_zz = B*B', Gamma^z_tz = B'/B   -> VERIFIED
+
+==============================================================================
+R2 : ANISOTROPIC FLUID CONSERVATION  (comoving, diagonal T)
+==============================================================================
+nabla_mu T^{mu t} (homogeneous, no lateral fluxes) =
+   (B(t)*Derivative(rho(t), t) + pz(t)*Derivative(B(t), t) + rho(t)*Derivative(B(t), t))/B(t)
+  [R2a] divT^t = d rho/dt + (B'/B)(rho + p_z)   -> VERIFIED
+  [R2b] divT^x = divT^y = divT^z = 0 (homogeneous, diagonal T)  -> VERIFIED
+  NOTE: only p_z enters the t-equation -- the x,y stresses do not couple
+        to the background (their scale factors are static).
+
+==============================================================================
+R3 : THE BACKGROUND WORK TERM  (governor check-item IV.1)
+==============================================================================
+  local law  : d rho/dt = -(B'/B)(rho + p_z)
+  integrated : dE/dt = d/dt[B rho] = -B' * p_z   per unit lateral area
+             = -(B'/B) * integral sqrt(h) T^zz d^3x   (z-piston work)
+  [R3] the background works on matter through the z-stress ONLY;     in-plane stresses do no work   -> VERIFIED
+  coordinate-split form (the governor's S^nu_background), nu = t:
+     d_mu T^{mu t} = F^{t lam} J_lam  -  (B'/B)(rho + p_z)
+  i.e. S^t_bg = -(B'/B)(rho + p_z) -- DERIVED from the connection and the
+  measure, never assumed zero.  The local covariant form carries no S term:
+  nabla_mu T^{mu nu} = F^{nu lam} J_lam exactly; the two forms must not be mixed.
+  checks: B'=0  ->  dE/dt = 0 (static anisotropy conserves energy);
+          B=1  ->  flat conservation recovered.
+  [R3b] B'=0 : divT^t = d rho/dt (no exchange)   -> VERIFIED
+
+==============================================================================
+R4 : MAXWELL ON THE B(t) BACKGROUND  (source-free, inhomogeneous pair)
+==============================================================================
+generic-B components (printed for the record):
+  G^t = Derivative(E_x(t, x, y, z), x) + Derivative(E_y(t, x, y, z), y) + Derivative(E_z(t, x, y, z), z)/B(t)**2
+  G^x = Derivative(B_z(t, x, y, z), y) - Derivative(E_x(t, x, y, z), t) - E_x(t, x, y, z)*Derivative(B(t), t)/B(t) - Derivative(B_y(t, x, y, z), z)/B(t)**2
+  G^y = -Derivative(B_z(t, x, y, z), x) - Derivative(E_y(t, x, y, z), t) - E_y(t, x, y, z)*Derivative(B(t), t)/B(t) + Derivative(B_x(t, x, y, z), z)/B(t)**2
+  G^z = ((-Derivative(B_x(t, x, y, z), y) + Derivative(B_y(t, x, y, z), x) - Derivative(E_z(t, x, y, z), t))*B(t) + E_z(t, x, y, z)*Derivative(B(t), t))/B(t)**3
+  NOTE: the homogeneous pair dF = 0 is metric-independent: div B = 0 and
+        dB/dt + curl E = 0 hold identically on any background.
+  [R4] B = 1 recovers canonical flat Maxwell, all four components  -> VERIFIED
+  structural reading: E_z flux is weighted by 1/B (z-dilution); the
+  z-derivatives of transverse fields carry 1/B; the transverse sector is
+  untouched by B(t).
+
+==============================================================================
+R5 : SCALAR PROBE -- HOW EVERY FIELD FEELS THE BACKGROUND
+==============================================================================
+Box_B phi = -Derivative(phi(t, x, y, z), (t, 2)) + Derivative(phi(t, x, y, z), (x, 2)) + Derivative(phi(t, x, y, z), (y, 2)) - Derivative(B(t), t)*Derivative(phi(t, x, y, z), t)/B(t) + Derivative(phi(t, x, y, z), (z, 2))/B(t)**2
+  [R5] B = 1 recovers the flat d'Alembertian   -> VERIFIED
+  structural reading: every field equation acquires (i) 1/B^2 weights on
+  z-kinetics (the spec 3.2 E_z estimate is the adiabatic floor of this)
+  and (ii) a (B'/B) friction term -- B' drives transitions between z-modes.
+  The Dirac analogue (spin connection, B'-coupling in the z sector) is a
+  remaining P1-B derivation deliverable with declared conventions.
+
+==============================================================================
+R6 : CHARGE CONSERVATION FORM ON THE BACKGROUND (Ward-side statement)
+==============================================================================
+  (1/sqrt(-g)) d_mu (sqrt(-g) J^mu) == nabla_mu J^mu   -> VERIFIED
+  internal U(1) charges (electric charge, baryon number) are conserved on
+  the background exactly as in flat space: B(t) does not couple to phases.
+
+==============================================================================
+EVIDENCE CLASSIFICATION
+==============================================================================
+CHECK items (independent symbolic identities, usable as correctness
+     evidence): R1, R2a, R2b, R3, R3b, R4, R5, R6  ->  8/8 VERIFIED
+IDENT items (definitional, not evidence): the EM convention F_0i = E_i,
+     F_ij = -eps_ijk B_k; the c = 1 working convention (restoration mechanical).
+This checker simulates no physics: it verifies algebra only.

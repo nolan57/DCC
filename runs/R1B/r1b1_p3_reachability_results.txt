@@ -1,0 +1,66 @@
+
+==============================================================================
+P3-1 : CONSERVED p_z (theorem) AND SPINOR ADIABATICITY (LZ)
+==============================================================================
+  [P3-1a] -> VERIFIED
+  [p_z, H_D(t)] = 0 EXACTLY (all four terms): p_z is a good quantum
+  number at all times -- no p_z -> p_z' transitions, ever (theorem).
+  [P3-1b] -> VERIFIED
+  RETRACTED: [H_D(t), H_D(t')] = 0 -- the (a_z/B) weight is the only
+  time-dependent matrix coefficient and [a_z, a_x] = 2 g1 g2 != 0 (this
+  check FAILED the draft claim, and the FAILED check is archived).
+  The spinor amplitudes DO evolve: adiabaticity is decided by P3-2's LZ
+  parameter, not by an exact commutator.
+
+==============================================================================
+P3-2 : COMPRESSION RATE VS THE SUBBAND GAP (interaction-broken scale)
+==============================================================================
+  tau_conv(1 m) = 4.717 ns (clock identity)
+  layer compression: 7.0e-03 m -> 1.8e+00 m over ~tau_conv
+  subband gap at endpoint: 336.9 MeV ; |dE_sub/dt| ~ 7.142e+10 MeV/s
+  adiabaticity parameter E_gap^2/hbar / |dE/dt| = 2.415e+21  (>>1: adiabatic)
+  (the free sector is EXACT by P3-1; this scale is for interaction-broken
+   coupling -- astronomically suppressed either way at the declared rates.)
+  [P3-2] -> VERIFIED
+
+==============================================================================
+P3-3 : THERMODYNAMIC NON-ADIABATICITY (K5)
+==============================================================================
+  K5: neutronisation 2.96 ns ~ expansion 4.72 ns ~ sound crossing 0.33 ns:
+  NO scale separation -> the sweep is not quasistatic; the composition
+  transients are rate-dependent. The LATE-time attractor is the P2
+  equilibrium under weak-ON; under weak-OFF there is no relaxation channel.
+  [P3-3] -> VERIFIED
+
+==============================================================================
+P3-4 : REACHABILITY VERDICT PER WEAK BRANCH
+==============================================================================
+  weak-ON : beta processes relax the composition after the sweep; the P2
+            equilibrium endpoint is the late-time attractor -> REACHABLE.
+  weak-OFF: electron number frozen -> the beta-equilibrium endpoint is
+            UNREACHABLE; the reachable endpoint is the frozen-composition
+            state -- which row 7 rules is NOT the ground state. The two
+            branches have DIFFERENT reachable endpoints (branch-table result).
+  [P3-4] -> VERIFIED
+
+==============================================================================
+P3-5 : ESCAPE / TRAPPING CENSUS
+==============================================================================
+  K2 unshielded field scale %.2e V/m: electron escape would build this
+  field; the escape channel is CLOSED by electrostatic binding (the well
+  is the trap). Trapping: the electrostatic well of the positive column.
+  [P3-5] -> VERIFIED
+
+==============================================================================
+P3 VERDICT SUMMARY
+==============================================================================
+  P3-1a  PASS
+  P3-1b  PASS
+  P3-2   PASS
+  P3-3   PASS
+  P3-4   PASS
+  P3-5   PASS
+  P3 verdicts: 6/6 PASS
+  S-STATE-5 verdict: the P2 equilibrium endpoint is REACHABLE under weak-ON
+  (late-time attractor); weak-OFF endpoint = frozen state (row-7-ruled
+  non-ground-state).  Evidence level: MODEL RESULT + theorem (P3-1).

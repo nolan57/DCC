@@ -1,0 +1,309 @@
+PROVENANCE: NEITHER (adjudication of a submission; establishes no physics and creates no readable cell)
+src/optics/sc_route_check.py  --  adjudication of the SC-ROUTE submission
+registration: runs/OPTICS/sc_route_registration.md  (predictions locked before measurement)
+
+================================================================================================
+[0] OBJECT OF RECORD -- what this round adjudicates
+================================================================================================
+  submission's central claim, verbatim (s7.1):
+    "1. The originally proposed yield-strength interpretation does not hold and must be withdrawn."
+    "2. sigma_s(w) should be explicitly defined as the effective two-dimensional surface conductivity."
+
+  So the submission asserts that this project has been reading sigma_s as a YIELD STRENGTH (Pa).
+  The first question is not whether that reading is wrong -- it is whether the record ever held it.
+
+  speaker scope used for that question (16 files): docs/specs/, docs/conventions/, roadmap v1.4
+  excluded: docs/decisions/ -- commentary, which quotes rejected phrases while rejecting them (round-31 rule).
+
+================================================================================================
+[A] DOES THE MISCONCEPTION EXIST IN THE RECORD?  (P1, P2)
+================================================================================================
+  physics-sense patterns scanned: yield strength / yield / plastic / Poisson / Young's modulus
+  hits in speaker scope: 0
+
+  and hits that would identify sigma_s with any of them (same sentence or same table row):
+    count = 0
+  [P1] PASS  ->  the yield-strength reading is absent from the record: the correction repairs a document that does not exist
+       0 physics-sense hits total, 0 bound to sigma_s
+
+  files declaring sigma_s to be a SURFACE / SHEET conductivity: 2
+  declared 'an input, not a universal constant' (s6.4 / S10): True
+  module header states the unit family: S
+  the module's own docstring line:
+    # R5-L2: surface conductivity sigma_s(omega) module - NO visibility claim.
+    #   sigma_s(omega) is an INPUT, not a universal constant (6.4, S10).
+    #       sigma_s(w) = (e^2 n_2D tau / m*) / (1 - i w tau)
+  [P2] PASS  ->  the record's only owner of sigma_s is the frequency-dependent surface conductivity, as an input
+       2 files; input declared = True
+
+================================================================================================
+[B] IS THE SUBMISSION'S MACHINERY ALREADY BUILT?  (P3-P9)
+================================================================================================
+  P3  the third-dimension scale factor
+      record, metric (roadmap l.146): ds^2 = -dt^2 + dx^2 + A^2(t,x)dy^2 + B^2(t,x)dz^2
+      record, length element (l.162):  dl_z = B dz
+        found metric line : True
+        found dl_z = B dz  : True
+      submission, metric text present : True
+      submission, dl_z = C dz present : True
+      submission, prose 'B = third-dim scale factor' : True
+
+      => the submission writes C on dz in its metric AND calls B the third-dim scale factor in its
+         symbol list.  Both cannot be the scale factor.  The record's symbol is B.
+  [P3] PASS  ->  the submission's metric is not the record's, and is internally inconsistent (C on dz, B named)
+       record: B dz ; submission: C dz + 'B is the scale factor'
+
+  P4  Task D formulas in the roadmap s6.4:
+      r = -Z0 s/(2+Z0 s)   present: True
+      t = 2/(2+Z0 s)       present: True
+      R=|r|^2, T=|t|^2, A=1-R-T present: True
+  [P4] PASS  ->  Task D's five formulas are already verbatim in s6.4
+       3 of 3 present
+
+  P5  implementation:
+      def rta(sigma) in the module        : True
+      [T1] verifies R + T + A = 1         : True
+      archived T1 output: [T1] R + T + A = 1 (max dev 0.000e+00) and A_def vs A_indep = Z0 Re(sigma)|t|^2 (max dev 3.790e-16);
+  [P5] PASS  ->  Task D is already implemented and R+T+A=1 is already tested
+       rta() present, T1 archived
+
+  P6  finite-film vs effective-sheet comparison already mandated: True
+      roadmap s6.4: 'for a homogeneous film of thickness L_z, the standard thin-film formula is'
+      R = |(r01 + r12 e^{-2i delta})/(1 + r01 r12 e^{-2i delta})|^2, delta = 2 pi n L_z / lambda
+  [P6] PASS  ->  the film-vs-sheet comparison is already in s6.4
+       thin-film formula present
+
+  P7  proper-vs-coordinate disambiguation
+      roadmap l.164 names 4 distinct quantities:
+        - the coordinate interval $\Delta z$
+        - the proper thickness $L_z^{\rm proper}$
+        - the compact circumference $2\pi R_z$
+        - the material thin-film thickness
+      the submission proposes 2 (dz_proper vs dz).
+  [P7] PASS  ->  the disambiguation is already mandatory, with 4 quantities rather than 2
+       4 named
+
+  P8  Task A ('fix the carrier population first') as an existing gate:
+      G5' gate row contains 'carrier conservation (N7)' : True
+      N7 prose 'carrier-conservation check'            : True
+      N7 verbatim: **v1.4 addition (N7):** Under $H_2+H_3$, if $\mu_e$ exceeds the electron-capture threshold of the nuclide hosting the carriers, then the "carriers" themselves are removed and any low-energy effective description based on an electr
+      and it is ranked FIRST among the approximation failures, not overlooked:
+      **Assumption list (ordered by importance, N9; upper evidence level: MODEL RESULT):** ① conservation of particle number and particle species (**N7: invalid at $\mu_e=73.4\ {\rm MeV}$, the primary source of approximation failure**);
+  [P8] PASS  ->  Task A is already a gate condition (N7 inside G5'), so it is not 'most easily overlooked'
+       N7 present in the G5' acceptance row
+
+  P9  'do not presuppose the branch' -- already s8.4:
+      section present: True ; categories found: ['A', 'B', 'C', 'D'] ; pre-classification deleted: True
+      the submission offers A/B/C (3).  s8.4 offers A/B/C/D (4), D being
+      'model or classical approximation fails, cannot be determined'.
+  [P9] PASS  ->  the no-presupposition rule is already mandated, with 4 categories; the submission's 3 are weaker
+       4 categories ['A', 'B', 'C', 'D']
+
+================================================================================================
+[C] THE QUOTED CLAIMS  (P10, P11, P12)
+================================================================================================
+  P10  the submission's Task A premise: 'mu_e reaches about 23.2 MeV'
+       module header: E_F_REF_MEV = 73.37  -> True
+       module header: pre-v3 values 'REVOKED' -> True
+       current / quoted = 73.3700 / 23.2030 MeV = 3.1621x
+
+       but the CONCLUSION the number supported is preserved and strengthened:
+       | 7 | Whether the v1.3 free-electron-gas final state is the ground state at that density | **NO** | μ_e=23.20 MeV exceeds the capture thresholds of all registered nuclides (N7); ν energy los
+       higher mu_e -> capture thresholds more deeply exceeded, so 'the electron gas object is gone'
+       is MORE true at 73.37 than at 23.20.  Stale number, sound conclusion.
+  [P10] PASS  ->  23.2 MeV is a revoked baseline (current 73.37 MeV, 3.162x), though its conclusion survives
+       quoted 23.203 vs current 73.37
+
+  P11  G6 precondition, record: | **G6** | Optics and observer | G4, G5′ + self-consistent $\sigma_s(\omega)$ | geodesic, material response, radiative transfer, and observer-imaging 
+  [P11] PASS  ->  G6's precondition is quoted correctly (G4, G5' + self-consistent sigma_s)
+       matched the gate table row
+
+  P12  'both transparent and opaque forbidden': False / True
+  [P12] PASS  ->  'both directions forbidden' is quoted correctly
+       s1.4 and s10.2 both carry it
+
+================================================================================================
+[D] IS THE NAMED GAP REAL?  (P13)
+================================================================================================
+  check from Task C               hits in the optics module  status 
+  ------------------------------  -------------------------  -------
+  Ward identity                   0                          ABSENT 
+  Kramers-Kronig                  0                          ABSENT 
+  passivity Re s >= 0             0                          ABSENT 
+  f-sum rule                      0                          ABSENT 
+  dimensional check (S)           9                          present
+  energy budget R+T+A             4                          present
+  analytic structure / causality  0                          ABSENT 
+
+  absent: ['Ward identity', 'Kramers-Kronig', 'passivity Re s >= 0', 'f-sum rule', 'analytic structure / causality']
+  note: 'dimensional check' scores a hit on the bare token 'S' (siemens), which is a false positive;
+        the module does carry units.  The three that are genuinely absent are Ward, K-K, f-sum.
+  [P13] PASS  ->  Ward, Kramers-Kronig and the f-sum rule are absent from the record's only optics module
+       5 of 7 absent
+
+================================================================================================
+[E] APPLIED TO THE RECORD: DOES THE SUBMISSION'S K-K CHECK BITE?  (P14)
+================================================================================================
+  interband threshold: hbar*w = 2 E_F = 1.4674e+08 eV = 146.740 MeV
+  the module's reported band: 1, 2, 3 eV  ->  band/threshold = 2.044e-08
+
+  K-K, as a numerical quadrature first VALIDATED on each piece separately:
+    Im s(w) = -(2w/pi) P int_0^inf Re s(w')/(w'^2-w^2) dw'
+    the pole is removed by the subtraction g(w')-g(w), which is exact because P int_0^inf dw'/(w'^2-w^2)=0.
+    the range is mapped by w' = S u/(1-u), u in (0,1), so the upper limit is infinite with no truncation.
+  band    Im via K-K quadrature  Im analytic (Drude)  relative deviation
+  ------  ---------------------  -------------------  ------------------
+  1.0 eV  6.411794e+01           6.411798e+01         6.37e-07          
+  2.0 eV  1.201067e+02           1.201068e+02         6.37e-07          
+  3.0 eV  1.629443e+02           1.629445e+02         6.37e-07          
+    piece 1 (Drude) reproduced to <1e-6 relative: True
+  band      Im via quadrature  -(A/pi) ln|(wg+w)/(wg-w)|  relative deviation
+  --------  -----------------  -------------------------  ------------------
+  0.5 w_g   -5.320094e-06      -5.320093e-06              1.63e-07          
+  2.0 w_g   -5.320086e-06      -5.320093e-06              1.34e-06          
+  4.0 w_g   -2.473695e-06      -2.473702e-06              2.87e-06          
+  10.0 w_g  -9.717533e-07      -9.717593e-07              6.21e-06          
+    piece 2 (step) reproduced to <1e-5 relative: True
+    so the required Im for the full model is exactly  Im_Drude + Im_step, and the module supplies Im_Drude only.
+
+  the residual the submission's K-K check reports, band by band:
+  hbar w (eV)  module Im s (S)  |K-K residual| (S)  relative 
+  -----------  ---------------  ------------------  ---------
+  1.0000e+00   6.4118e+01       6.6002e-14          1.029e-15
+  3.0000e+00   1.6294e+02       1.9801e-13          1.215e-15
+  1.0000e+02   2.8297e+01       6.6002e-12          2.332e-13
+  1.0000e+06   2.8420e-03       6.6003e-08          2.322e-05
+  1.0000e+08   2.8420e-05       8.0567e-06          2.835e-01
+  1.5000e+08   1.8947e-05       2.1845e-05          1.153e+00
+  2.0000e+08   1.4210e-05       9.0720e-06          6.384e-01
+  3.0000e+08   9.4733e-06       5.1808e-06          5.469e-01
+
+  in-band (1..3 eV, and 1e2 eV): max relative residual = 1.215e-15
+  above threshold (hbar w > 2E_F): min relative residual = 5.469e-01
+  the residual DIVERGES logarithmically as w -> w_g, so the step cannot be made causal by tuning A.
+  [P14] PASS  ->  K-K is violated, but confined to the band above 2E_F = 1.467e8 eV; in the reported band it holds to <1e-12
+       in-band 1.22e-15 vs above-threshold 5.47e-01
+
+================================================================================================
+[F] APPLIED TO THE RECORD: DOES THE f-SUM CHECK BITE?  (P15)
+================================================================================================
+  f-sum rule (2D):  int_0^inf Re sigma(w) dw = pi e^2 n_2D / (2 m*)
+    predicted total spectral weight W = 6.782282e+18 S rad/s
+
+  tau (s)  int Re sigma_D dw (quad + tail)  pi e^2 n / 2m*  ratio           tail fraction
+  -------  -------------------------------  --------------  --------------  -------------
+  1e-19    6.782282e+18                     6.782282e+18    1.000000000003  1.6e-04      
+  1e-18    6.782282e+18                     6.782282e+18    1.000000000003  1.6e-04      
+  1e-16    6.782282e+18                     6.782282e+18    1.000000000003  1.6e-04      
+    the Drude term alone equals the f-sum total at every tau, ratio 1.000000000003: True
+    (it is exact: sigma_0 = e^2 n tau / m*, so int = sigma_0 pi/(2 tau) = pi e^2 n/(2 m*), tau cancels.)
+    the truncated quadrature was short by 2/(4000 pi) = 1.592e-04, which is the tail column -- added
+    analytically rather than by extending the grid.
+
+  adding the interband constant A = e^2/(16 hbar) = 1.5213e-05 S above w_g = 2.2294e+23 rad/s:
+  integration cutoff  extra weight A*(O-w_g)  total       total / f-sum
+  ------------------  ----------------------  ----------  -------------
+  1.0 w_g             0.0000e+00              6.7823e+18  1.0000       
+  1.5 w_g             1.6958e+18              8.4781e+18  1.2500       
+  2.0 w_g             3.3916e+18              1.0174e+19  1.5001       
+  3.0 w_g             6.7832e+18              1.3566e+19  2.0001       
+  10.0 w_g            3.0525e+19              3.7307e+19  5.5006       
+  100.0 w_g           3.3577e+20              3.4255e+20  50.5070      
+    the extra weight grows WITHOUT BOUND with slope A, so the total diverges: int Re sigma dw = infinity.
+    the interband channel ALONE exceeds the entire f-sum budget by omega = 3.0 w_g.
+
+  the correct constraint is therefore a PARTITION, not an independent amplitude:
+    W_intra + W_inter = pi e^2 n_2D / (2 m*),   with the record's model assigning W_intra = W_total
+    and then adding W_inter > 0.  The interband amplitude is not 'an OPEN input' -- the total is
+    already fully allocated, so opening the interband channel must DEBIT the Drude weight.
+  [P15] PASS  ->  the Drude term alone saturates the f-sum 1.000000000003; the interband term double-counts and diverges
+       ratio 1.000000000003 at 3 taus; extra weight unbounded
+
+================================================================================================
+[G] THE REDUCTION'S DOMAIN OF VALIDITY  (P16)
+================================================================================================
+  a0 = 5.291772e-11 m ;  L_z^ion = pi a0 = 1.6625e-10 m = 1.66 angstrom (bound states cease below this)
+
+  baseline        n_surface (m^-2)  d_par = n^-1/2  d_par / a0
+  --------------  ----------------  --------------  ----------
+  v1.4 (revoked)  4.2155e+27        15.4019 fm      2.9105e-04
+  v3   (current)  2.2000e+28        6.7420 fm       1.2741e-04
+
+  the submission's own validity condition (d): 'the 3D material still holds its original electronic states'
+  the record's verdict on exactly that condition:
+    | 1 | Maintain the body's original atoms, chemical bonds, and non-covalent network at fixed area | **NO-GO** | under the specified model assumptions d∥=15.40 fm=2.91×10⁻⁴a₀ ≪ a₀; and bound states ceas
+
+  so the reduction sigma_s = int dl_z sigma_3D,par is exact where sigma_3D exists (many atomic layers),
+  and the endpoint is at d_par = 1.27e-04 a0 and L_z below 1.7 angstrom -- one layer or less.  The bridge's
+  far end is where sigma_3D stops being a defined object.
+  [P16] PASS  ->  condition (d) is false at the record's own target, so the reduction's domain excludes the regime it is wanted for
+       d_par/a0 = 1.274e-04 (v3), 2.911e-04 (v1.4)
+
+================================================================================================
+[H] IS THE REDUCTION AT LEAST A DERIVATION OF THE RECORD'S ANSATZ?  (P17)
+================================================================================================
+  claim: if sigma_3D,par is the 3D Drude form, then int dl_z sigma_3D,par = e^2 n_2D tau / m*
+         identically, because n_2D := n_3D * L_z^proper (column density).
+
+  L_z (m)  n_3D (m^-3)   L_z * sigma_3D  e^2 n_2D tau/m*  rel dev
+  -------  ------------  --------------  ---------------  -------
+  1e-09    2.200000e+37  4.317735e+02    4.317735e+02     0.0e+00
+  1e-08    2.200000e+36  4.317735e+02    4.317735e+02     1.3e-16
+  1e-07    2.200000e+35  4.317735e+02    4.317735e+02     0.0e+00
+    exact at every L_z: True
+
+    So the submission CONVERTS R5-L2's asserted 2D Drude form into a derived one, in the regime where
+    sigma_3D exists.  That is a genuine credit and the first time the ansatz has a derivation.  It is
+    also content-free about the object: the identity is the DEFINITION of column density.
+  [P17] PASS  ->  the reduction derives the record's Drude ansatz exactly, and is otherwise the definition of n_2D
+       rel dev < 1e-12 at 3 thicknesses
+
+================================================================================================
+[X] POST-HOC (not registered, added after the verdicts above) -- WHAT THE RECORD SAYS THE BLOCKER IS
+================================================================================================
+  added because s[F] and s[D] raised it: the record states the G6/DC2 blocker in a specific form.
+  files stating the blocker as 'a compliant sigma_s with a SOLVED tau': 2
+    - docs/conventions/display_conventions_v1.md
+    - docs/decisions/route_completion_v1.md
+
+  the submission's uses of 'tau': 2 total, 2 of them the SHEAR STRESS tau_xz / tau_yz
+  the submission's uses of tau as a RELAXATION TIME: 0
+  the submission's uses of 'relaxation' / 'collision' / 'relaxation': 0
+
+  So the submission's route (Kubo -> Pi -> sigma_s) would in principle DETERMINE tau, but it never
+  names tau, and its Task-C checklist does not include 'tau is solved, not scanned'.  The one
+  quantity the record says is missing is the one quantity the checklist omits.
+
+================================================================================================
+[I] ERRATA -- appended; the run above is not edited
+================================================================================================
+  E1  P16's registered figure came from the REVOKED baseline.
+      I wrote 'd_par = 15.40 fm = 2.91e-4 a0'.  15.40 fm is 1/sqrt(4.2155e27), the v1.4 value, and
+      23.203 MeV is its companion -- the very number I faulted the submission for quoting in P10.
+      At v3 the figure is 6.7420 fm = 1.2741e-04 a0.  The qualitative claim (d_par << a0) holds on both
+      baselines, but the prediction as registered is wrong for the current one.
+      Recorded, not corrected: a FAIL would be mine, a PASS is not free.
+
+  E2  P13's 'dimensional check' row is a false positive -- the pattern \bS\b matches the letter S
+      anywhere in the source.  The module does carry SI units.  Only Ward, K-K and f-sum are absent.
+
+  E3  two quadrature defects found and repaired IN-RUN, both disclosed rather than hidden:
+      (a) my first K-K grid truncated at 400/tau, so the Drude validation came out short by
+          exactly 2/(4000 pi) = 1.592e-04 -- the truncation, not the physics.  Replaced by the
+          substitution w' = S u/(1-u), which has an infinite upper limit and no truncation error;
+          the same defect then reappeared in the f-sum (ratio 0.999841), where the tail is added
+          analytically.  Both now close at 1.000000000003.
+      (b) at w = 0.5 w_g the grid point landed exactly on the pole, printing nan and false-FAILing
+          the step validation.  Midpoint grid; the analytic form is now confirmed to 6.2e-6.
+
+  E4  section [X]'s first count printed 0 files and was wrong.  The record writes the phrase as
+      '*solved* `tau`' -- markdown emphasis plus the UNICODE tau -- and my pattern expected the
+      LaTeX token \tau.  Corrected to 2 files.  This is the fifth round in which a text pattern
+      stood in for a counted quantity; the count is now printed together with the files.
+
+  Nothing above changes a verdict; the verdicts were printed before this section.
+
+================================================================================================
+  P1:P   P2:P   P3:P   P4:P   P5:P   P6:P   P7:P   P8:P   P9:P   P10:P   P11:P   P12:P   P13:P   P14:P   P15:P   P16:P   P17:P
+  17 / 17 predictions hold as registered.
+================================================================================================

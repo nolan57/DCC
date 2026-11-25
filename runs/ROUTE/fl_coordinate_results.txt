@@ -1,0 +1,147 @@
+
+==============================================================================
+[F-1] THE FOUR COORDINATES ARE ALL COMPUTABLE FROM REGISTERED NUMBERS
+==============================================================================
+  id   coordinate             form                               source
+  ------------------------------------------------------------------------------------------------
+  b    band offset            |log10(E_I / E_eye)|               E_EYE = 2.25 eV, declared
+  c    contrast distortion    |log10(m_I / m_R)|                 m_R = 7.0e-07 at 550 nm (painting_render_v1 panel c); m_eye = 1e-2
+  p    photon deficit         max(0, log10(N_req / N_avail))     flux deficits from p2_clock_results (Phase 2)
+  e    enhancement count      number of EN operators             EN1-EN5, display_conventions_v1 s3
+
+  FL = -(b + c + p + e).  FL3 = reference frame, all terms zero, FL = 0 exactly.
+  Equal weights: a DECLARED CONVENTION (DC4).  Reported, never scored.
+
+==============================================================================
+[F-2] THE RUNGS ORDER: FL3 = 0 > FL2 > FL1
+==============================================================================
+  rung                              b        c        p    e         FL
+  ----------------------------------------------------------------------
+  FL3  naked-eye reflection    0.0000   0.0000   0.0000    0     0.0000
+  FL2  284 eV transmission     2.1011   0.0000   0.0000    1    -3.1011
+  FL1  550 nm enhanced         0.0000   4.1549   9.9795    2   -16.1344
+
+  strict descent FL3 > FL2 > FL1 : YES  (the ladder ascends, as GD7 requires)
+
+  dominant term per rung:
+    FL2 : b = 2.1011  <- the band migration itself, not the physics
+    FL1 : p = 9.9795  then c = 4.1549  <- photons, then the 1.43e4 stretch
+
+  Note the shape GD7 produces: FL1 is the rung that SHOWS most and is farthest from
+  what the eye would see; FL3 is the rung that shows least and is identical to it.
+
+==============================================================================
+[F-3] CONTINUITY: THE LADDER IS A CONTINUUM, NOT THREE STEPS
+==============================================================================
+  Sweep the declared enhancement gain g = m_I/m_R from 1 (faithful) to 1.43e4
+  (the stretch actually used at 550 nm in painting_render_v1 panel c).
+
+    g            c        FL
+    ------------------------------
+    1             0.0000  -11.9795
+    2             0.3010  -12.2805
+    10            1.0000  -12.9795
+    100           2.0000  -13.9795
+    1000          3.0000  -14.9795
+    1e+04         4.0000  -15.9795
+    1.429e+04     4.1549  -16.1344
+
+  |dFL / d log10 g| at g = 1, 2, 100, 1e3 : 1.0000, 1.0000, 1.0000, 1.0000
+  = 1.0000 exactly, because c = |log10 g|.  FL is a sum of continuous terms, with a
+  bounded slope except at the max(0, .) kink in p; there is no step in the interior,
+  so the ladder is a continuum and the three rungs are thresholds on it.
+
+  The three rungs are THRESHOLD values on this coordinate, not the coordinate itself:
+  FL3 at g = 1, e = 0, p = 0; FL1 at g = 1.43e4, e = 2, p = 9.98.  Every intermediate
+  value is a frame somebody could actually produce, which is what "continuum" means.
+
+==============================================================================
+[F-4] DOES GD7 CONFLICT WITH THE COROLLARY?  NO — THEY CONSTRAIN DIFFERENT THINGS
+==============================================================================
+  Corollary (GD8 scope): "No faithful reflected-light frame of a SURVIVING SHEET
+  exists."  Parse it:
+
+    subject   : reflected-light frame
+    predicate : faithful
+    object    : a SURVIVING SHEET
+
+  The corollary constrains the CONTENT of the frame (must not show a surviving
+  sheet).  GD7 constrains its FIDELITY (must equal the retinal image).  A frame can
+  satisfy both: maximally faithful, containing no sheet.
+
+  So FL3 is attainable AND the corollary stands.  What FL3 shows is not the sheet —
+  which is exactly what the corollary predicts, and what the archived panel D-left
+  of unfold_appearance_v1.png already displays ("what you see is what lies behind it").
+
+  The requirement that fails is not fidelity, it is the implicit hope that the most
+  faithful frame is also the most informative one.  GD7 makes that hope explicitly
+  false: FL3 has FL = 0 and carries no structure of the object.
+
+  FL(GD7) and information(G-4 Reading A) are therefore ANTI-CORRELATED by
+  construction, and the anti-correlation is now a consequence of the adopted
+  definition rather than an ambiguity between two definitions.
+
+==============================================================================
+[F-5] GD8 PREMISE COVERS THE NAKED EYE A FORTIORI
+==============================================================================
+  Naked-eye viewing requires D >= near point = 0.25 m.
+  The corollary, as ruled, speaks at D = L.  It therefore covers naked-eye viewing
+  whenever D >= L/sqrt(2), which holds for every L <= sqrt(2) x 0.25 = 0.3536 m.
+
+    L (m)    L/sqrt2   D=0.25 covered?   t_rip (s)      2L/c (s)
+    --------------------------------------------------------------------
+    0.070    0.0495     yes               3.302116e-10   4.669897e-10
+    0.200    0.1414     yes               9.434617e-10   1.334256e-09
+    0.300    0.2121     yes               1.415193e-09   2.001385e-09
+    1.000    0.7071     no                4.717309e-09   6.671282e-09
+
+  For L > 0.354 m the object subtends more than 2*atan(0.5/0.25) = 126.9 deg at the
+  near point and cannot be taken in; the case is outside naked-eye viewing, so the
+  a fortiori argument has no gap inside its own domain.
+
+  Per-patch form (D <= d/sqrt2) is NOT used: GD8 did not adopt it.  It is recorded as
+  an unregistered observation and licenses no frame.
+
+==============================================================================
+[F-6] FL3 IS A FAMILY, INDEXED BY WHICH CONSTRAINT WAS RELAXED
+==============================================================================
+  Both scenes are faithful reflected-light frames at the naked eye:
+
+    scene                  what the frame shows
+    --------------------------------------------------------------------------
+    C1 held  (2D-ified)    the object is gone when the light returns
+    not-C1   (7 cm slab)   an intact slab at 35 % reflectance
+
+  For both, b = c = p = e = 0, so FL = 0.  FL3 is therefore not one image but a
+  family with two members, and the member is selected by the constraint set:
+
+    C1 held   -> FL3 shows ABSENCE.  This is a faithful presentation of the
+                 2D-ification, and it is the corollary's content as an image.
+    not-C1    -> FL3 shows the SLAB.  Also faithful, but the object is not
+                 2D-ified: the top rung of the relaxation axis is reached by
+                 giving up the thing being presented (v1 s9, now a theorem).
+
+  Consequence for the route: an FL3 frame must declare WHICH member it is, or it
+  will be read as a depiction of a surviving sheet — the one reading the corollary
+  forbids.  This is registered as a mandatory caption line (DC9).
+
+==============================================================================
+SUMMARY
+==============================================================================
+  F-1 coordinates computable from registered numbers  : ALL-FOUR-FROM-REGISTERED
+  F-2 rung order FL3 > FL2 > FL1                      : ASCENDS
+  F-3 band/contrast/photon axes continuous            : CONTINUOUS
+  F-4 GD7 compatible with the corollary               : COMPATIBLE
+  F-5 GD8 premise covers naked-eye viewing            : A-FORTIORI
+  F-6 FL3 is a declared family of two members         : TWO-MEMBERS
+
+  FL values: FL3 = 0.0000, FL2 = -3.1011, FL1 = -16.1344  (decades)
+
+  What GD7 buys: a definition where there was a word, so "continuum" is a property
+  and the ladder has a direction.  What it costs: the maximum-fidelity frame is the
+  least informative one, and that is now a theorem rather than a warning.
+  What GD8 buys: a scope for the corollary, so it can no longer be read as a claim
+  about geometries nobody stated.  What it costs: nothing — the conclusion survives
+  a fortiori for every naked-eye distance.
+
+PROVENANCE: NEITHER  (definition + conformance arithmetic; establishes no physics)

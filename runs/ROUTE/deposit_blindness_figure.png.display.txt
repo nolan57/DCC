@@ -1,0 +1,16 @@
+DISPLAY-DECLARATION v1
+FRAME:            deposit_blindness_figure.png
+PROVENANCE:       NEITHER
+STAGE:            S0
+FIDELITY:         FL1
+BAND:             NONE (geometry only)
+COLOUR:           DECLARED-CONVENTION
+COLOUR-BASIS:     panels A and B encode a declared shell index of a declared object (DEMO-1 C1-C4) as hue, and as brightness either the axial layer index n or that component's declared cross-section area; panel C encodes the declared radius law against z on a declared radial axis. No spectral measurement was made at any stage, so hue carries no wavelength information and the palette is a choice. The pale tint marks the 0.37% of sites beyond pieces, declared vacuum, not a lower reflectance.
+SCALAR:           shell index (categorical); axial index n (integer); cross-section area of one piece (m^2); radius (m); vacuum / occupied (binary); z (m)
+TIME:             t_span = 0 s (single snapshot) ; compression = 1 ; t_rip = 1.0847e-09 s ; ratio = 0
+GEOMETRY:         PRESCRIBED (D2)
+ENHANCEMENT:      EN2
+ME5-COROLLARY:    NOT-APPLICABLE
+NOTE:             panel C is drawn from the object's radius law, not from the deposit; it is present to
+                  show what the deposit does not contain. No panel is evidence that any cell is readable
+                  (MR1.0, MR1.6).

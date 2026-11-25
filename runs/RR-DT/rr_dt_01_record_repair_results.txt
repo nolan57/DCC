@@ -1,0 +1,168 @@
+==============================================================================
+RR-DT-01  RECORD REPAIR, DEFERRAL AND DUAL-TRACK ADVANCEMENT
+==============================================================================
+Date: 2026-11-24T03:52:00Z
+Authority: governor directive G-71-01 (round 71)
+Instrument: src/rr_dt/rr_dt_01_record_repair.py
+Pre-registration: runs/RR-DT/rr_dt_01_record_repair_registration.md
+  registration sha256   0c0a4a8bf7dd7d19f0faa3ee944b638c71d11e033e9ce061a3b430da9dd70d9c
+Invariant snapshot: runs/RR-DT/rr_dt_01_invariants.json (frozen before any docs/ edit)
+Relaxation log: runs/RR-DT/constraint_relaxation_record.md
+PROVENANCE: NEITHER (documentation repair; derives no physics, adjudicates no gate)
+Result class: RECORD REPAIR. No survival, visibility, gate, price, route or D-state claim.
+
+The one rule this round obeys: an artifact whose SHA-256 is in the round ledger is
+never edited. Where G-71-01 names such an artifact as an annotation target, the
+annotation is carried by this product and by the errata of the unsealed document that
+owns the same content. Section E measures that claim instead of asserting it.
+
+------------------------------------------------------------------------------
+SECTION A: REPAIR LEDGER
+------------------------------------------------------------------------------
+HIGH-1  d_parallel dual role               docs/specs/relaxation_ladder_v1.md                  
+        status EDITABLE           action qualification block appended directly below the rung table; table bytes unchanged
+HIGH-1  forward reference                  docs/conventions/constraint_crosswalk_v1.md         
+        status EDITABLE           action new 8.5 points back at the ladder block and forward from 8.2
+HIGH-2  row 1 basis cell                   docs/decisions/G0p_seven_row_verdict_v3.md          
+        status EDITABLE           action parenthetical replaced by its conditional form; verdict and evidence level untouched
+HIGH-2  reverse-on phrase                  reports/DCC_terminal_answer_v1.md                   
+        status SEALED (round 62)  action NOT EDITED: replacement text carried by G0p erratum E4; hash preserved
+HIGH-3  K^2 - K_ijK^ij annotation          docs/conventions/symbol_registry.md                 
+        status EDITABLE           action registration R-IDENT-1 names four in-record locations and their dispositions
+        annotation [IDENT -- no constraint information; see AX-01 HIGH-3]
+HIGH-3  K^2 - K_ijK^ij annotation          runs/P1/phase1_symbolic_constraint_results.txt      
+        status SEALED (round 63)  action NOT EDITED: annotation carried here; hash preserved
+        annotation [IDENT -- no constraint information; see AX-01 HIGH-3]
+HIGH-3  K^2 - K_ijK^ij annotation          runs/P1/phase1_symbolic_constraint_registration.md  
+        status SEALED (round 63)  action NOT EDITED: annotation carried here; hash preserved
+        annotation [IDENT -- no constraint information; see AX-01 HIGH-3]
+Track A adiabaticity relabel               docs/decisions/kinematic_vs_dynamic_unfolding_v1.md 
+        status EDITABLE           action section 12: WORKING-HYPOTHESIS, citation tag, dependency table, retention clause
+
+  Predicate results:
+  R1   PASS  RL-6 carries the dual-role qualification; rung table bytes intact
+  R2   PASS  crosswalk carries the forward reference to the ladder qualification
+  R3   PASS  row 1 basis is conditional; verdict and evidence level untouched
+  R4   PASS  reverse-on replacement is carried by erratum; sealed cell named, not edited
+  R5   PASS  IDENT annotation registered with all four in-record locations
+  R7   PASS  adiabaticity relabelled WORKING-HYPOTHESIS with the citation tag and retention clause
+
+------------------------------------------------------------------------------
+SECTION B: DEFERRED FINDINGS (MEDIUM and LOW, G-71-01 2)
+------------------------------------------------------------------------------
+  Read from runs/AX/ax01_axiom_audit_results.txt, not re-typed: 6 items.
+  F-005 [MEDIUM] Lambda = 0 is nowhere declared and is not idle: it appears additively in kappa*rho_req and is absent from kappa*j_x,req only because it is a constant
+  F-006 [MEDIUM] Phi = -4.5 is not a scalar. It consumes a scene-measured contrast (3.3166), a band (2.25 eV), a Weber constant (0.01) and an environment E; a beta=0.5...
+  F-007 [MEDIUM] L_z = 1 fm is a normalisation, but it does physical work: E_sub = 619.9 MeV supplies the internal 2D argument, and the internal bound L_z <~ 2 fm is a...
+  F-008 [MEDIUM] the effective-2D conditional has no frame slot. At the external-bound edge L_z = 250 nm the truth value flips at gamma = 1.1021 (beta = 0.420), inside...
+  F-009 [LOW] the Kasner control occupies a codimension-2 slice: for f = t + eps*x^2, K = 16*epsilon**2/(epsilon*x**2 + t)**2 diverges as f -> 0, and flatness requi...
+  F-010 [LOW] the printed RL-6 price 2e4 is a 2.60% rounding of 1.9478e+04; disclosed already in runs/P1/phase1c_repricing_results.txt and listed here so the blast ...
+
+  Count by severity: MEDIUM 4, LOW 2
+  Disposition: DEFERRED. No record carrying any of these six findings was repaired,
+  annotated or re-worded this round. Two of them live in sealed products (F-005 in
+  Phase 1, F-009 in Phase 1b) and are covered by the hash check in SECTION E; the
+  other four live in editable documents, and the sentences that carry them are
+  checked verbatim by invariant I5: 2e4 / 1.94805e4 and 2.60% (F-010), Phi = -4.5
+  (F-006), L_z = 1 fm as an external parameter and the four-slot conditional (F-007,
+  F-008). A deferral that let any of those sentences drift would not be a deferral.
+
+------------------------------------------------------------------------------
+SECTION C: TRACK A (adiabaticity as WORKING-HYPOTHESIS)
+------------------------------------------------------------------------------
+  Status      : WORKING-HYPOTHESIS (was ASSUMPTION in the sealed AX-01 audit, AX-S02).
+  Tag         : [WORKING-HYPOTHESIS: adiabaticity; see RR-DT-01 3.1]
+  Home        : docs/decisions/kinematic_vs_dynamic_unfolding_v1.md section 12
+  Advanced    : the smooth 2D-ization branch proceeds without proof of the hypothesis.
+  Not advanced: survival, visibility, ground-state, gate passage, price movement.
+  Retention   : if the hypothesis is disproved, results are relabelled IDEAL-LIMIT,
+                not withdrawn (G-71-01 3.1, last bullet).
+  One honest note recorded in section 12: the 1.92e4x / 2.18e4x timescale measurement
+  that made adiabaticity look violated belongs to a counterfactual elastic body the
+  deposition does not build. The hypothesis is unstated for the dynamical reading and
+  unnecessary for the kinematic one; that asymmetry is why the branch can advance.
+
+------------------------------------------------------------------------------
+SECTION D: TRACK B (constraint relaxation, B1-B10)
+------------------------------------------------------------------------------
+  B1   self-consistent YES       boundary NO
+  B2   self-consistent YES       boundary NO
+  B3   self-consistent YES       boundary NO
+  B4   self-consistent YES       boundary NO
+  B5   self-consistent YES       boundary NO
+  B6   self-consistent YES       boundary NO
+  B7   self-consistent YES       boundary NO
+  B8   self-consistent NO        boundary YES
+  B9   self-consistent ?         boundary ?
+  B10  NEVER RELAXED (definition of the boundary, not a rung on it)
+
+  HARD-SCI-FI-LIMIT : B8 (referential reading); B10 by construction under the strict
+                      propositional reading. Both recorded, neither recommended.
+  Contradiction     : "the scene at theta is well defined" together with "a closed
+                      causal curve passes through the scene". The theta tuple needs a
+                      global time function and an environment radiance independent of
+                      the object; a CTC removes both, so the same sentence about the
+                      same object is asserted and has no referent. The record already
+                      rates referential failure fatal (N7), which is why B8, not B6 or
+                      B7, is the wall: B1-B7 weaken, cost or re-scope, and none of them
+                      makes a scene sentence unsayable.
+  Avoidable         : YES. (i) confine the CTC to a region spacelike-separated from the
+                      observer patch; or (ii) carry only the steady-state S branch, with
+                      no transient and no imaged scene.
+  R8a  PASS  B1-B8 each carry the five required fields
+  R8b  PASS  exactly one level reaches the boundary, and it is B8
+  R8c  PASS  B9 recorded as not-evaluated; B10 never relaxed
+  R8d  PASS  every level re-evaluates RL-6, the G0-prime clause and the effective-2D criterion
+
+------------------------------------------------------------------------------
+SECTION E: INVARIANTS
+------------------------------------------------------------------------------
+  I0   PASS  invariant snapshot is a faithful read of the ledger (41 sealed files)
+  I1   PASS  every ledger-registered product/registration is byte-identical
+  I2   PASS  queue items+gates unchanged (cursor/board notes are the only movable fields)
+  I3   PASS  terminal answer (sealed round 62) byte-identical
+  I4   PASS  reports/gates/ byte-identical
+  I5   PASS  the three numbers the deferred findings are about are unchanged
+
+  Ledger-sealed files checked: 41
+
+------------------------------------------------------------------------------
+SECTION F: SELF-TESTS
+------------------------------------------------------------------------------
+  CK1  PASS  Lambda_obs = 1.5926e-52 m^-2 (1.5926e-82 fm^-2)
+       1.5926e-52
+  CK2  PASS  78.8 orders below the 1e-3 fm^-2 probe
+       78.80
+  CK3  PASS  relief rho_req = 3.232e46 J/m^3 = 1.3e12 rho_nuc (1 mm, eps=1.7e-4)
+       3.232e+46 J/m3, 1.34e+12 rho_nuc
+  CK4  PASS  unconfined L_z drift over t_rip = 4.20e-2 m
+       4.1974e-02
+  CK5  PASS  dE_z = 619.921 MeV at 1 fm; 2.4797 eV at 250 nm
+       619.921 MeV / 2.4797 eV
+  CK6  PASS  RL-6 spans 1.9478e4 (d_par) / 3.000e5 (L_z) / 4.4497e4 (6.742 fm); printed 1.94805e4
+       1.94781e+04 / 3.0000e+05 / 4.44972e+04  (15.400 fm -> 1.94805e+04)
+
+  DISCLOSURE (found during the dry run, before emission): the archive prints two values
+  for the RL-6 ratio. Ladder E5 and phase1c give 1.94805e4, which is 0.3 nm / 15.400 fm;
+  AX-01 gives 1.948e4 from 0.3 nm / 15.40194 fm, which is 1.94781e4. The two differ by
+  1.2e-4 relative because 15.400 fm is the rounded pitch and 15.40194 fm is N_s^-1/2.
+  Both round to 2e4 and neither is re-priced here; CK6 checks all four baselines so the
+  discrepancy is visible rather than averaged away.
+
+  IDENT  predicate count: repairs 6, track-B 4, invariants 6, arithmetic 6
+  IDENT  deferral list matches AX-01 F-005..F-010 exactly: PASS
+
+==============================================================================
+[VERDICTS]
+==============================================================================
+  REPAIR     6/6
+  TRACK-B    4/4
+  INVARIANT  6/6
+  ARITHMETIC 6/6
+  Deferral: 6 items by name, none repaired
+  Findings: HIGH 0 open (three repaired, one carried by Track A) / MEDIUM 4 deferred / LOW 2 deferred
+  OVERALL: PASS
+  evidence level: RECORD REPAIR / NOT GATE EVIDENCE
+  PROVENANCE: NEITHER
+
+Content generated by AI

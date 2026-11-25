@@ -1,0 +1,154 @@
+A.6 effective-dimensionality claim — audit
+verbatim block: 3165 characters, 64 lines
+
+====================================================================================================
+S0  the four-cell table: which (constant, thickness) reproduces 2.9 keV
+====================================================================================================
+     A.6 writes the formula with hbar*c and the thickness 0.4307 nm.  Both are checked.
+
+     formula \  L                             L = 0.215 nm  L = 0.4307 nm
+     --------------------------------------------------------------------
+     hbar*c/L        (A.6 written)                917.8 eV       458.2 eV
+     h*c/L = 2*pi*hbar*c/L  (Model C)            5766.7 eV      2878.7 eV
+     pi*hbar*c/L     (registered Model B)        2883.4 eV      1439.3 eV
+
+     A.6's own formula at A.6's own thickness : 458.2 eV = 0.458 keV
+     A.6's quoted number                      : 2.9 keV
+     ratio                                    : 6.3297   (2*pi = 6.2832)
+
+====================================================================================================
+S1  P1  the written formula does not yield the written number
+====================================================================================================
+     residual decomposition: 2*pi * (delta_A6 / (2*delta_reg)) = 6.2832 * 1.001628 = 6.2934
+     so the 0.7%% gap from 2*pi is the SAME 2.0033 that S4 measures, seen from the other side.
+  [FAIL] P1     written formula -> 458.15 eV; quoted/written = 6.3297 (2*pi to 0.74%)
+
+====================================================================================================
+S2  P2  the quoted 2.9 keV is reached only by two mutually inconsistent pairs
+====================================================================================================
+     reproduces 2.9 keV : h*c/L = 2*pi*hbar*c/L  (Model C)       L = 0.4307 nm  (2878.7 eV)
+     reproduces 2.9 keV : pi*hbar*c/L     (registered Model B)   L = 0.215  nm  (2883.4 eV)
+  [PASS] P2     2 of 6 (formula, L) cells reproduce the quoted number; A.6's own pair is not one of them
+
+====================================================================================================
+S3  P3  k_max(E_1(k)) = k is an identity, so 'the self-consistent point' selects nothing
+====================================================================================================
+     k_max(E) = (c/E)/delta  and  E_1(k) = c/(k delta)  =>  k_max(E_1(k)) = k by construction.
+     Sweep, both constants (the identity cannot depend on which one is used):
+       hbar*c     max |k_max(E_1(k))/k - 1| over k in [0.1, 1e4] : 2.220e-16
+       pi*hbar*c  max |k_max(E_1(k))/k - 1| over k in [0.1, 1e4] : 2.220e-16
+       h*c        max |k_max(E_1(k))/k - 1| over k in [0.1, 1e4] : 2.220e-16
+  [PASS] P3     identity holds to 2.2e-16 for every k swept, incl. k = 1160; 'largest k at its own freeze-out energy' is true of every k
+
+====================================================================================================
+S4  P4  the layer count: A.6's N and delta are both off by the same factor
+====================================================================================================
+     N = H/delta :  H = 1.738 m
+       with registered delta 0.215 nm  -> N = 8.0837e+09   (registered census: 8.120e+09)
+       with A.6's delta     0.4307 nm  -> N = 4.0353e+09   (A.6 states 4.04e9)
+     A.6 4.04e9 / (H/0.215nm) = 0.4998 ;  A.6 delta / 0.215nm = 2.0033
+  [PASS] P4     N is low by 2.000x and delta high by 2.003x; their product N*delta = H is preserved, so the error is invisible in the relation A.6 actually prints
+
+====================================================================================================
+S5  P5  k = 1 contradicts the frozen census
+====================================================================================================
+     array sites            = 90126^2 = 8.1227e+09
+     plates (frozen census) = 1.180e+10
+     plates per site        = 1.4527
+     if k = 1 exactly, sites needed = 1.180e+10 -> side 108628  (declared array is 90126)
+     unplaced plates at k=1 = 3.677e+09
+  [PASS] P5     k = 1.453 from the census, not 1; the render is not the configuration A.6 analyses
+
+====================================================================================================
+S6  P6  the four-slot conditional of effective_2d_definition_v1 s1
+====================================================================================================
+     model (B finite well / C compactification)     present: compactif
+     subsystem (electrons / nucleons / collective)  ABSENT
+     occupation scale E_occ                         ABSENT
+     probe energy E_probe                           present: probe energy, probe of available energy, visible, 2.5 ev
+
+     slots filled: 2 of 4   -> "2D" has a referent only if subsystem is filled
+  [PASS] P6     2 of 4 slots filled; subsystem ABSENT, E_occ ABSENT
+
+====================================================================================================
+S7  P7  the internal bound fails by orders of magnitude; only the external one is met
+====================================================================================================
+     s3 of the convention: the TWO bounds must not be combined into one number.
+     A.6 quotes ONE number and never names the bound.  Testing both against it:
+
+     state                             E_F     E_F / dE_z   internal
+     frozen state                 73.37 MeV      2.530e+04      FAILS
+     HYB equilibrium              21.54 MeV      7.428e+03      FAILS
+     ALL2D equilibrium             6.73 MeV      2.321e+03      FAILS
+
+     external bound at L = 0.215 nm, deltaE_z = 2883.4 eV: any E_probe < 2883 eV meets it.
+     internal bound requires L_z <~ 2 fm (registered); 0.215 nm = 2.2e+05 fm, i.e. 1.1e+05 x too thick
+  [PASS] P7     internal bound fails by >= 2.3e+03 for every registered state; the claim is external-only and 'is a 2D system' is false as written
+
+====================================================================================================
+S8  P8  the number is stable under joint correction — that is what compensating errors do
+====================================================================================================
+     as written   (hbar*c, 0.4307 nm) :   458.15 eV = 0.458 keV
+     corrected    (pi*hbar*c, 0.215 nm):  2883.35 eV = 2.883 keV
+     A.6 quoted                        :  2900.00 eV = 2.900 keV
+
+     the quoted number is within 0.6% of the CORRECTED value and 533% of the AS-WRITTEN value.
+  [PASS] P8     quoted value reproduces the corrected formula to 0.6% while being 6.3x the as-written formula: the number survives, both inputs do not
+
+====================================================================================================
+S9  the consequence A.6 does not draw: unfalsifiable at the project's own probes
+====================================================================================================
+     probe                                         E        lam  lam / H_eff verdict
+     --------------------------------------------------------------------------------------
+     visible, FL/reflection channel          2.25 eV  551.041 nm      2562.98  z NOT resolvable
+     transmission channel                  284.00 eV    4.366 nm        20.31  z NOT resolvable
+     A.6's own falsifier                 12000.00 eV    0.103 nm         0.48  z resolvable
+     nuclear                            200000000.00 eV    0.000 nm         0.00  z resolvable
+
+     Both channels this project images with sit BELOW the freeze-out energy, so both are
+     blind to the z residual by their own wavelength.  The claim is not merely true at those
+     probes — no probe this project uses can test it.  The falsifying probe (12 keV) is one
+     the project has never used and, under ME5's photon budget, cannot.
+  [PASS] S9     2.25 eV and 284 eV are both below freeze-out; lambda/H_eff = 2563.0 and 20.3
+
+====================================================================================================
+S10  A.6's coverage-gap claim: are the four tiers really blind to z?
+====================================================================================================
+     total_persistence    unpacks 2 axes (W,H) from .shape
+     char_scale           unpacks 2 axes (W,H) from .shape
+     plug_q2              unpacks 2 axes (W,H) from .shape
+     q3                   unpacks no .shape unpack (delegates) from .shape
+     a 3-D field entering this idiom raises : ValueError: too many values to unpack (expected 2)
+
+     So a z-axis has no slot in the tier battery's index arithmetic.  A.6's coverage-gap
+     paragraph is CORRECT, and it is the paragraph that should have stopped the claim.
+  [PASS] S10    all four tiers unpack 2 axes from .shape; a 3-D field cannot enter. Coverage gap confirmed
+
+====================================================================================================
+SUMMARY   (every line derived from a flag; none is a literal)
+====================================================================================================
+  P1    FAIL
+  P2    PASS
+  P3    PASS
+  P4    PASS
+  P5    PASS
+  P6    PASS
+  P7    PASS
+  P8    PASS
+  S9    PASS
+  S10   PASS
+
+  checks passed                     : 9 of 10
+  A.6 as written, adoptable into a body?
+    - formula yields its own number     : NO (P1/P2)
+    - 'self-consistent point' selects   : NO — identity (P3)
+    - k = 1 is the rendered config      : NO — census says 1.45 (P5)
+    - four-slot conditional filled      : yes
+    - bound named as s3 requires        : NO — s3 forbids the single number
+    - internal bound holds              : NO — fails by 1e4 (P7)
+    - coverage gap is real              : yes (A.6 right — S10)
+
+  VERDICT: NOT ADOPTABLE AS WRITTEN — corrections required
+  SURVIVING CONTENT: H_eff declaration + coverage gap + probe-blindness consequence
+
+PROVENANCE: NEITHER  (audit of a submitted claim against the registered record; establishes no physics)

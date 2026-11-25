@@ -1,0 +1,143 @@
+
+==============================================================================
+P2-0 : REGISTRATION BASIS  (column, domains, conventions)
+==============================================================================
+  fixed baryon column  N_B = 0.042155 fm^-2  (conservation)
+  total-charge areal   n_Q,2D = 0.022005 fm^-2  (bookkeeping, N7-SPLIT)
+  registration baseline L_z = 1.00 fm (role A: reproduction only)
+  scan domain (role B)  L_z in [1.68, 1.76, 1.84, 1.92, 1.99] fm  (K1 window)
+  conventions: ALL3D (control), HYB (default), ALL2D -- declared per
+  r1b1_p1_declarations_v1.md sect2; interaction domain: inner-crust band +
+  chiral-EFT sub-saturation anchor, contains the scanned densities.
+  P2-8 domain check: scanned n_B range 0.0251..0.0212 fm^-3 at L_z=1.99 -> 0.0212..0.0251
+  inside the declared inner-crust band (2.6e-4 .. 0.08 fm^-3): YES
+
+==============================================================================
+P2-1 / P2-6 : REPRODUCTION AT THE REGISTRATION BASELINE (role A)
+==============================================================================
+  ALL3D  X_p=1.6198e-03  mu_e=24.9566 MeV  n_e=6.8281e-05 fm^-3  P_tot=6.4790e+16 N/m
+           archived: mu_e=24.957  X_p=1.6198e-03  | dev mu_e=4.34e-04 (<0.01), X_p dev=2.17e-05 (<0.01)
+  HYB    X_p=4.5006e-02  mu_e=21.5445 MeV  n_e=1.8972e-03 fm^-3  P_tot=6.2654e+16 N/m
+           archived: mu_e=21.545  X_p=4.5006e-02  | dev mu_e=4.90e-04 (<0.01), X_p dev=2.46e-06 (<0.01)
+  ALL2D  X_p=4.3957e-03  mu_e=6.7331 MeV  n_e=1.8530e-04 fm^-3  P_tot=1.8439e+16 N/m
+           archived: mu_e=6.733  X_p=4.3957e-03  | dev mu_e=1.06e-04 (<0.01), X_p dev=2.41e-06 (<0.01)
+  [P2-1] -> VERIFIED
+  [P2-6] -> VERIFIED
+  envelope spans reproduced: X_p x27.79 (archived x28), mu_e x3.71 (archived x3.7)
+  ALL3D retained as CONTROL only (v3 finding: contradicts nucleon subband).
+
+==============================================================================
+P2-2 : ENERGY BOUNDEDNESS ACROSS THE SCAN (S-STATE-2)
+==============================================================================
+  E_areal(L_z) at fixed column (HYB default convention):
+    L_z=1.00 fm : E=4.019829e+01 MeV/fm^2  (rest-mass part 3.960490e+01; kinetic 5.934e-01)
+    L_z=1.68 fm : E=4.003033e+01 MeV/fm^2  (rest-mass part 3.960591e+01; kinetic 4.244e-01)
+    L_z=1.76 fm : E=4.001773e+01 MeV/fm^2  (rest-mass part 3.960598e+01; kinetic 4.118e-01)
+    L_z=1.84 fm : E=4.000603e+01 MeV/fm^2  (rest-mass part 3.960605e+01; kinetic 4.000e-01)
+    L_z=1.92 fm : E=3.999513e+01 MeV/fm^2  (rest-mass part 3.960610e+01; kinetic 3.890e-01)
+    L_z=1.99 fm : E=3.998618e+01 MeV/fm^2  (rest-mass part 3.960615e+01; kinetic 3.800e-01)
+  [P2-2] -> VERIFIED
+  bounded below: True (floor = the rest-mass column, 3.9986e+01 MeV/fm^2);
+  E(L_z) monotone DECREASING over the scan: True -> no interior minimum:
+  the gas pushes outward at fixed column (consistent with row 6's
+  conditional NO-GO: without constraint stress the layer expands).
+  S-STATE-2 verdict: energy bounded below across the scan: PASS (bounded),
+  with the expansion tendency registered as the row-6-consistent finding.
+
+==============================================================================
+P2-3 / P2-4 : CAUSALITY AND MONOTONICITY (S-STATE-3 compressibility)
+==============================================================================
+  max c_s^2 over the scan (HYB, ALL2D; central difference): 0.0116
+  [P2-3] -> VERIFIED
+  [P2-4] -> VERIFIED
+  S-STATE-3 compressibility: positive (P monotone) and subluminal (c_s^2<1)
+  -> no imaginary-sound growth mode for the homogeneous states: PASS.
+
+==============================================================================
+P2-5 : COMPOSITION CENSUS  (N7-SPLIT implementation)
+==============================================================================
+  per L_z (HYB default): n_free,2D = solved electron areal density;
+  n_Q,2D = %.6f fm^-2 (bookkeeping); bound/trapped = 0 at the ideal-gas level
+  (declared limitation of the interaction class -- refinement is a
+  Phase-2+ interaction-level deliverable).
+
+  L_z(fm)  X_p        n_free,2D[fm^-2]  n_Q,2D[fm^-2]  n_free/n_Q   mu_e[MeV]
+  1.68      2.6346e-02    1.1106e-03          0.0220        0.0505      16.484
+  1.76      2.5075e-02    1.0570e-03          0.0220        0.0480      16.081
+  1.84      2.3914e-02    1.0081e-03          0.0220        0.0458      15.705
+  1.92      2.2850e-02    9.6324e-04          0.0220        0.0438      15.351
+  1.99      2.1989e-02    9.2696e-04          0.0220        0.0421      15.059
+
+  N7 quantified across the window: the free-carrier areal density is
+  4.2% .. 5.0% of the total-charge bookkeeping (n_Q,2D != n_free,2D, both
+  conventions and both per-L_z) -- the split is realized, not assumed.
+  [P2-5] -> VERIFIED
+  [P2-5] -> VERIFIED (census delivered; the split is the deliverable)
+
+==============================================================================
+P2-7 : S-STATE-1..4 ASSESSMENT PER SCANNED STATE
+==============================================================================
+  [P2-7] -> VERIFIED
+  S-STATE-1 conservation: X_p + X_n = 1 exactly (bisection on the column);
+     charge neutrality n_e = n_p by construction; baryon column fixed.
+  S-STATE-2 bounded energy: PASS (P2-2).
+  S-STATE-3 linear: positive compressibility + c_s^2 in (0,1): PASS (P2-3/4).
+  S-STATE-4 nonlinear: the ideal-gas E(L_z) is monotone with no interior
+     stationary point -> no nonlinear collapse/dissociation mode at the
+     ideal level; the interaction-level assessment is a Phase-2+ refinement.
+  S-STATE-5 (reachability): Phase 3 (r1b1_p3_reachability).
+  S-STATE-6 timescale: declared = tau_conv + 1/c_s (declarations sect1,
+     pending adjudication).
+
+==============================================================================
+P2-8 : INTERACTION-DOMAIN EXCURSION CHECK
+==============================================================================
+  [P2-8] -> VERIFIED
+  cold (T=0); densities inside the declared band; weak-ON branch uses the
+  equilibrium sequence (in domain); weak-OFF branch: the interaction sector
+  applies but the equilibrium sequence does not (declared limitation) --
+  flagged per P2-8, not silently used.
+
+==============================================================================
+P2-9 : SUBBAND SPACING ACROSS THE WINDOW
+==============================================================================
+  L_z=1.68 : E_sub=369.0 MeV  E_sub/mu_e=22.39  E_sub/EF_n=22.10  (both > 3: YES)
+  L_z=1.76 : E_sub=352.2 MeV  E_sub/mu_e=21.90  E_sub/EF_n=21.74  (both > 3: YES)
+  L_z=1.84 : E_sub=336.9 MeV  E_sub/mu_e=21.45  E_sub/EF_n=21.40  (both > 3: YES)
+  L_z=1.92 : E_sub=322.9 MeV  E_sub/mu_e=21.03  E_sub/EF_n=21.09  (both > 3: YES)
+  L_z=1.99 : E_sub=311.5 MeV  E_sub/mu_e=20.69  E_sub/EF_n=20.82  (both > 3: YES)
+  [P2-9] -> VERIFIED
+  D_e = 2 (single electron subband) and 2D-nucleon treatment are
+  self-consistent across the whole K1 window (worst ratio 20.69).
+
+==============================================================================
+P2 : L_z-RESOLVED ENVELOPE  (new deliverable: the envelope vs thickness)
+==============================================================================
+  L_z(fm)  |  X_p: ALL3D / HYB / ALL2D  |  mu_e: ALL3D / HYB / ALL2D  |  P_tot(HYB)[N/m]
+  1.68    |  1.038e-03 / 2.635e-02 / 4.396e-03  |  18.104 / 16.484 / 6.733  |  4.5007e+16
+  1.76    |  9.985e-04 / 2.508e-02 / 4.396e-03  |  17.596 / 16.081 / 6.733  |  4.3677e+16
+  1.84    |  9.621e-04 / 2.391e-02 / 4.396e-03  |  17.124 / 15.705 / 6.733  |  4.2441e+16
+  1.92    |  9.286e-04 / 2.285e-02 / 4.396e-03  |  16.685 / 15.351 / 6.733  |  4.1289e+16
+  1.99    |  9.015e-04 / 2.199e-02 / 4.396e-03  |  16.325 / 15.059 / 6.733  |  4.0343e+16
+
+  the envelope is L_z-DEPENDENT: as the layer thins, the bulk density rises
+  and the equilibrium shifts; the v3 single-thickness envelope is the
+  L_z = 1.0 fm slice of this family.
+
+==============================================================================
+P2 VERDICT SUMMARY
+==============================================================================
+  P2-1   PASS
+  P2-6   PASS
+  P2-2   PASS
+  P2-3   PASS
+  P2-4   PASS
+  P2-5   PASS
+  P2-7   PASS
+  P2-8   PASS
+  P2-9   PASS
+  P2 verdicts: 9/9 PASS
+  kill conditions: none triggered (no NO-GO branch, no domain excursion,
+  no floor-exceeding artifact, no unstable state).
+  Evidence level: MODEL RESULT (cold ideal npe gas, three conventions,
+  L_z-resolved; single source conv.py; no local model copies).

@@ -1,0 +1,185 @@
+
+==================================================================================================
+RL-1 -- Q3 AT theta_fast ON A SCENE THAT CARRIES CONTENT   (round 48, RQ-12)
+==================================================================================================
+  theta_eye   q = 0        the naked-eye reflected channel (frozen corollary)
+  theta_ideal q = 1        the spec normalisation: instrumented channel, adequate budget
+  theta_fast  q = q(C_xi)  the 284 eV transmission channel, limited by the registered chain
+
+==================================================================================================
+[0] ESTIMATOR IDENTITY -- the imported module must reproduce the archived table
+==================================================================================================
+  P0(null)  imported 5.639902751e-02   archived 5.639903000e-02   MATCH
+  q2(null)  imported 0.1382006      archived 0.138201       MATCH
+  TILED xi  recomputed 27.5541        archived 27.55          MATCH
+  TILED Cxi recomputed 0.7867        archived 0.7867        MATCH
+  => same estimator that produced runs/MATRIX/: YES
+
+  locked values used, read from runs/MATRIX/threshold_lock.json:
+    C_eye (Weber)  0.0100      Q3 threshold  2.00      q instrumented  1.0      q reflected  0.0
+
+==================================================================================================
+[1] WHAT MAKES theta_fast ADMISSIBLE -- the three channels, priced in time and flux
+==================================================================================================
+  t_rip = sqrt(2)*H/c = 8.255290e-09 s   (H = 1.75 m, the deposit's own height)
+
+  channel               path / c (s)  path / t_rip  channel factor  why                                                             
+  --------------------  ------------  ------------  --------------  ----------------------------------------------------------------
+  reflection 2.25 eV    1.1675e-08    1.4142        q = 0 EXACT     frozen corollary: ratio is sqrt(2) for every H and every size   
+  transmission 284 eV   1.1675e-23    1.414e-15     q = 1           admissible: P2-5, sub-field frames only                         
+  transmission 2.25 eV  1.1675e-23    1.414e-15     CLOSED          RL-4: |Z0 sigma_s| ~ 1e4 at 2.25 eV -- a Drude mirror, no colour
+
+  The timing ground is scale-free: (2H/c)/t_rip = 1.414213 = sqrt(2), independent of H.
+  No choice of distance or of object size opens the reflected channel. RL-1 therefore does not
+  buy "an observer"; it buys ONE channel: 284 eV transmission, which the extrinsic L3 excluded
+  as band migration and the intrinsic L3 admits, because the intrinsic L3 asks only for a
+  declared theta (intrinsic_structure_tiers_v1 s5).
+
+==================================================================================================
+[2] SCENES -- the deposit-like class (isolated plates), pitch p, side 0.75p
+==================================================================================================
+  id     p   s   fill  
+  -----  --  --  ------
+  PA-8   8   6   0.5625
+  PA-16  16  12  0.5625
+  PA-32  32  24  0.5625
+
+  These are SEVERED objects (isolated plates, no bond). The bonded scene V4 needs does not exist,
+  because KIN-DYN supplies no constitutive law -- unchanged by this round.
+
+==================================================================================================
+[3] Q3 AT THREE DECLARATIONS OF q
+==================================================================================================
+  scene  xi/h  C_xi    Q3 (q=1)    Q3 (q=0)  flux shortfall  q(theta_fast)  Q3 (theta_fast)
+  -----  ----  ------  ----------  --------  --------------  -------------  ---------------
+  PA-8   1.66  n/v     NO-VERDICT  n/v       n/v             n/v            n/v            
+  PA-16  3.32  0.5232  5.737 PASS  0.000     1.256e-03       1.0000         5.737          
+  PA-32  6.64  0.5194  5.726 PASS  0.000     1.275e-03       1.0000         5.726          
+
+  L3 precondition: xi/h >= 2. Below it the tier returns NO VERDICT -- not a failure, an
+  inapplicable question (a scene with no scale cannot be certified legible for its structure).
+
+  READ THIS BEFORE THE 5.7: C_xi = 0.52 is the contrast of a DECLARED BINARY FIELD (u in {0,1},
+  mean|u| = 0.5625), not of the deposit. The deposit is a near-mirror and its own contrast is
+  1e-3 (visualization_null_result_v1 s2); relief is what would lift it to 3e-2. So the table
+  above establishes that L3 is EVALUABLE and NON-EMPTY once q > 0 -- the q = 0 emptiness was
+  the channel, not the content -- and it does not establish that the deposit is legible.
+
+==================================================================================================
+[3b] THE SAME FORMULA ON THE LADDER'S DECLARED CONTRASTS -- Q3(C) at q = 1
+==================================================================================================
+  Q3(C) = log2(1 + C/C_eye) with C_eye = 0.01, threshold Q3 >= 2.0  <=>  C >= 0.030
+
+  C       Q3 (q=1)  L3    margin  declared as                               
+  ------  --------  ----  ------  ------------------------------------------
+  0.0010  0.1375    FAIL  -1.862  the deposit as it is (near-mirror)        
+  0.0300  2.0000    PASS  +0.000  RL-2: topographic edge / oblique          
+  0.3000  4.9542    PASS  +2.954  RL-2 + RL-3: grazing on relief            
+  0.5232  5.7366    PASS  +3.737  the plate class as declared (binary field)
+
+  The third row is the finding: C = 0.03 gives Q3 = 2.000000 EXACTLY, because Q3 = 2 needs
+  C_eye*(2^2 - 1) = 3*C_eye = 0.03. The ladder declared RL-2's topographic contrast as 3e-2
+  by independent reasoning, and the locked threshold was declared on 2026-11-22 -- so the
+  coincidence is real but its margin is ZERO: any contrast loss at all puts RL-2 under L3.
+  RL-2 alone reaches legibility at exactly threshold and the flux gate with 0.42 orders of
+  margin. That is the tightest a rung can be and still be a rung; it is not a comfortable one.
+
+==================================================================================================
+[4] THE DETECTION GATE -- where 3.4387e10 comes from, and what it is a function of
+==================================================================================================
+  The registered chain, rebuilt from its own numbers so the arithmetic is checkable:
+    N_required(1e-7)      = (3 / 1e-7)^2          = 9.0000e+14  photons per element
+    flux_required         = 9.5390e+31 m^-2 s^-1        (P2-3, visible row)
+    x t_rip               = 7.8747e+23 m^-2 per frame   (M-5)
+    full sun x t_rip      = 2.2900e+13 m^-2 per frame   (M-5)
+    regression check      = 3.4387e+10  vs registered 3.4387e+10  reproduced to 9.8e-06 relative
+    implied element area  = N_required / (flux_required * t_rip) = 1.1429e-09 m^2  (side 33.8 um)
+    available per element = 2.2900e+13 * 1.1429e-09 = 2.6172e+04 photons
+    shortfall at 1e-7     = 9.0000e+14 / 2.6172e+04 = 3.4387e+10      <- the registered 3.4387e10
+
+  So the shortfall is a FUNCTION OF THE SCENE CONTRAST, and the registered value is its
+  evaluation at C = 1e-7 -- the SNR-3 detector floor, not the scene:
+
+      shortfall(C) = 3.4387e+10 * (1e-7 / C)^2
+      C*  = 1e-7 * sqrt(3.4387e+10) = 1.854373e-02   (the contrast at which the gate is exactly met)
+  C      shortfall   orders  gate   declared as                      
+  -----  ----------  ------  -----  ---------------------------------
+  1e-07  3.4387e+10  +10.54  short  P2-3 detector floor              
+  1e-06  3.4387e+08  +8.54   short  --                               
+  1e-04  3.4387e+04  +4.54   short  --                               
+  1e-03  3.4387e+02  +2.54   short  the record's near-mirror contrast
+  3e-02  3.8208e-01  -0.42   OPEN   RL-2: topographic edge           
+  3e-01  3.8208e-03  -2.42   OPEN   RL-2+RL-3: grazing               
+
+  C* = 0.01854 sits BELOW the contrast L3 needs for Q3 = 2 at q = 1:
+    Q3 >= 2.0  <=>  C >= C_eye*(2^Q3 - 1) = 0.0300, which is 1.618 x C*  (2.617 x in photons)
+  => the flux gate is NOT an independent ground. It is the L3 threshold expressed in photons.
+
+==================================================================================================
+[5] WHAT THIS DOES TO THE LADDER'S PRICE LIST (s3 and s4 of relaxation_ladder_v1)
+==================================================================================================
+  The ladder says: "that requirement was computed on a compositional contrast |dR| = 0.001"
+  and then applies a 1e-3 -> 3e-2 lever worth +2.9 orders, leaving 5.5-7.6 orders residual.
+  Measured here: the requirement is at 1e-7. At 1e-3 the same chain gives 343.9, i.e. 2.54 orders.
+
+  contrast  shortfall   orders  collector to close it        integration instead
+  --------  ----------  ------  ---------------------------  -------------------
+  1e-03     3.4387e+02  +2.54   343.9 m^2 (18.5 m aperture)  344 x t_rip        
+  3e-02     3.8208e-01  -0.42   none needed                  < 1                
+  3e-01     3.8208e-03  -2.42   none needed                  < 1                
+
+  theta_fast made explicit, as RQ-12's DoD asks:
+    q(A) = min(1, A / shortfall(C))   -- aperture enters q LINEARLY, so the "collector" column
+                                        above is exactly the A at which q = 1.
+    distance does not enter at all   -- (2H/c)/t_rip = sqrt(2) for every H (section 1).
+    band enters only through q = 0 vs q > 0: reflection is excluded outright, and the
+                                        surviving channel is 284 eV transmission.
+
+  The corrected price of RL-1+RL-2+RL-3 is therefore:
+    - RL-2 ALONE closes the flux gap: 0.42 orders of margin -- and reaches L3 at EXACTLY its
+      threshold (section 3b). One rung, zero margin on legibility, 0.42 orders on flux.
+    - the ladder's "5.5-7.6 orders" is 3.821e+05; the same chain at 1e-7 gives 3.821e-03 -- a factor 1e+08,
+      i.e. 8.0 orders in photons, because the prose moved a 1e-7 requirement onto a 1e-3 baseline
+      without recomputing it. The rungs are unchanged; only their price label was wrong.
+    - and the whole Phi column is not independent of Q3 at all (section 4), so a ladder that
+      prices flux and legibility separately double-counts one wall and misses the other.
+
+==================================================================================================
+[6] PREDICTIONS -- X1..X6 of r1_observer_registration.md
+==================================================================================================
+
+  X1  CONFIRMED   L3 NO VERDICT at p=8 (xi/h < 2) while L0 and L2 PASS there
+       measured: xi/h = 1.6593, Q3 = NO-VERDICT ; archived L0 = 0.7230 PASS, L2 = 0.5155 PASS
+
+  X2  CONFIRMED   at q=1, Q3 >= 2.0 at both p=16 and p=32
+       measured: Q3 = 5.737 (p=16, C_xi 0.5232) and 5.726 (p=32, C_xi 0.5194); threshold needs C_xi >= 0.030
+
+  X3  CONFIRMED   at q=0, Q3 = 0.000 exactly wherever a verdict exists
+       measured: values 0.000e+00, 0.000e+00
+
+  X4  CONFIRMED   3.4387e10 belongs to C=1e-7; at the record's own 1e-3 the chain gives 343.9
+       measured: shortfall(1e-7) = 3.4387e+10 (regression error 9.78e-06); shortfall(1e-3) = 343.87
+
+  X5  CONFIRMED   C* = 1.854e-2 < 0.03, ratio 1.618 in contrast / 2.618 in photons
+       measured: C* = 0.01854, C(Q3=2) = 0.0300, ratio 1.6178 / 2.6173
+
+  X6  CONFIRMED   at the measured C_xi, q(theta_fast) saturates at 1, so Q3(theta_fast) = Q3(q=1)
+       measured: q values 1.000000, 1.000000 ; C_xi range 0.5194 .. 0.5232 vs C* 0.01854
+
+==================================================================================================
+SUMMARY
+==================================================================================================
+  declaration order : registration written 102.6 s before this run (earlier -> declared BEFORE evaluation)
+  RL-1 verdict      : ADMISSIBLE, and it is NOT free in the way s4 of the ladder states:
+                      it buys ONE channel (284 eV transmission); the flux wall it was said to
+                      leave standing is 8 orders smaller than stated, and is not independent
+                      of Q3 at all. What survives of the old verdict is the timing ground,
+                      which is exact, scale-free, and excludes reflection forever.
+  V4 (bonded Q3)    : still unanswered. No constitutive law, no scene. Unchanged.
+  what is NOT claimed: any statement about the deposit. The plate class is a declared stand-in;
+                      DEPOSIT-BLIND and MR1.6 are untouched. Every number is a locked estimator
+                      on a declared field, or arithmetic on p2_clock_results.
+
+  predictions X1-X6 : 6 CONFIRMED, 0 FALSIFIED
+
+PROVENANCE: NEITHER  (locked estimators on declared fields + budget arithmetic; no new physics)

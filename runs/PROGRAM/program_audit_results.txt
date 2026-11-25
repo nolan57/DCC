@@ -1,0 +1,83 @@
+==============================================================================
+PROGRAMME AUDIT  (docs/program/COMPLETION_PROTOCOL_v1.md)
+==============================================================================
+  as of round 73  |  queue: docs/program/round_queue_v1.json
+  G-64-01: REPORT-ONLY INSTRUMENT — exit 0 always; findings are facts, never a veto
+
+------------------------------------------------------------------------------
+[CHECK 1] DIGEST INTEGRITY  11 sidecar(s)  (was HARD 1 before G-64-01)
+------------------------------------------------------------------------------
+  OK — every declared digest verifies, every lock file has its sidecar
+  DRIFT-OBSERVED 5f324e1513c5 -> 1224458d58f1 [G-64-01 / BN-48] (not a violation: G-64-01)
+
+------------------------------------------------------------------------------
+[CHECK 2] CITATION INTEGRITY  (runs/ paths named in docs/)
+------------------------------------------------------------------------------
+  MISS-ERRATA runs/G0/g0_prime_meta.json                           cited by docs/decisions/G0p_seven_row_verdict_v1.md
+
+------------------------------------------------------------------------------
+[ADVISORY 1] AUTHORITY — decision documents with an unmarked approval block
+------------------------------------------------------------------------------
+  AWAITING-GOVERNOR  docs/decisions/hard_sf_effective_2d_route_proposal_v1.md line(s) 149,150,151
+
+------------------------------------------------------------------------------
+[ADVISORY 2] ORDERING — registration earlier than product (mtime; weak evidence)
+------------------------------------------------------------------------------
+  named registration, earlier : 33
+  fallback (no name match)    : 10
+  ORDER-SUSPECT               : 17   (advisory: a bulk copy produces these too)
+    runs/LADDER/r1_observer_results.txt                  named registration not earlier: r1_observer_registration.md
+    runs/LADDER/r2_relief_contrast_results.txt           named registration not earlier: r2_relief_registration.md
+    runs/LADDER/r3_illumination_results.txt              named registration not earlier: r3_illumination_registration.md
+    runs/MATRIX/domain_boundary_probe2_results.txt       named registration not earlier: domain_boundary_registration.md
+    runs/MATRIX/domain_boundary_results.txt              named registration not earlier: domain_boundary_registration.md
+    runs/MATRIX2/matrix_v2_results.txt                   named registration not earlier: matrix_v2_registration.md
+    runs/OPTICS/sc_route_results.txt                     named registration not earlier: sc_route_registration.md
+    runs/R1A/r1a1_ptilde_scan_results.txt                no registration in directory
+    runs/R1B/r1b1_p1_closure_check_results.txt           named registration not earlier: r1b1_p1_registration.md
+    runs/R1B/r1b1_p1_current_check_results.txt           named registration not earlier: r1b1_p1_registration.md
+    runs/R1B/r1b1_p1_dirac_check_results.txt             named registration not earlier: r1b1_p1_registration.md
+    runs/R4/r4_axisym_2p1_results.txt                    named registration not earlier: r4_instability_localization_registration.md, r4_localisation_registration.md, r4_p2c2_production_registration.md, r4_screening_registration.md
+    runs/R4/r4_cmc_initial_data_results.txt              named registration not earlier: r4_instability_localization_registration.md, r4_localisation_registration.md, r4_p2c2_production_registration.md, r4_screening_registration.md
+    runs/R4/r4_instability_localization_results.txt      named registration not earlier: r4_instability_localization_registration.md
+    runs/R5/r5l2_sigma_s_results.txt                     named registration not earlier: r5l2_rerun_registration.md
+    runs/ROUTE/deposit_blindness_results.txt             named registration not earlier: deposit_blindness_registration.md
+    runs/ROUTE/goal_conformance_results.txt              named registration not earlier: goal_conformance_registration.md
+
+------------------------------------------------------------------------------
+[ADVISORY 3] ROUND LEDGER — runs/PROGRAM/round_ledger.jsonl  27 record(s)
+------------------------------------------------------------------------------
+  round 64  P1B-SYM-01 TECHNICAL-REVIEW       runs/P1/phase1b_singularity_result
+  round 65  P1C-REPRICE-01 TECHNICAL-REVIEW       runs/P1/phase1c_repricing_results.
+  round 68  AX-01   AXIOM-AUDIT            runs/AX/ax01_axiom_audit_results.t
+  round 71  RR-DT-01 RECORD-REPAIR-DUAL-TRACK runs/RR-DT/rr_dt_01_record_repair_
+  round 73  G-73-01 ADIABATICITY-PROVENANCE-B3-ANALYSIS runs/G-73-01/g73_01_manifest.txt
+  ... 22 earlier record(s)
+
+------------------------------------------------------------------------------
+[ADVISORY 4] QUEUE
+------------------------------------------------------------------------------
+  CLOSED-CONSTRUCTIVE    15
+  CLOSED-NO-GO           2
+  RETIRED-IDENTITY       1
+  FROZEN                 1
+
+==============================================================================
+[DEFINITION OF DONE]  docs/program/COMPLETION_PROTOCOL_v1.md §0
+==============================================================================
+  D1  zero unmarked governor blocks                OPEN  1
+  D2  zero unexplained digest drifts               MET   0 unexplained, 1 observed
+  D3  zero broken citations                        MET   0
+  D4  every closed item has a ledger record        MET   18/18
+  D5  ledger chain intact                          MET   
+  D6  every queue item terminal                    MET   0
+  D7  every BLOCKED-ON-INPUT names its physics        MANUAL
+  D8  the terminal answer exists                      MANUAL
+
+  completion: 5/6 machine-checked
+  G-64-01: this score is an instrument reading, not a gate. It never blocks emission,
+  registration or use of a product whose own CHECK/IDENT/NEGCTRL self-tests passed.
+
+PROVENANCE: NEITHER  (process instrument report; establishes no physics)
+
+Content generated by AI

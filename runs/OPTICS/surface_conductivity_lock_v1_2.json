@@ -1,0 +1,21 @@
+{
+  "file": "docs/specs/surface_conductivity_v1.md",
+  "version": "1.2",
+  "sha256": "ce2a5088c775ce1a3d3d71c8a796a3450511e4992441dad99f3026fa920e0761",
+  "locked": "2026-11-22",
+  "supersedes": [
+    {
+      "version": "1.0",
+      "sha256": "91eca7acf6400bac11699a71d55c3a5644c114a52d067eae5225fc33d211a50f",
+      "lock": "runs/OPTICS/surface_conductivity_lock.json"
+    },
+    {
+      "version": "1.1",
+      "sha256": "a005533bf3c5e390e48a3ef992e7af4d89c49a74c23d1baca6117b5d92300aab",
+      "lock": "runs/OPTICS/surface_conductivity_lock_v1_1.json"
+    }
+  ],
+  "note": "S1-S11 and S13 byte-identical to v1.1. S12 split into S12a (necessary) and S12b (sufficient collapse). Section 10a adds S14 (BUDGET-DECLARED) and S15 (G-CONSISTENT). Section 10a.4 corrects a v1.1 sentence. Nothing weakens S1-S9: a candidate must pass all of them.",
+  "locked_before": "no candidate sigma_s exists. S12b, S14, S15 were written from measured tests on controls (runs/OPTICS/sc3_results.txt), then applied.",
+  "lock_rule": "no threshold in S12-S15 may be widened after a measurement. Three predictions of round 38 missed (Q6b, Q9b, Q11b) and all three misses are kept in the product."
+}

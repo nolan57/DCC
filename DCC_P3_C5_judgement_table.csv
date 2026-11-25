@@ -1,0 +1,1201 @@
+﻿wall_group,group_label,p_z,alpha,beta_C,eta_max,eta_min,t_cross,eta_t0,verdict
+relativistic,dynamical solution,0.1,0.1,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.1,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.2,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.2,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.3,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.3,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.4,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.4,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.5,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.5,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.6,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.6,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.7,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.7,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.8,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.8,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,0.9,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.9,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1,1,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,1,-0.5,5,0.03042903097,2.924017738,5,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.1,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.1,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.2,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.2,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.3,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.3,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.4,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.4,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.5,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.5,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.6,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.6,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.7,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.7,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.8,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.8,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.9,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.9,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1170779914,1,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,1,-0.5,4.270657483,0.02599039377,2.632266324,4.270657483,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.1,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.1,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.2,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.2,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.3,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.3,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.4,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.4,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.5,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.5,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.6,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.6,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.7,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.7,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.8,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.8,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.9,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.9,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1370725606,1,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,1,-0.5,3.647703068,0.02219921393,2.369625159,3.647703068,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.1,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.1,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.2,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.2,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.3,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.3,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.4,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.4,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.5,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.5,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.6,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.6,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.7,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.7,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.8,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.8,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.9,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.9,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1604818007,1,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,1,-0.5,3.115618081,0.01896104782,2.133189695,3.115618081,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.1,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.1,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.2,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.2,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.3,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.3,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.4,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.4,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.5,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.5,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.6,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.6,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.7,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.7,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.8,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.8,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.9,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.9,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.1878888688,1,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,1,-0.5,2.661147535,0.01619522815,1.920345189,2.661147535,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.1,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.1,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.2,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.2,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.3,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.3,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.4,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.4,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.5,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.5,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.6,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.6,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.7,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.7,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.8,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.8,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.9,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.9,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2199765136,1,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,1,-0.5,2.272969927,0.01383285446,1.728737793,2.272969927,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.1,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.1,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.2,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.2,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.3,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.3,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.4,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.4,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.5,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.5,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.6,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.6,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.7,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.7,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.8,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.8,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.9,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.9,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.2575440836,1,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,1,-0.5,1.941415205,0.01181507668,1.556248519,1.941415205,no discriminating power
+relativistic,dynamical solution,0.30152744,0.1,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.1,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.2,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.2,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.3,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.3,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.4,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.4,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.5,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.5,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.6,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.6,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.7,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.7,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.8,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.8,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,0.9,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.9,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.30152744,1,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,1,-0.5,1.658223875,0.01009162913,1.400969808,1.658223875,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.1,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.1,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.2,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.2,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.3,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.3,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.4,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.4,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.5,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.5,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.6,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.6,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.7,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.7,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.8,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.8,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.9,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.9,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.3530222702,1,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,1,-0.5,1.41634124,0.008619578294,1.26118443,1.41634124,no discriminating power
+relativistic,dynamical solution,0.413311383,0.1,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.1,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.2,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.2,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.3,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.3,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.4,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.4,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.5,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.5,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.6,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.6,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.7,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.7,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.8,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.8,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,0.9,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.9,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.413311383,1,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,1,-0.5,1.209741663,0.007362253309,1.1353465,1.209741663,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.1,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.1,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.2,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.2,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.3,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.3,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.4,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.4,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.5,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.5,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.6,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.6,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.7,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.7,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.8,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.8,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.9,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.9,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.4838966654,1,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,1,-0.5,1.033278458,0.006288332438,1.022064373,1.033278458,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.1,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.1,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.2,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.2,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.3,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.3,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.4,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.4,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.5,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.5,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.6,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.6,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.7,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.7,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.8,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.8,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,0.9,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.9,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.5665364961,1,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,1,-0.5,0.8825556755,0.005371062797,,0.8825556755,adiabatic
+relativistic,dynamical solution,0.66328955,0.1,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.1,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.2,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.2,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.3,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.3,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.4,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.4,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.5,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.5,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.6,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.6,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.7,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.7,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.8,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.8,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,0.9,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.9,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.66328955,1,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,1,-0.5,0.7538186,0.004587593905,,0.7538186,adiabatic
+relativistic,dynamical solution,0.7765660822,0.1,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.1,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.2,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.2,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.3,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.3,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.4,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.4,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.5,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.5,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.6,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.6,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.7,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.7,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.8,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.8,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,0.9,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.9,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.7765660822,1,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,1,-0.5,0.643860209,0.003918408449,,0.643860209,adiabatic
+relativistic,dynamical solution,0.9091879707,0.1,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.1,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.2,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.2,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.3,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.3,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.4,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.4,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.5,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.5,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.6,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.6,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.7,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.7,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.8,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.8,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,0.9,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.9,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,0.9091879707,1,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,1,-0.5,0.549941284,0.003346836073,,0.549941284,adiabatic
+relativistic,dynamical solution,1.064459014,0.1,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.1,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.2,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.2,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.3,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.3,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.4,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.4,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.5,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.5,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.6,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.6,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.7,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.7,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.8,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.8,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,0.9,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.9,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.064459014,1,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,1,-0.5,0.469722172,0.002858638104,,0.469722172,adiabatic
+relativistic,dynamical solution,1.246247232,0.1,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.1,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.2,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.2,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.3,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.3,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.4,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.4,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.5,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.5,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.6,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.6,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.7,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.7,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.8,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.8,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,0.9,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.9,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.246247232,1,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,1,-0.5,0.4012045018,0.002441652842,,0.4012045018,adiabatic
+relativistic,dynamical solution,1.459081227,0.1,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.1,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.2,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.2,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.3,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.3,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.4,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.4,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.5,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.5,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.6,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.6,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.7,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.7,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.8,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.8,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,0.9,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.9,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.459081227,1,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,1,-0.5,0.3426814016,0.002085492597,,0.3426814016,adiabatic
+relativistic,dynamical solution,1.708262993,0.1,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.1,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.2,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.2,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.3,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.3,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.4,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.4,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.5,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.5,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.6,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.6,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.7,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.7,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.8,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.8,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,0.9,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.9,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,1.708262993,1,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,1,-0.5,0.2926949784,0.001781284913,,0.2926949784,adiabatic
+relativistic,dynamical solution,2,0.1,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.1,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.2,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.2,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.3,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.3,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.4,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.4,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.5,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.5,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.6,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.6,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.7,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.7,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.8,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.8,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,0.9,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.9,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,2,1,-0.5,0.25,0.001521451549,,0.25,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,1,-0.5,0.25,0.001521451549,,0.25,adiabatic
+relativistic,dynamical solution,0.1,0.1,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.1,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.2,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.2,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.3,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.3,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.4,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.4,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.5,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.5,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.6,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.6,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.7,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.7,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.8,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.8,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,0.9,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.9,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1,1,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,1,-0.3333333333,3.333333333,0.0357588661,2.466942682,3.333333333,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.1,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.1,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.2,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.2,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.3,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.3,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.4,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.4,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.5,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.5,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.6,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.6,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.7,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.7,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.8,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.8,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.9,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.9,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1170779914,1,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,1,-0.3333333333,2.847104989,0.03054277382,2.191808525,2.847104989,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.1,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.1,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.2,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.2,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.3,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.3,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.4,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.4,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.5,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.5,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.6,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.6,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.7,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.7,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.8,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.8,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.9,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.9,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1370725606,1,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,1,-0.3333333333,2.431802045,0.02608754511,1.947359639,2.431802045,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.1,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.1,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.2,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.2,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.3,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.3,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.4,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.4,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.5,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.5,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.6,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.6,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.7,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.7,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.8,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.8,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.9,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.9,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1604818007,1,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,1,-0.3333333333,2.077078721,0.02228219395,1.730173745,2.077078721,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.1,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.1,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.2,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.2,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.3,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.3,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.4,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.4,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.5,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.5,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.6,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.6,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.7,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.7,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.8,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.8,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.9,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.9,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.1878888688,1,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,1,-0.3333333333,1.774098356,0.01903192367,1.537210245,1.774098356,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.1,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.1,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.2,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.2,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.3,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.3,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.4,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.4,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.5,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.5,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.6,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.6,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.7,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.7,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.8,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.8,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.9,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.9,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2199765136,1,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,1,-0.3333333333,1.515313284,0.01625576545,1.365767654,1.515313284,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.1,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.1,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.2,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.2,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.3,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.3,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.4,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.4,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.5,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.5,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.6,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.6,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.7,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.7,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.8,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.8,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.9,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.9,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.2575440836,1,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,1,-0.3333333333,1.294276804,0.01388456127,1.21344578,1.294276804,no discriminating power
+relativistic,dynamical solution,0.30152744,0.1,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.1,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.2,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.2,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.3,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.3,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.4,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.4,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.5,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.5,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.6,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.6,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.7,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.7,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.8,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.8,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,0.9,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.9,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.30152744,1,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,1,-0.3333333333,1.105482583,0.0118592411,1.078112121,1.105482583,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.1,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.1,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.2,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.2,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.3,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.3,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.4,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.4,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.5,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.5,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.6,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.6,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.7,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.7,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.8,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.8,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.9,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.9,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.3530222702,1,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,1,-0.3333333333,0.9442274935,0.01012935135,,0.9442274935,no discriminating power
+relativistic,dynamical solution,0.413311383,0.1,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.1,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.2,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.2,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.3,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.3,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.4,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.4,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.5,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.5,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.6,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.6,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.7,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.7,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.8,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.8,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,0.9,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.9,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.413311383,1,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,1,-0.3333333333,0.8064944423,0.008651798031,,0.8064944423,adiabatic
+relativistic,dynamical solution,0.4838966654,0.1,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.1,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.2,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.2,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.3,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.3,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.4,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.4,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.5,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.5,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.6,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.6,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.7,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.7,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.8,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.8,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,0.9,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.9,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.4838966654,1,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,1,-0.3333333333,0.688852305,0.007389773201,,0.688852305,adiabatic
+relativistic,dynamical solution,0.5665364961,0.1,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.1,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.2,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.2,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.3,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.3,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.4,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.4,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.5,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.5,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.6,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.6,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.7,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.7,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.8,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.8,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,0.9,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.9,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.5665364961,1,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,1,-0.3333333333,0.5883704503,0.006311838044,,0.5883704503,adiabatic
+relativistic,dynamical solution,0.66328955,0.1,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.1,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.2,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.2,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.3,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.3,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.4,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.4,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.5,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.5,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.6,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.6,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.7,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.7,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.8,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.8,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,0.9,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.9,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.66328955,1,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,1,-0.3333333333,0.5025457333,0.005391139676,,0.5025457333,adiabatic
+relativistic,dynamical solution,0.7765660822,0.1,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.1,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.2,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.2,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.3,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.3,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.4,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.4,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.5,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.5,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.6,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.6,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.7,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.7,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.8,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.8,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,0.9,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.9,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.7765660822,1,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,1,-0.3333333333,0.4292401394,0.0046047422,,0.4292401394,adiabatic
+relativistic,dynamical solution,0.9091879707,0.1,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.1,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.2,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.2,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.3,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.3,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.4,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.4,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.5,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.5,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.6,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.6,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.7,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.7,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.8,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.8,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,0.9,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.9,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,0.9091879707,1,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,1,-0.3333333333,0.3666275227,0.003933055347,,0.3666275227,adiabatic
+relativistic,dynamical solution,1.064459014,0.1,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.1,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.2,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.2,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.3,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.3,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.4,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.4,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.5,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.5,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.6,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.6,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.7,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.7,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.8,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.8,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,0.9,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.9,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.064459014,1,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,1,-0.3333333333,0.3131481147,0.00335934645,,0.3131481147,adiabatic
+relativistic,dynamical solution,1.246247232,0.1,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.1,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.2,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.2,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.3,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.3,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.4,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.4,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.5,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.5,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.6,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.6,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.7,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.7,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.8,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.8,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,0.9,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.9,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.246247232,1,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,1,-0.3333333333,0.2674696679,0.002869323611,,0.2674696679,adiabatic
+relativistic,dynamical solution,1.459081227,0.1,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.1,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.2,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.2,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.3,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.3,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.4,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.4,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.5,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.5,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.6,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.6,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.7,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.7,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.8,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.8,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,0.9,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.9,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.459081227,1,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,1,-0.3333333333,0.2284542677,0.002450779671,,0.2284542677,adiabatic
+relativistic,dynamical solution,1.708262993,0.1,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.1,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.2,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.2,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.3,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.3,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.4,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.4,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.5,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.5,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.6,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.6,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.7,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.7,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.8,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.8,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,0.9,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.9,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,1.708262993,1,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,1,-0.3333333333,0.1951299856,0.002093288108,,0.1951299856,adiabatic
+relativistic,dynamical solution,2,0.1,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.1,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.2,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.2,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.3,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.3,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.4,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.4,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.5,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.5,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.6,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.6,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.7,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.7,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.8,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.8,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,0.9,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.9,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,2,1,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,1,-0.3333333333,0.1666666667,0.001787943305,,0.1666666667,adiabatic
+relativistic,dynamical solution,0.1,0.1,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.1,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.2,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.2,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.3,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.3,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.4,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.4,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.5,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.5,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.6,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.6,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.7,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.7,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.8,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.8,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,0.9,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,0.9,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1,1,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1,1,-0.6666666667,6.666666667,0.02301653708,3.121369947,6.666666667,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.1,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.1,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.2,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.2,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.3,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.3,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.4,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.4,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.5,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.5,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.6,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.6,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.7,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.7,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.8,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.8,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,0.9,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,0.9,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1170779914,1,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1170779914,1,-0.6666666667,5.694209978,0.01965914927,2.839619088,5.694209978,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.1,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.1,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.2,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.2,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.3,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.3,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.4,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.4,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.5,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.5,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.6,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.6,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.7,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.7,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.8,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.8,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,0.9,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,0.9,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1370725606,1,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1370725606,1,-0.6666666667,4.863604091,0.01679149859,2.583300506,4.863604091,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.1,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.1,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.2,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.2,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.3,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.3,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.4,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.4,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.5,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.5,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.6,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.6,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.7,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.7,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.8,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.8,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,0.9,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,0.9,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1604818007,1,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1604818007,1,-0.6666666667,4.154157441,0.01434214782,2.350118554,4.154157441,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.1,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.1,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.2,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.2,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.3,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.3,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.4,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.4,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.5,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.5,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.6,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.6,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.7,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.7,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.8,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.8,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,0.9,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,0.9,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.1878888688,1,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.1878888688,1,-0.6666666667,3.548196713,0.01225008018,2.137984801,3.548196713,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.1,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.1,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.2,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.2,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.3,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.3,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.4,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.4,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.5,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.5,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.6,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.6,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.7,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.7,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.8,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.8,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,0.9,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,0.9,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2199765136,1,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2199765136,1,-0.6666666667,3.030626569,0.01046317932,1.944999329,3.030626569,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.1,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.1,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.2,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.2,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.3,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.3,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.4,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.4,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.5,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.5,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.6,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.6,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.7,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.7,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.8,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.8,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,0.9,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,0.9,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.2575440836,1,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.2575440836,1,-0.6666666667,2.588553607,0.008936931013,1.769433715,2.588553607,no discriminating power
+relativistic,dynamical solution,0.30152744,0.1,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.1,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.2,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.2,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.3,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.3,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.4,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.4,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.5,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.5,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.6,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.6,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.7,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.7,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.8,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.8,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,0.9,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,0.9,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.30152744,1,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.30152744,1,-0.6666666667,2.210965167,0.007633314262,1.609715553,2.210965167,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.1,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.1,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.2,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.2,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.3,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.3,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.4,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.4,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.5,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.5,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.6,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.6,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.7,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.7,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.8,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.8,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,0.9,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,0.9,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.3530222702,1,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.3530222702,1,-0.6666666667,1.888454987,0.006519854135,1.464414372,1.888454987,no discriminating power
+relativistic,dynamical solution,0.413311383,0.1,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.1,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.2,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.2,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.3,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.3,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.4,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.4,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.5,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.5,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.6,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.6,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.7,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.7,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.8,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.8,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,0.9,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,0.9,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.413311383,1,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.413311383,1,-0.6666666667,1.612988885,0.005568812771,1.332228821,1.612988885,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.1,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.1,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.2,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.2,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.3,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.3,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.4,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.4,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.5,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.5,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.6,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.6,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.7,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.7,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.8,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.8,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,0.9,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,0.9,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.4838966654,1,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.4838966654,1,-0.6666666667,1.37770461,0.004756498387,1.211975015,1.37770461,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.1,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.1,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.2,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.2,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.3,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.3,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.4,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.4,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.5,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.5,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.6,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.6,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.7,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.7,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.8,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.8,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,0.9,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,0.9,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.5665364961,1,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.5665364961,1,-0.6666666667,1.176740901,0.004062675086,1.102575935,1.176740901,no discriminating power
+relativistic,dynamical solution,0.66328955,0.1,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.1,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.2,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.2,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.3,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.3,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.4,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.4,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.5,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.5,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.6,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.6,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.7,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.7,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.8,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.8,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,0.9,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,0.9,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.66328955,1,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.66328955,1,-0.6666666667,1.005091467,0.003470058752,1.003051777,1.005091467,no discriminating power
+relativistic,dynamical solution,0.7765660822,0.1,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.1,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.2,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.2,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.3,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.3,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.4,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.4,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.5,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.5,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.6,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.6,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.7,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.7,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.8,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.8,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,0.9,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,0.9,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.7765660822,1,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.7765660822,1,-0.6666666667,0.8584802787,0.002963886475,,0.8584802787,adiabatic
+relativistic,dynamical solution,0.9091879707,0.1,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.1,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.2,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.2,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.3,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.3,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.4,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.4,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.5,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.5,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.6,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.6,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.7,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.7,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.8,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.8,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,0.9,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,0.9,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,0.9091879707,1,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",0.9091879707,1,-0.6666666667,0.7332550453,0.002531548791,,0.7332550453,adiabatic
+relativistic,dynamical solution,1.064459014,0.1,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.1,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.2,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.2,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.3,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.3,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.4,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.4,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.5,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.5,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.6,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.6,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.7,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.7,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.8,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.8,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,0.9,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,0.9,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.064459014,1,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.064459014,1,-0.6666666667,0.6262962293,0.002162275558,,0.6262962293,adiabatic
+relativistic,dynamical solution,1.246247232,0.1,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.1,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.2,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.2,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.3,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.3,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.4,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.4,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.5,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.5,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.6,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.6,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.7,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.7,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.8,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.8,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,0.9,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,0.9,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.246247232,1,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.246247232,1,-0.6666666667,0.5349393357,0.001846867659,,0.5349393357,adiabatic
+relativistic,dynamical solution,1.459081227,0.1,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.1,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.2,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.2,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.3,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.3,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.4,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.4,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.5,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.5,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.6,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.6,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.7,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.7,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.8,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.8,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,0.9,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,0.9,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.459081227,1,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.459081227,1,-0.6666666667,0.4569085355,0.001577467837,,0.4569085355,adiabatic
+relativistic,dynamical solution,1.708262993,0.1,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.1,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.2,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.2,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.3,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.3,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.4,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.4,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.5,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.5,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.6,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.6,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.7,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.7,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.8,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.8,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,0.9,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,0.9,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,1.708262993,1,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",1.708262993,1,-0.6666666667,0.3902599712,0.001347364965,,0.3902599712,adiabatic
+relativistic,dynamical solution,2,0.1,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.1,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.2,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.2,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.3,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.3,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.4,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.4,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.5,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.5,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.6,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.6,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.7,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.7,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.8,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.8,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,0.9,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,0.9,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+relativistic,dynamical solution,2,1,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic
+lowspeed_pheno,"phenomenological assumption, not a prediction",2,1,-0.6666666667,0.3333333333,0.001150826854,,0.3333333333,adiabatic

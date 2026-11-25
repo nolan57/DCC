@@ -1,0 +1,423 @@
+{
+  "cycle_id": "W1-ROW2-ARTIFACT-01",
+  "utc": "2026-11-25T02:54:43Z",
+  "derived": {
+    "t_rip_s": 8.198682474541903e-09,
+    "v_front_m_s": 211985280.0003832,
+    "tau_s": 3e-09,
+    "tau_over_t_rip": 0.36591245109387205,
+    "n_slices": 8083720930.232558,
+    "plate_census": 11800000000.0,
+    "V_recon_m3": 0.06111149999999948,
+    "V_registered_m3": 0.0601,
+    "V_ratio": 1.0168302828618883,
+    "keyframes": {
+      "t0": {
+        "t_s": 0.0,
+        "z_front_m": 0.0,
+        "sheets": 0.0,
+        "fragments": 0.0,
+        "fill": 0.0,
+        "V_swept_m3": 0.0,
+        "V_decayed_m3": 0.0,
+        "V_live_m3": 0.0,
+        "decayed_fraction": 0.0
+      },
+      "t_mid": {
+        "t_s": 4.0993412372709514e-09,
+        "z_front_m": 0.8689999999999999,
+        "sheets": 4041860465.116278,
+        "fragments": 5888990697.6744175,
+        "fill": 0.499067008277493,
+        "V_swept_m3": 0.0255336099999997,
+        "V_decayed_m3": 0.003766107196840295,
+        "V_live_m3": 0.021767502803159405,
+        "decayed_fraction": 0.14749607269948664
+      },
+      "t_end": {
+        "t_s": 8.198682474541903e-09,
+        "z_front_m": 1.7379999999999998,
+        "sheets": 8083720930.232556,
+        "fragments": 11777981395.348835,
+        "fill": 0.998134016554986,
+        "V_swept_m3": 0.06111149999999947,
+        "V_decayed_m3": 0.03653303393207151,
+        "V_live_m3": 0.024578466067927962,
+        "decayed_fraction": 0.5978094782826772
+      }
+    }
+  },
+  "estimator": {
+    "identity": "intrinsic_structure_tiers_v1 v1 (T0 sec.2, T1 sec.3, T2 sec.4, T3 sec.5)",
+    "implementation": "src/analysis/tiers_core_v1.py (verbatim extraction of src/route/structure_tiers.py)",
+    "grid": [
+      128,
+      128
+    ],
+    "bins": 64,
+    "context_levels": 16,
+    "smoothing": "T3: DoG, sigma = xi/2 and 2*xi (cells)",
+    "null_ensemble": "uniform iid, 16 realisations, seeds 4000..4015",
+    "threshold_lock": "D:\\Docs\\DCC\\runs\\MATRIX\\threshold_lock.json",
+    "threshold_lock_sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+    "threshold_lock_recorded": "5f324e1513c5df0a8c60539c0c50af6ea23bd14924932115b2c926ebbc12b1cc"
+  },
+  "null_ensemble": {
+    "P0_mean": 0.05639902750651036,
+    "P0_sd": 0.00046869301873620243,
+    "Q2_mean": 0.1382005856936081,
+    "Q2_sd": 0.0007670727221043092,
+    "realisations": 16,
+    "seed_start": 4000
+  },
+  "profile": [
+    {
+      "keyframe": "t0",
+      "field": "plate",
+      "tier": "T0",
+      "value": null,
+      "threshold": 0.5,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t0",
+      "field": "plate",
+      "tier": "T1",
+      "value": null,
+      "threshold": 4.0,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t0",
+      "field": "plate",
+      "tier": "T2",
+      "value": null,
+      "threshold": 0.5,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t0",
+      "field": "plate",
+      "tier": "T3",
+      "value": null,
+      "threshold": 2.0,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t0",
+      "field": "canvas",
+      "tier": "T0",
+      "value": null,
+      "threshold": 0.5,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t0",
+      "field": "canvas",
+      "tier": "T1",
+      "value": null,
+      "threshold": 4.0,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t0",
+      "field": "canvas",
+      "tier": "T2",
+      "value": null,
+      "threshold": 0.5,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t0",
+      "field": "canvas",
+      "tier": "T3",
+      "value": null,
+      "threshold": 2.0,
+      "verdict": "NOT-APPLICABLE",
+      "status": "NOT-APPLICABLE",
+      "note": "no 2D output before the front arrives"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "plate",
+      "tier": "T0",
+      "value": 0.9979901957626627,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q0 = 1 - P0/P0(null)"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "plate",
+      "tier": "T1",
+      "value": 21.859849469131536,
+      "threshold": 4.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "xi in cells (h = 1 cell), w(1/e) = 0.3640"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "plate",
+      "tier": "T2",
+      "value": 0.9091213054225902,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q2 renormalised conditional entropy, H = 0.8079 bits"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "plate",
+      "tier": "T3",
+      "value": 7.286998965925603,
+      "threshold": 2.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "canvas",
+      "tier": "T0",
+      "value": 0.9989177977183569,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q0 = 1 - P0/P0(null)"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "canvas",
+      "tier": "T1",
+      "value": 39.57001857995575,
+      "threshold": 4.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "xi in cells (h = 1 cell), w(1/e) = 0.3627"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "canvas",
+      "tier": "T2",
+      "value": 0.7800023873398491,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q2 renormalised conditional entropy, H = 3.5752 bits"
+    },
+    {
+      "keyframe": "t_mid",
+      "field": "canvas",
+      "tier": "T3",
+      "value": 5.922201882253886,
+      "threshold": 2.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "q = 1.0 (declared instrument); C_xi = 0.596402; q = 0 channel gives Q3 = 0.000"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "plate",
+      "tier": "T0",
+      "value": 0.9989177977183569,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q0 = 1 - P0/P0(null)"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "plate",
+      "tier": "T1",
+      "value": 19.007244546704474,
+      "threshold": 4.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "xi in cells (h = 1 cell), w(1/e) = 0.3445"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "plate",
+      "tier": "T2",
+      "value": 0.906168874312711,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q2 renormalised conditional entropy, H = 0.5069 bits"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "plate",
+      "tier": "T3",
+      "value": 7.562600818573552,
+      "threshold": 2.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "q = 1.0 (declared instrument); C_xi = 1.880470; q = 0 channel gives Q3 = 0.000"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "canvas",
+      "tier": "T0",
+      "value": 0.9981791517166004,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q0 = 1 - P0/P0(null)"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "canvas",
+      "tier": "T1",
+      "value": 39.865420204815685,
+      "threshold": 4.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "xi in cells (h = 1 cell), w(1/e) = 0.3653"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "canvas",
+      "tier": "T2",
+      "value": 0.7399364330211023,
+      "threshold": 0.5,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "Q2 renormalised conditional entropy, H = 5.0770 bits"
+    },
+    {
+      "keyframe": "t_end",
+      "field": "canvas",
+      "tier": "T3",
+      "value": 4.493216806678419,
+      "threshold": 2.0,
+      "verdict": "PASS",
+      "status": "MEASURED",
+      "note": "q = 1.0 (declared instrument); C_xi = 0.215213; q = 0 channel gives Q3 = 0.000"
+    }
+  ],
+  "meta": {
+    "t0": {},
+    "t_mid": {
+      "plate": {
+        "field": "plate@t_mid",
+        "Q0": 0.9979901957626627,
+        "xi": 21.859849469131536,
+        "Q2": 0.9091213054225902,
+        "Q3": 7.286998965925603,
+        "Q3_reflection": 0.0,
+        "C_xi": 1.5517275337552334,
+        "sigma_over_du": 0.2635741210923556,
+        "H_bits": 0.8078526585714443,
+        "P0": 0.00011335100446428572
+      },
+      "canvas": {
+        "field": "canvas@t_mid",
+        "Q0": 0.9989177977183569,
+        "xi": 39.57001857995575,
+        "Q2": 0.7800023873398491,
+        "Q3": 5.922201882253886,
+        "Q3_reflection": 0.0,
+        "C_xi": 0.5964016955313146,
+        "sigma_over_du": 0.3002664333606198,
+        "H_bits": 3.5752361505872936,
+        "P0": 6.103515625e-05
+      }
+    },
+    "t_end": {
+      "plate": {
+        "field": "plate@t_end",
+        "Q0": 0.9989177977183569,
+        "xi": 19.007244546704474,
+        "Q2": 0.906168874312711,
+        "Q3": 7.562600818573552,
+        "Q3_reflection": 0.0,
+        "C_xi": 1.8804695721892095,
+        "sigma_over_du": 0.18647319125116543,
+        "H_bits": 0.506868729003564,
+        "P0": 6.103515625e-05
+      },
+      "canvas": {
+        "field": "canvas@t_end",
+        "Q0": 0.9981791517166004,
+        "xi": 39.865420204815685,
+        "Q2": 0.7399364330211023,
+        "Q3": 4.493216806678419,
+        "Q3_reflection": 0.0,
+        "C_xi": 0.2152127822468268,
+        "sigma_over_du": 0.24814004371448134,
+        "H_bits": 5.076976133417849,
+        "P0": 0.00010269407242063492
+      }
+    }
+  },
+  "ledger": {
+    "t0": {
+      "t_s": 0.0,
+      "z_front_m": 0.0,
+      "V_swept_m3": 0.0,
+      "m_swept_kg": 0.0,
+      "V_deposited_m3": 0.0,
+      "m_deposited_kg": 0.0,
+      "V_decayed_m3": 0.0,
+      "m_decayed_kg": 0.0,
+      "V_live_m3": 0.0,
+      "m_live_kg": 0.0,
+      "sheet_count": 0.0,
+      "fragment_count": 0.0,
+      "residual_m3": 0.0,
+      "closure": "deposited == swept (identity, residual 0 by construction; C1 HELD)",
+      "decay_route": "decayed mass terminates the 2D domain and leaves to a 3D reservoir; the reservoir budget is OUT-OF-SCOPE for this cycle because the 3 ns lifetime is IMPORTED"
+    },
+    "t_mid": {
+      "t_s": 4.0993412372709514e-09,
+      "z_front_m": 0.8689999999999999,
+      "V_swept_m3": 0.0255336099999997,
+      "m_swept_kg": 25.5336099999997,
+      "V_deposited_m3": 0.0255336099999997,
+      "m_deposited_kg": 25.5336099999997,
+      "V_decayed_m3": 0.003766107196840295,
+      "m_decayed_kg": 3.7661071968402946,
+      "V_live_m3": 0.021767502803159405,
+      "m_live_kg": 21.767502803159406,
+      "sheet_count": 4041860465.116278,
+      "fragment_count": 5888990697.6744175,
+      "residual_m3": 0.0,
+      "closure": "deposited == swept (identity, residual 0 by construction; C1 HELD)",
+      "decay_route": "decayed mass terminates the 2D domain and leaves to a 3D reservoir; the reservoir budget is OUT-OF-SCOPE for this cycle because the 3 ns lifetime is IMPORTED"
+    },
+    "t_end": {
+      "t_s": 8.198682474541903e-09,
+      "z_front_m": 1.7379999999999998,
+      "V_swept_m3": 0.06111149999999947,
+      "m_swept_kg": 61.111499999999474,
+      "V_deposited_m3": 0.06111149999999947,
+      "m_deposited_kg": 61.111499999999474,
+      "V_decayed_m3": 0.03653303393207151,
+      "m_decayed_kg": 36.53303393207151,
+      "V_live_m3": 0.024578466067927962,
+      "m_live_kg": 24.578466067927963,
+      "sheet_count": 8083720930.232556,
+      "fragment_count": 11777981395.348835,
+      "residual_m3": 0.0,
+      "closure": "deposited == swept (identity, residual 0 by construction; C1 HELD)",
+      "decay_route": "decayed mass terminates the 2D domain and leaves to a 3D reservoir; the reservoir budget is OUT-OF-SCOPE for this cycle because the 3 ns lifetime is IMPORTED"
+    }
+  }
+}

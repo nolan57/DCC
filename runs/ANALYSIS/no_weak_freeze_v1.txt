@@ -1,0 +1,63 @@
+============================================================================================
+Scenario W: remove 'weak interaction kept on' (allow neutronization), all other assumptions unchanged
+============================================================================================
+[W1] Final composition: from 'human atoms' to 'neutron-star crust matter'
+  Initial state (Z/A=0.522, weak interaction frozen): X_p=0.522  n_e=0.0220 fm^-2  mu_e=73.4 MeV
+  ALL3D  final: X_p=1.6198e-03  mu_e=24.96 MeV  n_e=6.8281e-05 fm^-2  n_e/n_e0=0.003  proton remnant 0.3%
+  HYB    final: X_p=4.5006e-02  mu_e=21.54 MeV  n_e=1.8972e-03 fm^-2  n_e/n_e0=0.086  proton remnant 8.6%
+  ALL2D  final: X_p=4.3957e-03  mu_e= 6.73 MeV  n_e=1.8530e-04 fm^-2  n_e/n_e0=0.008  proton remnant 0.8%
+  => Under any convention, more than 91% of protons disappear; the remaining matter is npe matter, not chemical matter
+  => Density n_B=0.0422 fm^-3 = 0.26 n_0 -- right in the inner-crust / nuclear pasta density range
+  ARGUMENT  W1_subject_changed             PASS  removing weak freezing amounts to changing the object of study: 'flattened person' -> 'a patch of crust matter'
+
+[W2] 2D criterion: it actually becomes looser after neutronization (this is the only good news)
+  ALL3D  electrons: n_e=6.8281e-05 fm^-2  E_F=4.09 MeV  E_sub/E_F=151.7  upper bound of L_z window 13.67 fm
+  HYB    electrons: n_e=1.8972e-03 fm^-2  E_F=21.54 MeV  E_sub/E_F=28.8  upper bound of L_z window 4.51 fm
+  ALL2D  electrons: n_e=1.8530e-04 fm^-2  E_F=6.73 MeV  E_sub/E_F=92.1  upper bound of L_z window 9.80 fm
+  CHECK     W2_electron_2D_holds           PASS  E_sub/E_F rises from 8.4 to about 29; the L_z window widens from [1.68,1.99] to [1.68,4.5]
+  Note: the nucleon side likewise loosens (E_F,n drops from 24 MeV to about 22 MeV, subband spacing still 430 MeV)
+  => K1 (geometric window too narrow) is essentially removed in scenario W
+
+[W3] Mechanical equilibrium: does it self-rescue (self-bind)?
+  ALL3D  P_tot=6.48e+16 N/m  ->  v_inf=4.30e+07 m/s = 0.144 c
+  HYB    P_tot=6.27e+16 N/m  ->  v_inf=4.23e+07 m/s = 0.141 c
+  ALL2D  P_tot=1.84e+16 N/m  ->  v_inf=2.30e+07 m/s = 0.077 c
+  CHECK     W3_not_selfbound               PASS  P_tot is positive and of order 1e16 in all three conventions -> still not self-bound, it will still blow apart
+  => K3 (z-direction wall pressure) and the line-6 NO-GO are unaffected: whatever matter it is replaced with, external confinement is required
+
+[W4] Shape cost: surface energy vs bulk binding energy (replacing K4's 'hard-wall zero-point energy')
+  E/A(0.042 fm^-3) = -8.77 MeV (parabolic approximation, symmetric matter)
+  Bulk term e_bulk*L = -0.37 * 1.0 = -0.37 MeV/fm^2 (negative = binding)
+  Surface 2*sigma = 2.20 MeV/fm^2
+  Net shape cost = +1.83 MeV/fm^2
+  Compare in-plane degeneracy energy u_inplane = 1.08 MeV/fm^2
+  Surface/bulk equilibrium thickness L* = 2*sigma/|e_bulk| = 6.0 fm
+  ESTIMATE  W4_surface_dominates           PASS  a 1 fm slab is energetically unfavorable: the net cost 1.83 MeV/fm^2 is 1.7 times the degeneracy energy
+  => With no external force it would rather become a droplet; to keep a 'sheet' shape, the confinement field must additionally pay this surface energy
+  => Note: at L*=6.0 fm >> 2 fm the electrons are long ago not 2D -- another mutual exclusion
+
+[W5] Timescales: now it is not a 'contradiction' but a 'lifetime'
+  tau_capture(initial state mu_e=73.4) = 2.96 ns
+  t_rip(1 m, c_s=c/sqrt2)     = 4.72 ns
+  => Lifetime ~ 3-5 ns; the "final state" has no time to form in any sense
+  ESTIMATE  W5_transient_only              PASS  K5 is demoted from 'assumption conflict' to 'object lifetime', but it has not disappeared
+
+[W6] Neutrino budget (direct consequence of removing weak freezing)
+  Captured electrons 2.011e-02 fm^-2, each carrying away ~30 MeV -> 9.66e+16 J/m^2
+  Compare u_inplane=1.72e17 J/m^2 -> ratio 0.56
+  ESTIMATE  W6_neutrino_comparable         PASS  neutrinos carry away energy of the same order as the degeneracy energy; this energy is unrecoverable and 'smooth' fails completely
+
+[W7] Naming the confiner: is the electrostatic attraction of protons enough?
+  Initial (frozen)    n_p=2.2005e-02 fm^-3 -> electrostatic well depth ~4.98e-02 MeV  vs  E_F=73.37 MeV  -> short by 1e+03
+  W/HYB final      n_p=1.8972e-03 fm^-3 -> electrostatic well depth ~4.29e-03 MeV  vs  E_F=21.54 MeV  -> short by 5e+03
+  ESTIMATE  W7_no_natural_confiner         PASS  the electrostatic well is 3 orders of magnitude below E_F; neutron stars rely on gravity, and there is no gravity here (70 kg)
+  => In scenario W, K2 is not only unresolved but now has a concrete defendant: none of the four known forces can serve as this wall
+
+--------------------------------------------------------------------------------------------
+Scenario W tally:
+  Removed : K1 (geometric window)  K6 (logical mutual exclusion)
+  Remains : K2 (no confiner, short by 3 orders of magnitude)  K3 (z/lateral pressure, still off by a factor 25)
+         K5 (no timescale separation -> becomes a lifetime ~3 ns)
+  Added : W4 (surface energy cost 1.7 x degeneracy energy)  W6 (neutrinos carry away 0.6 x degeneracy energy)
+  Cost : the object of study is no longer a 'person' (91% of protons gone), and it is not self-bound
+  Net verdict: the assumption set changes from 'empty set' to 'solvable but false' -- this is progress, but not a reversal.

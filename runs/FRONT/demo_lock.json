@@ -1,0 +1,40 @@
+{
+  "lock_version": 1,
+  "locked_at": "2026-11-22T17:39:00+08:00",
+  "locked_by": "AI executor, before the figure it governs was re-rendered with it",
+  "spec_path": "docs/specs/demo_object_v1.md",
+  "spec_sha256": "afe855c260030ce9e5742cb1277bb35f25785008a0427fd518b236bb740e4633",
+  "scope": "DEMO-1 only. Does NOT constrain the body's census, and does NOT close GD11 for the body.",
+  "declared_constants": {
+    "M_shell": 4,
+    "S_side": 65536,
+    "H_m": 0.23,
+    "delta_m": 2.15e-10,
+    "pitch_m": 0.4001,
+    "r1_m": 0.02,
+    "r2_m": 0.045,
+    "r2_amp_m": 0.006,
+    "r3_m": 0.07,
+    "r3_amp_m": 0.008,
+    "r4_m": 0.09,
+    "f_sweep": 0.5
+  },
+  "derived": {
+    "N_layers": 1069767441,
+    "pieces": 4279069764,
+    "cells": 4294967296,
+    "plates_per_cell": 0.996299,
+    "H_max_m": 0.230854
+  },
+  "sigma": {
+    "rule": "piece index p = k*N + n (component-major), site = Hilbert index p, order 16",
+    "ordering": "component-major",
+    "curve": "Hilbert, exact (S a power of two, no padding)",
+    "why": "layer-major is annihilated by the 1:16384 decimation every renderable frame imposes: each decimated block would contain all four components at 25.0% each"
+  },
+  "forbidden": [
+    "layer-major ordering presented as equivalent",
+    "any claim that the map is readable",
+    "any claim that the deposit is two-dimensional"
+  ]
+}

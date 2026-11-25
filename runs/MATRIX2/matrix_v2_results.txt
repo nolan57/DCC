@@ -1,0 +1,104 @@
+================================================================================================
+MATRIX v2 -- reconstructed 8x4  (design proposal; establishes no physics)
+================================================================================================
+spec        : docs/specs/matrix_v2_spec_v1.md
+registered  : runs/MATRIX2/matrix_v2_registration.md
+columns     : L0 Q0 >= 0.50 | L1 xi/h >= 4.0 | L2 Q2 >= 0.50 | L3 Q3 >= 2.0
+rungs       : RL-0 .. RL-6  (only L3 moves; Q0,Q1,Q2 are rung-invariant)
+calibration : 8 declared scenes parsed from runs/MATRIX/structure_tiers_results.txt
+
+================================================================================================
+[1] ROW TYPING  (rule, not bookkeeping: three obstacle classes, three prices)
+================================================================================================
+  id   combination   field scene    obstacle                 class
+  --------------------------------------------------------------------------------------------
+  R1   C1&C2&C3      yes   severed  HARD KNOB                PRICED
+       price : R2 knob: weak suppression >= 1e5 (hard, scifi_boundary_v1 s1)
+  R2   C1&C2&~C3     yes   severed  --                       STRICT
+       price : 0
+  R3   C1&~C2&C3     yes   bonded   MISSING MODEL + HARD KNOB PRICED
+       price : one constitutive law (modulus / body sigma; KIN-DYN supplies none) + R2 knob: weak suppression >= 1e5 (hard, scifi_boundary_v1 s1)
+  R4   ~C1&C2&C3     no    --       NO-FIELD                 NO-SCENE + C3
+       price : -- (no 2D field exists)
+  R5   C1&~C2&~C3    yes   bonded   MISSING MODEL            LIVE
+       price : one constitutive law (modulus / body sigma; KIN-DYN supplies none)
+  R6   ~C1&~C2&~C3   no    --       NO-FIELD                 NO-SCENE
+       price : -- (no 2D field exists)
+  R7   ~C1&~C2&C3    no    --       NO-FIELD                 NO-SCENE + C3
+       price : -- (no 2D field exists)
+  R8   ~C1&~C2&~C3   no    --       NO-FIELD                 NO-SCENE  (duplicate of R6)
+       price : -- (no 2D field exists)
+  R0   ~C1&C2&~C3    no    --       NO-FIELD                 NO-SCENE  (omitted by sIV; M0)
+
+================================================================================================
+[2] THE GRID   cell = value verdict @rung*   (* = passes, not evidential, MR1.1)
+================================================================================================
+  id   scene     L0               L1               L2               L3              
+  --------------------------------------------------------------------------------------------
+  R1   severed   PRED FAIL @--    PRED FAIL @--    PRED PASS* @0    FAIL@0 BLK@1    
+  R2   severed   PRED FAIL @--    PRED FAIL @--    PRED PASS* @0    FAIL@0 BLK@1    
+  R3   bonded    0.9989 PASS* @0  27.55 PASS* @0   0.9417 PASS* @0  6.316 PASS @1   
+  R4   --        NO-SCENE         NO-SCENE         NO-SCENE         NO-SCENE        
+  R5   bonded    0.9989 PASS* @0  27.55 PASS* @0   0.9417 PASS* @0  6.316 PASS @1   
+  R6   --        NO-SCENE         NO-SCENE         NO-SCENE         NO-SCENE        
+  R7   --        NO-SCENE         NO-SCENE         NO-SCENE         NO-SCENE        
+  R8   --        NO-SCENE         NO-SCENE         NO-SCENE         NO-SCENE        
+
+  NOTE  R1/R2 and R3/R5 agree column by column: C3 is column-invisible (S2).
+        It changes the price, not the scene -- which is why 8 rows are rank 2.
+  NOTE  R5's L3 value is the TILED reference. MR1.3 forbids inheriting a Q3 measured on an
+        abstract field; it is recorded here as a PREDICTION TARGET, not as a cell value.
+
+================================================================================================
+[3] L3 ACROSS THE RUNG AXIS  (the strict -> hard-SF dial; only this column moves)
+================================================================================================
+  rung  severed            bonded
+  ------------------------------------------------------------
+  RL-0  FAIL 0.000         FAIL 0.000
+  RL-1  BLOCKED            6.316 PASS
+  RL-2  BLOCKED            PRICED, uncomputed
+  RL-3  BLOCKED            PRICED, uncomputed
+  RL-4  BLOCKED            PRICED, uncomputed
+  RL-5  BLOCKED            PRICED, uncomputed
+  RL-6  BLOCKED            PRICED, uncomputed
+
+  RL-0 deposit as measured | RL-1 declared instrumented observer (q=1, gate <= 3 ns)
+  RL-2 relief geometry | RL-3 oblique illumination | RL-4 visible transmission CLOSED
+  RL-5 persistence to steady state (>= 6.2e23 V/m, or a 2D pocket) | RL-6 picture CLOSED (2^14)
+
+================================================================================================
+[4] COMPRESSION  (computed, not asserted)
+================================================================================================
+  nominal  8 x 4 x 7        : 224
+  canonical (distinct)       : 20
+    content                : 9
+    priced                 : 5
+    blocked                : 6
+  compression ratio         : 11.2 : 1
+
+================================================================================================
+[5] STRUCTURAL PREDICTIONS  (registration S1..S4)
+================================================================================================
+  S1 4 of 8 rows carry a field   : CONFIRMED  ['R1', 'R2', 'R3', 'R5']
+  S2 C3 is column-invisible      : CONFIRMED  (R1=R2, R3=R5)
+  S3 the omitted row adds 0 cells: CONFIRMED  (NO-SCENE)
+  S4 224 -> 20, 8 with content   : FAILED  (20 canonical, 9 content)
+       -- the registered count omitted the severed scene's L3 at RL-0 (0.000 FAIL),
+          which is a value and not a blocked entry. Correction recorded as E1 in the
+          registration; the prediction above is left standing as written.
+
+================================================================================================
+[6] WHAT THE GRID SAYS
+================================================================================================
+  R5 is the only row in which all four columns pass, and it passes at RL-1 -- the cheapest
+  rung, priced as a CONVENTION (a declared observer) rather than a field. R2, the row that
+  costs nothing, fails three of four and its single pass is non-evidential. The matrix,
+  typed correctly, reaches the ladder's conclusion from the row side.
+
+  Ceiling, unchanged: R2's scene is the deposit, and the deposit reads only (M, N)
+  (DEPOSIT-BLIND: six objects, one digest, I(canvas;r4) = 0). MR1.6 stands.
+
+PROVENANCE: NEITHER  (row typing by rule; values from the declared-scene calibration)
+ordering          : NOT EVIDENCED BY MTIME -- the registration carries an appended
+                    erratum, so its mtime is the append time. Declaration order is
+                    asserted by the erratum text, not by this number (12.4 s).

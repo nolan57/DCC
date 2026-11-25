@@ -1,0 +1,128 @@
+G-73-01  VERIFICATION REPORT
+==============================================================================
+Instrument : src/g73/verify_g73_numbers.py
+Registration: runs/G-73-01/g73_01_registration.md
+PROVENANCE : NEITHER (re-reads archived constants; derives no physics)
+Result class: ARITHMETIC AND STRUCTURE ONLY. No survival, visibility, feasibility,
+              route, gate, threshold, price or RQ claim.
+
+------------------------------------------------------------------------------
+SECTION A  Declared arithmetic (registration section 3)
+------------------------------------------------------------------------------
+  N01   ok   a = P/Sigma                          1.231814e+15 m/s^2      declared   1.231800e+15  ok
+  N02   ok   0.5 a t_rip^2                        4.197406e-02 m          declared   4.197400e-02  ok
+  N03   ok   v/c at t_rip                         3.392012e-02 -          declared   3.392000e-02  ok
+  N04   ok   gamma-1 at t_rip                     5.757842e-04 -          declared   5.760000e-04  ok
+  N05   ok   dL/L_z                               4.197406e+13 -          declared   4.197000e+13  ok
+  N06   ok   pi hbar c / 1 fm                     6.199210e+02 MeV        declared   6.199210e+02  ok
+  N07   ok   L_z max, frozen                      8.449243e+00 fm         declared   8.449200e+00  ok
+  N08   ok   t to reach L_z,max                   3.477751e-15 s          declared   3.477800e-15  ok
+  N09   ok   window fraction of t_rip             4.212749e-07 -          declared   4.212700e-07  ok
+  N10   ok   L_z max, ALL2D                       9.963212e+01 fm         declared   9.963200e+01  ok
+  N11   ok   t to reach L_z,max ALL2D             1.265469e-14 s          declared   1.265500e-14  ok
+  N12   ok   v_inf t_rip                          4.097518e-01 m          declared   4.098000e-01  ok
+  N13   ok   c_s t_rip                            1.750002e+00 m          declared   1.750100e+00  ok
+  N14   ok   c^4/8 pi G                           4.815454e+42 Pa m^2     declared   4.815450e+42  ok
+  N15   ok   k^2 eps                              6.711331e+03 m^-2       declared   6.711300e+03  ok
+  N16   ok   rho_req                              3.231810e+46 J/m^3      declared   3.231810e+46  ok
+  N17   ok   rho_req                              2.017137e+14 MeV/fm^3   declared   2.017140e+14  ok
+  N18   ok   rho_nuc                              2.408559e+34 J/m^3      declared   2.408600e+34  ok
+  N19   ok   rho_req/rho_nuc                      1.341803e+12 -          declared   1.341800e+12  ok
+  N20   ok   rho^(1/4)                            1.984146e+02 GeV        declared   1.984000e+02  ok
+  N21   ok   T_rad at g=86.25                     8.596850e+01 GeV        declared   8.600000e+01  ok
+  N22   ok   lambda for rho_nuc                   1.158362e+03 m          declared   1.158000e+03  ok
+  N23   ok   curvature radius                     1.220663e-02 m          declared   1.221000e-02  ok
+  N24   ok   aspect ratio after growth            1.165946e-01 -          declared   1.166000e-01  ok
+  N25   ok   c_s implied                          1.000000e+03 m/s        declared   1.000000e+03  ok
+  N26   ok   R implied                            1.800000e-01 m          declared   1.800000e-01  ok
+  N27   ok   2 delta / (c/sqrt2)                  2.028443e-18 s          declared   2.028400e-18  ok
+  N28   ok   R / (c/sqrt2)                        8.491156e-10 s          declared   8.491200e-10  ok
+  N29   ok   t_rip = sqrt2 L / c                  8.255290e-09 s          declared   8.255300e-09  ok
+  N30   ok   t to 0.1 nm                          4.029419e-13 s          declared   4.030000e-13  ok
+  N31a  ok   t to 1 um                            4.029419e-11 s          declared   4.029400e-11  ok
+  N31b  ok   t to 1 mm                            1.274214e-09 s          declared   1.273800e-09  ok
+  X1    ok   Casimir 1 um                        -4.333753e-04 J/m^3      declared  -4.333800e-04  ok
+  X2    ok   Casimir 1 nm                        -4.333753e+08 J/m^3      declared  -4.333800e+08  ok
+  X3    ok   laser u=I/c                          3.335641e+17 J/m^3      declared   3.335600e+17  ok
+  X4    ok   NS core 5 n0                         1.204279e+35 J/m^3      declared   1.204300e+35  ok
+  X5    ok   QGP 12 GeV/fm^3                      1.922612e+33 J/m^3      declared   1.922600e+33  ok
+  X6    ok   Planck density                      4.632947e+113 J/m^3      declared  4.632900e+113  ok
+  N33   ok   orders over Casimir 1 um             4.987258e+01 dec        declared   4.987300e+01  ok
+  N34   ok   orders over Casimir 1 nm             3.787258e+01 dec        declared   3.787300e+01  ok
+  N35   ok   orders over laser                    2.898627e+01 dec        declared   2.898600e+01  ok
+  N36   ok   orders over NS core                  1.142872e+01 dec        declared   1.142900e+01  ok
+  N37   ok   orders over QGP                      1.322555e+01 dec        declared   1.322600e+01  ok
+  N38   ok   orders below Planck                  6.715641e+01 dec        declared   6.715600e+01  ok
+  N39   ok   (c^4/8piG)/rho_nuc                   1.999309e+08 -          declared   1.999300e+08  ok
+  N40   ok   Sigma pi R^2                         7.125132e+00 kg         declared   7.125000e+00  ok
+  N41   ok   aspect ratio before growth           1.194444e-09 -          declared   1.194000e-09  ok
+  N42   ok   u_2D archived                        1.724500e+17 J/m^2      declared   1.724500e+17  ok
+  N43   ok   radiation density at 160 GeV         4.799293e+47 J/m^3      declared   4.797000e+47  ok
+  N44   ok   rho_req below the 160 GeV bath       1.171731e+00 dec        declared   1.172000e+00  ok
+  N45   ok   lambda for NS-core cost              5.180353e+02 m          declared   5.180000e+02  ok
+  N46   ok   B at L_z = 1 fm                      1.428571e-14 -          declared   1.428600e-14  ok
+  N47   ok   decades outside v1.4 B window        5.225309e+00 dec        declared   5.225300e+00  ok
+  N48   ok   2 delta                              4.300000e-10 m          declared   4.300000e-10  ok
+  N49   ok   a in gravities                       1.256101e+14 g          declared   1.256000e+14  ok
+
+------------------------------------------------------------------------------
+SECTION B  Reconstruction of the section 7 timescales (registration section 4)
+------------------------------------------------------------------------------
+  printed: 2*delta/c_s = 4.300e-13 s ; R/c_s = 1.800e-04 s ; R/(2 delta) = 4.190e+08
+  solved : c_s = 1.000000e+03 m/s ; R = 1.800000e-01 m ; R/(2 delta) = 4.186047e+08
+  CK1  ratio reproduced to 2e-3 : PASS (deviation 9.44e-04)
+  c_s solved / c_s(2D UR)      : 1.00000e+03 / 2.11985e+08 = 5.326 decades below
+  at c/sqrt2: thickness 2.0284e-18 s (2.457e-10 x t_rip) ; in-plane 8.4912e-10 s (1.029e-01 x t_rip)
+  both before t_rip at c/sqrt2 : YES
+
+------------------------------------------------------------------------------
+SECTION C  Self-consistency of the B3 ballistic estimate
+------------------------------------------------------------------------------
+  v at t_rip = 1.0169e+07 m/s = 0.0339 c ; gamma-1 = 5.758e-04
+  non-relativistic treatment valid to 0.058% : YES
+  light travel within t_rip = 2.4749 m ; dL is 1.696% of it
+  estimate spread, same t_rip: 0.5 a t^2 = 0.0420 m ; v_inf t = 0.4098 m ; c_s t = 1.7500 m
+  spread factor v_inf / (0.5 a t) = 9.762 ; in decades 0.990
+
+------------------------------------------------------------------------------
+SECTION D  Growth ladder: time to grow the thickness BY the stated amount
+------------------------------------------------------------------------------
+  (entries are increments of L_z from 1 fm, not absolute thicknesses)
+  by 10 fm  t = 4.0294e-15 s   t/t_rip = 4.8810e-07
+  by 1 nm   t = 1.2742e-12 s   t/t_rip = 1.5435e-04
+  by 1 um   t = 4.0294e-11 s   t/t_rip = 4.8810e-03
+  by 1 mm   t = 1.2742e-09 s   t/t_rip = 1.5435e-01
+  by 1 cm   t = 4.0294e-09 s   t/t_rip = 4.8810e-01
+  by 4.2 cm t = 8.2553e-09 s   t/t_rip = 1.0000e+00
+  rank order preserved : YES
+
+------------------------------------------------------------------------------
+SECTION E  Relief scaling checks
+------------------------------------------------------------------------------
+  lambda 0.01    rho = 3.23181e+44 J/m^3 = 1.3418e+10 rho_nuc
+  lambda 0.001   rho = 3.23181e+46 J/m^3 = 1.3418e+12 rho_nuc
+  lambda 0.1     rho = 3.23181e+42 J/m^3 = 1.3418e+08 rho_nuc
+  lambda 1       rho = 3.23181e+40 J/m^3 = 1.3418e+06 rho_nuc
+  rho ~ eps / lambda^2 : doubling eps doubles rho, doubling lambda quarters it
+  ratio to a decade change in lambda 1e-2 -> 1e-3 : 100.0000 (expect 100)
+
+------------------------------------------------------------------------------
+SECTION F  Product structure and claim guard
+------------------------------------------------------------------------------
+  P1   adiabaticity_provenance_analysis.md       25074 bytes  header ok
+       Finding 5 / Evidence 5 / Assessment 5 : ok
+       claim tokens (non-citation lines) : none
+  P2   b3_numerical_analysis.md                  24526 bytes  header ok
+       Finding 8 / Evidence 8 / Assessment 8 : ok
+       claim tokens (non-citation lines) : none
+
+------------------------------------------------------------------------------
+SECTION G  Verdicts
+------------------------------------------------------------------------------
+  arithmetic rows  : 49
+  structural rows  : 18
+  failures         : 0 
+
+  OVERALL: PASS
+
+Content generated by AI

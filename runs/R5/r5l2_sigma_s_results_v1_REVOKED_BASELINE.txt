@@ -1,0 +1,107 @@
+
+==============================================================================
+R5-L2:  sigma_s(omega) MODULE  (v1.4 6.4 / 6.7 / 8.13 L2)
+==============================================================================
+designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+
+logged inputs (G0): n_2D = 2.200e+27 m^-2 ; E_F(ref) = 23.20 MeV ; m*/m_e = 45.4 (S37) ;
+q_opt = 1.260e+07 1/m ; tau = OPEN input, scan {1e-19, 1e-18, 1e-16} s ; interband amplitude = OPEN input
+(benchmark e^2/(16 hbar) = 1.5213e-05 S; line shape unknown, switch-only model).
+
+prohibitions in force (6.4 / 6.7 / 8.13), restated in code comments and output:
+  - NO default pi*alpha (=2.3 percent) input anywhere;
+  - NO extrapolation from any bulk omega_p (plasmon q_opt*c is above the light cone;
+    optics stated ONLY through the surface conductivity sigma_s(omega));
+  - NO visibility / mirror / transparency conclusion of any kind.
+gate status: G4 = not passed (open); G5' = not passed (open) -> all products below
+are labeled 'designated-background test optics' on every row.
+
+consistency (G0): k_F = sqrt(2 pi n_2D) = 1.1757e+14 1/m (logged 1.176e14); 
+E_F = hbar k_F c = 23.2000 MeV vs logged 23.20 MeV: rel dev = 5.533e-07 (tol 2.0e-03) -> OK
+long-wavelength check: q_opt/k_F = 1.072e-07 << 1 -> local sigma_s (q -> 0 Lindhard limit) valid.
+q_opt*c = 3.777e+15 rad/s (G0 3.7: plasmon above light cone, non-radiative mode).
+model form: sigma_s(w) = (e^2 n_2D tau / m*)/(1 - i w tau)  [2D Lindhard long-wavelength
+intraband limit with relaxation time tau] + sigma_inter(theta(hbar w - 2 E_F)), switch on the
+Pauli-blocking bandwidth: interband OFF when hbar w <= 2 E_F = 46.40 MeV.
+
+==============================================================================
+R, T, A TABLE  (normal incidence, free-standing, air/vacuum interface)
+==============================================================================
+designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+
+rows: hbar*omega ; columns: tau. cells: Re sigma, Im sigma [S]; R, T, A; (R+T+A-1).
+interband switch status printed per row (E_probe vs 2 E_F judgment).
+
+hbar*omega = 1.0 eV   [interband OFF (hbar*w < 2E_F; Pauli blocking ON)]
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  tau [s]   Re sigma [S]    Im sigma [S]    R             T             A             R+T+A-1    
+  1e-19     1.3655e-01      2.0746e-05      0.926555      0.001400      0.072045      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-18     1.3655e+00      2.0746e-03      0.992270      0.000015      0.007715      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-16     1.3347e+02      2.0278e+01      0.999922      0.000000      0.000078      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+
+hbar*omega = 2.0 eV   [interband OFF (hbar*w < 2E_F; Pauli blocking ON)]
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  tau [s]   Re sigma [S]    Im sigma [S]    R             T             A             R+T+A-1    
+  1e-19     1.3655e-01      4.1492e-05      0.926555      0.001400      0.072045      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-18     1.3655e+00      4.1491e-03      0.992270      0.000015      0.007715      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-16     1.2501e+02      3.7985e+01      0.999922      0.000000      0.000078      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+
+hbar*omega = 3.0 eV   [interband OFF (hbar*w < 2E_F; Pauli blocking ON)]
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  tau [s]   Re sigma [S]    Im sigma [S]    R             T             A             R+T+A-1    
+  1e-19     1.3655e-01      6.2238e-05      0.926555      0.001400      0.072045      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-18     1.3655e+00      6.2236e-03      0.992270      0.000015      0.007715      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-16     1.1306e+02      5.1533e+01      0.999922      0.000000      0.000078      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+
+hbar*omega = 50.0 MeV   [interband ON  (hbar*w > 2E_F)]
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  tau [s]   Re sigma [S]    Im sigma [S]    R             T             A             R+T+A-1    
+  1e-19     1.5216e-05      1.7976e-05      0.000020      0.994281      0.005699      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-18     1.5214e-05      1.7976e-05      0.000020      0.994282      0.005699      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+  1e-16     1.5213e-05      1.7976e-05      0.000020      0.994282      0.005699      0.00e+00   
+  designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+
+designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion
+note: the 50 MeV row exists to demonstrate the interband SWITCH only; it is not a
+reachable probe regime claim. All rows are designated-background test optics.
+
+==============================================================================
+TESTS
+==============================================================================
+[T1] R + T + A = 1 (max dev 0.000e+00) and A_def vs A_indep = Z0 Re(sigma)|t|^2 (max dev 1.527e-16);
+     threshold 1.0e-12 -> PASS
+[T2] dissipation-free limit at hbar*w = 1 eV..3 eV scale (w*tau >> 1: A ~ 1/tau):
+     tau = 1e-15 s : Re sigma = 1.3345e+02 S , A = 7.7755e-06
+     tau = 1e-14 s : Re sigma = 1.4774e+01 S , A = 7.7755e-07
+     tau = 1e-13 s : Re sigma = 1.4790e+00 S , A = 7.7755e-08
+     monotone decreasing: True ; A(tau = 1e-13 s) = 7.7755e-08 < 1.0e-06 -> PASS
+[T3] Re sigma_s monotone increasing over tau scan at hbar*w = 2.0 eV:
+     tau = 1e-19 s : Re sigma = 1.3655e-01 S , |sigma| = 1.3655e-01 S (w*tau = 3.039e-04)
+     tau = 1e-18 s : Re sigma = 1.3655e+00 S , |sigma| = 1.3655e+00 S (w*tau = 3.039e-03)
+     tau = 1e-16 s : Re sigma = 1.2501e+02 S , |sigma| = 1.3065e+02 S (w*tau = 3.039e-01)
+     registered validity note: monotonicity holds for w*tau < 1 across the scan;
+     max w*tau = 0.304 < 1 -> PASS
+
+==============================================================================
+VERDICTS
+==============================================================================
+C0  G0 consistency k_F, E_F (rel, tol 2.0e-03): PASS (5.533e-07)
+T1  R+T+A=1 and absorption identity (tol 1.0e-12): PASS
+T2  tau -> infinity limit A -> 0 (monotone + 1.0e-06): PASS
+T3  sigma_s monotone in tau over scan (w*tau < 1): PASS
+OVERALL: PASS
+EVIDENCE LEVEL: designated-background test optics (v1.4 8.13 grade cap until G4 and G5' pass);
+MODEL RESULT; NO visibility conclusion; no default pi*alpha; no bulk omega_p extrapolation;
+sigma_s inputs: n_2D, E_F, tau(OPEN, scanned); interband amplitude OPEN.
+designated-background test optics; sigma_s inputs: n_2D, E_F, tau(scan); NO visibility conclusion

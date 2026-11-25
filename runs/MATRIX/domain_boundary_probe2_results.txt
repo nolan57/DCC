@@ -1,0 +1,64 @@
+
+================================================================================================
+[0] THE ARITHMETIC THAT MOTIVATES THE PROBE
+================================================================================================
+  joint table cells      : CTX*CTX*BINS = 16*16*64 = 16384
+  samples available      : (GRID-1)^2 = 16129
+  samples per cell       : 0.9844
+  -> at the locked configuration the plug-in conditional entropy has about ONE sample
+     per parameter.  That is a bias source independent of any field.
+
+================================================================================================
+[1] THE FIELD: near-constant with a BLOCK-STRUCTURED excursion
+================================================================================================
+  grid 128x128, 8x8 blocks, modal mass = 0.9375
+  a neighbour agrees with its cell in 98.62% of pairs (by construction ~100%)
+
+================================================================================================
+[2] MEASUREMENT AT THE LOCKED ALPHABET (CTX = 16, BINS = 64)
+================================================================================================
+  raw q2     = 0.913223
+  q2(null)   = 0.138201
+  Q2         = 0.899307   (locked threshold 0.50)
+
+================================================================================================
+[3] SAME FIELD, SMALLER TABLE (diagnostic only -- CTX and BINS are locked)
+================================================================================================
+  CTX=4, BINS=16 -> 256 cells, 63.0 samples per cell
+  raw q2     = 0.913223
+  q2(null)   = 0.002495
+  Q2         = 0.913006
+
+================================================================================================
+[4] PREDICTION LEDGER
+================================================================================================
+  A1-P1  FAIL  Q2 on the block-structured near-constant field = 0.8993 (< 0.50)
+  A1-P2  FAIL  raw q2 at the locked alphabet = 0.9132 (< 0.05)
+  A1-P3  PASS  raw q2 on the SAME field with a 256-cell table = 0.9132 (> 0.30)
+
+================================================================================================
+SUMMARY
+================================================================================================
+  predictions confirmed  : 1 of 3
+  predictions FAILED     : 2  A1-P1, A1-P2
+
+  CAUSE ESTABLISHED: the same field reads q2 = 0.913 with a 256-cell table and 0.913 with the
+  locked 16384-cell table.  Q2's failure is the parameter/sample ratio of the estimator,
+  not the geometry of the field.  T2's stated mechanism (alphabet bias) is therefore WRONG;
+  the prohibition must be stated in terms of the estimator, not of the alphabet.
+
+PROVENANCE: NEITHER  (estimator characterisation; establishes no physics)
+
+# ---------------------------------------------------------------------------------------------------
+# ERRATUM APPENDED AFTER THE RUN (2026-11-22).  The automatic SUMMARY above is WRONG and is left
+# standing rather than edited.  A1-P3 passed, and the summary took that as proof of the
+# "parameter/sample ratio" mechanism.  It does not prove that:
+#   the raw q2 is 0.913223 at BOTH table sizes, to six decimals.  Shrinking the table did not recover
+#   structure the big table had lost -- the big table never lost it.  What changed (0.138201 -> 0.002495)
+#   was the NULL, i.e. the renormalisation, not the field's measurement.
+# Corrected reading: the plug-in bias is FIELD-DEPENDENT (roughly, on how many table cells the field
+# occupies); the renormalisation subtracts a fixed uniform-field bias.  Over-correction is therefore
+# 0.014 bits where the signal is large (this probe) and larger than the signal itself where the raw q2
+# is small (probe 1: raw 0.0041, subtracted 0.138, result -0.156).  T2's stated mechanism (alphabet
+# bias) is wrong; my replacement (undersampling) is ALSO wrong.  The measured account above is the
+# third, and it is the one the annex uses.  See docs/decisions/t1_t2_t4_s9_execution_v1.md s2.

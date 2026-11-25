@@ -1,0 +1,91 @@
+==============================================================================
+[slab_visibility v1] ¬E branch: detail, resolution, information, and brightness are four different quantities
+==============================================================================
+
+[1] Geometry and density conventions
+  Flattened thickness L = M/(rho*A) = 0.0700 m = 7.00 cm
+  L = 7.000e+13 fm; n_e = N_E,2D/L = 3.1429e-16 fm^-3 = 3.1429e+29 m^-3
+  k_F = 2.1034e-05 fm^-1; mu_e = 0.0042 MeV = 4.15 keV
+  [CHECK   ] S1_mu_e_below_neutronization       PASS   4.15 keV << 1.293 MeV: the weak interaction has no target in the ¬E branch (consistent with the matrix table)
+
+  For comparison: average human body thickness = V/A_frontal = 0.070/0.5 = 14 cm
+  Spread over 1 m^2 it is 7 cm — **thinner than before, not compressed**. This branch does not involve any 'compression' at all.
+
+[2] How deep can visible light penetrate (π determines whether you see volume or surface)
+   450 nm : mu_a=  11.00 cm^-1  mu_s'= 350.0  delta=0.009 cm =  0.09 mm  (blue, strong hemoglobin absorption)
+   550 nm : mu_a=   4.50 cm^-1  mu_s'= 200.0  delta=0.019 cm =  0.19 mm  (green, tissue absorption peak)
+   650 nm : mu_a=   0.40 cm^-1  mu_s'=  70.0  delta=0.109 cm =  1.09 mm  (red, edge of optical window)
+   850 nm : mu_a=   0.30 cm^-1  mu_s'=  45.0  delta=0.157 cm =  1.57 mm  (near-infrared, center of optical window)
+  Best visible-light penetration delta_max = 1.57 mm (near-infrared)
+  Accessible depth fraction = delta/L = 0.0224 = 2.24 %
+  [ESTIMATE] S2_visible_light_is_surface_only   PASS   Visible light reaches only 1.6 mm of the 7 cm (2.2%); the remaining 98% is completely invisible
+
+[3] Direct consequence of opacity: what you see is the 'boundary', not the 'object'
+  For an opaque medium, reflection imaging satisfies: I(x,y) = R_surface(x,y) * L_env(x,y)
+  That is, the pixel value is determined only by the **outer-surface reflectivity** and the **ambient light**, independent of internal structure.
+  => Whether the inside is brain, bone, liver, or empty, from the front it is always the same skin surface.
+
+  [ARGUMENT] S3_reflectance_sees_boundary_only  PASS   The 3D structure of the 7 cm slab is compressed in the reflection channel into a boundary function R(x,y), with all internal degrees of freedom lost
+
+[4] So what does the 'boundary' look like: a skin sheet + wrinkles
+  Boundary = adult skin, area 1.8 m^2, while the projected footprint is only 1.0 m^2
+  Area ratio = 1.80: the skin must **fold** to fit into 1.0 m^2
+  If the wrinkle wavelength lam_w = 2 mm, then the amplitude a = 0.81 mm (a/lam = 0.40)
+  Number of wrinkle features ≈ (1000mm/2mm)^2 = 2.50e+05
+  => The surface is not a 'perfect plane' but a **crumpled leather**: it has 2e+05 millimeter-scale light/dark wrinkles.
+     This is the only visible texture in this branch, and it provides only **monochrome light/dark**, no color differentiation.
+
+  Composition comparison (determining 'whether there is color'):
+     Skin  : two chromophores — melanin/hemoglobin — with a narrow hue range (brown-pink-red)
+     Organs: liver brown, spleen purple, fat yellow, muscle red — **huge differences, but all internal**
+     => The color information exists, but is blocked by opacity at more than 1 mm beneath the skin.
+
+[5] Resolution ≠ information (this is the core of the 'white wall' verdict)
+  Resolution: how many independent pixels can be distinguished geometrically
+  Information: whether the values of these pixels differ from each other (entropy)
+
+  Observation method         Number of resolvable units Fraction with different values
+  --------------------------------------------------------------
+  Human eye @25cm (0.073mm)  1.88e+08       ~1 (only wrinkle light/dark)
+  Macro camera (10μm)        1.00e+10       ~1 (same as above)
+  Optical microscope (1μm)   1.00e+12       ~1 (surface still uniform)
+  X-ray CT (0.5mm)           5.60e+08       ~10^2 (has 3D structure)
+
+  The human eye can indeed resolve 1.9e8 points over 1 m^2 — but if the statistical distribution
+  of these 1.9e8 points differs from its own mean by only a few percent, then **extractable information ≈ log2(number of distinguishable classes) ≈ 1~2 bit**.
+  High resolution + low contrast = a high-pixel-count solid-color image. This is the literal meaning of 'white wall'.
+
+  [ARGUMENT] S5_resolution_is_not_information   PASS   1.9e8 pixels × 1~2 bit = information content on the same order as a blank A4 sheet
+
+[6] Three ways to 'unlock' internal structure (this is the correct reading of 'rich detail')
+
+  (a) Transmission imaging (X-ray/CT)
+         30 keV (soft X-ray): mfp=2.7 cm, for the 7 cm slab tau=2.63, transmittance=7.2%
+         50 keV (diagnostic X-ray): mfp=4.4 cm, for the 7 cm slab tau=1.59, transmittance=20.4%
+        100 keV (hard X-ray): mfp=5.8 cm, for the 7 cm slab tau=1.20, transmittance=30.2%
+      => A 3D dataset of 5.6e+08 voxels can be obtained, with internal structure **fully preserved**
+
+  (b) Cross-section observation (side view of the 7 cm edge)
+      Edge cross-sectional area = 1 m x 7 cm = 700 cm^2: what is seen is a **layered cross-section**
+      (layering of skin/fat/muscle/bone), equivalent to a geological cross-section.
+      This is structure accessible to visible light, but it is 'an edge', not 'a face'.
+
+  (c) Chemical/fluorescence staining
+      Converts invisible compositional differences into visible color differences; the cost is introducing exogenous labels.
+
+  [CHECK   ] S6_ct_penetrates_fully             PASS   At 50 keV tau=1.59; the 7 cm slab is semitransparent to X-rays => internal structure is readable
+
+[7] Conclusion
+  'Rich in detail' and 'looks like a white wall' do not contradict each other; they refer to two different things:
+    · Rich in detail: the object has ~1e11 cell-scale structural differences inside — true
+    · Looks like a white wall: in reflected visible light, the output is a nearly uniform monochrome field — also true
+  The bridge between the two is 'opacity': it blocks the 3D structure beyond 1 mm, releasing only a layer of skin.
+
+  => The correct statement is not 'this branch has no detail', but:
+     **This branch has extremely rich structure, but the reflected-light channel cannot read it.**
+     To read it, one must switch to transmission (X-ray/CT), cross-section (side view), or staining (exogenous labels).
+
+  Position in the matrix table: ✗✓✓ is still second place, but the reason must be rewritten —
+     Not 'little information', but 'information invisible in reflected light'. This is a channel problem, not a stock problem.
+
+==============================================================================

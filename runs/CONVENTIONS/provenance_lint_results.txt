@@ -1,0 +1,176 @@
+==============================================================================
+PROVENANCE LINT  (rules P1-P9, docs/conventions/provenance_tags_v1.md)
+==============================================================================
+  scope: runs/  ;  grandfathering: manifest (60 entries)  ;  branch dirs: S45
+  exemption (P9, BN-04): 12 entries, digest verified
+  report only: no physics verdict, exit code always 0
+
+------------------------------------------------------------------------------
+[EXEMPT-LEGACY]  12 file(s)
+------------------------------------------------------------------------------
+  runs/OPTICS/sc2_results.txt                                named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/OPTICS/sc2_results_v1_SUPERSEDED_PREFACTOR.txt        named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/OPTICS/sc2_results_v2_SUPERSEDED_ENDPOINT.txt         named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/OPTICS/sc3_check_v1_SUPERSEDED.py.txt                 named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/OPTICS/sc3_results.txt                                named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/OPTICS/sc3_results_v1_SUPERSEDED_POLARITY.txt         named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/R1B/r1b1_p1_closure_check_results.txt                 named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/R1B/r1b1_p1_current_check_results.txt                 named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/R1B/r1b1_p1_dirac_check_results.txt                   named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/R1B/r1b1_p2_eos_scan_results.txt                      named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/R1B/r1b1_p3_reachability_results.txt                  named exemption BN-04; digest verified, cannot be tagged (P9)
+  runs/R1B/r1b1_p4_response_results.txt                      named exemption BN-04; digest verified, cannot be tagged (P9)
+
+------------------------------------------------------------------------------
+[OK]  49 file(s)
+------------------------------------------------------------------------------
+  runs/CONVENTIONS/commit_gate_results.txt                   NEITHER
+  runs/CONVENTIONS/display_lint_results.txt                  NEITHER
+  runs/DIM/dimension_anchors_results.txt                     NEITHER
+  runs/FRONT/demo_2d_map.png                                 NEITHER
+  runs/FRONT/demo_2d_map.png.display.txt                     NEITHER
+  runs/FRONT/demo_2d_map_results.txt                         NEITHER
+  runs/FRONT/eff_dim_audit_results.txt                       NEITHER
+  runs/FRONT/kin_dyn_results.txt                             NEITHER
+  runs/FRONT/mid_sweep_fl1.png                               NEITHER
+  runs/FRONT/mid_sweep_fl1.png.display.txt                   NEITHER
+  runs/FRONT/mid_sweep_frame_results.txt                     NEITHER
+  runs/FRONT/sf_curve_results.txt                            NEITHER
+  runs/FRONT/t4_floor_results.txt                            NEITHER
+  runs/LADDER/r1_observer_results.txt                        NEITHER
+  runs/LADDER/r2_relief_contrast_results.txt                 NEITHER
+  runs/LADDER/r3_illumination_results.txt                    NEITHER
+  runs/MATRIX2/matrix_v2_results.txt                         NEITHER
+  runs/MATRIX2/matrix_v2r_results.txt                        NEITHER
+  runs/MATRIX2/plate_array_figure_v1.png                     NEITHER
+  runs/MATRIX2/plate_array_figure_v1.png.display.txt         NEITHER
+  runs/MATRIX2/plate_array_results.txt                       NEITHER
+  runs/MATRIX/domain_boundary_probe2_results.txt             NEITHER
+  runs/MATRIX/domain_boundary_results.txt                    NEITHER
+  runs/MATRIX/fourdim_results.txt                            NEITHER
+  runs/MATRIX/matrix_audit_results.txt                       NEITHER
+  runs/MATRIX/mr2_arap_results.txt                           NEITHER
+  runs/MATRIX/mr2d_potential_results.txt                     NEITHER
+  runs/MATRIX/structure_tiers_results.txt                    NEITHER
+  runs/ME3/me3_phi_results.txt                               NEITHER
+  runs/OPTICS/observer_params_results.txt                    NEITHER
+  runs/OPTICS/sc_route_results.txt                           NEITHER
+  runs/PROGRAM/governor_digest.txt                           NEITHER
+  runs/PROGRAM/program_audit_results.txt                     NEITHER
+  runs/ROUTE/deposit_blindness_figure.png                    NEITHER
+  runs/ROUTE/deposit_blindness_figure.png.display.txt        NEITHER
+  runs/ROUTE/deposit_blindness_results.txt                   NEITHER
+  runs/ROUTE/fl_coordinate_results.txt                       NEITHER
+  runs/ROUTE/goal_conformance_results.txt                    NEITHER
+  runs/ROUTE/p0_baseline_results.txt                         NEITHER
+  runs/ROUTE/p1_delta_ov_results.txt                         NEITHER
+  runs/ROUTE/p2_clock_results.txt                            NEITHER
+  runs/ROUTE/p3_me3_results.txt                              NEITHER
+  runs/ROUTE/s0_frame_fl1.png                                NEITHER
+  runs/ROUTE/s0_frame_fl1.png.display.txt                    NEITHER
+  runs/S45/crosswalk_checks_results.txt                      NEITHER
+  runs/S45/meff_alt_definitions_results.txt                  NEITHER
+  runs/S45/meff_disposition_checks_results.txt               NEITHER
+  runs/S45/phased_route_checks_results.txt                   NEITHER
+  runs/SERIAL/serial_results.txt                             NEITHER
+
+------------------------------------------------------------------------------
+[LOCKED-ARTIFACT]  9 file(s)
+------------------------------------------------------------------------------
+  runs/CONVENTIONS/provenance_exemption_bn04.txt             hash-locked (P8); digest verified, cannot be annotated
+  runs/FRONT/demo_lock.json                                  hash-locked (P8); digest verified, cannot be annotated
+  runs/MATRIX/locked_path_digest.json                        hash-locked (P8); digest verified, cannot be annotated
+  runs/MATRIX/threshold_lock.json                            hash-locked (P8); digest verified, cannot be annotated
+  runs/OPTICS/surface_conductivity_lock.json                 hash-locked (P8); digest verified, cannot be annotated
+  runs/OPTICS/surface_conductivity_lock_v1_1.json            hash-locked (P8); digest verified, cannot be annotated
+  runs/OPTICS/surface_conductivity_lock_v1_2.json            hash-locked (P8); digest verified, cannot be annotated
+  runs/OPTICS/surface_conductivity_lock_v1_3.json            hash-locked (P8); digest verified, cannot be annotated
+  runs/SERIAL/serial_lock.json                               hash-locked (P8); digest verified, cannot be annotated
+
+------------------------------------------------------------------------------
+[LEGACY-UNTAGGED]  59 file(s)
+------------------------------------------------------------------------------
+  runs/ANALYSIS/abandon_assumption_visual_v1.txt             in baseline manifest; not edited (P6)
+  runs/ANALYSIS/assumption_matrix_v1.txt                     in baseline manifest; not edited (P6)
+  runs/ANALYSIS/front_sweep_v1.txt                           in baseline manifest; not edited (P6)
+  runs/ANALYSIS/instrument_visualization_v2.png              pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/instrument_visualization_v2.txt              in baseline manifest; not edited (P6)
+  runs/ANALYSIS/internal_consistency_v1.txt                  in baseline manifest; not edited (P6)
+  runs/ANALYSIS/no_weak_freeze_v1.txt                        in baseline manifest; not edited (P6)
+  runs/ANALYSIS/painting_limits_v1.png                       pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/painting_render_v1.png                       pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/painting_render_v1.txt                       in baseline manifest; not edited (P6)
+  runs/ANALYSIS/persistent_visualization_v1.txt              in baseline manifest; not edited (P6)
+  runs/ANALYSIS/sigma_s_rendering_v1.png                     pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/sigma_s_rendering_v1.txt                     in baseline manifest; not edited (P6)
+  runs/ANALYSIS/slab_visibility_v1.png                       pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/slab_visibility_v1.txt                       in baseline manifest; not edited (P6)
+  runs/ANALYSIS/three_body_comparison_v1.png                 pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/three_body_comparison_v1.txt                 in baseline manifest; not edited (P6)
+  runs/ANALYSIS/unfold_appearance_v1.png                     pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/unfold_appearance_v1.txt                     in baseline manifest; not edited (P6)
+  runs/ANALYSIS/unfold_is_real_v1.txt                        in baseline manifest; not edited (P6)
+  runs/CONVENTIONS/symbol_lint_results.txt                   in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_log.txt                                   in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_results.json                              in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_stdout_raw.txt                            in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_table.csv                                 in baseline manifest; not edited (P6)
+  runs/G0/g0p2_results.txt                                   in baseline manifest; not edited (P6)
+  runs/G0/g0p3_results.txt                                   in baseline manifest; not edited (P6)
+  runs/P1/g1_closeout_results.txt                            in baseline manifest; not edited (P6)
+  runs/R1A/r1a1_bogoliubov_results.txt                       in baseline manifest; not edited (P6)
+  runs/R1A/r1a1_kz_results.txt                               in baseline manifest; not edited (P6)
+  runs/R1A/r1a1_ptilde_scan_results.txt                      in baseline manifest; not edited (P6)
+  runs/R1A/r1a2_pinney_results.txt                           in baseline manifest; not edited (P6)
+  runs/R1A/r1a3_lattice_results.txt                          in baseline manifest; not edited (P6)
+  runs/R1B/r1b1_eos_results.txt                              in baseline manifest; not edited (P6)
+  runs/R1B/r1b1_eos_results_v1_REVOKED.txt                   in baseline manifest; not edited (P6)
+  runs/R1B/r1b1_eos_v3_results.txt                           in baseline manifest; not edited (P6)
+  runs/R1B/r1b234_screening_results_v1_REVOKED.txt           in baseline manifest; not edited (P6)
+  runs/R1B/r1b234_v2_results.txt                             in baseline manifest; not edited (P6)
+  runs/R1B/r1b234_v3_results.txt                             in baseline manifest; not edited (P6)
+  runs/R2/check123_results_v1_REVOKED.txt                    in baseline manifest; not edited (P6)
+  runs/R2/check123_v2_results.txt                            in baseline manifest; not edited (P6)
+  runs/R2/check123_v3_results.txt                            in baseline manifest; not edited (P6)
+  runs/R2/r2c6_linear_stability_results.txt                  in baseline manifest; not edited (P6)
+  runs/R2/r2d_l1_results.txt                                 in baseline manifest; not edited (P6)
+  runs/R2/r2d_l2_results.txt                                 in baseline manifest; not edited (P6)
+  runs/R2/r2d_l3_n11_slab_results.txt                        in baseline manifest; not edited (P6)
+  runs/R3/r31_models_results.txt                             in baseline manifest; not edited (P6)
+  runs/R3/r32_bundle_results.txt                             in baseline manifest; not edited (P6)
+  runs/R3/r33_measure_results.txt                            in baseline manifest; not edited (P6)
+  runs/R4/r4_axisym_2p1_results.txt                          in baseline manifest; not edited (P6)
+  runs/R4/r4_axisym_2p1_results_rerun_check.txt              in baseline manifest; not edited (P6)
+  runs/R4/r4_cmc_initial_data_results.txt                    in baseline manifest; not edited (P6)
+  runs/R4/r4_instability_localization_results.txt            in baseline manifest; not edited (P6)
+  runs/R4/r4_instability_localization_stage2_results.txt     in baseline manifest; not edited (P6)
+  runs/R4/r4_york_initial_data_results.txt                   in baseline manifest; not edited (P6)
+  runs/R5/r5l2_sigma_s_results.txt                           in baseline manifest; not edited (P6)
+  runs/R5/r5l2_sigma_s_results_v1_REVOKED_BASELINE.txt       in baseline manifest; not edited (P6)
+  runs/S45/meff_boundary_probe_results.txt                   in baseline manifest; not edited (P6)
+  runs/S45/meff_boundary_probe_results_v1_LABELS_P.txt       in baseline manifest; not edited (P6)
+
+------------------------------------------------------------------------------
+[N/A]  69 file(s)
+------------------------------------------------------------------------------
+  (documentation; not itemised)
+
+==============================================================================
+[tally]
+  EXEMPT-LEGACY      12
+  OK                 49
+  LOCKED-ARTIFACT    9
+  LEGACY-UNTAGGED    59
+  N/A                69
+
+  blocking (VIOLATION + MISSING + INCOMPLETE) = 0
+  informational (RECONSTRUCTION)             = 0
+  grandfathered (LEGACY-UNTAGGED)            = 59
+  exempted      (EXEMPT-LEGACY, P9)          = 12
+
+  A VIOLATION here would mean a branch product had been promoted to
+  chain evidence -- the single error ruling D-A exists to prevent.
+
+PROVENANCE: NEITHER  (convention enforcement report; establishes nothing)
+
+Content generated by AI

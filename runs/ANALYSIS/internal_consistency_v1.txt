@@ -1,0 +1,58 @@
+============================================================================================
+Consistency envelope v1: compatibility of the three assumptions eff-2D / smooth / weak-on
+============================================================================================
+  L_z=1.0 fm | n_e=0.022005 fm^-3 | n_2D=0.022005 fm^-2 | n_B=0.042155 fm^-3
+  E_F(2D)=73.37 MeV | E_sub=619.9 MeV | P_lat=8.623e+16 N/m
+
+[K1] Geometry: two-sided window on L_z (electrons must be thin, nucleons must fit)
+  L_z=0.500 fm: E_sub/E_F=23.90  2D ok   thinner than nucleon
+  L_z=1.000 fm: E_sub/E_F=8.45  2D ok   thinner than nucleon
+  L_z=1.500 fm: E_sub/E_F=4.60  2D ok   thinner than nucleon
+  L_z=1.680 fm: E_sub/E_F=3.88  2D ok   thinner than nucleon
+  L_z=1.995 fm: E_sub/E_F=3.00  NOT-2D  nucleon fits
+  L_z=2.500 fm: E_sub/E_F=2.14  NOT-2D  nucleon fits
+  L_z=3.000 fm: E_sub/E_F=1.63  NOT-2D  nucleon fits
+  => Window [1.68, 1.99] fm (width factor 1.19); the registered value L_z=1.0 fm lies outside the window
+  ESTIMATE  K1_window_nonempty             PASS  the window is nonempty but only a factor 1.19 wide; the lower bound 2r_p is a physical judgment, not a theorem
+  ESTIMATE  K1_registered_outside          PASS  registered L_z=1.0 < 1.68 (nucleon diameter)
+
+[K2] Confinement field: how steep a potential is needed to squeeze electrons into 1 fm
+  Electrons: dE=619.9 MeV over 1.0 fm -> 6.20e+23 V/m = 4.70e+05 x E_Schwinger
+  Nucleons: dE=186.1 MeV over 1.0 fm -> 1.86e+23 V/m = 1.41e+05 x E_Schwinger
+  CHECK     K2_supercritical               PASS  supercritical by 4.7e+05 -> vacuum pair production; if a non-electromagnetic new field is used, its strength far exceeds the weak interaction
+
+[K3] Pressure hierarchy: z-direction wall pressure vs lateral surface pressure
+  P_z(electrons)=2.19e+33 Pa | P_z(nucleons)=1.26e+33 Pa
+  P_lat converted to a bulk pressure = 8.62e+31 Pa (=P_2D/L_z)
+  HYB convention (nucleons 3D, only electrons pay zero-point energy): ratio 25.3
+  Strict geometry (nucleons also in a 1 fm box) : ratio 39.9
+  CHECK     K3_z_dominates                 PASS  even under the most permissive HYB convention, the z direction is 25 times the lateral; the document only budgets the lateral
+
+[K4] Energy ledger: can the confinement zero-point energy be neglected?
+  u_inplane = 1.725e+17 J/m^2 = 2.74% Mc^2/A
+  Confinement zero-point energy (electrons only, HYB) = 2.186e+18 J/m^2 = 34.74% Mc^2/A (12.7 x in-plane)
+  Confinement zero-point energy (electrons + nucleons) = 3.442e+18 J/m^2 = 54.72% Mc^2/A (20.0 x in-plane)
+  total (strict)              = 3.615e+18 J/m^2 = 57.46% Mc^2/A
+  ESTIMATE  K4_confine_not_small           PASS  convention-independent lower bound: the confinement zero-point energy is already 12.7 times the in-plane degeneracy energy, and 2.74% misses it
+
+[K5] Timescales: neutronization vs expansion vs sound-crossing
+  sigma(p e->n nu) = 5.13e-44 m^2 @ mu_e=73.4 MeV
+  tau_capture = 2.96 ns | t_rip(1 m) = 4.72 ns | t_cross(7 cm) = 0.33 ns
+  ESTIMATE  K5_no_scale_separation         PASS  all three are of the same order (ratio 0.63) -> there is no two-stage "first flatten, then stabilize"
+
+[K6] Weak interaction: kept on vs equilibrium (logic)
+  ALL3D : X_p=1.6198e-03  mu_e=24.96 MeV  P_tot=6.48e+16 N/m  proton remnant 0.3%
+  HYB   : X_p=4.5006e-02  mu_e=21.54 MeV  P_tot=6.27e+16 N/m  proton remnant 8.6%
+  ALL2D : X_p=4.3957e-03  mu_e=6.73 MeV  P_tot=1.84e+16 N/m  proton remnant 0.8%
+  => Under any convention, beta equilibrium requires more than 91% of protons to be neutronized
+  ARGUMENT  K6_weak_on_vs_stable           PASS  "weak kept on" => non-equilibrium state; "stable final state" => weak must be on. Both cannot be true at once
+
+--------------------------------------------------------------------------------------------
+Conclusion: the three assumptions conflict pairwise; no parameter point satisfies all of them at once.
+  K1 eff-2D  <-> composition: L_z window [1.68,1.99] fm, registered value outside
+  K2 eff-2D  <-> known physics: requires 4.7e+05 x E_S
+  K3 z wall pressure <-> lateral budget: still off by a factor 25 under the most permissive convention
+  K4 energy ledger <-> 2.74%: misses the confinement zero-point energy by a factor 13 (lower bound)
+  K5 smooth  <-> timescale separation: none (ratio 0.63)
+  K6 weak-on <-> stable final state: logically mutually exclusive
+Note: none of the above depends on the values of X_p / mu_e / P, so it is orthogonal to the B2 convention dispute.

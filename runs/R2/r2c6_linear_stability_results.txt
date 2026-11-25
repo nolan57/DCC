@@ -1,0 +1,78 @@
+==========================================================================
+P2-C6: linear perturbative stability of the homogeneous backgrounds
+spec: roadmap v1.4 sec 12.4 last item; the last open G3' acceptance item
+==========================================================================
+[scope] (registered before run)
+  (i)  k=0 full-state sector: tangent-flow Lyapunov analysis of the frozen
+       8-variable state [lnA,lnB,lnC,HA,HB,HC,phi,phidot] (homogeneous sector)
+  (ii) k!=0 test-field scalar sector: scalar perturbation on frozen metric
+  NOT covered: gauge-fixed cosmological perturbation theory with coupled
+  metric perturbations at k!=0 (production version; boundary registered)
+[criterion] (registered before run)
+  catastrophic := lambda_max > 1.48492 = sqrt(max V'') (scalar barrier bound)
+  the barrier-top tachyonic mode (lambda ~= 1 at phi0=0) is the registered
+  bubble-nucleation mechanism -- reported, not treated as catastrophic
+[thresholds] (registered before run)
+  T1 oscillator energy conservation      < 1.0e-06
+  T2 tachyonic growth-rate anchor |d|    < 1.0e-06
+  T3 lambda_max <= 1.48492 (all 5 cases)
+  T4 max_t |C_H| under perturbation      < 1.0e-04
+  T5 Lyapunov two-tolerance convergence  < 5%
+
+[T1] frozen-metric oscillator energy conservation (true vacuum, k=1)
+  max |E(t)/E(0) - 1| = 4.160e-09  <  1.0e-06
+  T1 verdict: PASS
+
+[T2] tachyonic anchor (barrier top, k=0, frozen background)
+  analytic growth rate sqrt(V''(0) magnitude) = 1.000000
+  measured rate deviation (y'/y at T=20): 0.000e+00  <  1.0e-06
+  T2 verdict: PASS (validates the perturbation machinery)
+
+[T3] tangent-flow Lyapunov spectra along registered backgrounds
+  window t in [0, 100]; QR every 0.5; FD Jacobian eps=1e-07
+  case                                       lambda_max lam[1]     scal_proj 
+  magnetic-only [shear] (phi=-1, f=0.7)      0.02901    0.00346    0.007       within bound
+      spectrum: 0.029 0.003 -0.007 -0.026 -0.045 -0.046 -0.047 -0.055
+  baseline [shear] (phi=0 barrier top, f=0.7) 0.00755    0.00288    0.103       within bound
+      spectrum: 0.008 0.003 -0.003 -0.040 -0.079 -0.080 -0.108 -0.146
+  strong B [shear] (phi=0, f=1.5)            0.01070    0.00316    0.078       within bound
+      spectrum: 0.011 0.003 -0.013 -0.037 -0.077 -0.078 -0.102 -0.128
+  no-B [shear] (phi=0 barrier top, f=0)      0.00000    0.00000    0.000       within bound
+      spectrum: 0.000 0.000 0.000 -0.044 -0.050 -0.126 -0.133 -0.193
+  magnetic-only [iso] (phi=-1, f=0.7)        0.02860    0.00346    0.007       within bound
+      spectrum: 0.029 0.003 -0.005 -0.026 -0.045 -0.047 -0.050 -0.054
+  T3 verdict: PASS (criterion lambda_max <= 1.48492 in every case)
+  note: negative exponents reflect Hubble damping of the expanding
+        backgrounds; near-zero exponents reflect the registered gauge/
+        time-translation directions of the homogeneous sector.
+
+[T4] constraint control under initial-data perturbation (seed=20261121)
+  magnetic-only [shear] (phi=-1, f=0.7)      max_t |C_H| = 2.103e-07
+  baseline [shear] (phi=0 barrier top, f=0.7) max_t |C_H| = 3.231e-08
+  strong B [shear] (phi=0, f=1.5)            max_t |C_H| = 3.043e-08
+  no-B [shear] (phi=0 barrier top, f=0)      max_t |C_H| = 3.050e-08
+  magnetic-only [iso] (phi=-1, f=0.7)        max_t |C_H| = 1.863e-07
+  worst-case max_t |C_H| = 2.103e-07  <  1.0e-04 (G4 registered level)
+  T4 verdict: PASS
+
+[T5] Lyapunov two-tolerance convergence (case: magnetic-only [shear])
+  lambda_max(rtol=1e-9)  = 0.029007
+  lambda_max(rtol=1e-11) = 0.029007
+  relative difference = 0.0000  <  5%
+  T5 verdict: PASS
+
+[verdicts]
+  T1 oscillator energy conservation : PASS
+  T2 tachyonic growth-rate anchor   : PASS
+  T3 lambda_max within bound (5/5)  : PASS
+  T4 constraint control             : PASS
+  T5 two-tolerance convergence      : PASS
+P2-C6 screening-level OVERALL: PASS
+conclusion (screened level): no identified catastrophic linear instability
+  at the homogeneous-sector + test-field level for the registered cases;
+  the barrier-top tachyonic mode is the registered nucleation mechanism.
+evidence level: MODEL RESULT (screened scope; production version = gauge-fixed
+                cosmological perturbation theory at k!=0 remains registered)
+status registration: P2-C6 (last open G3' acceptance item) -> EXECUTED at
+                screening level; G3' gate recommendation: Conditionally met,
+                full perturbation-theory closure remains the production item.

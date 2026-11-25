@@ -1,0 +1,265 @@
+==============================================================================================
+MATRIX ROUTE AUDIT -- 'exhaustive constraint enumeration and distinguishability mapping'
+==============================================================================================
+object audited : docs/decisions/exhaustive_matrix_route_v1.md  (PROPOSED, not ratified)
+pre-registered : runs/MATRIX/matrix_audit_registration.md  P1..P7
+mode           : arithmetic on registered constants only; establishes no physics
+t_rip(L) = sqrt(2) L / c ;  check t_rip(1.0 m) = 4.717309e-09 s against registered 4.717309e-09
+
+==============================================================================================
+[M-0] ENUMERATION INTEGRITY: the table does not list 8 distinct combinations
+==============================================================================================
+  row  combination        label
+   1   (C1,C2,C3)         Full
+   2   (C1,C2,!C3)        
+   3   (C1,!C2,C3)        
+   4   (!C1,C2,C3)        
+   5   (C1,!C2,!C3)       
+   6   (!C1,!C2,!C3)      
+   7   (!C1,!C2,C3)       
+   8   (!C1,!C2,!C3)      Zero
+
+  claimed in sIV : 2^3 = 8 combinations, 'complete coverage' (sV)
+  rows printed   : 8
+  distinct       : 7
+  DUPLICATE      : (!C1,!C2,!C3) appears as rows [6, 8]
+  MISSING        : (!C1,C2,!C3) is not in the table
+
+==============================================================================================
+[M-1] ROW ADMISSIBILITY: how many of the 8 rows can be instantiated at all
+==============================================================================================
+  C3 : in-action NO-GO, PARAMETER-INDEPENDENT -- kappa(rho+p_x) = -gamma(gamma+h) < 0
+       for all h, gamma > 0 (constraint_crosswalk_v1).  A NO-GO constraint cannot be
+       SATISFIED, so any row containing C3 has no physical instantiation.
+  C2 : 'zero intralayer strain' is NOT a switchable property.  The registered mechanism
+       (front_sweep_v1 s2 step 2) is an (x,y) IDENTITY map per layer, so intralayer
+       strain is IDENTICALLY zero.  '!C2' therefore has no registered realization.
+  C1 : a genuine binary -- the object is or is not dimensionally reduced.
+
+  #  combination          C3 ?   C2 ?   status
+  ------------------------------------------------------------------------
+  1  (C1,C2,C3)         +      +      VOID  (C3 is NO-GO)
+  2  (C1,C2,!C3)        -      +      ADMISSIBLE
+  3  (C1,!C2,C3)        +      -      VOID  (C3 is NO-GO)
+  4  (!C1,C2,C3)        +      +      VOID  (C3 is NO-GO)
+  5  (C1,!C2,!C3)       -      -      UNREALIZED  (no construction)
+  6  (!C1,!C2,!C3)      -      -      UNREALIZED  (no construction)
+  7  (!C1,!C2,C3)       +      -      VOID  (C3 is NO-GO)
+  8  (!C1,!C2,!C3)      -      -      UNREALIZED  (no construction)
+
+  over the printed table (8 rows, 7 distinct):
+    VOID = 4   UNREALIZED = 3   ADMISSIBLE = 1
+  over the full 2^3 = 8 distinct combinations:
+    VOID = 4   UNREALIZED = 2   ADMISSIBLE = 2
+    admissible: (!C1,C2,!C3), (C1,C2,!C3)
+
+  The two admissible combinations differ ONLY in C1 -- a one-bit comparison,
+  C1 vs !C1 with C2 and !C3 held.  But one of the two ((!C1,C2,!C3)) is the row the
+  table omits.  So the table as printed contains exactly ONE admissible row and no
+  comparison at all: the single comparison the matrix could make is the one it drops.
+
+  NOTE  both rows the submission singles out are dead: 'Full' (row 1) is VOID, and
+        'Zero / minimal constraint baseline' (row 8) is UNREALIZED.  sVII.1 asks to
+        populate row 1 first -- it cannot be populated.
+  NOTE  C2 is not a free binary, so 'relaxing C2' -- one of the two axes of the
+        proposed matrix -- has no meaning: there is nothing to relax.
+
+==============================================================================================
+[M-2] L0 -- 'preserves the topological invariants (genus, connectivity) of the original'
+==============================================================================================
+  original object : V = 0.070 m^3, H = 1.75 m, A_c = 0.0400 m^2 -- one solid, contractible
+                    beta_0 = 1, chi = 1
+  2D scene under C1: 1.1831e+10 plates, mutually disconnected with vacuum between
+                    (front_sweep_v1 step 3: 'no in-plane bonding is performed')
+                    beta_0 = 1.1831e+10, chi = 1.1831e+10
+
+  chi ratio 2D/original = 1.1831e+10   (log10 = 10.073)
+  L0 verdict at C1  : FAIL -- connectivity is destroyed by a factor 1.18e+10
+  L0 verdict at !C1 : PASS trivially (chi ratio = 1.0000e+00)
+
+  can L0 be rescued at C1?  Only by fixing the layout permutation pi:
+    unfold_is_real_v1 s4 -- the physical list is 'N plates + 0.04 m^2 each + 324.9 km^2'.
+    Any adjacency is a CHOICE of pi, and 'being a painting' is there called
+    'a measure-zero encoding choice, not a physical conclusion'.
+    So L0 at C1 passes only on an object that physics does not supply.
+
+==============================================================================================
+[M-3] L1 -- 'close under an optimized metric (Hausdorff or Wasserstein)'
+==============================================================================================
+  both candidate metrics, both embedded in the ambient space:
+    Hausdorff  d_H(original, 2D layout) = registered MAX placement  = 2.550e+04 m
+    Wasserstein W_1                      = registered MEAN placement = 1.380e+04 m
+  normalised by the object height H = 1.75 m:
+    d_H / H   = 1.4571e+04     W_1 / H   = 7.8857e+03
+  at !C1  (object not reduced): d_H = 0 exactly, W_1 = 0 exactly.
+
+  => L1 is LARGEST where 2D-ification is complete and ZERO where it never happened.
+     The tier's optimum is the failure of the experiment.
+
+  the 'metric selected individually to best fit' clause, taken literally:
+    for ANY layout map f, the pullback metric g* = f^*(delta) makes f an ISOMETRY,
+    so d(original, scene) = 0 identically -- for every layout, including a failed one.
+    A tier whose metric and threshold may be chosen per cell AFTER seeing the cell is
+    therefore satisfied by EVERY cell, failed cells included.  So L1 under sIII is not
+    merely non-discriminating: it is IDENTICALLY SATISFIED.  VACUOUS.
+    This is precisely what sVI exists to forbid, and the submission contains both
+    clauses.  Only one can survive (M-8).
+
+  scope note, so a later reader does not inherit a wrong reason for a right conclusion:
+    the layout permutation lives in a space of log2(N!) = 3.79e+11 bits (N = 1.1831e+10).
+    But the experimenter does not SPEND that: one RULE ('row-major, 90126 wide')
+    describes the layout in ~34 bits.  So pi is NOT an information cost and L1 does
+    not fail for that reason.  It fails because a per-cell metric is unfalsifiable.
+    The permutation matters elsewhere: presenting the arranged picture AS the physical
+    scene is what unfold_is_real_v1 s4 calls 'a measure-zero encoding choice, not a
+    physical conclusion' -- a sV 'no falsified imagery' question, not an L1 question.
+    [This paragraph is a correction of the audit's own first reading, which charged L1
+     the 3.79e+11 bits.  The number is real; the charge was misplaced.]
+
+==============================================================================================
+[M-4] L2 -- 'I(Scene; Structure) exceeds I_min'
+==============================================================================================
+  I(S;T) = H(S) - H(S|T).  The scene is a deterministic function of the structure
+  (one object, one conversion law), so H(S|T) = 0 identically and
+      I(S;T) = H(S).
+
+  case (i) no ensemble over structures declared:
+      mutual information is defined on a JOINT DISTRIBUTION.  The project has one
+      object.  Without an ensemble I is UNDEFINED -- not small, not zero.  This is the
+      ME3-F1 class (an undefined argument), not a tolerance question.
+  case (ii) the single registered realization:
+      H(S) = 0 bits (discrete, one outcome) => I = 0 at EVERY cell.
+      Any I_min > 0 therefore fails every cell identically.  Non-discriminating.
+  case (iii) over any reachable scene alphabet:
+      max I = max H(S), attained by a UNIFORM NOISE FIELD.
+      sV of the submission lists that very object as a NEGATIVE entry:
+        'A "null image" or "structureless noise" result is a valid matrix entry.'
+      So L2's argmax is the submission's own declared failure mode.
+
+==============================================================================================
+[M-5] L3 -- 'recognizable as a structured image by a naked-eye observer, no enhancement'
+==============================================================================================
+  object height H = 1.75 m  ->  t_rip = sqrt(2) H / c = 8.255290e-09 s
+  cross-check: t_rip(1.0 m) = 4.717309e-09 s vs registered 4.717309e-09 s  -> ratio 1.750000
+
+  ground 1 -- TIMING (frozen corollary, ME5):
+    reflection needs a round trip 2H/c = 1.167474e-08 s,
+    available is t_rip = 8.255290e-09 s.  Excess 3.419453e-09 s = factor 1.414214.
+    => ZERO exposure budget in reflection.  No frame exists, naked-eye or instrumented.
+
+  ground 2 -- FLUX:
+    detection requirement (registered)  9.5390e+31 m^-2 s^-1
+      x t_rip                           = 7.8747e+23 photons m^-2 per frame
+    full sun at 2.25 eV                 2.7740e+21 m^-2 s^-1
+      x t_rip                           = 2.2900e+13 photons m^-2 per frame
+    shortfall                           = 3.4387e+10  (10.5 orders)
+    and this is the DETECTOR threshold, before the eye's own ~90-photon requirement,
+    and it is at the end L3 forbids (the only channel that fits inside t_rip is 284 eV
+    transmission, which is band migration, i.e. exactly what L3 excludes).
+
+  => L3 at C1: empty on two independent grounds (timing, then flux).
+     L3 at !C1: trivially satisfied by the intact object -- a scene in which the
+     phenomenon under study did not occur.
+     Charitable reading (L3 presupposes a 2D scene, so !C1 rows are unscorable):
+     L3 is then unreachable OUTRIGHT, and Phase 2 is entered with no bound (M-7).
+
+==============================================================================================
+[M-6] DOES ANY TIER INCREASE WITH 2D-IFICATION?
+==============================================================================================
+  tier   score at !C1        score at C1                  direction
+  --------------------------------------------------------------------------
+   L0   PASS  (chi ratio 1)    FAIL  (chi ratio 1.18e+10)   DECREASING
+   L1   0.0000 (exact)         1.46e+04 H (d_H)             DECREASING
+   L2   0 (single realization) 0 (single realization)       CONSTANT
+   L3   PASS  (intact object)  FAIL  (two grounds)          DECREASING
+
+  tiers increasing with 2D-ification: 0 of 4
+  The matrix's cell value is 'Max Distinguishability', which needs a total order
+  L0 < L1 < L2 < L3.  Three columns run the other way and one is flat, so no such
+  order exists on the measured signs.  The matrix cannot be filled as specified --
+  not for lack of physics, but because every column measures what 2D-ification DESTROYS.
+
+==============================================================================================
+[M-7] PHASE 2 -- 'unlimited' constraint extension, terminate on first L3
+==============================================================================================
+  sIV Phase 2 sets: unlimited number and type; 'not pre-defined'; 'determined
+  dynamically'; terminate when a set yields L3.
+
+  (a) no falsifier.  The search space is unbounded and unparameterised, so the
+      statement 'this constraint set cannot reach L3' has no test.  Same class as the
+      withdrawn ME4 clause 'except at phase transitions', which accommodated
+      1000/1000 adversarial cases and was declined for that reason.
+  (b) and it terminates anyway, at zero cost.  From M-5, L3 is reached at !C1.
+      Adding no constraint at all, the route reaches its own terminal condition on a
+      row where the frontier never sweeps.  sIV's trigger -- 'if and only if all 8
+      combinations fail to reach L3' -- is false, so Phase 2 never runs, and the route
+      concludes: do not perform the experiment.
+
+  (c) the two branches are both unacceptable and they are simultaneous:
+      strict reading  -> Phase 2 entered, no termination proof  (a)
+      literal reading -> Phase 2 never entered, route self-defeating  (b)
+
+==============================================================================================
+[M-8] sIII vs sVI -- the same threshold, two incompatible rules
+==============================================================================================
+  sIII L1 : 'The specific metric and its threshold are selected individually for each
+             constraint combination to best fit its physical characteristics.'
+  sIII L2 : 'This threshold is dynamic and declared independently for each constraint
+             combination.'
+  sVI     : 'Thresholds for L1 and L2 must be declared before the evaluation of the
+             scene to prevent post-hoc fitting.'
+
+  These cannot both hold.  A threshold chosen per cell, to best fit that cell, IS
+  post-hoc fitting; that is what the phrase forbids.  And from M-3 the fitting has a
+  price: at C1 the fitting metric must carry 3.79e+11 bits of pi.
+
+  Adjudication (executor's, for the governor): keep sVI, delete both 'selected
+  individually' / 'dynamic' clauses.  Reason: sVI is the invariant that makes a matrix
+  cell mean anything, and sV independently forbids the information the fitting injects.
+  Consequence, stated so it is not a surprise: with sVI alone, the fixed metric must be
+  chosen once, globally -- and then M-3 says which way it scores.
+
+==============================================================================================
+SUMMARY  (derived from the flags above)
+==============================================================================================
+  id     verdict              note
+  ----------------------------------------------------------------------------------------
+  M0     INCOMPLETE           7 distinct of 8; rows 6 and 8 identical; (!C1,C2,!C3) absent
+  M1     NARROWED             2 admissible of 8 distinct (4 VOID by C3 NO-GO, 2 UNREALIZED by !C2); table prints 1
+  M1B    NO-PAIR              printed table has one admissible row; its comparison partner is omitted
+  M2     REVERSED             L0 fails at C1 by 1.18e10, exact at !C1; rescue requires unphysical pi
+  M3     VACUOUS+REVERSED     positional metric: max at !C1 (d=0); fitting clause: pullback metric -> L1 = 0 everywhere
+  M4     UNDEFINED-OR-NOISE   I = H(S); argmax is structureless noise = declared failure entry
+  M5     EMPTY-AT-C1          zero exposure budget + 10.5 orders flux short; only !C1 passes
+  M6     NONE                 0 of 4 tiers increase with 2D-ification
+  M7     UNFALSIFIABLE        unbounded search, and literal termination is self-defeating
+  M8     CONTRADICTION        sIII per-cell threshold selection vs sVI pre-declaration
+
+  rows claimed / distinct          : 8 / 7
+  rows admissible (distinct)       : 2 of 8
+  tiers increasing with 2D-ification: 0 of 4
+  cells that can be filled as specified: 0
+
+  ROUTE AS SPECIFIED: NOT VIABLE AS WRITTEN
+  findings that block ratification: M0, M1B, M2, M3, M4, M5, M6, M7, M8
+
+==============================================================================================
+PRE-REGISTRATION vs OUTCOME
+==============================================================================================
+  id   result    outcome
+  --------------------------------------------------------------------------------------------
+  P1   CONFIRMED 2 admissible; 4 VOID, 2 UNREALIZED
+  P2   CONFIRMED ratio 1.1831e+10 (log10 10.073); fails at C1, exact at !C1
+  P3   CONFIRMED d_H/H = 1.4571e+04, W_1/H = 7.8857e+03; pi = 3.7881e+11 bits
+  P4   CONFIRMED all three hold; I = H(S) follows from determinism
+  P5   CONFIRMED zero exposure budget; shortfall 3.4387e+10 (10.5 orders)
+  P6   CONFIRMED 0 of 4
+  P7   CONFIRMED both established by construction of the clause
+
+  predictions confirmed: 7 of 7
+  P5 is checked against its PRE-RUN-CORRECTED value 3.4387e10.  The value first written
+  into the pre-registration was 3.4e9, derived from t_rip = 3.893e-9 s, which was wrong
+  (correct: 8.2553e-9 s).  Corrected before this file existed and recorded in the
+  pre-registration as a disclosed correction, not silently repaired.
+
+PROVENANCE: NEITHER  (audit arithmetic on registered inputs; establishes no physics)

@@ -1,0 +1,230 @@
+
+==============================================================================
+SC-3 / A : the budget, and what 440.18 MeV actually is
+==============================================================================
+  W_total = pi e^2 n/(2 m*) = 6.78228192e+18 S rad/s
+  A_INTER = e^2/(16 hbar)   = 1.52133425e-05 S
+  w_g = 2 E_F/hbar          = 2.22937305e+23 rad/s = 146.7400 MeV
+
+  f_inter    w_end(f) [MeV]     w_end - w_g [MeV]  w_end / ceiling  
+  0.00       146.7400           0.0000             0.333365         
+  0.05       161.4119           14.6719            0.366697         
+  0.25       220.0996           73.3596            0.500024         
+  0.50       293.4592           146.7192           0.666682         
+  0.75       366.8188           220.0788           0.833341         
+  0.90       410.8346           264.0946           0.933336         
+  1.00       440.1784           293.4384           1.000000         
+  [Q1] the ceiling 440.18 MeV = w_g + W_total/A is the f_inter = 1 endpoint; at f_inter = 0 it is w_g
+       -> HOLDS   (ceiling 440.1784 MeV; f=0 endpoint is w_g = 146.7400 MeV)
+
+  A.2  the module's own partition.  FSUM-SPLIT measured W_intra/W_total = 1 - 7.1e-5.
+       f_inter = 1 - f_intra = 0.0 ; residual budget = 0.000000e+00 S rad/s
+       a step to 2 w_g requests   = 6.783243e+18 S rad/s
+  [Q2] at f_intra = 1 the interband budget is exactly zero, so NO interband term is admissible
+       -> HOLDS   (f_inter = 0 to 1e-15; every A > 0 violates S5 at every w_end > w_g)
+
+  A.3  what unit is W_total/A in?
+       W/A = 4.458114e+23 rad/s  ->  2.934384e+08 eV = 293.4384 MeV
+       read as eV instead, the same numeral is 1.519267e+15 x too large
+  [Q3] the rad/s -> eV step is exactly 1/hbar = 1.5193e15; the convention is not cosmetic
+       -> HOLDS   (ratio 1.519267e+15 vs 1/hbar 1.519267e+15)
+
+  A.4  the tight bound.  S5 asks W_intra + W_inter = W_total, so
+       w_end = w_g + (W_total - W_intra)/A = w_g + f_inter W_total/A
+  [Q14b] the ruling's 'must be cut off below 440 MeV' is true but not tight for any f_inter < 1
+       -> HOLDS   (at f_inter = 0.5 the bound is 293.46 MeV, not 440)
+
+  A.5  and the ceiling carries no information of its own:
+       (W_total/A)/w_g = 1.99971658   (algebraically exactly 2 when v_F = c and k_F^2 = 2 pi n)
+       so  ceiling / w_g = 2.99971658, i.e. 440.18 MeV = 3 x 146.74 MeV
+       derivation: W/A = 8 pi hbar n/m*, m* = E_F/c^2, w_g = 2E_F/hbar, k_F^2 = 2 pi n
+                   => (W/A)/(2 w_g) = 2 pi hbar^2 n c^2 / E_F^2 = 2 pi n / k_F^2 = 1.
+  [Q15] under the module's own conventions the 'derived band edge' is identically 3 w_g
+       -> HOLDS   (ratio 1.999717 (1.4e-4 from 2 is the 73.37/73.3648 E_F rounding))
+
+==============================================================================
+SC-3 / B : degeneracy, the two g's, and the v_F the record never wrote
+==============================================================================
+  B.1  W depends on n and g only through the product n*g
+  state            W_total [S rad/s]      E_F [MeV]     
+  (4n, g=2)        1.35655251e+19         146.729602    
+  (n, g=8)         1.35655251e+19         36.682401     
+  [Q4] W(4n,g) = W(n,4g) exactly while E_F splits by 4: the budget cannot determine g
+       -> HOLDS   (W ratio 1.0000000000000000, E_F ratio 4.000000000)
+       => 'spectral weight depends on the degeneracy' holds only at fixed n and v_F. (n, g) enters
+          the budget as one number; E_F is what separates them.
+
+  B.2  the module's interband height and its k_F disagree about g
+       per-cone, spinless Dirac high-frequency conductivity = e^2/(16 hbar) = 1.52133425e-05 S
+       a model with degeneracy g has sigma_high = g e^2/(16 hbar) = (g/4) sigma_min
+  [Q5] A_INTER is the g = 1 height while k_F = sqrt(2 pi n) is the g = 2 momentum: factor 2
+       -> HOLDS   (required height at g=2 = 3.042669e-05 S = 2.000000000000 x the module's)
+       the record's '1/4' is not underived after all: it is g/4 with g = 1, silently.
+
+  B.3  what v_F does the record's (n_2D, E_F) pair imply?
+       k_F = 3.71793056e+14 1/m ;  hbar k_F c = 73.364801 MeV
+       v_F = E_F/(hbar k_F) = 2.99813702e+08 m/s = 1.000071 c
+       m* = hbar k_F/v_F = 143.56 m_e   (module: 143.58 m_e)
+       W(n,g=2,v_F) = 6.783243e+18 ; W_module = 6.782282e+18 ; ratio 1.000142
+
+       the law the ceiling follows, tested over four v_F:
+  v_F      E_F [MeV]      ceiling [MeV]    ratio to v_F=c     v_F/c       
+       reference: the same Dirac formulas at v_imp, 440.220000 MeV (module's: 440.178410 MeV)
+  c        73.3648        440.1888         0.99992914         1.00000000  
+  c/10     7.3365         44.0189          0.09999291         0.10000000  
+  c/100    0.7336         4.4019           0.00999929         0.01000000  
+  c/300    0.2445         1.4673           0.00333310         0.00333333  
+       ceiling(v)/ceiling(record) = v/v_record to 3.33e-16
+  [Q6a] the ceiling scales exactly with v_F, so it is a velocity convention, not a budget fact
+       -> HOLDS   (max deviation 3.33e-16 over four decades of v_F)
+  [Q6b] the record sits at v_F = 0.993 c (registered) - measured 1.000071 c
+       -> FAILED   (MISS: v_F = c to 7.1e-5. My 0.9929 came from a wrong k_F; the kill condition registered for this case ('v_F = c exactly, simpler not weaker') is the one that fired)
+
+==============================================================================
+SC-3 / C : S4 and S5 are independent - all four cells
+==============================================================================
+  KK{A[th(w-wg) - th(w-we)]} = -(A/pi)[ln|(wg+w)/(wg-w)| - ln|(we+w)/(we-w)|]
+
+  C.0  closed form checked by quadrature at w = 1.5 w_g: -7.79373169e-06 vs -7.79379537e-06  (rel 4.19e-06)
+       the floor is the jump at w_g, not physics.
+
+  C.1  oscillator: weight 1.00000000 x S_p pi/2 ; K-K residual 2.27e-07 of peak |Im|
+
+  response                   S4      S5      
+  (i)  pure step             pass    FAIL   
+  (ii) trunc step, wrong Im  FAIL    pass   
+  (iii) module as-is         FAIL    FAIL   
+  (iv) oscillator            pass    pass   
+  [Q7] the 2x2 is fully populated: S4 alone, S5 alone, both, neither
+       -> HOLDS   (S4-only 1, S5-only 1, both 1, neither 1)
+       => neither criterion implies the other. S4 passing says nothing about the budget; S5
+          passing says nothing about causality. Two verdicts, always.
+
+==============================================================================
+SC-3 / D : alpha is a diagnostic; the certificate is the collapse
+==============================================================================
+  [Q8] a two-pole response attains alpha = 1 exactly at a finite frequency
+       -> HOLDS   (1 root(s): w tau_1 = 0.697897)
+       => alpha = 1 at a point is not a certificate. A two-rate response satisfies it.
+
+  tau2/tau1  alpha at peak    peak at w tau_1    1 - alpha    0.078 (ln r)^2  
+  1.01       0.99999313       0.995039           0.000007     0.000008        
+  1.05       0.99981740       0.975911           0.000183     0.000186        
+  1.10       0.99927204       0.953455           0.000728     0.000709        
+  1.50       0.98700071       0.816488           0.012999     0.012823        
+  2.00       0.96253665       0.707115           0.037463     0.037475        
+  3.00       0.90874279       0.577351           0.091257     0.094142        
+  5.00       0.81553834       0.447214           0.184462     0.202043        
+  10.00      0.53920244       0.129845           0.460798     0.413548        
+       1 - alpha = 0.078 (ln r)^2 to 11.0% for r <= 3
+  [Q9] at the peak alpha < 1 for any non-degenerate two-pole sum, monotone to 1
+       -> HOLDS   (monotone True, alpha(1.05) = 0.999817, alpha(3:1) = 0.908743)
+  [Q9b] the registered band 'alpha(1.05) <= 0.9995'
+       -> FAILED   (MISS: 0.99981740. My band was wrong, not the claim: the deviation is 1.8e-4 at 5%)
+
+  D.2  Q10 as registered said 'alpha(w) is constant'. That is false for a single pole:
+       alpha(w) = (4/pi) arctan(w tau) runs 0 -> 2. Amended BEFORE this run, not after a miss:
+       the sufficient statistic is the ONE-PARAMETER COLLAPSE onto (4/pi)arctan(w tau_eff).
+  response                   max |alpha - collapse|   best tau_eff [s]  
+  single pole                4.441e-16                1.000e-16         
+  two-pole 3:1               8.592e-02                1.496e-16         
+  [Q10] the collapse is exact for one pole and fails by >= 0.05 for two
+       -> HOLDS   (single 4.44e-16, two-pole 0.0859)
+
+==============================================================================
+SC-3 / E : the four-tuple does not determine sigma_s
+==============================================================================
+  E.1  same (n_2D, g, v_F): W_total is fixed. Only the split f_intra is free.
+
+  f_intra    W_intra/W  W_inter/W  sigma_1(w->0) [S]    alpha at peak   
+  0.90       0.900000   0.100000   388.557322           1.038310        
+  0.75       0.750000   0.250000   323.797848           1.128854        
+  0.50       0.500000   0.500000   215.865392           1.200556        
+  [Q11] two responses with identical (n, g, v_F) and legal partitions are different responses
+       -> HOLDS   (sigma_1 at w->0 differs by 1.79999822 x (Drude weights 0.9/0.5 = 1.8; the oscillator is 1e-4 S there))
+  [Q11b] the registered form '|alpha(0.9) - alpha(0.5)| >= 0.4'
+       -> FAILED   (MISS: measured 0.1622. alpha is nearly blind to the partition - see below)
+       => the four-tuple fixes an AMPLITUDE and a SHAPE. f_intra moves the amplitude, and alpha
+          - a ratio of two components of the same response - barely sees it. So S12 cannot
+          certify the partition, and S5 cannot certify causality. Neither test is redundant;
+          both are insufficient alone. That is the governor's point, measured on my own tool.
+
+  [Q12] every (w_0, Gamma) on a 6x5 grid passes S4 and S5 at one fixed S_p
+       -> HOLDS   (30/30 pass; worst residual at n=1.6e6 is 9.50e-07 and it falls with n)
+       S4 is judged by convergence, not by a threshold: a non-causal response would plateau.
+       => passing S1-S13 does not identify a material. The acceptance set is a 2-parameter
+          family (w_0, Gamma) at fixed S_p, every member of which is legal.
+
+==============================================================================
+SC-3 / F : tau_tr/tau_sp is a model output, not a property
+==============================================================================
+  a = q_TF/2k_F = 0.007298
+  kernel                 tau_tr/tau_sp      ratio to TF   
+  (q+q_TF)^-2  [TF]      91.548063          1.000000      
+  (q^2+q_TF^2)^-1 [2D]   138.015787         1.507577      
+  [Q13] the ratio moves by > 20% under a change of screening kernel alone
+       -> HOLDS   (shift 0.5076)
+       => 91.5 measures the ambiguity between the two taus under ONE kernel. It is not a
+          property of a material and not portable.
+
+==============================================================================
+SC-3 / G : does the spec declare the convention it depends on?
+==============================================================================
+  [Q14] spec v1.1 declares neither the w-unit convention nor the intra/inter split
+       -> HOLDS   (rad/s=0, f_intra=0, W_intra=1, g = 2=1, v_F=3)
+
+==============================================================================
+VERDICTS
+==============================================================================
+  Q1     HOLDS
+  Q2     HOLDS
+  Q3     HOLDS
+  Q4     HOLDS
+  Q5     HOLDS
+  Q6a    HOLDS
+  Q6b    FAILED
+  Q7     HOLDS
+  Q8     HOLDS
+  Q9     HOLDS
+  Q9b    FAILED
+  Q10    HOLDS
+  Q11    HOLDS
+  Q11b   FAILED
+  Q12    HOLDS
+  Q13    HOLDS
+  Q14    HOLDS
+
+  14/17
+
+  What this round establishes, in the order the governor asked:
+  1. 440.18 MeV = 3 w_g, identically, under the module's own conventions (Q15). It is not a
+     derived edge; it is the f_inter = 1 endpoint of w_end = w_g + f_inter W_total/A, and at
+     the module's own f_inter = 0 the bound is w_g (Q1, Q2).
+  2. The budget is W(n, g, v_F): (n, g) enter only as n*g (Q4), and the record additionally
+     fixes v_F = c to 7e-5 (Q6b). At v_F = c/300 the ceiling is 1.47 MeV (Q6a).
+  3. The module carries g = 2 in k_F and g = 1 in A_INTER: factor 2 in the interband height (Q5).
+  4. S4 and S5 are independent: four responses populate all four cells (Q7).
+  5. alpha at a point is necessary only (Q8, Q9); the certificate is the collapse (Q10); and
+     alpha is nearly blind to f_intra, so it cannot certify the partition (Q11b).
+  6. (n, g, v_F, w_end) does not determine sigma_s: f_intra is free (Q11), and a 2-parameter
+     oscillator family passes every criterion (Q12).
+  None of this produces a sigma_s. R1-B1 is still the only entry point.
+
+==============================================================================
+ERRATA (appended; the archived stdout above is immutable)
+==============================================================================
+  E5  (SC-4, round 39)  A.2's sentence "FSUM-SPLIT measured W_intra/W_total = 1 - 7.1e-5"
+      is a MIS-CITATION.  FSUM-SPLIT measured W_intra/W_total = 1.000000000003 at every tau
+      (sc_route_results.txt sec F, P15; sc2_results.txt sec A.1 at max rel dev 6.88e-15).
+      7.1e-5 is the m*/E_F double-pinning slack (sc2_results.txt sec A.2: the module's m*
+      is built from the logged E_F = 73.37 MeV while k_F is built from n_2D, which gives
+      73.3648 MeV), not a partition share; the same slack appears as v_F = 1.000071 c.
+      Q2's printed pass came from a HARDCODED f_intra_mod = 1.0 (sc3_budget_check.py:87-89),
+      not from a measurement: the registered kill condition (|f_inter| < 1e-15 and
+      slack/W_total < 1e-15) was tested against a constant and could never fail, and it sits
+      below the quadrature floor (6.88e-15 best instrument), so on the measured ratio Q2
+      would have MISSED.  The CONCLUSION of Q2 survives as an identity: the module's pole
+      takes the whole budget by definition (sc2_results.txt sec A.1, P1), so no interband
+      term is admissible at any w_end > w_g and the admissible edge is w_g; the printed
+      precision "f_inter = 0 to 1e-15" is retracted.  Full register:
+      docs/decisions/sc4_partition_citation_errata_v1.md.

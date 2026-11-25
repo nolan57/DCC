@@ -1,0 +1,200 @@
+
+==============================================================================================
+[0] OBJECT OF RECORD
+==============================================================================================
+  PROVENANCE: NEITHER  (conformance measurement of a storage format against locked criteria;
+              establishes no physics and creates no readable cell)
+
+  spec      : docs/specs/deposit_serial_v1.md
+  locked    : e3c2a555a91b42a5c7036aa0685db17c90e3c4a7443ed66251b735004a6194d9
+  recomputed: e3c2a555a91b42a5c7036aa0685db17c90e3c4a7443ed66251b735004a6194d9
+  match     : True
+
+  record: word = (n << 2) | k,  k = p // N,  n = p % N,  p = kN + n,  little-endian uint32.
+  file order: record i is the plate at address p = i, and p is also the Hilbert index.
+  vacuum: p >= P is not stored; the reader reconstructs it from the header.
+
+  deposit  order  S       P = M*N        M  N              size       
+  -------  -----  ------  -------------  -  -------------  -----------
+  T12      12     4,096   16,777,216     4  4,194,304      64.0 MiB   
+  DEMO-1   16     65,536  4,279,069,764  4  1,069,767,441  15.9408 GiB
+
+  T12 has P = cells = 16,777,216 exactly: every cell is a plate, so an exhaustive round trip
+  covers the whole address space with no vacuum tail to hide an off-by-one.
+
+==============================================================================================
+[1] A1 -- ROUND-TRIP EXACTNESS  (S1, S2)
+==============================================================================================
+  T12 exhaustive: 16,777,216 records
+    distinct words written      : 16,777,216
+    distinct addresses recovered: 16,777,216
+    mismatches                  : 0
+
+  a bijection on [0, P) would give P distinct words and P distinct recoveries; anything less
+  means two plates share a word, which no tolerance can repair.
+
+  S1  CONFIRMED   A1 exact on T12 -- 0 mismatches over all 16,777,216 records
+       measured: 0 mismatches; 16,777,216 distinct words
+  DEMO-1 magnitudes: 2,000,000 addresses drawn WITHOUT replacement (deduplicated)
+    address range     : 0 .. 4,279,066,040
+    mismatches        : 0
+    max word used     : 4,279,067,978  (uint32 ceiling 4,294,967,295)
+    headroom in n     : 3,974,383  (N = 1,069,767,441 vs 2^30 = 1,073,741,824)
+
+  S2  CONFIRMED   A1 exact at DEMO-1 magnitudes -- 0 mismatches over 2,000,000 samples
+       measured: 0 mismatches over 2,000,000 deduplicated draws
+
+==============================================================================================
+[2] A2 -- SIZE  (S3)
+==============================================================================================
+  quantity           measured        registered      A2  
+  -----------------  --------------  --------------  ----
+  bytes per plate    4               4               PASS
+  file size (bytes)  17,116,279,056  17,116,279,056  PASS
+  file size (GiB)    15.9408         15.9408         PASS
+  full canvas (GiB)  16.0000         16.0000         -   
+  saved by vacuum    0.0592          0.0592          -   
+
+  4,279,069,764 plates x 4 B = 17,116,279,056 B.  The 2 bits for k and 30 bits for n use all 32 bits:
+  there is no spare bit, which is why A2 is exact rather than approximate.
+
+  S3  CONFIRMED   A2 exact: 4 B/plate, 17,116,279,056 B = 15.9408 GiB
+       measured: 17,116,279,056 B = 15.9408 GiB
+
+==============================================================================================
+[3] A3 -- CONTIGUITY  (S4, S9)
+==============================================================================================
+  T12 grid: order 12, S = 4,096, cells = 16,777,216, consecutive pairs = 16,777,215
+
+  ordering           contiguity  non-adjacent pairs  gap    
+  -----------------  ----------  ------------------  -------
+  Hilbert (curve)    1.000000    0                   0.0000%
+  raster             0.999756    4,095               0.0244%
+
+  analytic raster figure: 1 - (S-1)/(cells-1) = 1 - 4095/16,777,215 = 0.999756
+  (both orderings computed in 5.6 s)
+
+  The curve has ZERO non-adjacent consecutive pairs -- that is not a good score, it is the
+  definition of a Hamiltonian path on the cell grid.  Raster's gap is the row wrap.
+
+  S4  CONFIRMED   A3 = 1.000000 exactly -- 0 non-adjacent pairs over 16,777,215
+       measured: 0 non-adjacent pairs (curve), 4,095 (raster)
+
+  S9  CONFIRMED   curve strictly beats raster; raster = 1 - (S-1)/(cells-1)
+       measured: curve 1.000000 vs raster 0.999756 (analytic 0.999756)
+
+==============================================================================================
+[4] A4 -- MEDIAN |dn|  (S5)
+==============================================================================================
+  T12: |dn| between consecutive addresses
+    median            : 1
+    max               : 4,194,303   (= N-1 = 4,194,303)
+    count |dn| > 1    : 3   (and these are exactly the k-increments)
+
+  So |dn| is the wrong adjacency metric and A3 is the right one: at a component boundary n wraps,
+  while the CURVE still moves one cell.  A4 is kept only because a large |dn| is a useful signal
+  that a component boundary was crossed -- it is not a locality defect.
+
+  at DEMO-1 scale the wrap count is P/N - 1 = 3, i.e. 3 boundaries in 4,279,069,763 pairs.
+
+  S5  CONFIRMED   A4 median |dn| = 1, with 3 wraps at component boundaries
+       measured: median 1, 3 wraps, max 4,194,303
+
+==============================================================================================
+[5] A5 / A6 / A7 -- THROUGHPUT  (S6, S7)
+==============================================================================================
+  encode: 1536.0 MiB generated in 3.56 s  ->  431.9 MiB/s
+  decode: 3072.0 MiB generated in 2.99 s  ->  1,027.1 MiB/s
+  (encode is integer-only and never calls d2xy: p is already the index.  Decode is the same
+   operations reversed.  Single process, single thread, numpy only.)
+
+  A7 -- one full pass over the deposit (16,323 MiB):
+    encode 37.8 s   decode 15.9 s   (A7 ceiling 1800 s)
+
+  S6  CONFIRMED   A5 encode throughput in [150, 1200] MB/s
+       measured: 431.9 MiB/s
+
+  S7  REFUTED     A6 ~= A5, and A7 full pass in [15, 150] s
+       measured: encode 37.8 s, decode 15.9 s, ratio 2.38
+
+==============================================================================================
+[6] THE BOUNDARY GUARD  (S8)
+==============================================================================================
+  word = (n << 2) | k silently corrupts if n can reach 2^30: the top bits of n land in k's
+  field.  So the header must reject it.  Tested, not asserted:
+
+  header         outcome   reason                                              
+  -------------  --------  ----------------------------------------------------
+  M=4, N=2^30-1  ACCEPTED  -                                                   
+  M=4, N=2^30    ACCEPTED  -                                                   
+  M=4, N=2^30+1  REJECTED  N = 1073741825 exceeds 1073741823: n does not fit in
+  M=5, N=1000    REJECTED  M = 5 exceeds 4: k does not fit in 2 bits           
+
+  and the consequence, if the guard were absent:
+    n = 2^30, k = 1  ->  word = 1  (uint32 wraps)
+    decoding that word returns k = 1, not 1 -- silent corruption, no error raised.
+
+  S8  REFUTED     header rejects N >= 2^30 (silent overflow guarded)
+       measured: N = 2^30 -> HeaderError; decode of the wrapped word gives k = 1
+
+==============================================================================================
+[7] WHAT CONFORMS, AND WHAT THIS DOES NOT BUY
+==============================================================================================
+  id  criterion         threshold         measured                                   
+  --  ----------------  ----------------  -------------------------------------------
+  A1  round-trip exact  0 mismatches      PASS (exhaustive at T12, sampled at DEMO-1)
+  A2  4 B/plate         17,116,279,056 B  PASS                                       
+  A3  contiguity        1.000000          PASS (0 non-adjacent pairs)                
+  A4  median |dn|       1                 PASS (3 wraps, at component boundaries)    
+  A5  encode            >= 10 MB/s        PASS (432 MiB/s)                           
+  A6  decode            >= 10 MB/s        PASS (1,027 MiB/s)                         
+  A7  full pass         <= 1800 s         PASS (38 s)                                
+
+  Every criterion in the locked spec is met, and A1/A2 are met by count rather than by margin,
+  because the format has no slack to spend: 32 bits, exactly used.
+
+  What it does not buy, restated so this cannot be quoted for more than it is:
+    - the word carries (k, n) and nothing else.  10 of 12 declared parameters are still absent
+      (DEPOSIT-BLIND).  The G6/DC2 blocker is untouched.
+    - the deposit is not readable (D-2).  A3 measures adjacency of RECORDS, not of anything
+      visible: the locality is in the file, and stays in the file.
+    - a body sigma is still undefined (GD11 parked).
+
+==============================================================================================
+[E] ERRATA -- appended to this run, which is not edited
+==============================================================================================
+  E1  S8 is refuted, and the guard is correct.  My prediction mis-stated the boundary by one.
+      n ranges over 0 .. N-1, so N = 2^30 gives n_max = 2^30 - 1, which DOES fit in 30 bits:
+      (2^30 - 1) << 2 | 3 = 2^32 - 1 exactly.  The admissible bound is N <= 2^30, not N < 2^30,
+      and the guard enforces exactly that.  The spec's wording ('requires n < 2^30') is also
+      correct, because it bounds n, not N.
+
+      The demonstration in [6] is therefore VACUOUS: it evaluates n = 2^30, an input the guard
+      makes unreachable when N <= 2^30.  It is left in place as the record of the error.  Its
+      closing sentence is also a formatting bug -- it compares 1 to 1 and prints 'returns k = 1,
+      not 1'.  Neither the vacuity nor the sentence affects the criterion; both are mine.
+
+      Also mine: header_check's message reads 'exceeds 1073741823' while the check fires at
+      1073741825.  A message off-by-one, not a threshold off-by-one -- the spec is unchanged
+      and the behaviour matches it.  Not repaired, so that this run stays the record.
+
+  E2  S7 is refuted, and the reason is a property of the format worth having.
+      I predicted decode ~= encode because 'decode is the same operations reversed'.  It is not:
+      ENCODE computes k = p // N and n = p % N -- an integer division per record, ~20-40 cycles.
+      DECODE computes k = w & 3 and n = w >> 2 -- two bit operations, ~1 cycle.
+      Measured ratio 2.37x in decode's favour.  So the format is deliberately asymmetric: the
+      WRITER pays the division once, the READER pays almost nothing.  That is the right way
+      round for a 16 GiB file read many times, and it is an argument for the bit-field layout
+      that I had not made.
+
+      A7 itself passed: 38.0 s encode / 16.1 s decode against a 1800 s ceiling.  Only the
+      'A6 ~= A5' sub-prediction failed.
+
+  E3  S9 was amended before measurement, and the amendment is recorded in the registration.
+      The archived raster figure 0.9961 belongs to S = 256 and does not transfer; at S = 4096
+      it is 0.999756, measured exactly.  Had I left the original threshold, this run would
+      have 'refuted' a correct claim on a scale-transfer error -- the same class as round 27
+      P10 and round 28 P11.
+
+  S1:P   S2:P   S3:P   S4:P   S5:P   S6:P   S7:F   S8:F   S9:P
+  7 / 9 predictions hold as registered.

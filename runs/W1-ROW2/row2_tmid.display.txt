@@ -1,0 +1,13 @@
+DISPLAY-DECLARATION v1
+FRAME:            row2_tmid.png
+PROVENANCE:       NEITHER
+STAGE:            S0
+FIDELITY:         FL1
+BAND:             NONE (declared density channel; no spectral measurement)
+COLOUR:           DECLARED-CONVENTION
+COLOUR-BASIS:     panel A: hue separates intact / converted-live / converted-decayed matter; panel B: a sequential violet ramp encodes the per-site mean layer density and pale beige marks sites the front has not reached; panel C: greyscale is the declared tissue-density index. No wavelength information is carried at any stage
+SCALAR:           tissue-density index (dimensionless); z (m); per-site mean layer density (dimensionless); time (ns)
+TIME:             t_span = 0.0 s (single snapshot) ; compression = 1 ; t_rip = 8.198682e-09 s ; ratio = 0
+GEOMETRY:         PRESCRIBED (D2)
+ENHANCEMENT:      none
+ME5-COROLLARY:    PRESENT

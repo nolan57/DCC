@@ -1,0 +1,97 @@
+
+==============================================================================
+X1  is C1 equivalent to its ME1 expression, or stronger than it?
+==============================================================================
+  Delta_z_res = 100 um   (1.00e-04 m)
+    state                        C1     ME1      CM1      ME1&!C1 
+    S_A ideal 2D state           True   True     True     False   
+    S_B thin non-conserving      False  True     True     True    
+    S_C intact body              False  False    False    False   
+    S_D 2-sheet stack            False  True     True     True    
+    S_E S_A + strain field       True   True     True     False   
+    states with C1 true and ME1 false: 0  (C1 => ME1 requires 0)
+
+  Delta_z_res = d_par    (1.54e-14 m)
+    state                        C1     ME1      CM1      ME1&!C1 
+    S_A ideal 2D state           True   False    True     False   
+    S_B thin non-conserving      False  True     True     True    
+    S_C intact body              False  False    False    False   
+    S_D 2-sheet stack            False  False    True     False   
+    S_E S_A + strain field       True   False    True     False   
+    states with C1 true and ME1 false: 2  (C1 => ME1 requires 0)
+
+  witnesses for the converse failure (ME1 passes, C1 does not hold):
+    S_B thin non-conserving      thickness 1.00e-14 < Delta_z_res
+    S_D 2-sheet stack            thickness 1.08e-13 < Delta_z_res
+
+  => ME1 is a NECESSARY proxy of C1, not an equivalent. Relaxing the proxy
+     does not relax the constraint; it relaxes what the branch certifies.
+
+==============================================================================
+X2  can any ME/CM predicate express C2? (S_A vs S_E differ only in strain)
+==============================================================================
+  proxy                  S_A        S_E        same?     
+  ME1 @100um             True       True       True      
+  ME1 @d_par             False      False      True      
+  CM1 @500nm             True       True       True      
+
+  all proxies identical on a pair differing only in strain: True
+  => C2 is INVISIBLE to the gate vocabulary. Renaming C2 into CM would not rename
+     it; it would substitute a predicate that cannot see it.
+
+==============================================================================
+X3  textual: does any ME/CM definition mention strain?
+==============================================================================
+  raw 'strain' occurrences in meff_boundary_v0_2.md: 10
+  of which inside 'constraint(s)': 10
+  standalone mechanical 'strain': 0
+
+==============================================================================
+X4  is C3 expressible in ME/CM?
+==============================================================================
+  T_munu             occurrences in meff_boundary_v0_2.md: 0
+  T^{mu nu}          occurrences in meff_boundary_v0_2.md: 0
+  action             occurrences in meff_boundary_v0_2.md: 13
+  S_eff              occurrences in meff_boundary_v0_2.md: 0
+  weak interaction   occurrences in meff_boundary_v0_2.md: 0
+  registry S1: 'An ME predicate may never be a chain constraint'.
+  => C3 has no expression, and is FORBIDDEN one by domain rule, not merely missing.
+
+==============================================================================
+X5  fraction of the constraint diagonal expressible in gate space
+==============================================================================
+  C1   -> ME1 (necessary proxy)
+  C2   -> none -- invisible (X2)
+  C3   -> none -- forbidden (S1)
+
+  expressible: 1 of 3 = 0.333
+  => an ME-indexed ladder cannot walk the constraint diagonal; it can take at
+     most one of its steps (C1's), and that step is S4's object.
+
+==============================================================================
+X6  blast radius if C1/C2 were literally renamed into ME/CM
+==============================================================================
+  C1/C2 citations in docs/ + reports/: 132 across 13 files
+  plus 28 in the roadmap
+  total citations that would change register: 160
+  ME labels already used as chain constraints (S1 forbids): 0 (symbol_lint rule G)
+
+  => the rename is not local: it re-registers every gate and ledger row, and every
+     one of them would then cite a branch predicate as a chain constraint.
+
+==============================================================================
+SUMMARY
+==============================================================================
+  X1 PASS  C1 => ME1 with 0 counterexamples; converse false (2 witnesses)
+  X2 PASS  S_A/S_E indistinguishable to every ME/CM proxy => no proxy for C2
+  X3 PASS  standalone 'strain' in the adopted spec: 0
+  X4 PASS  C3 has no expression and is forbidden one by S1
+  X5 PASS  expressible fraction of the diagonal: 1/3
+  X6 PASS  rename touches 160 citations; all would violate S1
+
+  Conclusion supported by the checks: the legal operation is a BRIDGE (test
+  expressions at declared scales), not a rename. The constraints stay in C.
+
+PROVENANCE: NEITHER  (bridge-legality check; establishes no physics)
+
+Content generated by AI

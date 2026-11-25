@@ -1,0 +1,7 @@
+  Visible red 1.65eV        sigma_s=1.473e+01 S  R=0.9996
+  Visible green 2.48eV      sigma_s=1.063e+01 S  R=0.9996
+  X soft 4.1keV         sigma_s=6.932e-03 S  R=0.6301
+  X 13.8keV          sigma_s=2.059e-03 S  R=0.1308
+
+[Render] output -> runs/ANALYSIS/sigma_s_rendering_v1.png
+[Convention] Drude sheet conductivity + Pauli blocking; Gamma=1.0 eV is a placeholder, the real value awaits R1-B3

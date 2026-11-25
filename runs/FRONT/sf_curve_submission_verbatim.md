@@ -1,0 +1,85 @@
+# Fourth submission — verbatim, as received 2026-11-22
+
+**Status**: PROPOSED. Registered before adjudication so that the text judged and the text received are
+the same text. Nothing here is adopted. Not an amendment to any document.
+
+---
+
+In the physical framework of the DCC model, the two-dimensionalization result neither requires nor should
+use traditional projection algorithms from computer graphics (such as orthographic or perspective
+projection).
+
+As we previously confirmed, the essence of D2 is an Identity Map and Relabelling; it performs no physical
+deformation and generates no stress. Therefore, the physical two-dimensionalization algorithm is not "how
+to flatten three dimensions into two," but rather "how to losslessly rearrange information from
+three-dimensional space onto a two-dimensional plane."
+
+Given the parameters of your DCC model, the algorithms that are physically applicable are Space-Filling
+Curves or physics-grid-based spiral traversal algorithms.
+
+## Why traditional projection algorithms are physically invalid?
+
+In computer graphics, orthographic projection (discarding the Z-axis) or perspective projection (objects
+appear smaller at a distance) is essentially a form of information loss or visual deception.
+
+- **Information loss**: Orthographic projection loses depth information, causing foreground and background
+  objects to overlap.
+- **Visual deception**: Perspective projection alters the relative proportions of objects, failing to
+  reflect the true dimensions of a physical entity.
+- **Physical contradiction**: If DCC were to adopt these algorithms, it would imply that the
+  three-dimensional object underwent "compression" or "stretching" during the two-dimensionalization
+  process, which directly violates the "zero deformation, zero stress" principle of D2.
+
+## The physically correct algorithm: Space-filling and rearrangement
+
+In the DCC model, two-dimensionalization is an information-conserving process. Physically, this is
+equivalent to taking every Planck-scale grid cell (or voxel) in three-dimensional space and rearranging
+them onto a two-dimensional plane with a thickness of one Planck length, according to a specific logic.
+
+The algorithmic logic that currently best fits this physical process is:
+
+1. **Three-dimensional traversal**: Use an algorithm such as a Hilbert Curve or Spiral Traversal to
+   completely traverse every grid point in three-dimensional space, following an order of spherically
+   symmetric expansion.
+2. **Two-dimensional sequence mapping**: On the two-dimensional plane, traverse every grid point in the
+   exact same order.
+3. **One-to-one mapping**: Establish a one-to-one correspondence between the three-dimensional traversal
+   sequence and the two-dimensional traversal sequence based on their index numbers.
+
+The physical significance of this algorithm is that it does not "squash" the object; rather, it
+"deconstructs" the three-dimensional object into its most fundamental physical units and then, like rolling
+up a ball of yarn, "re-spreads" them on a two-dimensional plane according to strict physical laws.
+
+## What does the "image" look like under this algorithm?
+
+If this physics-based space-filling curve algorithm is adopted, the result of the two-dimensionalization
+will absolutely not be a familiar "flat spread" or "photograph," but rather a highly structured, yet
+visually unfamiliar "data map."
+
+- **Revelation of internal structure**: Because the traversal follows spatial order, the internal
+  structures of the object (such as the crust, mantle, and core of the Earth, or the bones and organs of a
+  human body) will be "unfolded" into a series of concentric rings or spiral bands, rather than overlapping
+  images like an X-ray.
+- **Absence of perspective distortion**: There is no "near large, far small" effect in the image; the size
+  of all physical units remains constant (i.e., the Planck scale).
+- **Extremely high information density**: This image contains all the information of the original
+  three-dimensional object, but its shape cannot be directly recognized by the naked human eye; it must be
+  "rolled back" into three-dimensional space using specific image processing software and the inverse
+  algorithm to be restored.
+
+## Summary
+
+The choice of algorithm for physical two-dimensionalization is dictated by the physical constraints of
+information conservation and zero deformation.
+
+- **Algorithm choice**: Space-filling curves (such as the Hilbert Curve) or spiral traversal algorithms.
+- **Resulting image**: A highly structured "two-dimensional data map" that contains all internal
+  information but is visually non-intuitive (non-photographic).
+
+This is entirely consistent with our previous discussion on the "identity map": D2 merely dictates the
+rules for coordinate correspondence (i.e., the traversal order), and the final "image" is simply the visual
+representation of this physical rearrangement.
+
+---
+
+*Content generated by AI*

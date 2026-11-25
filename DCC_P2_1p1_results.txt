@@ -1,0 +1,45 @@
+==================================================================================
+DCC P2 — 1+1 Planar-Symmetry ADM Coupled Solver (Bubble Wall + Geometry + Magnetic Flux)
+==================================================================================
+Machine-generated equations loaded: M/b/constraints/phiddot/Maxwell/Kretschmann/T_munu
+----------------------------------------------------------------------------------
+[V0] Homogeneous cross-check: 1+1 solver (zero-gradient limit) vs frozen homogeneous ODE implementation
+  t=0 constraints: max|Ham|=1.041e-17  max|Mom|=0.000e+00
+  1+1:  max|Ham|=6.214e-13  max|Mom|=0.000e+00 (t<=10.0)
+  H_C(t) deviation: max|1+1 - ODE| = 2.741e-12  (relative 3.686e-11)
+  V0 PASS (threshold 5e-3 relative deviation; affected by 2nd-order differences and boundaries)
+----------------------------------------------------------------------------------
+[W1-slab-static] periodic L=160 N=801 dx=0.200 eps=0.00 Q=0.10 X0=20 T=6
+  Initial data: s0=1.4408  krho_max=0.4988  Ham0=1.839e-16  Mom0=5.558e-16
+  Final state: max|Ham|=4.826e-02  max|Mom|=7.359e-01  (overall)
+  Wall center:   H_C(min)=-7.6655e-04  H_C(end)=-7.4455e-04  C/A(end)=9.8873e-01
+  True-vac region: H_C(min)=-2.8341e-04  H_C(end)=-2.7550e-04  C/A(end)=9.9583e-01
+  D1 (wall center, any t)=True  D2 (wall center, any t)=True  D2 (true-vac region)=True
+  L2: Cddot/C(end) wall center=2.482e-05  true vacuum=8.840e-06  min=-2.713e-02  max=4.650e-02
+  K(end): max=2.026e-01 @x=-20.1   NEC_min=0.000e+00  WEC_min=0.000e+00
+----------------------------------------------------------------------------------
+[W2-slab-expand] periodic L=160 N=801 dx=0.200 eps=0.01 Q=0.10 X0=20 T=6
+  Initial data: s0=1.4484  krho_max=0.5041  Ham0=1.596e-16  Mom0=5.568e-16
+  Final state: max|Ham|=4.590e-02  max|Mom|=6.590e-01  (overall)
+  Wall center:   H_C(min)=-7.5709e-04  H_C(end)=-7.3524e-04  C/A(end)=9.8881e-01
+  True-vac region: H_C(min)=9.0589e-03  H_C(end)=3.0192e-02  C/A(end)=1.0066e+00
+  D1 (wall center, any t)=True  D2 (wall center, any t)=True  D2 (true-vac region)=False
+  L2: Cddot/C(end) wall center=2.474e-05  true vacuum=4.507e-03  min=-3.436e-02  max=4.584e-02
+  K(end): max=2.341e-01 @x=-20.1   NEC_min=0.000e+00  WEC_min=0.000e+00
+----------------------------------------------------------------------------------
+[W3-slab-nob] periodic L=160 N=801 dx=0.200 eps=0.00 Q=0.00 X0=20 T=6
+  Initial data: s0=1.4338  krho_max=0.4940  Ham0=1.718e-16  Mom0=5.558e-16
+  Final state: max|Ham|=4.824e-02  max|Mom|=7.405e-01  (overall)
+  Wall center:   H_C(min)=-2.5688e-17  H_C(end)=4.1090e-17  C/A(end)=1.0000e+00
+  True-vac region: H_C(min)=-7.1612e-18  H_C(end)=-7.1612e-18  C/A(end)=1.0000e+00
+  D1 (wall center, any t)=True  D2 (wall center, any t)=True  D2 (true-vac region)=True
+  L2: Cddot/C(end) wall center=1.249e-16  true vacuum=-1.735e-18  min=-2.613e-02  max=4.704e-02
+  K(end): max=2.002e-01 @x=20.1   NEC_min=-3.862e-17  WEC_min=-3.862e-17
+----------------------------------------------------------------------------------
+[CONV] W1 convergence: dx=0.4/0.2/0.1 (dt=0.2dx), T=20, self-convergence order
+  N= 401 dx=0.399  final-frame |Ham|=4.595e-02 |Mom|=1.024e+00
+  N= 801 dx=0.200  final-frame |Ham|=4.826e-02 |Mom|=7.359e-01
+  N=1601 dx=0.100  final-frame |Ham|=2.498e-02 |Mom|=1.957e-01
+  lnC: coarse/fine difference ratio=4.018  self-convergence order=2.01
+  phi: coarse/fine difference ratio=3.492  self-convergence order=1.80
+  HC: coarse/fine difference ratio=3.653  self-convergence order=1.87

@@ -1,0 +1,65 @@
+{
+  "experiment_id": "G0P-003",
+  "supersedes": ["G0P-001", "G0P-002"],
+  "created": "2026-11-21",
+  "status": "REGISTERED_BEFORE_RUN",
+  "note": "v3 registration file. The v2 thresholds were split between configs/g0_prime.json (eight items) and in-code constants (T9, etc.), so 'pre-run registration in configs' no longer holds (review B5). This file is the sole source of thresholds; the code reads it at runtime, and a missing value causes a hard failure.",
+
+  "inputs": {
+    "M_kg": 70.0,
+    "A_perp": 1.0,
+    "m_bar_amu": 10.0,
+    "Z_over_A": 0.522,
+    "Z_ion": 5,
+    "g_e": 2,
+    "L_z_fm": 1.0,
+    "sigma_eff_model": "constant_column_density",
+    "P_constraint_N_m": 0.0
+  },
+
+  "physical_targets": {
+    "L_body_m": 0.07,
+    "D_bond_m": 3.0e-10,
+    "V_probe_m_s": 42470.0
+  },
+
+  "thresholds": {
+    "identity_rel": 1e-12,
+    "quadrature_rel": 1e-6,
+    "derivative_rel": 1e-4,
+    "handoff_rel": 1e-12,
+    "negative_control_rel": 1e-3,
+    "subband_ratio_min": 3.0,
+    "capture_margin_min_MeV": 0.0,
+    "eos_ur_pu_rel": 1e-4
+  },
+
+  "negative_controls": {
+    "handoff_v2_wrong_factor_expected": 10.0,
+    "note": "r4 = Z_eff*n_B must deviate by exactly a factor of m_bar=10. If this value ever becomes 1.0, it means the regression guard has failed, not that the error was fixed."
+  },
+
+  "capture_Q_MeV_kinetic": {
+    "p": 0.782,
+    "Fe56": 3.69,
+    "N14": 5.88,
+    "O16": 7.12,
+    "Mg24": 10.77,
+    "C12": 13.37
+  },
+  "capture_convention": "kinetic (excludes m_e); total-mu convention adds 0.511 MeV",
+
+  "test_registry": {
+    "IDENT": "definitional identity; reported for traceability, NOT counted as correctness evidence",
+    "CHECK": "genuinely independent computation; counted as correctness evidence",
+    "NEGCTRL": "must-fail control; passing means the guard actually detects the known error"
+  },
+
+  "placeholder_params": {
+    "nu_budget_frac": {
+      "value": 0.75,
+      "label": "registered energy-budget placeholder",
+      "reason": "0.75 is the 3D UR coefficient; the 2D value is 2/3. Ratio 1.125 printed explicitly. Real neutrino transport deferred to R1-B3."
+    }
+  }
+}

@@ -1,0 +1,83 @@
+
+==============================================================================
+[D1] Is the '8.7 decades' shortfall resolution-independent?
+==============================================================================
+  res molecular (0.3 nm) = 3.000e-10 m
+      dH/A = 3.6046e+20 bits/m^2 ; dH(obj) = 1.4419e+19 bit ; shortfall @1Tbit =  7.16 decades
+  res atomic (a0)        = 5.292e-11 m
+      dH/A = 1.2479e+22 bits/m^2 ; dH(obj) = 4.9916e+20 bit ; shortfall @1Tbit =  8.70 decades
+
+  span across the declared resolutions = 1.54 decades
+  criterion all in [7.0, 8.8] and span > 1.0 -> MET
+  => the headline 8.7 decades is RESOLUTION-CONDITIONAL. The order of magnitude is robust;
+     the digit is not. Any record quoting it must state (res, delta_info, A_PERP).
+
+==============================================================================
+[D2] Is the shortfall linear in log10(area)?  (i.e. is there a size-independent budget?)
+==============================================================================
+  A =     0.0400 m^2  ->  shortfall   8.70 decades
+  A =     0.4000 m^2  ->  shortfall   9.70 decades
+  A =     1.0000 m^2  ->  shortfall  10.10 decades
+  A =    10.0000 m^2  ->  shortfall  11.10 decades
+  A =   100.0000 m^2  ->  shortfall  12.10 decades
+
+  log-log slope = 1.000000000000
+  criterion |slope - 1| < 1e-12 -> MET
+  => the shortfall grows without bound in area, so NO size-independent delta_info
+     can hold for all objects. C_info is not a fidelity threshold.
+
+==============================================================================
+[D3] Is A_crit = delta_info / (dH/A) exactly linear in delta_info?
+==============================================================================
+  delta_info =    1e+00 bit  ->  A_crit = 8.013450e-23 m^2  = 8.013450e-17 mm^2
+  delta_info =    1e+03 bit  ->  A_crit = 8.013450e-20 m^2  = 8.013450e-14 mm^2
+  delta_info =    1e+06 bit  ->  A_crit = 8.013450e-17 m^2  = 8.013450e-11 mm^2
+  delta_info =    1e+12 bit  ->  A_crit = 8.013450e-11 m^2  = 8.013450e-05 mm^2
+
+  log-log slope = 1.000000000000
+  criterion |slope - 1| < 1e-12 -> MET
+  => C_info, as written, is EXACTLY the statement  A_perp <= delta_info * (A/dH) ,
+     i.e. an upper bound on the object's base AREA. It contains no statement about
+     fidelity that is not already a statement about how small the object is.
+
+==============================================================================
+[D4] Is the ME5 gate a crossing-time inequality?  t_rip = sqrt(2) L/c  vs  L/c_s , c_s = c/sqrt(2)
+==============================================================================
+  L = 0.200 m : t_rip = 9.434617e-10 s ; L/c_s = 9.434617e-10 s ; rel.diff = 0.00e+00 ; t_rip/(2L/c) = 0.707106781187
+  L = 1.000 m : t_rip = 4.717309e-09 s ; L/c_s = 4.717309e-09 s ; rel.diff = 0.00e+00 ; t_rip/(2L/c) = 0.707106781187
+  L = 0.070 m : t_rip = 3.302116e-10 s ; L/c_s = 3.302116e-10 s ; rel.diff = 0.00e+00 ; t_rip/(2L/c) = 0.707106781187
+
+  criterion rel.diff < 1e-15 for every L -> MET
+  => ME5's inequality  tau_exp <= sqrt(2) L/c  is identically  tau_exp <= L/c_s :
+     a light-crossing bound, exact and scale-free, hence registerable as a gate.
+
+==============================================================================
+[D5] Is the budget's ZERO SET exactly injectivity?  (exhaustive, 2x2x2 lattice)
+==============================================================================
+  lattice 2x2x2  ->  V = 8 cells, naive code cost per point = log2 V = 3.000000 bit
+  configurations enumerated = 256  (expected 2^8 = 256)
+  max |dH - (N_points - N_columns)*log2 V| = 0.00e+00
+  configurations violating  dH = 0 <=> injective : 0
+  configurations with dH < 0                     : 0
+
+  criterion identity to 1e-12 and zero-set == injectivity on all 256 -> MET
+  => the budget's zero set IS injectivity (ME1). Dissolving C_info therefore removes
+     no content that ME1 does not carry; what is discarded is the choice of code
+     (log2 V per overlap) and the choice of resolution, neither of which is physical.
+
+==============================================================================
+[verdicts]
+==============================================================================
+  D1 shortfall resolution-conditional    PASS  (8.7 dec is one point on a 1.5-decade spread; quote (res, delta_info, A))
+  D2 no size-independent budget          PASS  (shortfall slope in log A = 1.000000000000)
+  D3 C_info is an area cut               PASS  (A_crit slope in log delta_info = 1.000000000000)
+  D4 ME5 is a crossing-time gate         PASS  (t_rip = sqrt(2)L/c = L/c_s to 1e-15)
+  D5 zero set == injectivity             PASS  (exhaustive on 2x2x2; dH = N_overlap * log2 V exactly)
+
+  OVERALL: PASS
+  A PASS means: dissolving C_info into ME1 + a reportable budget loses no content,
+  and the three quantitative claims in the disposition record are arithmetic.
+
+PROVENANCE: NEITHER  (definitional audit of a draft; boundary data and evidence both excluded)
+
+Content generated by AI

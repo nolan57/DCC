@@ -1,0 +1,90 @@
+====================================================================================================
+RQ-07 -- localisation length / non-localisability, three-resolution grid scaling
+registration: runs/R4/r4_localisation_registration.md
+prior products: runs/R4/r4_instability_localization_results.txt ; runs/R4/r4_instability_localization_stage2_results.txt
+PROVENANCE: NEITHER  (diagnostic/arithmetic product; no chain evidence)
+====================================================================================================
+[parameters]
+  operator imported from axisym_2p1_evolution ; RHO_IN=4.0 R_DOM=24.0 L=20.0
+  KO_EPS=0 for the Jacobian (disclosed stage-1 convention) ; FD eps=1e-06 ; eig tol=1e-09
+  resolutions N=16/20/32 ; h=1.25/1.00/0.625 ; wavelengths measured in code units
+  bars: anchor 1e-06 ; cross 1e-02 ; Re32 (0.63, 1.27) ; p (0.75, 1.25) ; negctrl >= 5.0
+  CLASSIFIER: F = (p outside UV band) AND (xi spread <= 1.5) AND (xi >= 2.0 h and xi/L <= 0.50)
+              U = (p in UV band and Re>0) AND (xi shrinks >= 1.5x OR ell32 < 2.0h OR xi32/L >= 0.50)
+
+[pre-emission correction] written into the registration before --write, disclosed here
+  1. Grid spacing is h=(R_DOM-RHO_IN)/N, so N=32 has h=0.625, not the 0.75 used in the
+     original hand arithmetic. Original hand Re32=0.84 corrected to 1.00; the registered
+     band (0.63, 1.27) is retained unchanged, and the U2 sub-grid clause is corrected to 2*0.625.
+  2. The first synthetic negative control used uniform z mass and exercised neither
+     alternation metric; it was replaced before emission by a 3:1 z alternation with
+     analytic alt_z=0.5. The bar >= 5.0 is unchanged. No measured number changed.
+
+[P1] matrix-free Jacobian anchor, N=12 (prior dense floor 1.0e-9)
+    |J_mf.d - J_dense.d| / |J_dense.d| = 8.610e-09  (bar 1e-06) : PASS
+
+[SPECTRUM] leading undissipated mode at three resolutions
+  N=16 h=1.250 n_dof=2816  arpack-LR(k=8, tol=1e-09, seed=20261139)
+    Re lambda = +0.51220  Im = +0.00000 ; dominant field = gpp (0.57)
+    xi_cells= 12.535 xi=15.668 ; ell_cells= 12.002 ell=15.002 ; sigma_r=9.330 ; peak=0.969
+    alt_rho=0.133 alt_z=0.115 old_checker=0.017 ; edge_in=0.08 edge_out=0.24 ; Ham-top not re-run
+  N=20 h=1.000 n_dof=4400  arpack-LR(k=8, tol=1e-09, seed=20261143)
+    Re lambda = +0.63602  Im = +0.00000 ; dominant field = gpp (0.49)
+    xi_cells= 16.027 xi=16.027 ; ell_cells= 15.233 ell=15.233 ; sigma_r=9.299 ; peak=0.975
+    alt_rho=0.104 alt_z=0.095 old_checker=0.011 ; edge_in=0.05 edge_out=0.20 ; Ham-top not re-run
+  N=32 h=0.625 n_dof=11264  arpack-LR(k=8, tol=1e-09, seed=20261155)
+    Re lambda = +1.01514  Im = +0.00000 ; dominant field = gpp (0.32)
+    xi_cells= 27.666 xi=17.291 ; ell_cells= 25.233 ell=15.771 ; sigma_r=9.383 ; peak=0.984
+    alt_rho=0.052 alt_z=0.065 old_checker=0.003 ; edge_in=0.05 edge_out=0.21 ; Ham-top not re-run
+
+[P4] three-resolution grid scaling: Re lambda ~ h^(-p)
+    h=1.250/1.000/0.625 ; Re=0.51220/0.63602/1.01514
+    pair exponents: 16-20 0.970 ; 20-32 0.995 ; three-point p=0.988 ; max log residual=2.37e-03
+    UV band (0.75, 1.25) : PASS
+    two points fit a power law by construction; p is a scaling consistency, not a continuum exponent
+
+[P2] cross-check against archived dense spectra
+    N=16 recomputed +0.51220 vs archived +0.51220 ; rel=5.39e-06 (bar 1e-02) : PASS
+    N=20 recomputed +0.63602 vs archived +0.63602 ; rel=3.83e-06 (bar 1e-02) : PASS
+
+[P3] positivity and N=32 hand estimate
+    all Re lambda > 0 : PASS ; Re(N=32)=1.01514 vs hand 1.00, band (0.63, 1.27) : PASS
+
+[P5] negative control (defect A1): one-direction alternation must break the old index
+    N=16 synthetic alt_z=0.500 old_checker=0.000 ratio>=5.0e+11 (bar 5.0) : PASS
+    N=20 synthetic alt_z=0.500 old_checker=0.000 ratio>=5.0e+11 (bar 5.0) : PASS
+    N=32 synthetic alt_z=0.500 old_checker=0.000 ratio>=5.0e+11 (bar 5.0) : PASS
+    this control is required to FAIL the old metric; it is not evidence for the mode
+
+[P6] identities (not evidence)
+    max |sum q - 1| = 2.22e-16 ; max |sum p - 1| = 1.11e-16 ; combined : PASS
+
+[classifier]
+    F1 growth saturates = False ; F2 xi spread <= 1.5 = True ; F3 resolved interior = False
+    U1 divergent positive growth = True ; U2 no finite width = True
+    xi(16)/xi(32) = 0.906 ; xi(32)/L = 0.865 ; ell(32)/h32 = 25.233
+
+[landing audit] RP-A2.4
+    CHECK 4/4 - IDENT 2/2 (not evidence) - NEGCTRL 1/1
+    measured floors: Jacobian 1.0e-09 ; FD spectrum 3.6e-10 ; smallest length h32=0.625
+    every FAIL is retained above; none is interpreted away
+
+[verdict] CLOSED-NO-GO
+  THEOREM-SLOT: assume a finite-width smooth localized continuum eigenmode of this
+  operator. It would have an h-independent growth rate and a width converging above
+  the grid floor. U1 gives Re lambda ~ h^(-p), p in (0.75, 1.25), so the growth diverges;
+  U2 gives a shrinking, sub-grid, or domain-filling width, so no h-independent
+  interior length exists. The assumption is contradicted: this sector is NOT
+  localisable with a finite continuum length in the operator under test.
+  Conditional scope: ADM free evolution, zero shift, 1+log, 2nd-order FD;
+  it says nothing about BSSN/Z4c and licenses no physical-scale statement
+
+[reading]
+  BULK vs EDGE is not re-opened: C7 gave 1.000/0.999/1.000 at 0.1% precision.
+  Therefore it is not an edge/boundary artefact. It is a UV sector of the ADM operator
+  under test: no finite-width continuum mode, not a physical mode of the cured theory.
+  Locating or classifying the mode is not curing it; B1/B3/B4/B6 remain FAIL.
+  No G4/G5'/G6 mark, no S-criterion, no ratified sentence and no matrix-v2 approval
+  block is created or moved by this product.
+
+Content generated by AI

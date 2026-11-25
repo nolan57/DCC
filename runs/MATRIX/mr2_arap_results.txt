@@ -1,0 +1,219 @@
+
+====================================================================================================
+[0] OBJECT OF RECORD
+====================================================================================================
+  PROVENANCE: NEITHER  (adjudication of a submitted claim against the registered record;
+              establishes no physics and creates no readable cell)
+
+  DEMO-1  sha256 = afe855c260030ce9...   spec bytes = 9264
+  delta = 2.150e-10 m   H = 0.23 m   r4 = 0.09 m   pitch = 0.4001 m   canvas = 26,221.0 m
+  N_layer = 1,069,767,441   pieces = 4,279,069,764   cells = 4,294,967,296   pieces/cell = 0.996299
+  [self-test] Hilbert order 10: bijection = True, all consecutive steps 4-adjacent = True (min 1, max 1)
+
+====================================================================================================
+[A] FORM: does the formulation have a referent?  (P1 P2 P3 P12 P14)
+====================================================================================================
+  P1  the ARAP term R_i (v_i - v_j):
+  P1   R_i in SO(2) times an edge in R^3 is ill-typed                 : PASS   matmul: Input operand 1 has a mismatch in its core dimension 0, 
+      R_i.shape = (2, 2)   (v_i - v_j).shape = (3,)   -> the written term has no value
+      regardless of the type error: unfolding a 3D shell needs a per-face rotation in SO(3) plus a
+      projection; a plane rotation SO(2) cannot carry a 3D face into the plane.  P2 confirmed.
+  P2   SO(2) is the wrong group for a 3D unrolling                    : PASS
+  P3  vocabulary in 43 markdown files under docs/:
+  token          occurrences
+  -------------  -----------
+  triangulat     4          
+  triangle mesh  2          
+  vertex set     4          
+  ARAP           9          
+  TPGIM          6          
+  P3   no vertex set / triangulation exists in the record             : FAIL   ARAP's object V is not the object of record
+      the object of record is a continuum of 4.279069764e9 EXTENDED annular plates
+      (demo_object_v1 s3); it has no vertex set, and each 'site' holds a plate with area,
+      not a point.  ARAP/TPGIM describe a triangulated surface that no document declares.
+  P12 KIN-DYN s6 clause present: True
+      "no frame may depict elastic unfolding, differential strain, or fracture as a consequence of D2."
+  P12  ARAP is the forbidden class (energy-minimising deformation)    : PASS   stored-energy functional, i.e. dynamic unfolding
+  P14 DEMO-1 s4.3 vacuum convention: True
+      "...0000`, against the raster order's `0.9961` (`sf_curve_results`). The `0.37%` of sites with `d ≥ pieces` are **empty** — vacuum, drawn as such, not as material"
+  P14  Laplacian/nearest fill paints material into declared vacuum    : PASS   display-convention conflict
+
+====================================================================================================
+[B] BRANCH A: MR2 evaluated on the DCC deposit  (P4 P5)
+====================================================================================================
+  the object occupies 0 <= r <= r4 and 0 <= z <= H:
+    max 3D pair distance = sqrt((2 r4)^2 + H^2) = sqrt(0.032400 + 0.052900) = 0.292062 m
+    support(P_3D) = (0, 0.292062]
+
+  the deposit places distinct pieces on distinct sites (p = kN + n is injective), and the
+  nearest distinct sites are 4-adjacent, separated by exactly pitch:
+    min 2D pair distance = pitch = 0.4001 m
+    support(P_2D) subset [0.4001, 37,082.0]
+
+  => supports are DISJOINT; nearest approach ratio = 1.3699 (37.0% clear)
+  => D_KL(P_3D || P_2D) = +INF for every d with P_3D(d) > 0, for EVERY sigma.
+  P4   supports disjoint => MR2_PSMI = +infinity identically          : PASS   ratio 1.3699
+
+  the deposit's actual transform of the axial coordinate:
+    adjacent plates in one shell: 3D separation delta = 2.150e-10 m
+                                   2D separation pitch = 0.4001 m
+    dilation = pitch/delta = 1.860930e+09
+  P5   deposit dilates axial distance by pitch/delta                  : PASS   1.8609e+09
+
+====================================================================================================
+[C] THE SAMPLING FLOOR: what D_KL reports for a PERFECT map  (P7 P8)
+====================================================================================================
+  two independent samples of size N from the SAME distribution, B equal-probability bins
+  on (0,1).  If the map is perfect the true divergence is 0.  The measured value is not 0.
+  B bins  measured D_KL  (B-1)/2N  (B-1)/4N  ratio to 2N form
+  ------  -------------  --------  --------  ----------------
+  16      0.00011        0.00007   0.00004   1.473           
+  64      0.00059        0.00032   0.00016   1.858           
+  256     0.00254        0.00128   0.00064   1.990           
+  1024    0.01011        0.00511   0.00256   1.977           
+  4096    0.04189        0.02048   0.01024   2.046           
+  P7   floor is linear in B/N and confirmed within a factor 2 at B=64 : PASS   ratio 1.858
+
+  => 'driving MR2 toward zero' is impossible at finite sampling.  The value for a PERFECT
+     map is (B-1)/(2N), a function of two numbers the submission never declares.
+  P8   bin count and sample count set the verdict                     : PASS   perfect map scores 0.04189 at B=4096
+
+====================================================================================================
+[D] BRANCH A, THE ADMISSION TEST: can it see the traversal at all?  (P6)
+====================================================================================================
+  sampling the locked DEMO-1 geometry by volume, 200,000 pairs, seed 20261122
+  component counts: C1=9,771  C2=40,601  C3=71,597  C4=78,031
+  piece index p in [68,953, 4,279,067,447]  (must be < cells = 4,294,967,296)  OK
+
+  measured: d3 in [0.0014, 0.2794] m (analytic max 0.2921)
+            d2 deposit in [21.0842, 34,467.8] m
+            d2 random  in [32.0080, 35,760.6] m
+    P4 re-confirmed on samples: min d2 = 21.0842 > max d3 = 0.2794 -> disjoint
+
+  the admission criterion (matrix_reading_rules_v1 sMR2): the statistic must FALL BELOW
+  threshold when the tiles are shuffled.  So compare the deposit against a random permutation:
+    D_KL(P_deposit || P_random) = 0.06639   nats   (sampling floor 0.00016)
+    ratio to floor             = 421.54
+  P6   cannot separate the declared traversal from a random permutation : FAIL   6.64e-02 vs floor 1.58e-04
+      P6 IS REFUTED.  The prediction was mine, and it is wrong: the statistic separates the
+      deposit from a random permutation by a factor of ~422.  The Hilbert curve enriches the small-distance tail relative to
+      random site pairs (measured min d2 = 21.1 m vs 32.0 m). This must be taken as a
+      real capability, not explained away.  X1 below asks WHAT it is detecting.
+
+  X1  (post-hoc) scramble the assignment WITHIN each shell's run, keeping the four runs fixed.
+      If the statistic still separates, it sees arrangement.  If it collapses to the floor,
+      it sees only the four-block partition -- which is a property of sigma, not of the object.
+      D_KL(P_deposit || P_within-shell-scramble) = 0.00054   (floor 0.00016)
+      ratio to floor = 3.44
+      share of the P6 signal  = 0.82%
+
+      the expectation here is EXACTLY zero, and the reason is structural: scrambling within a
+      run keeps that shell's site SET unchanged, and n was already uniform, so both samples
+      come from the same distribution.  The measured value is a floor fluctuation, not a
+      signal.  Therefore:
+        99.2% of the discrimination that refuted P6 is the
+        'four contiguous runs vs fully random' contrast -- a property of the declared sigma.
+        0.82% is within-shell arrangement, and that is noise-level.
+      => the statistic does what it does, but what it measures is the encoding, not the object.
+         DEMO-1 s4.3 already measures the same property directly: contiguity 1.0000 vs 0.9961,
+         more cheaply, without a bin count, and without a sample size.
+
+  [salvage] the local clause, in the only form that is well posed (conditional, not marginal):
+            among 3D-local pairs (d3 = delta), what 2D distance does the deposit give?
+  axial neighbour pair  d2 deposit (m)  d2/pitch  d2 if shuffled (m)
+  --------------------  --------------  --------  ------------------
+  C1 (r 0.0000-0.0200)  0.400100        1.0000    9,733.4           
+  C2 (r 0.0200-0.0450)  0.400100        1.0000    23,781.4          
+  C3 (r 0.0450-0.0700)  0.400100        1.0000    11,371.9          
+  C4 (r 0.0700-0.0900)  0.400100        1.0000    1,900.4           
+    -> the deposit maps every axial neighbour to EXACTLY one pitch (a delta, not a spread).
+       A shuffled assignment gives O(canvas).  So the conditional form separates perfectly.
+       That is the submission's instinct, and it is correct; its formula is a marginal and is not.
+
+  [salvage, the cost] the same conditional on INTERFACE contacts (adjacent shells touch at d3 = 0):
+  interface  d3 (m)  d2 deposit (m)  verdict  
+  ---------  ------  --------------  ---------
+  C1|C2      0       12,401.7        destroyed
+  C2|C3      0       12,085.3        destroyed
+  C3|C4      0       12,989.4        destroyed
+    -> every interface contact is destroyed.  A conditional statistic therefore measures
+       interface LOSS = 100%, which is the same fact as TOPO-CLOSE (b0 = pieces, not 1).
+
+====================================================================================================
+[E] THE KERNEL: can the statistic distinguish arrangements at all?  (P9 P10)
+====================================================================================================
+  P9  search 6-element subsets of {0..20} for pairs with IDENTICAL pairwise-distance multisets
+      7,865 distinct multisets over 54,264 subsets; 7829 multiset(s) shared by >= 2 subsets
+      A = (0, 1, 2, 6, 8, 11)
+      B = (0, 1, 6, 7, 9, 11)
+      distance multiset equal: True
+      congruent (translate or reflect): False
+      D_KL(P_A || P_B) = 0.0    Hausdorff(A,B) = 1
+  P9   two non-congruent arrangements score identically (kernel non-trivial) : PASS   KL=0.0, Hausdorff=1
+
+  P10 asymmetry of the statistic on the real geometry (normalised, B=64):
+      D_KL(deposit || 3D) = 1.88742
+      D_KL(3D || deposit) = 0.08215
+      ratio = 22.98
+  P10  direction is a free parameter that changes the number          : PASS   ratio 22.98
+
+====================================================================================================
+[F] BRANCH B: the ARAP map, and TPGIM  (P11 P13 P15)
+====================================================================================================
+  P11 the test is the optimiser's own objective:
+      E_ARAP with R_i = I is  sum_i w_i sum_j | (u_i-u_j) - (v_i-v_j) |^2
+      i.e. the weighted per-edge squared DISTANCE DISCREPANCY.
+      MR2_PSMI = D_KL(P_3D||P_2D) is a monotone functional of the SAME discrepancy:
+      identical distributions  <=>  zero discrepancy.  Zero of the one is zero of the other.
+      Since the map is CHOSEN by minimising E_ARAP, D_KL ~ 0 is achieved by construction.
+      A gate whose passing map is defined as the minimiser of its own statistic has no
+      failing input.  Confirmed as a statement about logical form, not by measurement.
+  P11  circular: the map minimises the statistic that certifies it    : PASS   7th instance of the pattern
+
+  P13 is TPGIM a reduction of dimension?
+      material volume V = pi r4^2 H = 0.005853 m^3
+      address bits at delta resolution, by volume      = log2(V/delta^3) = 88.93
+      address bits, separable per coordinate           = 89.28
+      bits stored by the proposal: 3 channels x float32 = 96
+      ratio stored/needed = 1.080 (float32)   2.159 (float64)
+  P13  stores the point cloud with overhead; no reduction             : PASS   ratio 1.080
+      an H x W x 3 array is a 3-dimensional data structure.  Calling it 2D relabels it;
+      it does not reduce it.  (This is GD11's identity-map finding, in array form.)
+
+  P15 is the weak-range clause populated?
+  epsilon (m)  3D pairs < eps  2D pairs < eps
+  -----------  --------------  --------------
+  1.0e-18      0               0             
+  1.0e-12      0               0             
+  1.0e-09      0               0             
+  2.2e-10      0               0             
+      min 2D separation is pitch = 0.4001 m, so the 2D count is exactly 0 for every eps < pitch.
+      the 3D count is also 0 under uniform pair sampling, because local pairs are a
+      measure-zero tail: their fraction is O(delta/diameter) = O(1e-9).
+  epsilon (m)  3D pairs < eps  2D pairs < eps
+  -----------  --------------  --------------
+  1e-03        0               0             
+  1e-02        141             0             
+  5e-02        12986           0             
+      the marginal form of the clause is an EMPTY BIN at every physically short eps, in
+      both spaces.  A zero count is not a zero divergence.
+  P15  weak-range clause is vacuous as a marginal                     : PASS   0 samples, not 0 divergence
+
+====================================================================================================
+[G] VERDICTS
+====================================================================================================
+  branch A (MR2 on the DCC deposit): D_KL = +infinity for every sigma  (P4)
+  branch B (MR2 on the ARAP map):    circular (P11), and the map is a deformation (P12)
+  the admission test (shuffle):      P6 REFUTED -- it does separate deposit from random
+                                     permutation, by 422x the floor.  X1 decomposes it:
+                                     99.2% of that separation is the four-run
+                                     partition (a property of sigma); within-shell
+                                     arrangement contributes noise level.  So it measures
+                                     the encoding, not the object.
+  the statistic's kernel:            contains non-congruent arrangements (P9)
+  the local clause:                  vacuous as written (P15), separating as a conditional
+
+  P16 MR2_PSMI is not admissible as a tier.  ADOPT: the three names, the scale-separation
+      instinct, and the requirement that a threshold be declared and locked first.  REJECT:
+      the marginal KL on pairwise distances, ARAP as the mechanism, TPGIM as a reduction.
+  P16  MR2 as submitted is not a gate                                 : PASS   REJECTED AS A GATE

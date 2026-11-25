@@ -1,0 +1,38 @@
+<<<LOG>>>
+================================================================================
+R2-D L1: longitudinal blueshift p_z(B) analytic baseline (v1.4 s2.5/s8.8)
+================================================================================
+registered params: m=0.511 MeV, p0_NR=0.02, p0_UR=1.00 MeV, B grid [0.002,1], win=8 p0
+thresholds (registered): |slope+3|<0.02 NR, |slope+2|<0.02 UR, |p_z/rho_z-2|<1e-02 NR,
+                         |p_z/rho_z-1|<1e-02 UR, |geo slope+2|<0.02
+
+[phase-space integral: rho_z(B) = B^-1 * Int F (E(pz/B)-E(0)) dpz dpp]
+  NR (m=0.511, p0=0.05): slope = -2.9972 (expect -3)   [fit B in 0.7..1]
+  UR (m=0,     p0=1.00): slope = -2.0046 (expect -2)   [fit B in 0.002..0.01]
+
+[pressure via p_z = -(1/B) d(rho_z B)/dB, central difference]
+  NR@B=0.95 rho_z=5.724881e-07  p_z=1.143531e-06  p_z/rho_z=1.997476 (expect 2.0)  |dev|=2.52e-03
+  UR@B=0.00 rho_z=6.254075e+05  p_z=6.266416e+05  p_z/rho_z=1.001973 (expect 1.0)  |dev|=1.97e-03
+
+[geodesic ensemble cross-check (collisionless Boltzmann limit, m=0)]
+  ensemble rho(B)/rho(1) at B=[0.1  0.05 0.02 0.01]
+  ratios = [  64.7  255.9 1593.1 6368. ]   (UR asymptote 1/B^2)
+  fitted local slope over deep-B window = -1.9936 (expect -2)
+
+[verdicts]
+  NR slope -3  : -2.9972  PASS
+  UR slope -2  : -2.0046  PASS
+  NR p_z/rho_z=2 : 1.997476  PASS
+  UR p_z/rho_z=1 : 1.001973  PASS
+  ensemble UR slope -2 : -1.9936  PASS
+
+[findings]
+  F-R2D1-1: rho_z is defined as the longitudinal kinetic-energy density (the asymptotic object in v1.4 s2.5); the total energy density includes a rest-mass
+             term n*m*B^-1 (dominant in the NR case) and does not enter the B^-3 asymptotics -- registered to avoid confusion.
+  F-R2D1-2: the phase-space distribution F=const is a solution of the collisionless Boltzmann equation (Liouville);
+             the geodesic ensemble is self-consistent with it => L1 acceptance holds.
+  F-R2D1-3: this layer holds only for free, collisionless components with dz symmetry (mandatory restriction in v1.4 s2.5);
+             collisions/thermalization are assigned to L2 (relaxation time), and T^{mu nu} feedback to L3 (G3' prerequisite).
+
+R2-D L1 OVERALL: PASS
+evidence level: ESTABLISHED (Bianchi-I geodesics + collisionless Boltzmann direct corollary)

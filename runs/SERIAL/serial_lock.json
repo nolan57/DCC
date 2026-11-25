@@ -1,0 +1,6 @@
+{
+  "file": "docs/specs/deposit_serial_v1.md",
+  "sha256": "e3c2a555a91b42a5c7036aa0685db17c90e3c4a7443ed66251b735004a6194d9",
+  "locked": "2026-11-22",
+  "note": "Acceptance criteria A1-A7 are locked by this digest. A measurement that misses one is reported as a miss."
+}

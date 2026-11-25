@@ -1,0 +1,82 @@
+================================================================================
+Persistent / instrument visualization: boundary reasoning v1
+================================================================================
+  L_z=1.0 fm | n_2D=0.0220 fm^-2 | E_F=73.37 MeV | E_sub=619.9 MeV
+
+[P1] Energy cost of persistence (sustained on demand vs one-time generation)
+  One-time generation energy u_in = 1.724e+17 J/m^2 = 2.74% Mc^2/A
+  Confinement zero-point energy (electrons + nucleons) = 3.44e18 J/m^2 = 54.7%% Mc^2/A (K4, route M)
+  => The first cost of 'persistence': turning the total energy of a transient state (including confinement zero-point energy) from 'paid once' into 'held continuously'
+  Strictly speaking, if the state does not dissipate, no power is needed; but any real confinement field has leakage/tunneling/radiative losses,
+  so the substantive requirement for persistence is that the confinement field maintains the potential shape over its lifetime and the loss channels are continuously compensated.
+  This is an engineering constraint rather than a new physical quantity: the boundary is upgraded from R1 (instantaneous field) to R1' (sustained field + loss compensation)
+
+[P2] Persistence requirements vs natural timescales
+  Natural timescales: neutronization tau_cap=2.96 ns | tearing t_rip=4.72 ns | sound crossing 0.33 ns
+  'Persistence' must greatly exceed all three, so persistence = switch off the weak interaction (or accept neutronization) + sustained confinement + continuous energy supply
+  => Persistence is not 'extending the lifetime' but 'turning a transient into a steady state'; K5 changes from a conflict to an engineering constraint
+
+[P3] Instrument visualization: translating 'invisible to the human eye' into 'detectable frequency bands'
+  Human eye: 380-750 nm = 1.65-3.26 eV
+  2D plasmon (optical wavevector) hbar*w_p(q_opt) = 13.8 keV -> in X-rays/deep UV, a blind spot for the human eye
+  After neutronization hbar*w_p(q_opt) = 4.1 keV -> still X-rays
+  Conclusion: the characteristic optical response of this object is in the keV band, where the human eye is structurally blind; but X-ray/extreme-UV instruments sit right in the window
+
+  Frozen state  hbar*w=13.8 keV -> lambda=0.090 nm (X/soft-X band)
+  Neutronized state hbar*w=4.1 keV -> lambda=0.302 nm (X/soft-X band)
+
+  Four instrument-detectable channels (independent of the human eye):
+  (a) Reflectance spectrum R(lambda): plasmon edges in the keV band
+  (b) Neutrino flux (W6: 9.7e16 J/m^2, 0.56 x u_in) -- neutrino detector
+  (c) Thermal emission spectrum (if T is known) -- but adiabatic => cold => weak thermal signal
+  (d) Gravitational signal (stress-energy of 3.8e18 J/m^2) -- gravitational-wave / equivalence-principle detection
+
+[P4] Optical magnitude in the sheet-conductivity framework (assumed-background test optics, not a prediction)
+  For an ultrathin film, R/T/A is determined by sigma_s(omega); sigma_s is given by the finite-density polarization tensor
+  Reference magnitude: graphene sigma=e^2/4hbar -> Z0*sigma = pi*alpha = 2.3%%
+  For this object E_F=73 MeV, sigma_s has nothing to do with graphene (§6.4 forbids the 2.3% default)
+  The only robust conclusion: both R and T can be O(1), with plasmon structure as omega varies in the keV band
+  => Whether the visible band is 'nearly transparent or highly reflective' cannot be decided a priori; one must wait for the sigma_s calculation
+
+[P5] Boundary comparison: one-time vs persistent
+  One-time (previous round): R1 field >=6e23 V/m, lifetime 3-5 ns, imaging window < light-crossing timescale
+  Persistent: R1' field + continuous energy source, lifetime >> t_rip, requiring simultaneous weak suppression (or acceptance of steady-state neutronization)
+           Added R5: stable energy supply (power >= zero-point energy to maintain / lifetime), R6: sustained maintainability of weak suppression
+  Number of knobs: 4 -> 6 (added energy supply, sustained weak suppression)
+
+[P6] Visualization results (under the persistent boundary)
+  Human eye (if visible light is still used):
+    - The zero-thickness mirror is invalid (physically unreachable); the real object is an ultrathin film with L_z extremely small but nonzero
+    - If R~1: mirror-like (reflecting the environment, no color of its own); if T~1: nearly invisible; neither may be asserted a priori
+    - The only thing that can be said a priori: no diffuse-reflection texture (the surface has no atomic-scale roughness structure), no chemical colors
+  Instruments (X-ray/neutrino/gravity):
+    - X-ray reflectance spectrum: plasmon edges in the keV band, a 'fingerprint of matter'
+    - Neutrino flux: 0.56 x degeneracy energy, direct evidence of the neutronization process
+    - Gravity: stress-energy of 3.8e18 J/m^2, detectable at the equivalence-principle scale
+  => 'Human-eye visualization' has essentially only two degenerate limits (mirror/transparent); 'instrument visualization' is the high-information window
+
+================================================================================
+Summary
+================================================================================
+1. Persistence turns one-time energy into continuous power, increasing the number of boundary knobs from 4 to 6 (+ energy supply, + sustained weak suppression)
+2. Persistence does not change K6 (weak-on vs stability mutual exclusion); it only requires weak suppression to be sustained as well
+3. The human-eye window is structurally blind: the characteristic response is in the keV band, so the eye can only see the two degenerate limits of mirror/transparent
+4. The instrument window is the information-rich one: three independent channels, X-ray reflectance spectrum, neutrino flux, and gravitational signal
+5. All optical conclusions remain subject to §6.7: label them "assumed-background test optics" and forbid a priori mirror/transparent assertions
+
+
+[unreadable byte 0x9A]
+    - X-ray reflectance spectrum: plasmon edges in the keV band, a 'fingerprint of matter'
+    - Neutrino flux: 0.56 x degeneracy energy, direct evidence of the neutronization process
+    - Gravity: stress-energy of 3.8e18 J/m^2, detectable at the equivalence-principle scale
+  => 'Human-eye visualization' has essentially only two degenerate limits (mirror/transparent); 'instrument visualization' is the high-information window
+
+================================================================================
+Summary
+================================================================================
+1. Persistence turns one-time energy into continuous power, increasing the number of boundary knobs from 4 to 6 (+ energy supply, + sustained weak suppression)
+2. Persistence does not change K6 (weak-on vs stability mutual exclusion); it only requires weak suppression to be sustained as well
+3. The human-eye window is structurally blind: the characteristic response is in the keV band, so the eye can only see the two degenerate limits of mirror/transparent
+4. The instrument window is the information-rich one: three independent channels, X-ray reflectance spectrum, neutrino flux, and gravitational signal
+5. All optical conclusions remain subject to §6.7: label them "assumed-background test optics" and forbid a priori mirror/transparent assertions
+

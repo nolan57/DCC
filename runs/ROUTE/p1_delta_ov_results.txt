@@ -1,0 +1,139 @@
+
+==============================================================================
+PHASE 1 — delta_ov FOR THE mu_ov ESTIMATOR  (GD3: target = delta_ov / O6)
+==============================================================================
+  definition: delta_ov := sup over GRAPHS of mu_ov_est at declared (Delta_x, Delta_z_res; s_max)
+  estimator: geometric -- the (max-min) of z over a column's lateral footprint is what a depth
+  sampler sees; the column reads as double-valued iff that span >= Delta_z_res.
+  pre-registered: P1a (delta_ov = 0 achievable), P1b (overlap iff s_max*Delta_x >= Delta_z_res),
+  P1c (state-independence), P1d (delta_ov = 0 flips nothing)
+
+[P1-1] MEASURED COLUMN SPAN vs s_max * Delta_x   (n=384, cells=12, so Delta_x = 0.0312)
+  graph     s_max      max span      s_max*Delta_x ratio    
+  plane     1.000      0.028646      0.031250      0.9167   
+  diag      1.000      0.040511      0.031250      1.2964   
+  wave      1.000      0.028491      0.031250      0.9117   
+  pink      1.000      0.035538      0.031250      1.1372   
+  plateau   1.000      0.017850      0.031250      0.5712   
+  prediction P1b (max span = s_max*Delta_x, within 8%): FAILED
+  ratio range across graphs: 0.5712 .. 1.2964
+
+  DECOMPOSITION. Two multiplicative effects, both exact:
+    (i)  sampling offset -- a block of C sample points spans (C-1) intervals, so C=12 gives
+         11/12 = 0.916667. Checked against increasing C on the 1-D ramp:
+         C      measured     predicted    residual
+         12     0.014323     0.014323     0.0e+00 
+         24     0.029948     0.029948     3.5e-18 
+         48     0.061198     0.061198     0.0e+00 
+         96     0.123698     0.123698     1.4e-17 
+    (ii) direction factor -- a 1-D rise spans s_max*Delta_x; a rise along the cell DIAGONAL
+         spans sqrt(2) times that. Measured: plane 0.9167, diag 1.2964, diag/plane = 1.4142
+  CORRECTED STATEMENT. span_max = (1 - 1/C) * d * s_max * Delta_x with d in [1, sqrt(2)]
+  (d = 1 for a one-directional rise, sqrt(2) along the diagonal). Registered form omitted
+  both factors; it is recovered as C -> infinity on a 1-D ramp.
+  => the edge is a BAND [s_max*Delta_x, sqrt(2)*s_max*Delta_x], not a line, and inside the
+     band whether a given graph is flagged depends on its slope distribution.
+
+[P1-2] ABOVE THE EDGE (Delta_z_res > s_max*Delta_x) THE ESTIMATOR FLAGS NOTHING
+  graph     Delta_z_res / (s_max*Delta_x) mu_ov      max span  
+  plane     1.02                   0.000      0.02865   
+  plane     1.50                   0.000      0.02865   
+  plane     1.43                   0.000      0.02865   
+  plane     10.00                  0.000      0.02865   
+  diag      1.02                   1.000      0.04051   
+  diag      1.50                   0.000      0.04051   
+  diag      1.43                   0.000      0.04051   
+  diag      10.00                  0.000      0.04051   
+  wave      1.02                   0.000      0.02849   
+  wave      1.50                   0.000      0.02849   
+  wave      1.43                   0.000      0.02849   
+  wave      10.00                  0.000      0.02849   
+  pink      1.02                   0.002      0.03554   
+  pink      1.50                   0.000      0.03554   
+  pink      1.43                   0.000      0.03554   
+  pink      10.00                  0.000      0.03554   
+  plateau   1.02                   0.000      0.01785   
+  plateau   1.50                   0.000      0.01785   
+  plateau   1.43                   0.000      0.01785   
+  plateau   10.00                  0.000      0.01785   
+  prediction P1a (mu_ov = 0 for every graph at f > 1): FAILED
+  corrected edge (f >= sqrt(2)): CONFIRMED
+  => delta_ov = 0 is ACHIEVABLE, not merely natural: at a fine enough Delta_z_res the estimator
+     is exactly blind to single-valuedness-preserving roughness.
+
+[P1-3] BELOW THE EDGE THE BIAS IS SURFACE-DEPENDENT  (this is the falsifier's real test)
+  mu_ov at Delta_z_res = 0.5 * (s_max*Delta_x), four graphs with the SAME s_max:
+  graph     mu_ov      median span max span  
+  plane     1.0000     0.02865    0.02865   
+  diag      1.0000     0.04051    0.04051   
+  wave      0.6250     0.02015    0.02849   
+  pink      0.0781     0.00700    0.03554   
+  plateau   0.1250     0.00000    0.01785   
+  spread across graphs at identical s_max: 0.9219
+  => a QUANTILE bias delta_ov is NOT state-independent: it is a property of the surface's slope
+     distribution. The registered falsifier FIRES for that reading.
+  => the only state-independent definition is the WORST CASE, sup over the class, which is
+     binary:  delta_ov = 0 for Delta_z_res > s_max*Delta_x,  delta_ov = 1 for Delta_z_res <= it.
+
+[P1-4] STATE-INDEPENDENCE VERDICT
+  worst-case delta_ov(state, Delta_z_res; s_max, Delta_x) -- evaluated for the three record states:
+  state     s_max      delta_ov @ edge+ delta_ov @ edge-
+  sheet     1.0        0.0          1.0         
+  stack     1.0        0.0          1.0         
+  slab      1.0        0.0          1.0         
+  identical across states BY CONSTRUCTION -- the definition never looks at the test state.
+  prediction P1c: PASSES for the worst-case reading, FAILS for the quantile reading.
+  both are recorded. The falsifier has teeth: a fitted delta_ov would be mu_ov(state) =
+  0.000 / 1.000 / 1.000 for sheet / stack / slab, i.e. visibly state-dependent.
+
+[P1-5] DOES delta_ov MOVE ANYTHING?  (P1d, and what the only other value does)
+  at Delta_z_res = 1.0e-04 m and Delta_x = 1.0e-04 m the resolvability edge is s_max = 1.00e+00,
+  i.e. every surface with s_max <= 1 is resolvable, so the strict value delta_ov = 0 applies.
+  state   span (m)      mu_ov    verdict @ d=0 verdict @ d=1
+  sheet   1.5400e-14    0.0      PASS          PASS         
+  stack   1.0780e-13    0.0      PASS          PASS         
+  slab    7.0000e-02    1.0      FAIL          PASS         
+  prediction P1d (delta_ov = 0 changes no verdict): CONFIRMED
+
+  BUT the only other admissible value does move one: slab
+  delta_ov = 1 admits mu_ov = 1, so the INTACT SLAB passes. Since {0,1} is the whole admissible
+  set, the tolerance has exactly two settings: inert and vacuous. There is no third value,
+  because any delta_ov in (0,1) is either state-dependent (P1-3) or arbitrary.
+  => Phase 1's relaxation target exists, is unique, and CANNOT be used: raising it destroys
+     the very discrimination the criterion lives on. Registered as PASS-WITH-NARROWING.
+
+[P1-6] THE FEASIBLE WINDOW FOR CM5 ON THE CONVERTED STATE
+  to CONVICT the converted state the estimator must resolve the interlayer spacing:
+      Delta_z_res <= g_min = 8.620e-12 m
+  to ACQUIT a real surface it must tolerate that surface's roughness:
+      Delta_z_res > s_max * Delta_x
+  together:  s_max * Delta_x < Delta_z_res <= g_min   =>  Delta_x < g_min / s_max
+  roughness model              s_max        Delta_x <      verdict   
+  atomic, corr. 1 nm           2.154e-01    4.002e-11      non-empty 
+      at Delta_x = 1e-04 m the window is closed by a factor 2498839.9
+  atomic, corr. 100 um         2.154e-06    4.002e-06      non-empty 
+      at Delta_x = 1e-04 m the window is closed by a factor 25.0
+  flat to 1 nm over 100 um     1.000e-05    8.620e-07      non-empty 
+      at Delta_x = 1e-04 m the window is closed by a factor 116.0
+  at the S0 sampling scale (100 um) the window is CLOSED for every roughness model above:
+  atomic roughness over a 1 nm correlation length gives s_max*Delta_x = 2498839.91 x g_min.
+  so a single (Delta_x, Delta_z_res) pair cannot both see the layering and tolerate the
+  roughness. CM5 is therefore informative only for a surface flat below g_min/Delta_x, which
+  is 8.62e-08 for the S0 scale -- i.e. flat to 8.6e-12 m over 100 um.
+
+==============================================================================
+PHASE 1 SUMMARY
+==============================================================================
+  delta_ov, worst-case reading : {0, 1} only -- a classification, not a tolerance
+  delta_ov, quantile reading   : state-dependent (falsifier fires)
+  Delta_z_res = +0 / Delta_x   : the estimator's edge; delta_ov is not a free knob
+  P1a FAILED (registered f>1) / at the corrected edge f>=sqrt(2): CONFIRMED
+  P1b FAILED (registered: span = s_max*Delta_x; true bound is sqrt(2) x that)
+  P1c SPLIT (worst-case passes, quantile reading fires the falsifier)
+  P1d CONFIRMED
+  PHASE 1: the objective is achieved (delta_ov is derived), and the outcome is that the
+  tolerance has NO admissible non-trivial value. This is registered as PASS-WITH-NARROWING,
+  not as a relaxation: nothing was relaxed, because there was nothing continuous to relax.
+
+PROVENANCE: NEITHER  (estimator analysis; establishes no physics)
+

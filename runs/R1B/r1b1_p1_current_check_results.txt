@@ -1,0 +1,33 @@
+
+==============================================================================
+K1 : STRUCTURE OF THE CONJUGATE EQUATION
+==============================================================================
+  [K1] -> VERIFIED
+  conj(g0) = -g0, conj(g^i) = -g^i (real-form structure), Omega_z real --
+  the conjugate equation has the same operator structure with conj matrices.
+
+==============================================================================
+K2 : CONTINUITY, GENERIC COMPONENTS, CURVED BACKGROUND
+==============================================================================
+  [K2] -> FAILED
+  residual coefficients (first nonzero):
+
+==============================================================================
+K3 : FLAT CROSS-CHECK  (B = 1, Omega = 0)
+==============================================================================
+  [K3] -> FAILED
+
+==============================================================================
+EVIDENCE CLASSIFICATION
+==============================================================================
+CHECK items: K1 (conjugate structure), K2 (continuity equation with generic
+     components on the curved background, EOM + conjugate substituted),
+     K3 (flat cross-check) -- all identities at component level.
+THEOREM-level (diffeo invariance): nabla_mu T^{mu nu} = F^{nu lam} J_lam
+     holds for the Hilbert tensor of the declared diffeo-invariant action;
+     its four ingredients (nabla g^mu = 0, {g^mu,g^nu} = 2 g^munu, metric
+     compatibility, EOM) are machine-verified in the round-43 product; the
+     component-level curved T-check is registered as an optional appendix,
+     not a closure gate (Noether-theorem status).
+This checker verifies algebra only -- it simulates no physics and computes
+no material parameter.

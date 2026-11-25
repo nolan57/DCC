@@ -1,0 +1,212 @@
+
+====================================================================================================
+[0] OBJECT OF RECORD AND THE POC THAT WAS REQUESTED
+====================================================================================================
+  PROVENANCE: NEITHER  (adjudication; establishes no physics, creates no readable cell)
+
+  DEMO-1 spec sha256 = afe855c260030ce9...
+  delta = 2.150e-10 m   H = 0.23 m   r4 = 0.09 m   pitch = 0.4001 m
+  N_layer = 1,069,767,441   pieces = 4,279,069,764
+
+  POC as specified (500-1000 voxels): M = 4 shells x 256 layers = 1024 pieces
+  Hilbert order 5 on a 32x32 grid = 1024 cells -> occupancy 1.0000
+
+  is the POC a SCALE MODEL of DEMO-1?  Four constants are locked: delta, H, r4, aspect H/2r4.
+  Fixing pieces = 1024 and M = 4 fixes N_layer = 256, which then fixes H:
+    H_poc = N_layer*delta = 5.5040e-08 m              (locked H = 0.23)
+    aspect_poc = H_poc/2r4 = 3.0578e-07             (locked aspect = 1.2778)
+    aspect is off by 4.179e+06x
+  or keep H = 0.23 and let the spacing float:  H/N_layer = 8.9844e-04 m = 4.179e+06 delta
+  => at 1024 pieces one locked constant must move by 4.179e+06x.  The POC is
+     therefore a CODE test, not a scale model.  That is acceptable for validating code paths;
+     it cannot validate the physics of DEMO-1, because the dimensionless group pitch/delta
+     = 1.861e9 is exactly what the POC must abandon.
+
+====================================================================================================
+[A] IS THE DIAGNOSIS IN sI ACCURATE?  (three claims, checked against the record)
+====================================================================================================
+  claim 1 (support disjointness, so the KL diverges):
+      TRUE -- it is P4 of last round: 0.292062 m < 0.4001 m.  Quoted accurately.
+  A1   the diagnosis of the KL failure is accurate                  : PASS   matches P4
+
+  claim 2 (the old framework 'forcibly maintained connecting edges in vacuum ... generating
+           spurious stresses during dimensionality reduction'):
+      record says: no in-plane bonding is performed. "space between pieces is vacuum" present = True
+      occurrences of 'spurious stress' in docs/: 6
+      and KIN-DYN: D2 performs NO deformation, so intralayer strain is 0 BY CONSTRUCTION
+      and there is no stress field at all -- nothing was forced, so nothing became spurious.
+  A2   'spurious stresses' existed to be removed                    : FAIL   no stress field exists; FALSE PREMISE
+      => the artefact the potential is designed to remove does not exist in the record.
+         The potential is a remedy for a problem the correction itself has just invented.
+
+  claim 3 (ARAP needs a vertex set; the record has extended annular plates; SO(2) cannot act
+           across dimensions on 3D edges):
+      in 8 specification files: 'triangulat' = 0, 'vertex set' = 0, 'shell' = 5, 'pieces' = 10
+      (the corpus-wide count is contaminated: my own rulings quote the submission's phrase
+       'vertex set' while rejecting it, so only docs/specs/ can answer this)
+  A3   the object/dimension mismatch is accurate                    : PASS   matches P1-P3
+
+====================================================================================================
+[B] THE POTENTIAL ON N_phys: does the term act at all?  (P1 P2 P3 P4 P7 P8)
+====================================================================================================
+  523,776 distinct pairs enumerated exactly
+  d_3D in [0.0000e+00, 5.0000e-02] m      d_2D in [0.4001, 17.54] m
+
+  N_phys := pairs with d_3D <= delta
+    count = 3,318   (DEMO-1 scale: x4.179e+06 -> 13,865,188,942)
+    d_2D restricted to N_phys: [0.4001, 13.78] m
+  P7   N_phys is non-empty (count: see note)                        : PASS   3,318 pairs at POC
+      NOTE -- P7's NUMBER is wrong.  I predicted 3.2e+09 at DEMO-1 scale; the structure
+      (2 axial + 3 per adjacent shell per interface) implies 1.387e+10, a factor
+      4.33.  I had multiplied by N_layer once where the interface term needs it
+      three times.  The qualitative claim (non-empty) holds; the figure I registered does not.
+
+  P1/P3/P8  for a PHYSICAL parameter set (alpha = 2e10 m^-1, d0 = delta, r_cut = 10*delta):
+  r_cut (m)  N_phys pairs inside r_cut  sum Psi / D_e
+  ---------  -------------------------  -------------
+  2.150e-10  0                          0.0          
+  2.150e-09  0                          0.0          
+  1.000e-06  0                          0.0          
+  1.000e-03  0                          0.0          
+  4.001e-01  0                          0.0          
+  1.000e+00  1020                       0.0          
+      r_cut must reach pitch = 0.4001 m before a single pair contributes:
+  P3   r_cut must be >= pitch (0.4001 m) to act                     : PASS   0 pairs below pitch
+  P8   N_phys and {d_2D < r_cut} are disjoint at physical r_cut     : PASS   exactly 0 pairs
+  P1   sum Psi = 0 exactly for a physical Morse parameter set       : PASS   exp(-2*alpha*pitch) underflows
+
+  P2  nearest N_phys pair sits at d_2D = 0.4001 m; for |Psi|/D_e >= 1% we need
+      alpha <= 13.2362 m^-1   (physical alpha = 2.0e+10 m^-1)
+      shortfall = 1.511e+09x
+  P2   a physical alpha misses the 1% threshold by ~1e9x            : PASS   1.51e+09x
+  P4  dimensionless group Pi = alpha*(pitch - d0) = 8.002e+09;  a potential that acts has Pi <~ 5
+  P4   Pi = alpha(pitch-d0) is 8e9 for the deposit                  : PASS   8.002e+09
+
+  the alpha sweep, with r_cut lifted so nothing is truncated (r_cut = 1 m):
+  alpha (m^-1)  sum Psi / D_e  per pair  
+  ------------  -------------  ----------
+  2.000e+10     0.000e+00      0.000e+00 
+  1.000e+09     0.000e+00      0.000e+00 
+  1.000e+07     0.000e+00      0.000e+00 
+  1.000e+04     0.000e+00      0.000e+00 
+  1.000e+02     -8.580e-15     -8.412e-18
+  1.324e+01     -1.018e+01     -9.985e-03
+  5.000e+00     -2.573e+02     -2.522e-01
+  1.000e+00     -9.091e+02     -8.913e-01
+  1.000e-01     -1.018e+03     -9.985e-01
+      the term is either exactly zero or requires alpha ~ 1-10 m^-1, i.e. a spring of
+      ~10 cm stiffness length.  That is not an interface potential.
+
+====================================================================================================
+[C] THE TRICHOTOMY  (P5 P6)
+====================================================================================================
+  P5  the submission lists the parameters to tune as (D_e, alpha, r_cut).  The equilibrium
+      distance d0 is absent from that list, and d0 is the parameter that decides whether the
+      term can act at all -- it is the argument of every exponential above.
+  P5   d0 is omitted from the declared parameter set                : PASS   D_e, alpha, r_cut only
+
+  P6  three branches, all computed at the deposit's nearest pair distance:
+      (i)   d0 = delta, alpha physical
+          Psi(pitch)/D_e =  0.000000e+00    |force| at pitch =  0.000000e+00
+      (ii)  d0 = pitch
+          Psi(pitch)/D_e = -1.000000e+00    |force| at pitch =  0.000000e+00
+      (iii) d0 = delta, alpha = 1 m^-1
+          Psi(pitch)/D_e = -8.912669e-01    |force| at pitch =  4.420278e-01
+
+      (i)   vanishes: exp(-2*alpha*pitch) = 0.0 in double precision.  Term inert.
+      (ii)  every nearest pair sits exactly AT the minimum, so dPsi/dd = 0 identically:
+            the term contributes a constant -D_e per pair and ZERO force.  It cannot move
+            the map.  Any pair displaced off pitch feels a restoring force back onto pitch
+            -- i.e. it re-imposes the locked lattice, which the lattice already does.
+      (iii) acts, and pulls neighbours off pitch toward d0 = delta.  That contradicts
+            pitch being locked (0.4001 m) by 1.861e9x.  Prohibited by the declared geometry.
+  P6   every branch is inert or prohibited                          : PASS   no admissible branch acts
+
+====================================================================================================
+[D] MR2-D: what it reports, and what it cannot do  (P9 P10)
+====================================================================================================
+  pair class              d_2D (m)  d_2D/pitch
+  ----------------------  --------  ----------
+  C1 axial (n, n+1)       0.400100  1.0000    
+  C2 axial (n, n+1)       0.400100  1.0000    
+  C3 axial (n, n+1)       0.400100  1.0000    
+  C4 axial (n, n+1)       0.400100  1.0000    
+  C1|C2 interface (d3=0)  6.402     16.0      
+  C2|C3 interface (d3=0)  6.402     16.0      
+  C3|C4 interface (d3=0)  6.813     17.0      
+  at DEMO-1 scale the same two columns read 0.400100 m (1.0000) and 1.2e4 m (measured last
+  round).  So MR2-D reports: axial preserved exactly, interfaces severed 100%.
+  P9   the antecedent 'interfaces are not severed' is FALSE         : PASS   100% severed
+      the submission's sentence is 'proving that AS LONG AS true physical interfaces are not
+      severed, local weak-force relationships can be perfectly preserved'.  For the object of
+      record the antecedent is false, so the implication is vacuous: it is true whether or not
+      preservation holds.  An implication whose antecedent never holds proves nothing.
+  P10  MR2-D has no threshold and cannot 'prove'                    : PASS   diagnostic, no admission power
+
+====================================================================================================
+[E] sIV vs sV, and the engineering claims  (P11 P12 P13 P14)
+====================================================================================================
+  P11 KIN-DYN s6: "no frame may depict elastic unfolding, differential strain, or fracture as a consequence of D2."
+      sIV asks to display 'the stress distribution ... high stress in red, natural ruptures'.
+      A stress-coloured canvas IS differential strain; 'natural ruptures' IS fracture.  Both
+      are named in the clause.  This is the second submission in two rounds to draw the
+      forbidden picture.
+  P11  the stress figure is forbidden by KIN-DYN s6                 : PASS   verbatim conflict
+
+  P12 the two halves of the document are at different scales:
+      sIV: 500-1000 voxels.   sV: optimised for 4,279,069,764 voxels.   ratio = 4.179e+06
+      at 1024 pieces the entire state is 4.0 kB; bit-packing to 32 bits saves
+      0 bytes, because 32 bits is already what 4 bytes means.  Memory mapping saves nothing.
+      at 4,279,069,764 pieces the same array is 15.9 GiB.
+  P12  sIV and sV describe different problems                       : PASS   ratio 4.18e+06
+
+  the declared bit budget does not close:
+      position 6 bits/axis x3 = 18 + normal 3 + material 7 = 28 bits, leaving 4.
+      but 6 bits/axis addresses only 64 positions: at 65536 sites per axis you need 16 bits
+      per axis = 48 bits for position alone.  A chunked layout needs a chunk index on top:
+      64^3-chunks -> 16,324 chunks -> 14 bits index; total = 28 + 14 = 42 bits
+  P13b the 32-bit per-vertex claim is 10 bits short                 : PASS   42 bits needed
+
+  P13 the solver claim:
+      'CG ... discard Newton, which requires an (3N)^2 Hessian'.
+      (a) with the Morse term the objective is NONLINEAR in the coordinates, so plain CG
+          (a linear solver) cannot minimise it.  Nonlinear CG can, and is memory-light --
+          but then it is a different algorithm from the one named.
+      (b) for ARAP alone the global step is a CONSTANT sparse system (all weights and the
+          cotangent Laplacian are fixed), so the standard method is ONE prefactored
+          Cholesky, then a back-substitution per iteration -- no iterative solve at all.
+      (c) a sparse Hessian is not an (3N)^2 dense matrix; sparse Cholesky on a voxel graph
+          is the usual approach.  The baseline the comparison rejects is a strawman.
+  P13  CG is a linear solver; ARAP's step is constant and prefactorable : PASS   category error + wrong baseline
+
+  P14 the four Windows settings, assessed for a MEMORY-BOUND job on 32 GB:
+  setting            submission           what it actually does here                               verdict               
+  -----------------  -------------------  -------------------------------------------------------  ----------------------
+  MemoryCompression  disable recommended  REDUCES page I/O; disabling INCREASES it                 harmful               
+  PageCombining      disable recommended  dedups identical pages -- a large win for a sparse grid  harmful               
+  PagingExecutive    = 1                  pins kernel code, REDUCING RAM for the app               harmful on 32 GB      
+  pagefile on NVMe   fixed 32-48 GB       sensible, but SSD random is ~1e3x slower than RAM        sound but insufficient
+  P14  2 of 4 settings are counterproductive                        : PASS   compression, combining
+
+====================================================================================================
+[F] VERDICTS
+====================================================================================================
+  ADOPT:
+    - the staged POC (1024 pieces) as a CODE test -- with the declared scope that it is not
+      a scale model and cannot validate DEMO-1 physics (pitch/delta = 1.861e9 is abandoned)
+    - MR2-D as the sole diagnostic, unchanged: threshold-free, no admission power
+    - the SFC repositioning, renamed SFC-INDEX: a spatial index is a different object from
+      SIGMA-DEMO and may not be called sigma
+    - the three-part diagnosis in sI: 2 of 3 claims accurate (A1, A3)
+
+  REJECT:
+    - the interface potential: inert for every physical (alpha, r_cut, d0); its only
+      non-inert branch contradicts the locked pitch
+    - the premise of sI claim 2: there is no stress field in D2, so 'spurious stresses'
+      is a problem the correction invents in order to solve it
+    - the stress figure: forbidden by KIN-DYN s6
+    - 'proving': an implication with a false antecedent
+    - the CG comparison and 2 of the 4 Windows settings
+
+  P15 PARTIALLY ACCEPTED -- the diagnosis and the staging, not the mechanism.
+  P15  PARTIALLY ACCEPTED                                           : PASS   diagnosis adopted, potential rejected

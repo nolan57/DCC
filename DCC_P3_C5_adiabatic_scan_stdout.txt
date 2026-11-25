@@ -1,0 +1,102 @@
+====================================================================================
+DCC P3-C5 Adiabatic-Criterion Parameter Sensitivity Scan | stdout archive (including version hashes)
+====================================================================================
+[Honesty boundaries] This scan is based on the specified contracting background (C∝t^beta_C, a phenomenological
+                     scaling extrapolated from the magnetic attractor),
+                     D3 not achieved; the low-speed wall-velocity group is a phenomenological assumption, not a
+                     prediction (P1b FAIL permanently archived).
+                     If D3 is achieved later, this task must be rerun with a real dynamical C(t).
+
+[Prerequisite confirmation 1] Source of p_z=0.5: a representative value, not fixed by the relation.
+  Evidence: in DCC_P3_mode_freeze.py, pz_list=[0.0,0.5,1.0,2.0,4.0]; 0.5 is a sampled representative point.
+  Relation (numerical coincidence, not an independent constraint): eta(t0)=|beta_C|*C0/(pz*t0)=1
+        =>  pz|^{eta(t0)=1} = |beta_C|*C0/t0 = 0.5000*1.0000/1.0000 = 0.500000
+  Reasonable range: no theoretical constraint (comoving z volume unspecified, KK tower spacing undetermined —
+                    P3 §7); take axis A [0.1,2.0], 20 log-uniform points (covering O(10) on both sides of the
+                    critical point).
+  Strength of conclusions: until the above is filled in, all results are only [conditional conclusions for a given p_z].
+
+[Prerequisite confirmation 2] t* = t0 = 1.0000; C(t0)=C0=1.0000: pure normalization convention;
+  beta_C=-0.5000: not a normalization but a phenomenological scaling exponent (representative magnetic-attractor
+  value; vacuum Kasner extrapolates to -1/3).
+  Hence varying beta_C is a [model-assumption change] and must not be written as a unit/gauge change.
+
+[Input files and version hashes SHA256]
+  C(t) background script DCC_P3_mode_freeze.py  e3cf557eae13e106b9bbf336f79da314bf602dbb5319bbd954d899832fc85923
+  wall-trajectory NPZ    DCC_P2_1p1_frames.npz  d3b429543052aaae5c06e274006abd2fe5f25ee30ffe14a5af9bb35ce6257d6b
+  P1 results (low-speed wall) DCC_P1_results.txt  49399ae5f4c87432942dd7abdd33f0911104889e9b7d71783c1d3855df0e13d5
+  P4 report (relativistic wall) DCC_P4_Report_v1.md  9978c9813ec846c7a9a1c52dbf2a964009f09c61729db77f0e33ff9e678d8d7d
+  roadmap (status)       DCC_P0-P4_Roadmap_Plan.md  c8b7a21b6a548cf7cf83c473297413fc1c018f970c134526d080fc3381f5f236
+
+[Background constants (read via importlib, not hardcoded)]
+  T0         = 1
+  C0         = 1
+  BETA_C     = -0.5
+  BETA_AB    = 0.5
+  T_END      = 30
+  C(t)=C0*(t/T0)^beta_C, t∈[1.0000, 30.0000], sampled at 1200 points over the whole trajectory
+
+[Wall-trajectory time windows (read from NPZ)]
+  W1-slab-static: t∈[0.0000,5.9925] (9 frames), slab wall position |x_w|∈[19.975,19.975] (static in comoving coordinates;
+      wall velocity registered separately by P1b)
+  W2-slab-expand: t∈[0.0000,5.9925] (9 frames), slab wall position |x_w|∈[19.975,19.975] (static in comoving coordinates;
+      wall velocity registered separately by P1b)
+  W3-slab-nob: t∈[0.0000,5.9925] (9 frames), slab wall position |x_w|∈[19.975,19.975] (static in comoving coordinates;
+      wall velocity registered separately by P1b)
+  Wall-velocity registration (identity labels only, not entering eta): relativistic beta_w=0.5; low-speed beta_f=0.0001416647
+  Low-speed group label: phenomenological assumption, not a prediction. The two groups have identical eta values
+  (the formula contains no beta_w), but conclusions are drawn separately.
+  Coordinate distinction: NPZ t∈[0,5.99] is the P2 ADM code time; the full-trajectory eta scan uses the P3 ansatz
+                          validity window t∈[t0,30t0] (P3 effective-theory notes §1.1). The two have different
+                          normalizations and must not be mixed.
+
+[Dimensional consistency assertion] c=hbar=1, [t]=[x]=M^-1, [p_z]=M^1, [A,B,C]=M^0 -> [eta]=M^0  PASS
+
+[Regression check] alpha=0.5, p_z=0.5, beta_C=-0.5000, t=t0=1.0000 -> eta=1.000000000000000
+  difference from 1.0 = 0.000e+00, threshold 1e-12 -> PASS
+
+[beta_C physical gate]
+  beta_C=-0.500000000 : OK
+  beta_C=-0.333333333 : OK
+  beta_C=-0.666666667 : OK
+  probe beta_C=+0.000 : [91mmarked red and discarded[0m(beta_C must be <0 (contraction along Z, D2))
+  probe beta_C=+0.500 : [91mmarked red and discarded[0m(beta_C must be <0 (contraction along Z, D2))
+  probe beta_C=-1.500 : [91mmarked red and discarded[0m(beta_C < -2*beta_AB=-1.000: total volume ABC recollapses, leaving the frozen magnetic-attractor background)
+  probe beta_C=-2.000 : [91mmarked red and discarded[0m(beta_C < -2*beta_AB=-1.000: total volume ABC recollapses, leaving the frozen magnetic-attractor background)
+
+[Scan] axis A p_z 20 points (log[0.1,2.0]) × axis B alpha 10 points (lin[0.1,1.0]) × axis C beta_C 3 settings
+  parameter points/group = 600; total verdict rows = 1200 (600 per group)
+
+Output 1 written: DCC_P3_C5_eta_curves.png
+Output 2 written: DCC_P3_C5_eta_max_contour.png
+Output 3 written: DCC_P3_C5_judgement_table.csv
+
+[Output 4] Drift of the eta=1 contour on the (p_z,alpha) plane
+  Structure: eta contains no alpha ⇒ for any beta_C, eta_max(p_z,alpha) is independent of alpha;
+             the eta=1 contour is the vertical line p_z = p_z^*(beta_C) = |beta_C|*C0/t0 (the eta_max=1 condition).
+  beta_C=-0.500000 : p_z^*=0.500000, drift w.r.t. alpha=0.000000 (always 0), drift w.r.t. beta_C=+0.000000 (+0.00%)
+       eta=1 crossing window (t_cross∈[t0,30t0]): p_z∈[0.003043, 0.500000]; the lower end of [0.100,2.000] is critical
+  beta_C=-0.333333 : p_z^*=0.333333, drift w.r.t. alpha=0.000000 (always 0), drift w.r.t. beta_C=-0.166667 (-33.33%)
+       eta=1 crossing window (t_cross∈[t0,30t0]): p_z∈[0.003576, 0.333333]; the lower end of [0.100,2.000] is critical
+  beta_C=-0.666667 : p_z^*=0.666667, drift w.r.t. alpha=0.000000 (always 0), drift w.r.t. beta_C=+0.166667 (+33.33%)
+       eta=1 crossing window (t_cross∈[t0,30t0]): p_z∈[0.002302, 0.666667]; the lower end of [0.100,2.000] is critical
+Output 4 written: DCC_P3_C5_contour_drift.txt
+Machine-readable data written: DCC_P3_C5_adiabatic_scan_data.npz
+
+[Verdict summary] For each group × each beta_C: fraction of parameter points in each of the three levels (alpha 10 × p_z 20 = 200 points)
+  group relativistic (dynamical solution)
+    beta_C=-0.500000 : adiabatic 90/200 (45.0%), destructive 0/200 (0.0%), no discriminating power 110/200 (55.0%)
+    beta_C=-0.333333 : adiabatic 110/200 (55.0%), destructive 0/200 (0.0%), no discriminating power 90/200 (45.0%)
+    beta_C=-0.666667 : adiabatic 70/200 (35.0%), destructive 0/200 (0.0%), no discriminating power 130/200 (65.0%)
+  group lowspeed_pheno (phenomenological assumption, not a prediction)
+    beta_C=-0.500000 : adiabatic 90/200 (45.0%), destructive 0/200 (0.0%), no discriminating power 110/200 (55.0%)
+    beta_C=-0.333333 : adiabatic 110/200 (55.0%), destructive 0/200 (0.0%), no discriminating power 90/200 (45.0%)
+    beta_C=-0.666667 : adiabatic 70/200 (35.0%), destructive 0/200 (0.0%), no discriminating power 130/200 (65.0%)
+
+[Conclusion layer] The fractions of the robustly adiabatic / robustly destructive regions in parameter space are given above;
+                   eta=1 is only a single point in a monotonic crossing, and its position is set by the choice of
+                   beta_C (together with the normalization C0/t0 and the representative p_z), not an intrinsic
+                   critical point of the model.
+                   The verdicts of the two wall-velocity groups are point-by-point identical — this criterion
+                   has no discriminating power with respect to wall velocity.
+====================================================================================

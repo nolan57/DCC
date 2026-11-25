@@ -1,0 +1,85 @@
+<<<LOG>>>
+====================================================================================
+G0' v2 (G0P-002): convention-corrected survival threshold (review-driven)
+====================================================================================
+run: 2026-11-21T06:49:42
+corrections applied: F-G0-4 (n_2D convention), F-G0-5 (nu budget relabel),
+  F-G0-6 (Gamma_i relabel), F-G0-7 (density basis), F-G0-8 (Q convention)
+registered thresholds: {'nr_switch_reldev': 1.0, 'T1': 0.01, 'T3': 0.05, 'T5': 1e-06, 'dual': 0.05, 'T7': 0.0001, 'T8': 0.001, 'T4': 1e-12, 'T9_spread': 0.05}
+
+[dual-path recheck] threshold=0.05
+  N_s    A=4.215499e+27 B=4.215499e+27 reldev=1.3e-16
+  N_B    A=4.215499e+28 B=4.215499e+28 reldev=0.0e+00
+  n_2D   A=2.200490e+28 B=2.200490e+28 reldev=0.0e+00
+  k_F    A=3.718345e+14 B=3.718345e+14 reldev=1.7e-16
+  E_F_J  A=1.175565e-11 B=1.175565e-11 reldev=1.4e-16
+  u_2D   A=1.724546e+17 B=1.724546e+17 reldev=5.6e-16
+  P_2D   A=8.622728e+16 B=8.622728e+16 reldev=5.6e-16
+  c_s    A=2.119853e+08 B=2.119853e+08 reldev=1.4e-16
+  v_inf  A=4.963504e+07 B=4.963504e+07 reldev=3.0e-16
+  A_min  A=3.793949e+08 B=3.793949e+08 reldev=1.6e-16
+  B_ion  A=2.374942e-09 B=2.374942e-09 reldev=0.0e+00
+  worst=5.57e-16 PASS
+
+[tests]
+  T1_Ns_NB_consistency       1.776e-16 / 1.0e-02  PASS  N_B/N_s = m_bar = 10.0 (definitional identity)
+  T2_relativistic_switch     7.079e+01 / 1.0e+00  PASS  v_F/c=143.6; E_F=73.37 MeV must use relativistic dispersion
+  T3_Amin_3A                 7.972e-04 / 5.0e-02  PASS  d=3.002 A
+  T4_column_invariance       0.000e+00 / 1.0e-12  PASS  sigma_eff constant-premise registration (N1-b CONDITIONAL)
+  T5_dim_coefficients        1.110e-16 / 1.0e-06  PASS  A 0.0e+00 / B(numeric) 1.1e-16
+  T6_capture_open            1.000e+00 / 1.0e+00  PASS  mu_e=73.37 MeV(total) > all kinetic-energy-convention Q; Q table uses kinetic convention (total convention +0.511)
+  T7_cs_vinf_Bion            1.406e-16 / 1.0e-04  PASS  cs2_numeric=0.500000
+  T8_pz_limits               4.000e-06 / 1.0e-03  PASS  NR 2.0000 (exp 2); UR 1.0000 (exp 1)
+  T9_n2D_convention_spread   4.215e-02 / 5.0e-02  PASS  ZA*N_B=2.2005e+28 vs Z_ion*N_s=2.1077e+28 (m^-2); spread=4.21% (Z_eff=5.22 vs 5); primary convention takes ZA*N_B
+  => ALL PASS
+
+[G0' v2 baseline (supersedes G0P-001 numbers)]
+  N_s(nuclei)   = 4.2155e+27 m^-2   (unchanged)
+  N_B(baryons)  = 4.2155e+28 m^-2   (= m_bar * N_s)
+  n_2D          = 2.2005e+28 m^-2   (v1: 2.20e27 -- F-G0-4 fix, x m_bar)
+  k_F           = 3.7183e+14 m^-1   (v1: 1.176e14)
+  E_F = mu_e    = 73.373 MeV    (v1: 23.20; mu_e/m_ec2=143.6)
+  u_2D          = 1.7245e+17 J/m^2 = 41.22 Mt/m^2 (v1: 5.45e15 = 1.30)
+  P_2D          = 8.6227e+16 N/m    (v1: 2.73e15)
+  c_s           = 2.1199e+08 m/s = c/sqrt2 (unchanged)
+  v_inf         = 4.9635e+07 m/s = 0.1656 c (v1: 0.0294c)
+  t_rip(1 m)    = 4.72 ns     (unchanged)
+  u_2D/Mc^2     = 2.741 %     (v1: 0.087)
+  A_min / B_ion = 3.794e+08 m^2 / 2.375e-09 (unchanged, geometric)
+  Gamma_e       = 2.258e-03 (U_e/E_F)
+  U_i/E_F       = 5.646e-02  [RELABEL: NOT the ion coupling parameter; F-G0-6]
+  tau_T(frozen) = 1.4639      (v1: 0.146 -- x m_bar; marginal-thick regime)
+  nu_budget     = 1.9401e+17 J/m^2  [PLACEHOLDER: /u_2D=1.125; not a transport result]
+  density basis: nuclei 4.2155e-03 fm^-3 (= 0.026*n_nuc doc); baryons 4.2155e-02 fm^-3
+  wp_bare(kF)   = 1.1411e+23 rad/s; m* corrected 9.5225e+21
+
+[eta_rough] (unchanged, window B>=2.4e-9)
+  e1s       0.0388
+  bond      0.0559
+  phonon    0.5591
+  nucleon   0.0280
+
+[seven-row verdicts v2]
+  1. Maintaining the original atoms/chemical bonds/non-covalent network at fixed area   => NO-GO (conditional: under specified model assumptions)
+       d_par=15.40 fm = 2.91e-04 a0 (nuclear column-density convention; geometric quantity unaffected by electron-convention corrections) [MODEL RESULT]
+  2. New stable high-density state                                  => OPEN
+       Determined by R1-B1 v2 (after dimensional correction) [OPEN]
+  3. Healthy positive solution for geometric contraction            => OPEN
+       D3/R2; N6 p_z back-reaction + N11 constraint stress (values updated with the P_2D correction) [OPEN]
+  4. Effective two-dimensional low-energy theory                    => OPEN
+       R1-B4 v2 + R3; N7 carrier gating [OPEN]
+  5. Other matter/radiation states                                  => OPEN
+       R1-B2 v2 / R1-B3 v2 [OPEN]
+  6. Mechanical self-equilibrium of the fixed-area final state      => NO-GO (conditional: frozen-state electron-gas pressure model + P_constraint=0)
+       P_2D(corrected convention)=8.623e+16 N/m (v1's 2.73e15 revoked); without constraint c_s=2.120e+08 m/s, 1m region 4.72 ns, v_inf=0.166 c final-state expansion. Limitation: holds only for the current ideal UR electron-gas pressure model; final-state EOS undetermined (R1-B1 v2), interface stress/surface tension not included -- cannot be extrapolated to 'no final state is possible' [MODEL RESULT (model-conditioned)]
+  7. Whether the v1.3 cold-electron-gas final state is the ground state at this density   => NO (threshold comparison ESTABLISHED)
+       mu_e=73.37 MeV (corrected convention) exceeds all nuclide kinetic-energy-convention capture thresholds Q (+m_e for total convention); nu_budget=1.940e+17 J/m^2 is a registered placeholder (/u_2D=1.125, not a transport result, F-G0-5) [MODEL RESULT]
+
+[handoff to R1-B1 v2 / N11]
+  n_B(G0, baryon) = 4.2155e-02 fm^-3  (v1 used 0.026 fm^-3 = neither quantity)
+  n_e,frozen = ZA*n_B = 2.2005e-01 fm^-3 -> mu_e,frozen = 73.37 MeV
+  P_2D(frozen electron gas) = 8.6227e+16 N/m -> N11 constraint-stress input
+
+G0' v2 OVERALL: PASS (tests PASS; dual-path PASS)
+evidence level: MODEL RESULT (model-limited wordings per review; numbers NOT
+  frozen until reviewer confirms v2 baseline)

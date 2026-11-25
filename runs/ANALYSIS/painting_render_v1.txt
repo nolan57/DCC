@@ -1,0 +1,122 @@
+========================================================================================
+[painting_render v1] 325 km^2 monolayer 'picture': geometry, optical depth, readability
+========================================================================================
+
+[1] Geometry of the unfolding map: what does it actually become
+  Volume conservation: V = M/rho = 0.0700 m^3
+  Number of atoms N = 7.00e+27; mean atomic spacing d = (V/N)^(1/3) = 0.2154 nm
+  Unfolded area A = N d^2 = 3.249e+08 m^2 = 324.9 km^2; square side 18.03 km
+
+  The map is an injection: each atom gets one lattice site in the plane. Hence
+    Number of slices N_slice = A/A_cross = 8.123e+09 (A_cross = 0.04 m^2 is the average cross-sectional area)
+    Each slice is d = 0.215 nm thick; accumulated thickness = 1.750 m (this is the dimension that was 'spread out')
+    Each slice occupies a square tile of side 0.200 m in the plane — **laterally 1:1, no magnification**
+    Tiles are arranged 90126 x 90126, filling a 18.03 km square
+  [CHECK   ] P1_unfold_is_tiling_not_magnification  PASS   The picture = 8.12e+09 tiles of 0.20 m laid out over 18 km square, not a magnified portrait
+
+  => Standing on the picture, what you see is **one 0.20 m tomogram**, not a person.
+     To see the 'person', one must read 8.1e+09 tiles in order.
+
+[2] Optical depth of each tile: tau = (mu/rho) * (rho*d)
+
+  tissue rho     tau@550nm   tau@284eV   tau@532eV   tau@4keV   
+  ------------------------------------------------------------------------
+  fat    0.920   5.95e-10    1.96e-03    3.93e-04    7.24e-07   
+  muscle 1.060   9.59e-08    1.47e-03    1.90e-03    1.02e-06   
+  blood  1.060   6.85e-07    1.44e-03    1.94e-03    1.02e-06   
+  bone   1.850   9.96e-08    2.61e-03    2.44e-03    3.90e-06   
+  lung   0.260   1.68e-08    3.51e-04    4.82e-04    2.51e-07   
+
+  Visible light tau ~ 1e-7~1e-6; soft X-rays near the C/O K edge have tau ~ 1e-3.
+  The two differ by 4 orders of magnitude — but **both are far below 1**, both absorb less than one thousandth of the light.
+  [ESTIMATE] P2_visible_tau_is_1e-7                 PASS   Monolayer visible-light optical depth 6e-10~7e-7; the earlier 0.08%-3% was high by 4-5 orders of magnitude, corrected
+
+[3] Hard upper limit: the 2D condition locks the optical depth
+  Given area A, the number of layers is N_L = V/(A d), and tau = N_L * tau_1
+  2D condition E_F < E_sub  <=>  V sqrt(2 pi N)/(pi A^{3/2}) < 1
+  Solving gives A >= 2.795e+08 m^2 = 280 km^2 for the configuration to be 2D
+  This configuration A = 324.9 km^2: N_L = 1.00 layers, E_F/E_sub = 0.80
+  Boundary A = 280 km^2: N_L = 1.16 layers — **this is the thickest allowed state**
+
+  => tau_max = 1.16 layers x 1.57e-03 = 1.82e-03
+     That is: **effective 2D reduction <=> monolayer optical depth <= 0.18%**. Not an engineering problem, but a definitional one.
+     Human-eye contrast threshold 1%; even the thickest qualifying picture is only 0.18%, lower by 5.5 times.
+  [CHECK   ] P3_2D_caps_optical_depth               PASS   The layer count is limited to 1.16 layers by the 2D criterion, capping tau at 1.8e-03 — the picture can never be opaque
+
+[4] M1 uniform pack vs M2 density-preserving: 'smooth' picks the latter, which is locally not 2D
+  M1 uniform pack: n_areal is everywhere = 2.15e+19 m^-2 -> the plane is uniform, the density map is lost, only composition remains
+        E_F = 2.30 keV, E_sub = 2.88 keV, ratio 0.80 -> passes everywhere
+  M2 density-preserving: n_areal(x,y) = rho(x,y)*d/m_atom -> the plane carries a radiograph
+        lung n = 5.60e+18 m^-2  E_F = 1.17 keV  E_F/E_sub = 0.41  passes
+        fat  n = 1.98e+19 m^-2  E_F = 2.20 keV  E_F/E_sub = 0.77  passes
+        muscle n = 2.28e+19 m^-2  E_F = 2.36 keV  E_F/E_sub = 0.82  passes
+        bone n = 3.99e+19 m^-2  E_F = 3.12 keV  E_F/E_sub = 1.09  **not 2D**
+  [CHECK   ] P4_density_mapping_breaks_2D_in_bone   PASS   Only M2 gives a real 'picture', but in bone regions E_F exceeds E_sub — the brightest part of the picture is precisely where it is not 2D
+
+[5] Rendering: synthetic chest tomogram, tau distribution and photon budget under four probes
+  Phantom: 640x640, field of view 0.707 m (= tile side), pixel 1.10 mm
+
+  Correct convention for imaging contrast: T ~ 1 - tau, so relative contrast for transmitted light = |d tau| (absolute difference)
+  Probe        mean tau    max d tau   photons/px needed vs eye threshold verdict
+  --------------------------------------------------------------------------------------
+  visible 550nm 1.11e-07    6.85e-07    1.9e+13     6.8e-05      photons short by 5 orders
+  softX 284eV  1.24e-03    2.26e-03    1.8e+06     2.3e-01      feasible (conventional STXM)
+  softX 532eV  1.28e-03    2.04e-03    2.2e+06     2.0e-01      feasible (conventional STXM)
+  hardX 4keV   9.60e-07    3.65e-06    6.8e+11     3.6e-04      marginal (needs dedicated beamline)
+
+  Visible light: tau = 1.1e-07, inter-tissue d tau = 6.8e-07 -> transmitted light differs by only 7e-07, while the eye needs 1e-2.
+          What is lacking is not the inter-tissue relative ratio (which can reach tens of times), but the **absolute signal**.
+  284 eV: tau = 1.2e-03, inter-tissue d tau = 2.3e-03 -> only 2e+06 photons per pixel needed, conventionally feasible.
+  => In soft X-rays the picture is **a real anatomical image**; in visible light it is a nonexistent quantity.
+  [ARGUMENT] P5_picture_needs_photons_not_contrast  PASS   The failure mode is photon starvation, not insufficient contrast — this changes the technical meaning of the 'white wall' verdict
+
+[6] Who can read it: the viewing-distance ladder
+  Human-eye angular resolution 1' = 2.9e-4 rad -> resolvable scale s = 2.9e-4 * D
+
+  Viewing distance Resolvable scale What is seen           Recognizable?
+  ------------------------------------------------------------------------------------
+  25 cm       7.25e-05      cell-scale detail within a tile no (d tau 1e-7 < 1e-2)
+  1.00 m      2.90e-04      cell-scale detail within a tile no (d tau 1e-7 < 1e-2)
+  10.00 m     2.90e-03      part of a tile         no (d tau 1e-7 < 1e-2)
+  100.00 m    2.90e-02      part of a tile         no (d tau 1e-7 < 1e-2)
+  2500.00 m   7.25e-01      one tile (one complete tomogram) no (d tau 1e-7 < 1e-2)
+  18000.00 m  5.22e+00      tens to thousands of tiles no (d tau 1e-7 < 1e-2)
+
+  To resolve a single atom (0.215 nm), the viewing distance must be 7.43e-07 m — 4 orders of magnitude shorter than the near point.
+  And soft X-rays are absorbed within a few micrometers in front of the cornea: placing the eye in the beam would only show uniform fluorescence.
+  [ARGUMENT] P6_no_human_channel                    PASS   Resolution cannot reach the atom at any viewing distance; contrast is insufficient at any viewing distance — two independent failures
+[7] Reading the whole picture: two independent accounts, time and photons
+  Resolution   Pixel count    1e6 px/s      Total photons 1e13 ph/s   
+  --------------------------------------------------------------------------------
+  1 cm         3.25e+12       1.03e-01      5.74e+18      1.82e-02    
+  1 mm         3.25e+14       1.03e+01      5.74e+20      1.82e+00    
+  1 um         3.25e+20       1.03e+07      5.74e+26      1.82e+06    
+  0.215 nm     7.00e+27       2.22e+14      1.24e+34      3.92e+13    
+
+  The two accounts are of the same order (10 years vs 2 years at 1 mm, a factor of 6) — the constraint is not scanning speed but **total photon count**.
+  The 1e14 years at atomic resolution comes from the photon account, not from insufficient instrument speed.
+  [CHECK   ] P7_two_independent_accounts_agree      PASS   The times from scan rate and photon budget are of the same order, cross-validating each other
+[8] Information content: the truly useful content of the picture is only tens of GB
+  Phantom class-distribution entropy H = 0.80 bit/pixel (actual nonuniform distribution of 6 classes)
+  Number of addressable positions with atoms as pixels = 7.0e+27
+  Effective human-body information at 100 um voxels = 7.0 GB (7.0e+10 voxels x 0.80 bit)
+  => Redundancy ratio = 1.0e+18: a 7 GB picture is written as 7.0e+27 addressable positions.
+
+  [CHECK   ] P8_huge_redundancy                     PASS   The picture is a redundant encoding of 'one atom position per bit', not a painting waiting to be admired
+
+[9] Conclusion: what this picture actually looks like
+  1) Geometry: a floor 18 km square and 1.00 atomic layers thick, paved with 8.1e+09 tiles of 0.20 m;
+     Each tile is a 1:1 tomogram, not magnified laterally. The 'portrait' exists only in the ordering of the tiles.
+  2) Visible light: tau = 1.1e-07. In reflection, transmission, at any angle, at any magnification, it is a **uniform gray film**.
+     The inter-tissue ratio can reach tens of times, but the absolute signal is 1e-7 — 5 orders of magnitude short, not merely 'faint'.
+  3) Soft X 284 eV: tau = 1.2e-03, inter-tissue d tau = 2.3e-03, 2e+06 photons per pixel.
+     **This is the true carrier of the picture**: a monochrome, extremely thin, but structurally complete transmission image.
+  4) The 2D criterion locks the layer count within 1.16 layers, with tau capped at 0.18%.
+     **The picture can never be 'as dense as in Three-Body'**: density requires thickness, and thickness is not 2D.
+  5) Reading it: at 1 mm resolution 10 years / 6e+20 photons; at atomic resolution 2e14 years / 1e+34 photons.
+
+  In one sentence: the human eye has never seen the Three-Body picture.
+          It exists, with the right size, right structure, right position — but its contrast lies in a channel
+          that only single-photon counters can enter, and the bandwidth of that channel is determined by the number of atoms.
+
+========================================================================================

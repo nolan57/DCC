@@ -1,0 +1,134 @@
+
+==============================================================================
+R3-1  THREE MODELS FOR THE z-DIRECTION  (v1.4 sec 2.4 / 5.3 / 8.9)
+==============================================================================
+dim = 1 (fiber dimension treated in this module; transverse (x,y) factorized)
+physical constants: hbar = 1.054572e-34 J s, c = 2.997925e+08 m/s, m_e = 9.109384e-31 kg
+hbar*c = 197.326980 MeV*fm
+
+==============================================================================
+MODEL A:  z in R, NON-COMPACT  ->  CONTINUOUS SPECTRUM, NO p_z^min
+==============================================================================
+Regulator: put z in a periodic box of length L_reg (IR regulator only).
+Level spacing dp = 2*pi*hbar/L_reg -> 0 as L_reg -> infinity;
+density of states per unit p_z: rho(p) = L_reg/(2*pi*hbar), CONSTANT in p.
+
+L_reg [m]      dp = 2*pi*hbar/L_reg [kg m/s] rho(p) = L_reg/(2*pi*hbar) [1/(kg m/s)]
+1.00e-10       6.626070e-24             1.509190e+23              
+1.00e-06       6.626070e-28             1.509190e+27              
+1.00e-02       6.626070e-32             1.509190e+31              
+1.00e+02       6.626070e-36             1.509190e+35              
+DOS constancy: N states in window [p0-dp,p0+dp] at p0 = 1.0e-30 : 3.0183803611e+04
+               same at p0 = 1.0e-26 : 3.0183803611e+04   (ratio-1 = 0.00e+00)
+
+CONCLUSION (Model A): spectrum is continuous; p_z can be taken arbitrarily
+close to 0; NO minimum nonzero momentum exists -> 'no minimum momentum'.
+Low-energy effective 2D description: NOT automatic; requires separate proof (5.3).
+z-information stays in the dynamics (5.3).
+
+==============================================================================
+MODEL B:  FINITE-THICKNESS POTENTIAL WELL  ->  DISCRETE BOUND SPECTRUM
+==============================================================================
+Dimensionless units: xi = z/L, eigenvalue lambda in units of hbar^2/(2 m_e L^2).
+Infinite well [0,1]:  E_n = n^2 pi^2 hbar^2/(2 m L^2) = n^2 E_1^inf (analytic).
+Finite square well:   V0 = 20.0 * E_1^inf, numeric FD grid N = 400 over xi in [-1,1];
+                      transcendental check: even k*tan(k/2)=kappa, odd -k*cot(k/2)=kappa.
+
+[T1] infinite well E2/E1:
+     analytic   E2/E1 = 4.000000000000000   |dev-4| = 0.000e+00
+     numeric    raw N=400 : 3.9999383153 ; Richardson(N=400,1200) : 4.000000000017   |dev-4| = 1.671e-11
+     threshold  1.0e-10  ->  PASS
+
+finite well dimensionless depth V0~ = 197.3921  (units hbar^2/(2 m L^2)); sqrt(V0~) = 14.0496
+bound states found (FD, N=400): 5 ; transcendental roots: 5
+n    E_n numeric (lam)  E_n transcendental rel. diff     
+1    7.5519139895       7.5508791352       1.371e-04     
+2    30.0503114876      30.0477023309      8.683e-05     
+3    66.9387793869      66.9383052143      7.084e-06     
+4    116.8571495810     116.8652946895     6.970e-05     
+5    175.6413848754     175.4582738802     1.044e-03     
+[T2] GROUND state rel diff = 1.371e-04 (registered test, threshold 1.0e-03) -> PASS
+     supplementary convergence evidence (domain truncation, not a bug): the
+     weakest-bound level (n=5, near barrier top, kappa*a = 6.62) carries a finite-domain
+     tail error on [-1,1]; recomputed on a larger domain [-2,2] with N=1200 intervals:
+       n=1: E = 7.5513375860 vs 7.5508791352  rel diff 6.071e-05
+       n=2: E = 30.0488480208 vs 30.0477023309  rel diff 3.813e-05
+       n=3: E = 66.9383883782 vs 66.9383052143  rel diff 1.242e-06
+       n=4: E = 116.8597176336 vs 116.8652946895  rel diff 4.772e-05
+       n=5: E = 175.4415163310 vs 175.4582738802  rel diff 9.551e-05
+     max rel diff on the enlarged domain = 9.551e-05 (all levels) -> O(h^2) + tail convergence confirmed
+
+DeltaE_12 = E_2 - E_1 (first bound excited gap); infinite well: 3*E_1^inf (analytic).
+Finite-well dimensionless gap lambda_2-lambda_1 = 22.49839750  = (lam/E_1^inf) 2.27956426 (L-independent by scaling)
+
+L          E_1^inf(L) [eV]      DeltaE_12^inf = 3E_1 [eV] DeltaE_12^finite [eV]    finite/inf  
+1 fm       6.024667e-08         1.807400e-07             1.373362e-07             0.759855    
+1 nm       6.024667e-20         1.807400e-19             1.373362e-19             0.759855    
+1 um       6.024667e-26         1.807400e-25             1.373362e-25             0.759855    
+1.66 A     2.186336e-18         6.559008e-18             4.983893e-18             0.759855    
+note: 1.66 A is the G0 ionization-threshold length L_z^ion; at L = 1 fm the
+nonrelativistic well model itself leaves its validity range (E_1 >> m_e c^2);
+values are model-scale log entries, not material predictions.
+
+==============================================================================
+MODEL C:  COMPACT CIRCLE S^1  ->  KK SPECTRUM
+==============================================================================
+E_n^2 = m^2 c^4 + n^2 hbar^2 c^2 / R_z^2 + p_perp^2 c^2 ;  p_n = n*hbar/R_z.
+DeltaE_KK,1 = hbar*c/R_z (ultrarelativistic, p_perp = 0, massless limit).
+
+R_z        p_z^min = hbar/R_z     DeltaE_KK,1 = hbar c/R_z in eV               
+1 fm       1.054572e-19           3.161527e-11 J         1.973270e+08        
+1.66 A     6.352842e-25           1.904534e-16 J         1.188717e+03        
+1 nm       1.054572e-25           3.161527e-17 J         1.973270e+02        
+1 um       1.054572e-28           3.161527e-20 J         1.973270e-01        
+
+reference check at R_z = 1 fm:
+     DeltaE_KK,1 = hbar c / R_z = 197.326980 MeV   vs logged reference 197.33 MeV   rel diff = 1.530e-05
+     threshold  1.0e-04 (relative)  ->  PASS
+     massive-dispersion gap sqrt(m^2c^4+(hbar c/R)^2) - m c^2 = 196.816643 MeV (mass correction 2.59e-03 rel;
+     hbar c / R = 386.2 m_e c^2 at R_z = 1 fm -> ultrarelativistic limit is the logged formula).
+
+low-energy cutoff criterion  E_probe << DeltaE_KK,1  (operational: ratio < 1.0e-02):
+R_z        E_probe=1 eV     E_probe=2 eV     ratio(1eV)     ratio(2eV)     verdict 
+1 fm       1.973270e+08 eV  3.946540e+08 eV  5.068e-09      1.014e-08      cutoff OK
+1.66 A     1.188717e+03 eV  2.377433e+03 eV  8.412e-04      1.682e-03      cutoff OK
+1 nm       1.973270e+02 eV  3.946540e+02 eV  5.068e-03      1.014e-02      cutoff OK
+1 um       1.973270e-01 eV  3.946540e-01 eV  5.068e+00      1.014e+01      cutoff FAIL
+N7 gate: Model C low-energy-2D claim additionally requires the N7 carrier-conservation
+check (v1.4 8.9 / H5; at mu_e = 23.20 MeV carriers are subject to neutronization).
+N7 is NOT performed in this module -> status OPEN; no effective-2D claim is issued.
+
+==============================================================================
+THREE-MODEL COMPARISON TABLE  (v1.4 sec 5.3 properties; no ratings)
+==============================================================================
+property              | Model A (z in R)                | Model B (finite well)             | Model C (S^1)                     
+--------------------------------------------------------------------------------------------------------------------------------
+z-direction setting   | z in R; B(t,x) decreasing       | z in [z1,z2]; confining potential | z ~ z + 2*pi*R_z                  
+mapping               | pi(x,y,z)=(x,y); fiber=interval | pi(x,y,z)=(x,y); fiber=well interval| pi:E->B_2; fiber=S^1              
+momentum spectrum     | continuous; no p_z^min          | discrete bound spectrum (well-set)| KK: p_n = n*hbar/R_z              
+low-energy eff. 2D    | not automatic; needs proof      | depends on gap vs E_probe         | E_probe<<DeltaE_KK,1 + N7 gate    
+fiber degeneracy      | per h(x,y) criterion (5.1c)     | per h(x,y) criterion (5.1c)       | periodized interval: see 5.1(d)   
+z-information goes to | kept in dynamics                | kept in bound wavefunctions       | kept in KK labels (unexcitable)   
+equals 'squashed object'?| no                              | no                                | no                                
+main open problem     | can matter follow B(t)?         | can the well deepen adiabatically?| how is R_z generated dynamically? 
+
+CONCLUSIONS (8.9 acceptance):
+  (1) spectral conclusions are NOT transferable between models; each model's
+      spectrum is logged separately (A: continuous/no p_min; B: discrete bound;
+      C: KK ladder). No cross-model borrowing.
+  (2) no 'fiber-bundle mapping is the unique self-consistent form' claim is made;
+      selection requires comparison against a non-compact (A) and a thin-layer (B) model.
+  (3) low-energy effective actions: A: none delivered here (open); B: valid below
+      DeltaE_12^finite(L) with probe isolation; C: valid iff E_probe << DeltaE_KK,1
+      AND the N7 carrier gate passes (open here).
+
+==============================================================================
+VERDICTS
+==============================================================================
+T1  infinite well E2/E1 = 4 (analytic + Richardson numeric, tol 1.0e-10): PASS
+T2  finite well GROUND state vs transcendental equation (rel, tol 1.0e-03): PASS (rel diff 1.371e-04;
+    all-level max 1.044e-03 on N=400/[-1,1], 9.551e-05 on enlarged N=1200/[-2,2] domain)
+T3  DeltaE_KK,1(R_z=1 fm) vs 197.33 MeV (rel, tol 1.0e-04): PASS (rel diff 1.530e-05)
+OVERALL: PASS
+EVIDENCE LEVEL: MODEL RESULT (v1.4 8.9 mapping layer; designated background;
+no visibility claim; no cross-model spectral borrowing; N7 gate open for Model C).

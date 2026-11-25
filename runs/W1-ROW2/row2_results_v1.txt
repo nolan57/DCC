@@ -1,0 +1,148 @@
+====================================================================================================
+W1 / ROW 2 -- ARTIFACT CYCLE (C1 C2 not-C3)  ·  W1-ROW2-ARTIFACT-01
+====================================================================================================
+  programme : docs/program/RESEARCH_PROGRAM_v1.md v1.1.1
+  stage A   : 2026-11-25T02:54:43Z (locked)
+  stage B   : 2026-11-25T03:02:35Z
+  lock      : row2_lock_v1.json sha256 02dfa432d814c7a5537a05e18893f4e280f2f4406360097984a102e555151150  (verified: 8/8 files)
+  verdict   : O0-ARTIFACT  -- items 7 and 10 are not satisfied, so the cycle may not be labelled RESULT
+
+1. DERIVED SCALARS (from the stipulated geometry; no free parameter)
+----------------------------------------------------------------------------------------------------
+  t_rip              = 8.1986824745e-09 s  = 8.1987 ns
+  v_front            = c/sqrt(2) = 2.119853e+08 m/s
+  delta              = 2.150e-10 m     components/layer = 1.457
+  N_slices           = H/delta = 8.0837e+09     plate census = 1.1800e+10 (MODEL ESTIMATE)
+  V_reconstructed    = 0.061111 m^3     V_registered = 0.0601 m^3     ratio = 1.0168
+  tau_C3 / t_rip     = 0.3659     a 3 ns state cannot span the sweep
+
+2. PER-FRAME STATE AND LEDGER (programme 2.6 and 4.2.3)
+----------------------------------------------------------------------------------------------------
+  frame    t (ns)    z_front     V_depos     V_swept   V_decayed      V_live  decayed
+  t0        0.000     0.0000     0.00000     0.00000     0.00000     0.00000     0.0%
+  t_mid     4.099     0.8690     0.02553     0.02553     0.00377     0.02177    14.7%
+  t_end     8.199     1.7380     0.06111     0.06111     0.03653     0.02458    59.8%
+
+  residual V_deposited - V_swept = 0.0 for every frame: C1 is HELD by the bijection
+  layer k -> site k, so the deposit equals the swept volume by construction, not by measurement.
+  The decayed volume is a boundary TERMINATION of the 2D domain, not a leak inside it.
+
+3. TIER PROFILE -- measured, with the frozen prediction beside it
+----------------------------------------------------------------------------------------------------
+  frame  field   tier measured      predicted     verdict    note
+  t0     plate   T0  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t0     plate   T1  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t0     plate   T2  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t0     plate   T3  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t0     canvas  T0  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t0     canvas  T1  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t0     canvas  T2  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t0     canvas  T3  -             -             NOT-APPLICABLE no 2D output before the front arrives
+  t_mid  plate   T0  0.997990      0.997990      PASS       Q0 = 1 - P0/P0(null)
+  t_mid  plate   T1  21.859849     21.859849     PASS       xi in cells (h = 1 cell), w(1/e) = 0.3640
+  t_mid  plate   T2  0.909121      0.909121      PASS       Q2 renormalised conditional entropy, H = 0.8079 bits
+  t_mid  plate   T3  7.286999      7.286999      PASS       q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000
+  t_mid  canvas  T0  0.998918      0.998918      PASS       Q0 = 1 - P0/P0(null)
+  t_mid  canvas  T1  39.570019     39.570019     PASS       xi in cells (h = 1 cell), w(1/e) = 0.3627
+  t_mid  canvas  T2  0.780002      0.780002      PASS       Q2 renormalised conditional entropy, H = 3.5752 bits
+  t_mid  canvas  T3  5.922202      5.922202      PASS       q = 1.0 (declared instrument); C_xi = 0.596402; q = 0 channel gives Q3 = 0.000
+  t_end  plate   T0  0.998918      0.998918      PASS       Q0 = 1 - P0/P0(null)
+  t_end  plate   T1  19.007245     19.007245     PASS       xi in cells (h = 1 cell), w(1/e) = 0.3445
+  t_end  plate   T2  0.906169      0.906169      PASS       Q2 renormalised conditional entropy, H = 0.5069 bits
+  t_end  plate   T3  7.562601      7.562601      PASS       q = 1.0 (declared instrument); C_xi = 1.880470; q = 0 channel gives Q3 = 0.000
+  t_end  canvas  T0  0.998179      0.998179      PASS       Q0 = 1 - P0/P0(null)
+  t_end  canvas  T1  39.865420     39.865420     PASS       xi in cells (h = 1 cell), w(1/e) = 0.3653
+  t_end  canvas  T2  0.739936      0.739936      PASS       Q2 renormalised conditional entropy, H = 5.0770 bits
+  t_end  canvas  T3  4.493217      4.493217      PASS       q = 1.0 (declared instrument); C_xi = 0.215213; q = 0 channel gives Q3 = 0.000
+
+  prediction check: PASS -- measured profile reproduces the locked prediction  (0 cell(s) differ)
+
+  estimator : intrinsic_structure_tiers_v1 v1 (T0 sec.2, T1 sec.3, T2 sec.4, T3 sec.5)
+  null      : uniform iid, 16 realisations, seeds 4000..4015
+  null means: P0 = 5.639903e-02 (sd 4.69e-04) ; Q2 = 0.138201 (sd 7.67e-04)
+  rng       : seeds 4000..4015, 16 realisations, no other stochastic element
+  lock      : D:\Docs\DCC\runs\MATRIX\threshold_lock.json sha256 1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d
+
+  Note on the canvas field: at t_end the array is fully covered, so its structure is the
+  layer-density profile along the raster; its T0 measures that profile's topology, not the
+  array's uniformity. The two fields answer different questions and are not ranked against
+  each other.
+
+4. EFFECTIVE-2D RECORD (programme 4.7; label = NOT-MEASURED)
+----------------------------------------------------------------------------------------------------
+  model                    Model B surrogate: infinite square well of width L_z = delta, electron mass
+  model_status             SURROGATE -- the registered mechanism supplies no confining potential, so this Delta_E_z is a bound on a declared model, not the system's own level spacing
+  subsystem                conduction electrons of the deposited sheet only (declared n_e = 1.0e28 m^-3)
+  Delta_E_z_eV             24.40433718697257
+  E_F_eV                   1.6925321878667805
+  E_occ_eV                 1.6925321878667805
+  eps_z                    0.0
+  E_probe_eV               2.5
+  probe_resolution_nm      247.9683968
+  internal_bound           PASS
+  external_excitation      PASS
+  external_resolution      FAIL
+  coupling                 NOT-MEASURED (no selection rule or matrix element is registered for this state)
+  label                    NOT-MEASURED
+  missing_slot             model -- no registered Model B/C confining potential for a free-standing atomic layer
+  geometric_thinning       THIN (L_z = 0.215 nm vs body scale 1.7 m)
+  visual_flatness          NOT-ASSESSED (no observer image is rendered in this cycle)
+
+  The three external checks are separate and are not merged into a label:
+    excitation : 2.500 eV < Delta_E_z = 24.404 eV -> the probe cannot excite z
+    resolution : probe point-spread 248.0 nm vs layer spacing 0.215 nm -> z is unresolved
+    coupling   : NOT-MEASURED (no selection rule is registered)
+  Geometric thinning is THIN and visual flatness is NOT-ASSESSED. Neither substitutes for the
+  four-slot conditional, which is NOT-MEASURED because no confining potential is registered.
+
+5. FINDINGS
+----------------------------------------------------------------------------------------------------
+  F1  The 16.9% volume shortfall recorded in runs/FRONT/mid_sweep_frame_results.txt (N9') is
+      the missing factor of two on the two-leg region, not a defect of the area table.
+      Counting the calf->thigh entries as per-piece areas gives V = 0.06111 m^3,
+      i.e. 1.68% above the registered 0.0601 m^3. N9' is not edited; this cycle records the
+      reconciliation. Consequence: the volume fraction *can* be printed for this mechanism,
+      but this cycle still declines to print a continuous profile because the table gives
+      per-region ranges, not a profile. The refusal stands; its stated reason does not.
+
+  F2  The 3 ns transient is shorter than the 8.1987 ns sweep by a factor 2.73. At t_end,
+      59.8% of the deposited volume has already left the 2D state. Row 2 therefore cannot
+      present a completed deposit: the 'after the sweep' frame is mostly decayed matter, and
+      only the last 3 ns of swept material is still converted. This is a property of the
+      declared transient, not a derivation of it (tau is imported).
+
+  F3  The declared optical probe can neither excite nor resolve the z degree of freedom at
+      0.215 nm, yet the cell is still NOT-MEASURED: 'cannot see z' and 'is 2D' are different
+      claims, and the missing slot is the confining potential -- not the probe.
+
+  F4  The profile does not rank the two fields, and the tiers move in opposite directions:
+      the canvas field is smoother than the sheet field (xi = 39.9 vs 19.0 cells) yet has
+      lower legibility (Q3 = 4.49 vs 7.56 at the same q = 1). A single 'structure score' would
+      have to choose between them. Every cell also PASSes its threshold, so the tiers separate
+      these scenes from the null ensemble (Q0 ~ 0, Q2 ~ 0, xi < 1) but do not discriminate
+      between structured scenes. That is a property of the tiers, not of the scene.
+
+6. O0 ACCEPTANCE (programme 2.5)
+----------------------------------------------------------------------------------------------------
+  1_card_and_manifest_locked_before_rendering      PASS (this lock)
+  2_three_keyframes                                PASS (t0, t_mid, t_end)
+  3_display_declaration_label_profile_slot         PASS (measured profile; stage B emits the sidecars)
+  4_constraint_state_and_consequence_visible       PASS (caption line on every frame)
+  5_third_party_reproduction                       R2 only; no frame reproduction is claimed
+
+  publication items:
+  6_profile_with_estimator_identity                PASS
+  7_discretization_error_or_convergence            FAIL -- the delta x 10 control is not run
+  8_conservation_ledger                            PASS (volume/mass ledger closes by construction)
+  9_price_ledger                                   NOT APPLICABLE -- this row uses no relaxation rung
+  10_M_and_count_error                             PARTIAL -- M is stated as a history functional; the fragment count is labelled MODEL ESTIMATE and its sampling error is unregistered
+
+  => O0-ARTIFACT. The frame set is citable as an artifact; it is not a RESULT.
+
+7. REPRODUCTION
+----------------------------------------------------------------------------------------------------
+  R2 only: the physical quantities (counts, volumes, profile) are reproducible from the card,
+  manifest and solver spec. Frame reproduction (R3) is NOT claimed.
+  commands: python -I src/analysis/w1_row2_scene_v1.py
+            python -I src/analysis/w1_row2_cycle_v1.py
+

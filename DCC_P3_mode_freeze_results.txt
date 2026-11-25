@@ -1,0 +1,26 @@
+==================================================================================
+DCC P3 — mode freezing and gap opening as C→0 (specified contracting background, phenomenological scaling ansatz)
+==================================================================================
+Background: C=C0*(t/T0)^-0.5, A=B=AB0*(t/T0)^0.5, t∈[1, 30]
+Mode equation: chi'' + (2H_AB+H_C)chi' + [p_z^2/C^2 + k_perp^2/A^2]chi = 0
+Constraint note: the contracting background is a phenomenological scaling extrapolated from the magnetic attractor, not an implemented D3 solution (P2 report §10)
+
+p_z=0.0: E_tot(final)/E_tot(initial)=6.086e-03   max|χ√C|=1.000e+00
+p_z=0.5: E_tot(final)/E_tot(initial)=2.976e-01   max|χ√C|=1.000e+00
+p_z=1.0: E_tot(final)/E_tot(initial)=2.294e-01   max|χ√C|=1.000e+00
+p_z=2.0: E_tot(final)/E_tot(initial)=1.996e-01   max|χ√C|=1.000e+00
+p_z=4.0: E_tot(final)/E_tot(initial)=1.876e-01   max|χ√C|=1.000e+00
+
+Adiabatic parameter |m_dot_eff|/m_eff^2 = (|β_C|/t)/(p_z^2/C^2)*C*... = |β_C|*C/(|p_z|*t):
+  p_z=0: massless mode (m_eff≡0), does not freeze — degree of freedom retained by the low-dimensional effective theory
+  p_z=0.5: max |m_dot|/m^2 = 1.000e+00 (<1 means adiabatic freezing; >1 at early t gives particle production)
+  p_z=1.0: max |m_dot|/m^2 = 5.000e-01 (<1 means adiabatic freezing; >1 at early t gives particle production)
+  p_z=2.0: max |m_dot|/m^2 = 2.500e-01 (<1 means adiabatic freezing; >1 at early t gives particle production)
+  p_z=4.0: max |m_dot|/m^2 = 1.250e-01 (<1 means adiabatic freezing; >1 at early t gives particle production)
+
+Degrees-of-freedom counting conclusion:
+  3D massless scalar → 2D effective theory retains the single p_z=0 massless mode;
+  the p_z≠0 tower acquires a gap Δm(t)=|p_z|/C(t) (diverging as C→0) → dimension-limited gap;
+  Same for the electromagnetic field: the p_z=0 modes of A_x,A_y remain the 2D photon; the p_z=0 mode of A_z
+  becomes a 2D scalar (dimensional conversion of the third photon polarization); the p_z≠0 modes decouple with
+  diverging Proca-type mass |p_z|/C.

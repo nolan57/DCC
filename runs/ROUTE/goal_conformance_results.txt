@@ -1,0 +1,179 @@
+
+==============================================================================
+[G-1] GOAL DECOMPOSITION -> ARTEFACT CONFORMANCE
+==============================================================================
+  id   requirement                                              status
+  --------------------------------------------------------------------------
+  G1   depict the sweep of a 3D macroscopic object by a 2D fr PARTIAL
+  G2   presentation fidelity is a CONTINUUM                   ABSENT
+  G3   walk the ENTIRE DIAGONAL (relaxation x fidelity)       ABSENT
+  G4   reach naked-eye visible REFLECTION at the minimal cons UNRESOLVED
+  G5   enhancement must not introduce non-existent informatio INSTRUMENT
+
+  G1 [PARTIAL]: depictions EXIST but show the unfolded END STATE, not the sweep, and none is citable:
+        runs/ANALYSIS/unfold_appearance_v1.png  (panel D-left: naked-eye reflected
+          visible light; panel D-right: 284 eV detector)  -- no .display.txt
+        runs/ANALYSIS/painting_render_v1.png    (panels b-e: the same tile at 550 nm /
+          284 eV / 4 keV / tau)  -- no .display.txt
+      both picture the 18 km^2 unfolded spread, i.e. the state AFTER the front has
+      passed, not the front passing.  Panel D-left carries the corollary's content:
+      the naked-eye reflected view shows what lies BEHIND the sheet.
+  G2 [ABSENT]: FL1/FL2/FL3 are labels with no coordinate.  G-4 shows the two candidate readings
+      order the ladder oppositely, so the axis has no direction at all yet (GD7).
+  G3 [ABSENT]: 0 executed constraint relaxations.  Phase 1 is booked under S7 as an
+      observation-strength declaration, not a relaxation; Phase 3 is BLOCKED on GD6.
+  G4 [UNRESOLVED]: the registered corollary reads as a refutation; G-3 shows it carries the
+      unstated premise D = L, so the requirement is not decidable from the registered
+      text.  Unresolved is weaker than either "possible" or "impossible" and is the
+      correct status (GD8).
+  G5 [INSTRUMENT]: EN1-EN5 required a declared basis and nothing tested non-introduction.  The test
+      is built and negative-tested in G-5 below; it is an instrument, not a gate.
+
+  status tally: ABSENT=2, INSTRUMENT=1, PARTIAL=1, UNRESOLVED=1
+  fully satisfied: 0 / 5
+
+==============================================================================
+[G-2] DC1 CENSUS: FRAMES VS DECLARATION BLOCKS
+==============================================================================
+  image files found            : 27
+  with a .display.txt sidecar  : 1
+  WITHOUT a sidecar            : 26   -> non-citable under DC1
+
+  declared:
+    runs/ROUTE/s0_frame_fl1.png
+
+  NOTE: display_lint.py enumerates *.display.txt, so it validates the blocks that
+  exist and is structurally blind to images that have none.  DC1 ("no block, no
+  citation") is unenforced from the missing side of the census: the validator cannot
+  report the 26 frames that Phase 0's own rule disqualifies.
+
+  DC1 coverage = 1 / 27 = 3.7%
+
+==============================================================================
+[G-3] THE ME5 COROLLARY CARRIES AN UNSTATED PREMISE: D = L
+==============================================================================
+  Frozen identity (correct, and not attacked):
+      t_rip = sqrt(2) L / c     2L/c = sqrt(2) t_rip
+  Frozen inference (attacked):
+      therefore no reflected-light frame of a surviving sheet can exist, for any L.
+
+  The identity uses L twice: as the object size (destruction path) and as the optical
+  path.  The optical path for a camera at distance D is 2D; it equals 2L only when
+  D = L.  D is an observation geometry, not a physical constant, and no registered
+  text states it.
+
+  Per-patch form.  A patch at distance d from the tear origin converts at
+  t = d/v_front with v_front = L/t_rip = c/sqrt(2) (the Phase 2 definition, not a new
+  front speed).  It can be photographed iff the round trip fits in its own lifetime:
+
+        2D/c <= d/v_front      <=>      D <= d/sqrt(2)
+
+  The admissible set is the annulus d >= sqrt(2) D -- strictly beyond a half-angle
+  atan(sqrt(2)) = 54.7356 deg off the camera axis.  It is non-empty iff D < L/sqrt(2).
+  Covered fraction of the radial extent = 1 - sqrt(2) D/L.
+
+    D/L       admissible?   covered fraction   half-angle to far edge
+    ------------------------------------------------------------------
+    0.0500    yes                +0.929289    87.1376 deg
+    0.2500    yes                +0.646447    75.9638 deg
+    0.5000    yes                +0.292893    63.4349 deg
+    0.7000    yes                +0.010051    55.0080 deg
+    0.7071    NO                 +0.000000    54.7356 deg
+    1.0000    NO                 -0.414214    45.0000 deg
+
+  The registered corollary is the D = L row: 1 - sqrt(2) = -0.414214, i.e. NEGATIVE.
+  A negative admissible extent is not a physical impossibility; it is the signature
+  of an observation geometry outside the window.  Reading it as "impossible for any
+  L" replaces an out-of-range parameter choice with a result.
+
+  Per channel at L = 0.20 m, v_front = 2.119853e+08 m/s:
+    D = 0.0100 m -> coverage  +0.9293   admissible sub-field
+    D = 0.0500 m -> coverage  +0.6464   admissible sub-field
+    D = 0.1000 m -> coverage  +0.2929   admissible sub-field
+    D = 0.1414 m -> coverage  +0.0002   admissible sub-field
+    D = 0.2000 m -> coverage  -0.4142   EMPTY (the registered slice)
+
+  Verdict: the IDENTITY stands; the INFERENCE does not follow without D = L.
+  ME5 is frozen, so the correction is registered as GD8 and NOT applied.
+
+==============================================================================
+[G-4] IS THE FIDELITY AXIS ORDERED?  TWO READINGS, OPPOSITE ORDERS
+==============================================================================
+  Deficits in decades against a 1e+22 m^-2 s^-1 source (larger = worse).
+  Time deficit for the reflection row uses the registered D = L slice; the flux
+  deficit does not depend on D at all.
+
+    channel                      time     flux
+    ------------------------------------------
+    transmission 284 eV        0.0000   1.9795
+    transmission visible       0.0000   9.9795
+    reflection visible         0.1505   9.9901
+
+  Pareto relation:
+    transmission 284 eV      strictly dominates  transmission visible
+    transmission 284 eV      strictly dominates  reflection visible
+    transmission visible     strictly dominates  reflection visible
+
+  READING A — fidelity = how much the frame shows.
+    transmission 284 eV dominates reflection-visible on BOTH coordinates, so FL2 is
+    the Pareto maximum and FL3 is strictly dominated.  Order A: FL2 > FL3 — the
+    ladder DESCENDS toward its declared end point.
+    Robustness: the flux coordinate is independent of D, and transmission-visible also
+    dominates reflection-visible there, so this order survives the GD8 correction.
+
+  READING B — fidelity = how close the frame is to the unaided retinal image.
+    conditions, in order: band inside 1.8-3.1 eV | photon budget met unaided | no enhancement operator | displayed quantity is a light field
+      FL1  ....   unmet 4/4
+      FL2  .Y.Y   unmet 2/4
+      FL3  YYYY   unmet 0/4
+    Order B: FL3 > FL2 > FL1 — the ladder ASCENDS toward its declared end point.
+
+  THE TWO READINGS REVERSE THE LADDER.  Reading A is what every quantitative
+  criterion here measures (CNR, photon counts, exposure budget).  Reading B is what
+  the goal sentence says ("to naked-eye visible reflection").  "Walk the entire
+  diagonal" presumes a total order that no registered quantity supplies.
+  Registered as GD7: declare the semantics of FL, or the ladder has no direction.
+
+==============================================================================
+[G-5] EN-BOUND: AN INSTRUMENT FOR "NO INFORMATION ADDED"
+==============================================================================
+  scalar field: 64x64, 4 distinct levels (a quantised converted-fraction map)
+
+  test                                    levels  dH(bits)  mono  verdict  branch
+  ----------------------------------------------------------------------------------
+  compliant  EN2 monotone ramp               4   +0.0000  yes   PASS     -
+  compliant  EN3 stretch (affine)            4   +0.0000  yes   PASS     -
+  DEFECT     bilinear resample 4x           16   +0.3473  yes   CONVICT  a levels
+  DEFECT     non-monotone palette            4   +0.0000  NO    CONVICT  b map
+
+  branch (a): display levels > scalar levels    -> structure manufactured by resampling
+  branch (b): map not monotone in the scalar    -> contrast manufactured by the palette
+  branch (b) is the repository's existing EN2 requirement, made executable.  branch (a)
+  is the part that was missing, and it convicts the commonest real defect:
+  interpolation presented as physical structure.
+
+  negative test: TRUSTED  (4/4 behaving)
+
+==============================================================================
+SUMMARY
+==============================================================================
+  G-1 goal requirements fully satisfied     : 0 / 5   [ZERO-FULLY-SATISFIED]
+        PARTIAL 1 (G1, depiction exists, non-citable, wrong moment)
+        ABSENT  2 (G2 coordinate, G3 diagonal)
+        UNRESOLVED 1 (G4 corollary premise)
+        INSTRUMENT 1 (G5 built this round)
+  G-2 frames citable under DC1              : 1 / 27   [ONE-FRAME-ONLY]
+  G-3 ME5 corollary premise (D = L)         : [UNSTATED-PREMISE-FOUND]
+  G-4 fidelity axis ordered                 : NO      [AMBIGUOUS-OPPOSITE-ORDERS]
+  G-5 non-introduction instrument           : [INSTRUMENT-TRUSTED]
+
+  The goal is registered and intact; the route has not reached it.  What is missing
+  is not more execution on the ladder.  It is:
+    (i)   a fidelity COORDINATE           -> GD7 decides which one
+    (ii)  a ruling on what FL means       -> GD7
+    (iii) a corrected premise for the corollary -> GD8
+    (iv)  citable frames (26 of 27 are not)
+    (v)   the sweep, not only its endpoint
+  (ii) and (iii) are governor decisions and cannot be executed.
+
+PROVENANCE: NEITHER  (conformance audit; establishes no physics)

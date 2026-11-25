@@ -1,0 +1,95 @@
+================================================================================
+[unfold_is_real v1] under the current three assumptions, is 'unfolding' real?
+================================================================================
+
+[Q1] Is 325 km^2 calculated, or did I draw it?
+  Three constraints, each reduced to numbers:
+    (i)  Must be 2D         : E_F < E_sub
+    (ii) Atoms must survive: E_sub = pi*hbarc/L_z < E_bind ~ 3 keV
+    (iii) No gain or loss : A * L_z = V (volume conservation)
+
+  (ii) gives a lower bound on L_z: (ii) L_z > pi*hbarc/E_bind = 0.2066 nm
+       Substituting into (iii) gives an **upper bound** on A: A < 338.8 km^2
+
+  (i) gives a lower bound on A: solving E_F(A) = E_sub(A) gives A^3 = 2*N*V^2/pi
+       A > 279.5 km^2
+
+  => The area is not a single value but a window: A in [280, 339] km^2 (width factor 1.21)
+     The only physically meaningful choice within the window is L_z = atomic spacing d (any thinner and there is no atomic layer):
+       d = 0.2154 nm -> A = V/d = 3.2491e+08 m^2 = 324.9 km^2
+       A = N*d^2 = 3.2491e+08 m^2 = 324.9 km^2   (equal to V/d = consistent with volume conservation)
+
+  Mean cross-sectional area A_c = V/H = 0.0400 m^2 (side 0.200 m)
+  Number of slices = A/A_c = 8.123e+09
+
+  => The **order of magnitude** of the area is forced by arithmetic (order 10^8 m^2, neither 1 m^2 nor 10^12);
+     the specific value 325 comes from the single physical choice of 'monolayer'. This step needs no assumption about 'how to arrange things'.
+  [CHECK   ] Q1_area_is_computed_not_drawn            PASS   V/d and N*d^2 agree to 1e-9; 325 lies within the window
+
+[Q2] Inside each tile, is it stretched or unchanged?
+  One tile 0.200 m x 0.200 m, area 0.0400 m^2, exactly equal to the cross-sectional area of one slice
+  Atoms per tile = A_c/d^2 = 8.618e+17 ; atoms along a tile edge = 0.200/d = 9.283e+08
+  Map: identity in (x,y) within a slice -- the tile is a **1:1 copy** of the original cross-section, with zero deformation.
+  This is why one can see lungs, heart and spine inside a tile in the rendering: it is that very cross-section.
+  [CHECK   ] Q2_tile_is_isometric                     PASS   in-slice deformation is the identity; tile area = slice area (a direct consequence of volume conservation)
+
+[Q3] Is 'arranged head-to-toe into a human figure' determined by physics?
+  Physics gives only: 8122780458 mutually disconnected tiles, each of area 0.0400 m^2, total area 324.9 km^2.
+  Physics **does not** give the numbering order of the tiles. Which site tile k goes to is a permutation pi.
+  How many of all 8122780458! permutations are readable arrangements (adjacent numbers placed adjacently):
+    a constant number (identity + a few symmetries/flips) vs 8122780458! -> fraction < 1/8122780458! ~ 0
+  In other words: 'being a picture' is a zero-measure encoding choice, not a physical conclusion.
+  Equivalently: all the information is present, but one needs to know the permutation to read it.
+  [ARGUMENT] Q3_layout_is_encoding_not_physics        PASS   physics gives the set of fragments; the human figure comes from an ordering convention I supplied
+
+[Q4] Can the process from 3D to this 2D surface be continuous?
+  (a) Theorem: there is no continuous injection R^3 -> R^2 (invariance of domain / invariance of dimension).
+      One-line proof: if a continuous injection f existed, f would map the sphere S^2 continuously and bijectively onto f(S^2) < R^2,
+      but S^2 cannot be embedded in R^2 -- contradiction.
+      Corollary: 'each atom occupies one lattice site, with no overlaps' (bijection) and 'continuous process' (smooth) **cannot both hold**.
+      This is not a question of by what factor, but of an empty feasible region.
+
+  (b) Since breaks are unavoidable, count how many there are:
+      Adjacent interlayer atom pairs: initial spacing d = 0.2154 nm, final spacing = tile side 0.200 m
+      Stretch factor = tile/d = 9.283e+08
+      Number of fracture surfaces = number of slices = 8.123e+09
+      Area per fracture = A_c = 0.0400 m^2  ->  total fracture area = 3.249e+08 m^2 = 324.9 km^2
+      (equal to the area of the picture, because each cut exposes exactly the full cross-section of one slice)
+
+  (c) Cost: bond-breaking energy
+      2.8e+28 broken bonds x 4.0 eV = 1.79e+10 J
+      Compare: total energy of the 2D Fermi gas u_2D*A = 1.72e+12 J (u_2D = 5.28e+03 J/m^2)
+      Ratio = 1.0e-02  -> cutting is two orders of magnitude smaller, so it is not an energy obstacle (the real obstacle is strain, not energy)
+
+  (d) So where is the obstacle? Only in the word 'smooth':
+      In the materials sense, 8.123e+09 full-cross-section fractures = the object is cut into 8.123e+09 atomically thin slices.
+      'Smooth' holds only for **advance of the front** (which can be arbitrarily slow), not for **material deformation**.
+  [ARGUMENT] Q4_continuous_plus_injective_impossible  PASS   8.1e+09 fracture surfaces, stretched by 9.3e+08
+
+[5] Three candidate maps: which satisfies which condition
+  Configuration / process / occupancy / area (m^2) / E_F (keV) / outcome
+  ------------------------------------------------------------------------------------------------
+  M-A flatten (keep x,y, L_z->0) | continuous | overlapping (bijection fails) | 4.000e-02 | 206916.645 | atoms disintegrate
+  M-B isometric unfolding (this figure) | 8.1e+09 fractures | bijection | 3.249e+08 | 2.296 | atoms intact
+  M-C random permutation (same physical quantities as M-B) | fractures | bijection | 3.249e+08 | 2.296 | atoms intact but no image
+
+  The three assumptions + 'structure presentation' together leave only M-B / M-C; M-A violates 'weak interaction kept on'
+  (E_F = 207 MeV, 5 orders of magnitude above atomic binding energy, while E_sub diverges as L_z->0, so every electron is pumped to >= E_sub).
+  [CHECK   ] M-A_kills_atoms                          PASS   flattening branch E_F=207 MeV >> 3 keV
+  (Even with the most permissive A=1 m^2, the flattening branch still has E_F=41 MeV -- the conclusion is insensitive to the choice of region)
+  [CHECK   ] M-B_keeps_atoms                          PASS   unfolding branch E_F=2.30 keV < E_sub=2.88 keV
+
+================================================================================
+[Conclusion] 'is this really how it unfolds?'
+================================================================================
+  Area: yes in order of magnitude. The window [280, 339] km^2 is squeezed out by three inequalities; the monolayer takes 325 km^2.
+  Inside each slice: yes. Each slice is a real cross-section of the original object, 1:1 with zero deformation.
+  Order: no. Physics gives only 8.1e+09 disconnected fragments; the 'human figure' is an encoding convention.
+  Process: not 'unfolding' but 'cutting'. 8.1e+09 full-cross-section fractures, with each broken bond pulled apart by 9.3e+08.
+
+  In one sentence: this picture is not a flattened person, but an archive of cross-sections filed in order.
+  It is real in the sense of 'structure presentation' (the interior of a slice is the anatomy), but false in the sense of 'smooth deformation'.
+
+  A fourth implicit assumption that must be stated: all of the above rests on 'volume conservation A*L_z=V'.
+  Volume conservation is not one of the three assumptions; it is a habit of 3D geometry. Abandon it -> back to the M-A flattening branch,
+  the area does not grow and the atoms die. So the real premise of the 'unfolding' route is: allow area growth + do not require the object to survive.

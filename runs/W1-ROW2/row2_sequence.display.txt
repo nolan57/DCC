@@ -1,0 +1,13 @@
+DISPLAY-DECLARATION v1
+FRAME:            row2_sequence.gif
+PROVENANCE:       NEITHER
+STAGE:            S0
+FIDELITY:         FL1
+BAND:             NONE (declared density channel; no spectral measurement)
+COLOUR:           DECLARED-CONVENTION
+COLOUR-BASIS:     as the keyframes: hue separates matter states and array occupancy, no wavelength information is carried
+SCALAR:           tissue-density index (dimensionless); z (m); per-site mean layer density; time (ns)
+TIME:             t_span = 8.198682e-09 s ; compression = 2.530458e-09 x ; t_rip = 8.198682e-09 s ; ratio = 1.000
+GEOMETRY:         PRESCRIBED (D2)
+ENHANCEMENT:      none
+ME5-COROLLARY:    PRESENT (the sequence spans t_rip; the 3 ns transient is shorter and is declared)

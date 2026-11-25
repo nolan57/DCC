@@ -1,0 +1,16 @@
+# DCC runtime dependencies (review B5 item 3: previously no requirements/pyproject, so the
+# "dependency versions" item of roadmap §9.4(2) was missing; the default python on this machine did not even have numpy)
+#
+# Install: python -m pip install -r requirements.txt
+# Run: python -I src/g0_analytic/scale_budget_v3.py
+# Modules using only the standard library (e.g. the __main__ self-check in src/common/conv.py) need no dependencies.
+
+numpy>=2.0,<3.0
+scipy>=1.13,<2.0
+sympy>=1.12,<2.0
+
+# Verified versions (2026-11-21, third review round)
+#   python 3.13.12
+#   numpy  2.4.6
+#   scipy  1.18.0
+#   sympy  1.14.0

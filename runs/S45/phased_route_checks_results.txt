@@ -1,0 +1,147 @@
+
+==============================================================================
+R1  ME1 switch location and the ideal 2D state's margin
+==============================================================================
+  ideal sheet: thickness = d_par = 1.540000e-14 m
+
+  Delta_z_res [m]    Delta_z_res/d_par mu_ov   
+  1.540000e-15       0.1          1.0     
+  1.540000e-14       1            1.0     
+  1.540000e-13       10           0.0     
+  1.540000e-11       1000         0.0     
+
+  switch at Delta_z_res = d_par exactly (ratio 1), mu_ov jumps 1 -> 0
+  margin of the ideal state at its own scale: 0.0  (zero)
+  => the ideal 2D state sits ON the step: any pass requires Delta_z_res > d_par,
+     and the required coarsening is arbitrarily small (no margin, no window).
+
+==============================================================================
+R2  non-vacuity: does the un-converted object pass the 2D-ness gate?
+==============================================================================
+  object = intact slab, thickness 0.070 m, ZERO conversion performed
+
+  Delta_z_res [m] mu_ov      ME1       
+  1.0e-06        1.0        FAIL      
+  1.0e-03        1.0        FAIL      
+  1.0e-01        0.0        PASS      
+
+  At Delta_z_res = 0.1 m the intact 7 cm slab PASSES ME1.
+  Ratio of the resolutions needed by the two objects:
+    ideal sheet needs  > 1.540e-14 m
+    intact slab passes at 1.000e-01 m
+    ratio             = 6.494e+12
+  => the gate's verdict is controlled by an unregistered parameter over 1e+01 decades.
+
+==============================================================================
+R3  ME1 vs CM1: are the ME and CM domains disjoint?
+==============================================================================
+  ME1 verdict  = [thickness < Delta_z_res]
+  CM1 verdict  = [thickness < lambda]        (d << lambda, strict form)
+
+  object         scale      ME1      CM1     
+  ideal sheet    d_par/2    False    False   
+  ideal sheet    d_par      False    False   
+  ideal sheet    2 d_par    True     True    
+  2-sheet stack  d_par/2    False    False   
+  2-sheet stack  d_par      False    False   
+  2-sheet stack  2 d_par    False    False   
+  intact slab    d_par/2    False    False   
+  intact slab    d_par      False    False   
+  intact slab    2 d_par    False    False   
+
+  agreement: 9/9
+  The two maps are identical under lambda <-> Delta_z_res.
+  Registry s5 asserts ME and CM are 'disjoint by construction' and that a constraint
+  'may never be evaluated on an observation channel'.
+
+==============================================================================
+R4  Phase 1 rollback trigger vs ME4
+==============================================================================
+  ME4 requires N_comp non-decreasing, census 11800000000 plates at phi_conv -> 1.
+  chi(intact body)   = 2.0
+  chi(ideal 2D state)= 1.1800e+10
+  Delta_chi          = 1.1800e+10
+
+  A monotone N_comp : 1 -> 11800000000 requires at least 1 fragmentation event.
+  Each event changes chi, so any ME4-compliant trajectory contains >= 1 chi jump.
+  => Phase 1's rule 'jump in chi => roll back' fires on physics that ME4 REQUIRES,
+     unless the jump is attributed to the relaxation. Attribution needs a
+     counterfactual: the same stage run with and without the relaxed ME1'.
+     The directive specifies no such ablation, so the rule is either vacuous
+     (every jump is 'physical') or terminates the route at the first event.
+
+==============================================================================
+R5  ME5: is Lambda_max a parameter of the adopted constraint?
+==============================================================================
+  occurrences of Lambda/Lambda_max in meff_boundary_v0_2.md: 0 []
+  adopted ME5 statement: tau_exp <= t_rip = sqrt(2) L / c
+
+  L [m]        t_rip [s]        t_rip > 0 
+  0.2          9.434617e-10     True      
+  1            4.717309e-09     True      
+  0.07         3.302116e-10     True      
+  0.001        4.717309e-12     True      
+  t_rip > 0 for every L > 0 => 'zero sheet survival time' is attainable only at L = 0.
+
+  rate cap Lambda_max = 1e-03 s^-1  => fastest admitted conversion T = 1e+03 s
+  t_rip(L=0.20 m) = 9.4346e-10 s
+  T / t_rip = 1.060e+12
+  => the cap admits only conversions 1.1e+12 times slower than the tearing time,
+     i.e. it is satisfied precisely by the L3-impossible case, and violated
+     by the only case L3 could image. Direction inverted (cf. review V5).
+
+==============================================================================
+R6  coupling: relaxing ME2 (Delta_z_tol) moves ME1 (Delta_z_res)
+==============================================================================
+  ideal sheet, Delta_z_res = d_par, mu_ov = 1.0 (FAIL)
+
+  f          Delta_z_res' [m] mu_ov'    
+  1.001      1.541540e-14     0.0       
+  1.010      1.555400e-14     0.0       
+  1.100      1.694000e-14     0.0       
+  2.000      3.080000e-14     0.0       
+
+  A 0.1% relaxation of the presentation tolerance flips ME1 from FAIL to PASS.
+  => Phase 3 ('relax ME2') incidentally relaxes ME1: two constraints in one commit,
+     which the directive's General Principle declares invalid.
+
+==============================================================================
+R7  gate vocabulary: does 'VIOLATION' exist in both linters?
+==============================================================================
+  symbol_lint.py       VIOLATION:0    MUST-FIX:6    ARCHIVE:5  
+  provenance_lint.py   VIOLATION:7    MUST-FIX:0    ARCHIVE:0  
+
+  Provenance emits VIOLATION; symbol emits MUST-FIX. The invariant names one field
+  for two tools, and symbol_lint's archived hits (runs/) are unfixable by s9.1.
+
+==============================================================================
+R8  conditional: does the S0 bookkeeping's own voxel make the gate decidable?
+==============================================================================
+  Delta_z_res = 1.0e-04 m  (100 um voxel, painting_render_v1.md -- not chosen for ME1)
+
+  object           thickness [m]  mu_ov    ME1     
+  ideal sheet      1.5400e-14     0.0      PASS    
+  2-sheet stack    3.2340e-14     0.0      PASS    
+  intact slab      7.0000e-02     1.0      FAIL    
+
+  margins: Delta_z_res/d_par = 6.494e+09 ; H_slab/Delta_z_res = 7.000e+02
+  => at this resolution ME1 is decidable AND non-vacuous: it separates the 2D state
+     from the intact body by 4.5e+12 in thickness.
+
+==============================================================================
+SUMMARY
+==============================================================================
+  R1 PASS  step at Delta_z_res = d_par; ideal state on the step, zero margin
+  R2 PASS  intact 7 cm slab passes ME1 at Delta_z_res = 0.1 m (vacuity)
+  R3 PASS  9/9: ME1 and CM1 are the same predicate (domain disjointness fails)
+  R4 PASS  >= 1 chi jump unavoidable; rollback rule unattributable as written
+  R5 PASS  Lambda_max absent from adopted ME5; zero-survival clause unsatisfiable
+  R6 PASS  0.1% Delta_z_tol relaxation flips ME1
+  R7 PASS  neither token is shared; gate must be stated per tool
+  R8 PASS  at the S0 voxel (100 um) ME1 separates 2D from intact by 4.5e12
+
+  None of these changes a registered threshold or a physics verdict.
+
+Content generated by AI
+
+PROVENANCE: NEITHER  (gate-decidability check on a directive; establishes no physics)

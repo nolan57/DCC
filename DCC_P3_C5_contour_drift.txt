@@ -1,0 +1,6 @@
+DCC P3-C5 Output 4: eta=1 contour drift (specified contracting background, D3 not achieved; low-speed group phenomenological assumption, not a prediction)
+Conclusion: the eta formula contains neither alpha nor beta_w ⇒ drift with alpha is always 0; contour position is determined solely by beta_C.
+beta_C,p_z_star,drift_alpha,drift_beta_abs,drift_beta_rel,tcross_pz_lo,tcross_pz_hi
+-0.5,0.5,0,0,0,0.003042903097,0.5
+-0.3333333333,0.3333333333,0,-0.1666666667,-0.3333333333,0.00357588661,0.3333333333
+-0.6666666667,0.6666666667,0,0.1666666667,0.3333333333,0.002301653708,0.6666666667

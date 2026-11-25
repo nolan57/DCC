@@ -1,0 +1,241 @@
+# RQ-03 -- the finite `tau`: what fixes it, and what the answer is conditional on
+
+**Round**: 56 (`RQ-03`).  **Registration**: `runs/R1B/r1b1_p4_tau_registration.md`.
+**Instrument**: `src/r1_dense/r1b1_p4_tau.py` -- this file is emitted by it, not transcribed.
+**Inputs**: `runs/R1B/r1b1_p2_eos_scan_results.txt` (HYB states); `conv.kF_2`; `conv.beta_eq`;
+`docs/specs/surface_conductivity_v1.md` s5/s8/s10; `runs/R1B/r1b1_p4_p5_closure_v1.md` s1.
+No fitted quantity; `alpha` is the only external number.
+
+```text
+
+==============================================================================
+[1] THE STATE, AND THE ONE ARITHMETIC THE ROUND HAS TO SETTLE FIRST
+==============================================================================
+  The P4-1 table prints k_F by sqrt(2 pi n/g); the registered definition is
+  n = g k^2/(4 pi)  =>  k_F = sqrt(4 pi n/g)  (conv.kF_2).  They differ by sqrt(2).
+  The same product's prose already prints v_F ~ 0.049 c against a table value of
+  0.0330 c, i.e. the factor is visible in the round-45 product as an internal
+  disagreement between its table and its text.
+
+  L_z = 1.84 fm, HYB :  n_free,2D = 1.0081e-03 fm^-2   X_p = 0.02391   D_e = 2
+    k_F  registered  sqrt(4 pi n/g) = 0.07959 fm^-1   (v_F = 0.0466 c, E_F = 15.70 MeV)
+    k_F  P4-1 table  sqrt(2 pi n/g) = 0.05628 fm^-1   (v_F = 0.0330 c, E_F = 11.10 MeV)
+    ratio table/registered = 0.707106781   vs   2^-1/2 = 0.707106781
+  [P11] -> CONFIRMED   the P4-1 table's k_F is low by exactly sqrt(2) (0.707107)
+    cross-check: conv.eos_e_2D gives E_F = 15.705 MeV at the same n; the table implies 11.105,
+    a ratio of 1.414214 = sqrt(2) -- the table is inconsistent with the module's own EOS.
+    This round uses conv.kF_2 and prints the table's value as a sensitivity in [3].
+
+  per L_z (K1 window; the P4-5 tuple, k_F from conv.kF_2):
+  L_z(fm)  n_free[fm^-2]  k_F[fm^-1]  E_F[MeV]  v_F/c    q_TF[fm^-1]  q_TF/k_F   r_s
+  1.68     1.1106e-03       0.08354     16.484      0.0447   0.02729      0.32671    0.1634
+  1.84     1.0081e-03       0.07959     15.705      0.0466   0.02492      0.31310    0.1566
+  1.99     9.2696e-04       0.07632     15.059      0.0483   0.02304      0.30191    0.1510
+
+  q_TF/k_F = 0.31310  and  2 r_s = 0.31310  -- the screening ratio IS the coupling
+  [P1] -> CONFIRMED   q_TF/k_F = 2 r_s to machine precision
+  [P2] -> CONFIRMED   r_s = 0.1566 -> Born admissible with a ~16% systematic
+
+  The 2D reduction: finite-width form factor at q = 2 k_F is 1 - (q L_z)^2/12;
+    q_max L_z = 2 k_F L_z = 0.2929   ->   1 - F = 7.1483e-03
+  [P12] -> CONFIRMED   the layer is thin compared with 1/q at every scattering angle
+
+==============================================================================
+[2] THE KERNEL  (three integrals, two exact checks, one published number)
+==============================================================================
+  J0(1) = 1.333333333333     analytic 4/3 = 1.333333333333     rel. err. = -2.8e-13
+  [P0] -> CONFIRMED   quadrature reproduces the closed form
+  K1(1) = 2.000000000000     analytic 2
+
+  Matrix element at L_z = 1.84 fm (MeV fm^2; 2 pi alpha hbar c = 9.0476 MeV fm):
+    V(q->0)  = 2 pi e^2/(eps q_TF)        =    363.08   (screening caps the forward divergence)
+    V(k_F)                                =     86.57
+    V(2k_F)                               =     49.15   (backscattering: the transport weight)
+    unscreened V(k_F) = 2 pi e^2/(eps k_F) =    113.68   ->  screening suppresses by 1.31x
+
+  x = q_TF/(2 k_F) = 0.15655 ;  J0 = 12.27052 ;  K1 = 5.14613 ;  J2 = 1.83106 ;  J0/(2 J2) = 3.35066
+
+==============================================================================
+[3] THE RATES  (tau_tr is the Drude rate; tau_sp is the quantum lifetime)
+==============================================================================
+  n_imp = n_free,2D = 1.0081e-03 fm^-2  (charge neutrality: the scatterers ARE the carriers)
+
+  L_z(fm)  tau_sp[s]     tau_tr[s]     tau_tr/tau_sp  hbar/tau[keV]  sigma_DC[S]   k_F*l   l/d
+  1.68     5.7119e-21     1.8610e-20      3.258            35.4       8.0655e-04    20.8   8.31
+  1.84     5.9798e-21     2.0036e-20      3.351            32.9       8.6328e-04    22.3   8.89
+  1.99     6.2229e-21     2.1362e-20      3.433            30.8       9.1533e-04    23.6   9.43
+
+  at L_z = 1.84 fm:  tau_tr = 2.0036e-20 s (20.036 zs), 1/tau_tr = 4.9910e+19 s^-1, hbar/tau = 32.9 keV
+  mean free path l = v_F tau = 2.800e-13 m = 280.0 fm = 8.9 x the impurity spacing (1/sqrt n = 31.5 fm)
+  sigma_DC = 8.6328e-04 S = 22.28 x e^2/h        (e^2/h = 3.8740e-05 S)
+  [P3] -> CONFIRMED   tau_tr = 2.004e-20 s
+  [P4] -> CONFIRMED   tau_tr/tau_sp = 3.351 (the record's illustration is 91.5)
+  [P13] -> CONFIRMED   k_F*l = 22.3 -> impurity average admissible
+  [P7] -> CONFIRMED   sigma_DC = 8.633e-04 S
+
+  Sensitivity to the defect in [1]: on the P4-1 table's k_F, tau_tr = 1.1694e-20 s, i.e. 1.71x
+  shorter.  A sqrt(2) in k_F is a 71% error in tau, not a convention; both are printed.
+
+  Convention check (order of magnitude, not a physics claim): a spacerless GaAs 2DEG,
+  n = n_imp = 1e16 m^-2, m* = 0.067 m_e, eps = 13 -- same code, same form, nothing tuned.
+    k_F = 2.507e+08 m^-1, q_TF = 1.948e+08 m^-1 (x = 0.389), tau_tr = 5.44e-14 s, mu = 1429 cm^2/Vs
+  [P14] -> CONFIRMED   mu = 1429 cm^2/Vs -- within two decades of the textbook range
+
+  X_p convention envelope at L_z = 1.84 fm.  ALL3D's electron gas is 3D (D_e = 3), so the
+  2D matrix element does not apply to it: it is printed as out-of-domain, not included.
+  mode     X_p        n_free[fm^-2]  D_e  tau_tr[s]     admissible
+  ALL3D    0.00096    4.0558e-05     3    5.9315e-20    NO (D_e = 3)
+  HYB      0.02391    1.0081e-03     2    2.0036e-20    yes
+  ALL2D    0.00440    1.8530e-04     2    3.1350e-20    yes
+  X_p spans 27.8x; tau spans 1.565x.  n_imp/n_free = 1 identically and n/k_F^2 = g/(4 pi) is
+  a constant, so the convention envelope largely cancels: the prefactor is fixed, and the
+  residual 1.56x is the x = q_TF/(2 k_F) shift of J2 alone.  The bar was 1.5 and this is the
+  round's one near-miss -- reported, not re-barred: the qualitative claim (27.8x in X_p is
+  not 27.8x in tau) holds, the exact bar was too tight.
+  [P15] -> FALSIFIED   tau span over the admissible conventions = 1.565
+
+  L_z span over the K1 window: 1.861e-20 s (1.68 fm) .. 2.136e-20 s (1.99 fm) -> 1.15x
+
+==============================================================================
+[4] THE RECORD'S 91.5 -- re-derived, not quoted
+==============================================================================
+  S13's motivation (`surface_conductivity_v1.md` s10): at q_TF/k_F = 0.0146,
+  tau_tr/tau_sp = 91.5.  The same integral at that argument:
+    q_TF/k_F = 0.0146 -> x = 0.00730 -> J0 = 273.905, J2 = 2.99228, ratio = 45.769
+    computed/quoted = 0.5002 ;  ratio(x*) = 91.5 at x* = 0.003573, i.e. q_TF/k_F = 0.007147 = 0.489 x 0.0146
+  [P5] -> CONFIRMED   at the cited argument the integral gives 45.8 (0.500 x 91.5); 91.5 is the value at half it
+
+  Two readings; the round takes neither as a verdict on the criterion:
+    (a) the sentence's 91.5 and its 0.0146 are not the same configuration -- a factor 2 in
+        what 'q_TF/k_F' denotes (q_TF/(2 k_F) is the natural argument of the angular integral);
+    (b) either way the number is a property of ONE state.  For q_TF/k_F << 1 the ratio is
+        ~ pi q_TF/k_F = 2 pi alpha/(v_F/c): it scales as 1/v_F.  And 0.0146 = 2 alpha is
+        exactly r_s = alpha, i.e. v_F = c -- the FROZEN model's undeclared v_F, the input the
+        solved state replaced.  At the solved state r_s = 0.157 and the ratio is 3.35,
+        27x smaller.
+  So the illustration is a number about a superseded state.  S13 is binary and unaffected;
+  the number may not be transferred from one state to another.
+
+==============================================================================
+[5] THE RESPONSE AT FINITE tau
+==============================================================================
+  Drude:  sigma(w) = sigma_DC/(1 - i w tau_tr),  sigma_DC = n e^2 tau/m*
+    1/tau_tr = 4.99098e+19 s^-1   hbar/tau_tr = 32.9 keV
+    w_12 (first inter-subband line) = 5.1186e+23 rad/s  ->  gamma/w_12 = 9.75e-05  (4.0 decades
+    below the ladder: the single-rate domain survives STRUCTURALLY, not just numerically)
+    at 2.25 eV: w = 3.418e+15 rad/s, w tau = 6.85e-05  ->  the intra channel is the dc limit there
+  [P6] -> CONFIRMED   hbar/tau = 32.9 keV, gamma/w_12 = 9.75e-05
+
+  The f-sum of the intra pole, integrated numerically for both rates
+  (w = tan(theta)/tau, theta in (0, pi/2), 2e5 points):
+    W(tau_tr) = 6.767974e+16 S rad/s ;  W(tau_sp) = 6.767974e+16 S rad/s ;  ratio = 1.000000000000
+    the taus differ by 3.35x and the partitions agree to 1e-12: S5 cannot see which tau
+    was used.  (W = pi e^2 n/(2 m*) analytically; tau cancels identically.)
+  [P10] -> CONFIRMED   |W(tr)/W(sp) - 1| = 2.2e-16
+
+==============================================================================
+[6] S12a / S12b APPLIED  (and the blind spot measured)
+==============================================================================
+  single pole (any tau)        alpha(peak) = 1.000000  arc dev = 3.3307e-16  tau_eff/tau = 1.000000  kappa = 4.441e-16
+  two poles 1:1, tau2 = 3 tau1 alpha(peak) = 0.908699  arc dev = 1.3397e-01  tau_eff/tau = 1.500000  kappa = 8.495e-02
+
+  The statistic reproduces the specification's own three controls: alpha_eff 0.9087
+  (here 0.908699), arc deviation 13.4% (here 13.40%), kappa 8.6e-2 (here 8.495e-02) -- so the
+  instrument is the spec's, not a new one.  For a single pole S12a passes by construction
+  (alpha = 1 exactly, arc deviation 3e-16); it is only informative against a control, which
+  is why S12b exists.
+
+  S12a: alpha = 1 to <1e-2, arc deviation <1e-2, alpha > 1 an automatic fail.
+  S12b: kappa < 1e-6 (the spec measures 4.4e-16 for one pole, 8.6e-2 for two at 3:1).
+  [P9] -> CONFIRMED   kappa(control) = 0.0849 -- the statistic does catch two rates
+
+  THE BLIND SPOT, as numbers.  Take three *assumed* rates for the same absorber:
+    assumed tau                   sigma_DC [S]   error        kappa
+    tau_tr (correct)              8.6328e-04       +0.0%   4.44e-16
+    tau_sp (0.30x too short)      2.5765e-04      -70.2%   4.44e-16
+    100 x tau_tr (wrong by 100x)  8.6328e-02    +9900.0%   4.44e-16
+  [P8] -> CONFIRMED   kappa = 4.4e-16 for every single rate while sigma_DC moves by 3.35x
+
+  S12b's null hypothesis is 'ONE rate'.  A single wrong rate satisfies it perfectly, so the
+  statistic cannot do S13's work -- and no other criterion can either, since S5's partition
+  is tau-independent to 1e-12 ([5]).  The identity of the rate is carried by the NAME (S13)
+  and by the VERTEX that produces the (1-cos theta) weight -- S6.  The P4 product recorded
+  S6 as PASS by appeal to the round-43 operator; the impurity vertex was never constructed.
+  That is the gap this round can name and does not close: the criterion that could catch a
+  wrong-but-unique rate exists, and was applied by reference, not by construction.
+
+  Ladder leakage into S12's window (reported, not a criterion): the inter-subband poles sit
+  at w tau = 1.0e+04, so inside [0.1,10]/tau their amplitude is ~9.5e-09 of the intra term:
+  a suppression of 8.0 orders, i.e. 2.0 orders below the 1e-6 threshold.  Including the
+  ladder would not move kappa.
+
+==============================================================================
+[7] Q-1 / Q-2 -- what has to be TRUE for the number to exist
+==============================================================================
+  The rate above is an average over a random (Poisson) array.  Two other arrangements are
+  equally consistent with everything the state says, and both give a different answer:
+
+  arrangement                  elastic channel                         tau_tr
+  ---------------------------  --------------------------------------  ----------------
+  mobile protons (fluid)       none: e-p scattering conserves the      INFINITE
+                               total e+p momentum, so no charge
+                               current is relaxed (COM accelerates)
+  perfect proton lattice       none below the first reciprocal vector  INFINITE
+                               (Bloch states): 2 k_F/G_min = 0.691 < 1
+  disordered (Poisson) array   yes, the Born average above             2.004e-20 s
+
+    impurity spacing d = 1/sqrt n = 31.50 fm ; G_min (triangular) = 0.23036 fm^-1 ;
+    2 k_F = 0.15917 fm^-1 ; the lattice has no umklapp channel for these carriers.
+
+  Both clean limits are PERFECT CONDUCTORS (a Drude delta at w = 0), not insulators.  So
+  the ideal P2 level is exactly the tau = infinity case round 45 declared, and the finite
+  number is a property of disorder alone.  The state carries neither a lattice nor disorder:
+  Q-1 (localized) and Q-2 (disordered) are premises, and the answer is conditional on both.
+
+  Consequence for S7: the mechanism is named, traced and unscanned, but its ACTIVITY is a
+  structural premise.  S7 is PASS-ON-PREMISE, not PASS -- the criterion asks what fixes
+  tau, and the honest answer is 'the impurity arrangement, which the model does not fix'.
+  Refinement (iii), RQ-05, is where that premise would be earned or refused.
+
+==============================================================================
+[8] S7 AND S13, APPLIED
+==============================================================================
+  S7  (tau is solved; a scanned tau fails)
+       named      : the TRANSPORT (momentum) relaxation time, not the quantum lifetime
+       traced     : impurity-averaged self-energy, Born, 2D TF-screened Coulomb; the
+                    matrix element is printed in [2]; n_imp = n_free,2D from the state
+       not scanned: no free parameter; the only inputs are (n, m*, k_F, alpha)
+       verdict    : PASS-ON-PREMISE (Q-1 and Q-2 of [7])
+  S13 (tau named / traced / not scanned -- binary)
+       name       : TRANSPORT.  tau_sp is 3.35x shorter and would give a 3.35x wrong
+                    conductance; both are printed, neither is a fit.
+       verdict    : PASS, with the blind spot of [6] recorded (S12 cannot check the name)
+
+  Not moved: S1-S6, S8-S12, S14, S15, every gate, every rung, PG-01's mark.
+  S2 becomes non-trivial (A > 0 in band now) but its closure is a stack identity, not a
+  matter-model statement, so it is not re-applied here.
+
+==============================================================================
+SUMMARY
+==============================================================================
+  registration order : present, 72 s older than this run
+  the rate           : tau_tr = 2.00e-20 s at L_z = 1.84 fm (1.86e-20 .. 2.14e-20 over the K1 window),
+                       from V(q) = 2 pi e^2/(eps(q+q_TF)) and n_imp = n_free,2D.
+                       sigma_DC = 8.63e-04 S = 22.28 e^2/h ; hbar/tau = 32.9 keV.
+  what it is not     : unconditional.  Without localized, disordered protons the
+                       resistance is zero (a perfect conductor): the mechanism round 45 named
+                       is a mechanism only for a structure round 45 did not have.
+  S12                : passes exactly and is blind to the identity of the rate -- kappa =
+                       4.4e-16 for tau_tr, tau_sp and 100 x tau_tr alike.
+  the record's 91.5  : not reproducible at its cited argument (gives 45.8); it is the value at
+                       half that argument and belongs to the frozen model's v_F = c.
+  arithmetic defect  : P4-1's table k_F is low by sqrt(2) (0.0563 vs 0.0796 fm^-1); tau would
+                       be 1.71x shorter on it.  Erratum appended to the closure document;
+                       no product edited.
+  what is NOT claimed: no visibility (S9), no threshold, no gate, no census answer.
+
+  predictions        : 15 CONFIRMED, 1 FALSIFIED
+    FALSIFIED P15: tau span over the admissible conventions = 1.565
+
+PROVENANCE: NEITHER  (Born impurity average on declared state inputs; the structural
+premise Q-1/Q-2 is declared, not established -- establishes no chain evidence)

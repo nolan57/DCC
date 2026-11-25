@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-11-22T15:51:17+0800",
+  "source_path": "src\\route\\structure_tiers.py",
+  "source_sha256": "7fc461e8546d3ed12f0a9f0febdcaece871e6398af60917eb893c6b9a0fd44f4",
+  "results_path": "runs\\MATRIX\\structure_tiers_results.txt",
+  "results_sha256": "5760e2e25f3a39924d1f52b184c56e46ec72d79b006d35456bf9df642b62e9a7",
+  "admission": "first baseline",
+  "locked_symbols": [
+    "Q0",
+    "Q1",
+    "Q2",
+    "Q3"
+  ],
+  "rule": "docs/conventions/symbol_registry.md S9(a)(b)(c)",
+  "note": "Numbers may be re-baselined only when RENAME-ADMITTED: source moved, numbers identical."
+}

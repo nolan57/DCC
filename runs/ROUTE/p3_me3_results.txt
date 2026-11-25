@@ -1,0 +1,95 @@
+
+==============================================================================
+PHASE 3 — ME3 (PERPENDICULAR ENERGY FRACTION) AND THE J^mu INSTRUMENT
+==============================================================================
+  ME3 as adopted: delta_E := Int rho (d_z phi)^2 / Int rho [(d_x phi)^2 + (d_y phi)^2] <= d_E,max
+  phi is NOT declared in the spec. Both natural declarations are evaluated below.
+  pre-registered: P3a (sheet << 1, slab ~ 1), P3b (threshold-insensitive), P3c (J^mu conserved)
+
+[P3-1] DECLARATION 1: phi = the material field (density-like, carrying the picture)
+  state    delta_E      numerator      denominator    verdict   
+  sheet    0.8907       343.4          385.6          PASS      
+  stack    0.868        670.3          772.3          PASS      
+  slab     0.4048       528.4          1305           PASS      
+  prediction P3a (sheet <~ 1e-12, slab ~ 1, separation >= 10 decades): FAILED
+  measured: sheet 0.8907, slab 0.4048 -- the ordering is the WRONG WAY (sheet > slab), though only
+  weakly, because at t = 3 grid cells the z-gradient is grid-limited. The continuum scaling
+  measured in P3-2 is what carries the argument; the lattice magnitude does not.
+  reason: a sheet is thin in z, so its perpendicular gradient length is t, and
+  Int(d_z phi)^2 / Int(phi)^2 ~ 1/t^2 while the in-plane term ~ 1/lambda^2. Hence
+      delta_E(material) ~ (lambda/t)^2  -->  INFINITY as the sheet thins.
+  the quantity is inverted with respect to two-dimensionality: thinner sheets score WORSE.
+
+[P3-2] THE SCALING delta_E ~ (lambda/t)^2 -- EXACT TEST ON A SEPARABLE FIELD
+  the P3-1 states have t equal to only 2-6 grid cells, so their z-gradient is grid-limited
+  and they cannot test a continuum scaling. Use instead the separable field
+      phi = sin(2*pi*x/lambda) * sin(pi*z/t),   for which to O(h^2)
+      delta_E = (lambda / (2t))^2   EXACTLY.
+  so the test is a residual, not a fit:
+  t_vox    delta_E       (lambda/2t)^2 ratio     corrected  
+  8        0.295307      0.25          1.1812    1.0082     
+  16       0.076865      0.0625        1.2298    1.0098     
+  32       0.0194111     0.015625      1.2423    1.0102     
+  64       0.00486502    0.00390625    1.2454    1.0103     
+  the raw ratio drifts 1.18 -> 1.25 because the difference operator attenuates the lateral
+  mode (lambda = 8 cells) by (sin(k)/k)^2 = 0.8105 while the axial mode is barely attenuated.
+  correcting for that attenuation, the residual is the 'corrected' column: 1.0082 .. 1.0103,
+  i.e. unity to 1.0%. The prediction delta_E = (lambda/2t)^2 is therefore confirmed as an
+  => delta_E ~ (lambda/t)^2 is CONFIRMED as a scaling. The extrapolation that follows is
+     therefore analytic-plus-verified, not curve-fitting:
+     for the real object (lambda = 0.20 m, t = 1.540e-14 m):  (lambda/t)^2 = 1.687e+26
+     so delta_E(material) = 1.69e+26 for the converted state; it would need d_E,max >= that.
+  and it grows as t SHRINKS, so the ideal 2D limit (t -> 0) is delta_E -> infinity:
+  the criterion is most violated by the most perfectly two-dimensional state.
+
+[P3-3] DECLARATION 2: phi = a velocity potential, with u_perp/u_par = t/lambda
+  for a sheet moving in-plane the perpendicular velocity fraction is ~ t/lambda, so
+      delta_E(velocity) ~ (u_perp/u_par)^2 = (t/lambda)^2 = 5.929e-27
+  and for the intact body (isotropic motion) it is ~ 1.
+  => this declaration gives the prediction P3a expected: sheet tiny, slab ~ 1.
+
+  THE TWO DECLARATIONS DISAGREE BY (lambda/t)^4 = 2.845e+52
+  and give OPPOSITE verdicts on the sheet. ME3 therefore has no verdict until phi is declared,
+  and the spec does not declare it.
+
+[P3-4] P3b: IS THE THRESHOLD INSENSITIVE?
+  under declaration 1 the sheet sits at 1.69e+26 and the slab at 4.05e-01 -- the sheet is FAILING at
+  any d_E,max below that, and PASSING only above it. Under declaration 2 the sheet sits at
+  5.93e-27 and passes for any d_E,max > that.
+  adm. 1 requires d_E,max >= 1.7e+26 ; adm. 2 requires d_E,max >= 5.9e-27 . The two requirements
+  differ by 2.8e+52, so no single value of d_E,max means the same thing under both -- and
+  the value DECIDES the verdict rather than being insensitive to it.
+  prediction P3b: FAILED. The proposal d_E,max = 1e-2 recorded in the pre-registration was
+  LICENSED BY P3b and is therefore WITHDRAWN. No d_E,max is registered in this round.
+
+[P3-5] J^mu INSTRUMENT  (GD4: an instrument, not a gate)
+  ansatz: J^mu = n u^mu, u^mu = (c,0,0,0) in the prescribed (D2) frame, n static.
+  conservation: nabla_mu J^mu = (1/sqrt(gamma)) d_t (sqrt(gamma) n) = 0 for static n, identically.
+  numerical check on a non-trivial static n over a curved gamma_ij:
+    sqrt(gamma) finite and positive : True   (min 0.8367, max 1.1402)
+    max |nabla_mu J^mu|             : 0.0e+00  (exactly zero -- dt = 0 for a static n)
+    J^0 = n c                       : nonzero for every state in the record
+      sheet   <n> = 0.0783  ->  J^0 = 0.0783 c
+      stack   <n> = 0.1565  ->  J^0 = 0.1565 c
+      slab    <n> = 0.2500  ->  J^0 = 0.2500 c
+  prediction P3c: CONFIRMED -- conserved identically, and J^0 != 0 for every state, so the
+  directive's 'zeroing of the conserved current' test does not fire.
+  LIMITATION, declared: this instrument works on PRESCRIBED backgrounds only. On a solved
+  background u^mu must come from the evolution, which does not exist (R4 grid-scale
+  instability, unlocalised in the bulk). So J^mu is an instrument for D2 states, not a gate.
+
+==============================================================================
+PHASE 3 SUMMARY
+==============================================================================
+  ME3 with phi = material : delta_E = 1.69e+26 (continuum) for the sheet, 4.05e-01 for the slab --
+                            INVERTED: the thinner the sheet, the worse it scores
+  ME3 with phi = potential: delta_E = 5.93e-27 for the sheet -- the intended direction
+  the two differ by (lambda/t)^4 = 2.8e+52 and straddle any threshold
+  P3a FAILED / P3b FAILED / P3c CONFIRMED
+  PHASE 3: BLOCKED. d_E,max cannot be registered, because ME3 has no verdict until phi is
+  declared -- and the two natural declarations give opposite answers. This is a defect in an
+  ADOPTED spec (v0.2 ME3), not in the route's executor. It is registered as finding ME3-F1
+  and requires a v0.3 amendment before Phase 3 can run or Phase 4 can start.
+
+PROVENANCE: NEITHER  (constraint well-posedness + one identity; establishes no physics)
+

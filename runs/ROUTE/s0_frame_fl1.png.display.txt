@@ -1,0 +1,13 @@
+DISPLAY-DECLARATION v1
+FRAME: s0_frame_fl1.png
+PROVENANCE: NEITHER
+STAGE: S0
+FIDELITY: FL1
+BAND: NONE (geometry only)
+COLOUR: DECLARED-CONVENTION
+COLOUR-BASIS: the mapped quantities are a binary occupancy indicator and a step function of declared resolution; no spectral measurement was made, so hue carries no wavelength information and the palette is a choice
+SCALAR: occupancy indicator (dimensionless); mu_ov versus Delta_z_res / t (dimensionless)
+TIME: t_span = 0 s (single snapshot) ; compression = 1 ; t_rip = 9.43e-10 s ; ratio = 0
+GEOMETRY: PRESCRIBED (D2)
+ENHANCEMENT: none
+ME5-COROLLARY: NOT-APPLICABLE

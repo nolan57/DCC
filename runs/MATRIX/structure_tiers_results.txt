@@ -1,0 +1,177 @@
+
+================================================================================================
+[0] THRESHOLD LOCK -- (c) must be declared before and pinned
+================================================================================================
+  lock file              : runs\MATRIX\threshold_lock.json
+  recorded sha256        : 5f324e1513c5df0a8c60539c0c50af6e...
+  recomputed sha256      : 5f324e1513c5df0a8c60539c0c50af6e...
+  lock integrity         : OK
+  spec sha256 recorded   : c5e239178b0dade91487140d3b714a4a...
+  spec sha256 recomputed : c5e239178b0dade91487140d3b714a4a...
+  spec integrity         : OK
+  lock mtime is 59.2 s older than this run  -> declared BEFORE evaluation
+
+  tier   quantity   threshold   shape
+  L0     Q0         0.5         >= 0.5
+  L1     Q1         4.0         >= 4.0
+  L2     Q2         0.5         >= 0.5
+  L3     Q3         2.0         >= 2.0
+
+================================================================================================
+[1] DECLARED NULL ENSEMBLE -- 16 i.i.d. realisations, seeds 4000..4015
+================================================================================================
+  P0(null) = 5.639903e-02   (sd 4.687e-04 over the ensemble)
+  q2(null) = 0.138201   (sd 7.671e-04)   <- this IS the finite-sample bias of the estimator
+  a null q2 of 0.138 on i.i.d. data is why Q2 renormalises (spec s4).
+
+================================================================================================
+[2] CALIBRATION -- the nine declared scenes
+================================================================================================
+  scene      Q0        xi/h     Q2        C_xi      Q3(q=1)   Q3(q=0)
+  ----------------------------------------------------------------------------------
+  NOISE     -0.0075   0.63     0.0016    -         n/v       n/v
+  NOISE-S   -0.0023   0.64     0.0006    -         n/v       n/v
+  BLUR      0.9939    10.04    0.4736    0.0161    1.385     0.000
+  DITHER    0.7752    0.63     -0.1529   -         n/v       n/v
+  RAMP      0.9989    38.63    0.6674    0.2916    4.915     0.000
+  STEP      0.9989    40.46    1.0000    0.5497    5.806     0.000
+  GRATING   0.9952    9.37     0.9399    0.4624    5.562     0.000
+  TILED     0.9989    27.55    0.9417    0.7867    6.316     0.000
+  BLANK     1.0000    0.00     -         -         n/v       n/v
+
+================================================================================================
+[3] TIER VERDICTS
+================================================================================================
+
+  L0  threshold Q0 >= 0.5
+    NOISE     FAIL        -0.0075
+    NOISE-S   FAIL        -0.0023
+    BLUR      PASS        0.9939
+    DITHER    PASS        0.7752
+    RAMP      PASS        0.9989
+    STEP      PASS        0.9989
+    GRATING   PASS        0.9952
+    TILED     PASS        0.9989
+    BLANK     NO-VERDICT  (degenerate)
+
+  L1  threshold Q1 >= 4.0
+    NOISE     FAIL        0.6311
+    NOISE-S   FAIL        0.6352
+    BLUR      PASS        10.0391
+    DITHER    FAIL        0.6332
+    RAMP      PASS        38.6277
+    STEP      PASS        40.4557
+    GRATING   PASS        9.3686
+    TILED     PASS        27.5541
+    BLANK     FAIL        0.0000
+
+  L2  threshold Q2 >= 0.5
+    NOISE     FAIL        0.0016
+    NOISE-S   FAIL        0.0006
+    BLUR      FAIL        0.4736
+    DITHER    FAIL        -0.1529
+    RAMP      PASS        0.6674
+    STEP      PASS        1.0000
+    GRATING   PASS        0.9399
+    TILED     PASS        0.9417
+    BLANK     NO-VERDICT  (degenerate)
+
+  L3  threshold Q3 >= 2.0
+    NOISE     NO-VERDICT  (degenerate)
+    NOISE-S   NO-VERDICT  (degenerate)
+    BLUR      FAIL        1.3850
+    DITHER    NO-VERDICT  (degenerate)
+    RAMP      PASS        4.9146
+    STEP      PASS        5.8065
+    GRATING   PASS        5.5620
+    TILED     PASS        6.3159
+    BLANK     NO-VERDICT  (degenerate)
+
+  verdict profile per tier (order: NOISE, NOISE-S, BLUR, DITHER, RAMP, STEP, GRATING, TILED, BLANK)
+    L0  . . Y Y Y Y Y Y n
+    L1  . . Y . Y Y Y Y .
+    L2  . . . . Y Y Y Y n
+    L3  n n . n Y Y Y Y n
+    (Y = PASS, . = FAIL, n = NO-VERDICT)
+
+================================================================================================
+[4] ADMISSION GATE -- (a) intrinsicality, (b) separation, (c) hash-locked threshold
+================================================================================================
+
+  L0  topological organization
+    (a) definition refers only to the scene : OK
+    (b) separates null from a control      : OK  (null passing: none | controls passing: 6 of 6: BLUR, DITHER, RAMP, STEP, GRATING, TILED)
+    (c) threshold present and hash-locked  : OK  (value >= 0.5)
+    => ADMITTED
+
+  L1  characteristic scale in the scene's own metric
+    (a) definition refers only to the scene : OK
+    (b) separates null from a control      : OK  (null passing: none | controls passing: 5 of 6: BLUR, RAMP, STEP, GRATING, TILED)
+    (c) threshold present and hash-locked  : OK  (value >= 4.0)
+    => ADMITTED
+
+  L2  predictability, self-referenced
+    (a) definition refers only to the scene : OK
+    (b) separates null from a control      : OK  (null passing: none | controls passing: 4 of 6: RAMP, STEP, GRATING, TILED)
+    (c) threshold present and hash-locked  : OK  (value >= 0.5)
+    => ADMITTED
+
+  L3  legibility through a declared observer
+    (a) definition refers only to the scene : OK
+    (b) separates null from a control      : OK  (null passing: none | controls passing: 4 of 6: RAMP, STEP, GRATING, TILED)
+    (c) threshold present and hash-locked  : OK  (value >= 2.0)
+    => ADMITTED
+
+  tiers admitted to the matrix: L0, L1, L2, L3
+
+================================================================================================
+[5] NEGATIVE TESTS -- the gate must fire on planted defects (lock never edited on disk)
+================================================================================================
+  id   planted defect                          expected                        outcome
+  --------------------------------------------------------------------------------------------
+  N1   L1 threshold deleted                     REFUSED on (c)                  FIRED
+  N2   L0 definition cites the original         REFUSED on (a)                  FIRED
+  N3   lock digest recomputed                   matches recorded (no tamper present) -> gate is live FIRED
+  N4   L2 threshold set to -1.0 (below the null) null would pass -> (b) fails    FIRED
+  N5   BLANK scene on L0 and L3                 NO-VERDICT, never PASS          FIRED
+
+  all planted defects caught: YES
+
+================================================================================================
+[6] INDEPENDENCE -- a column that repeats another column is a column with no information
+================================================================================================
+  L0 vs L1 : differ
+  L0 vs L2 : differ
+  L0 vs L3 : differ
+  L1 vs L2 : differ
+  L1 vs L3 : differ
+  L2 vs L3 : differ
+
+  identical pairs: 0 of 6
+
+================================================================================================
+[7] POST-ADMISSION PROBE -- layout convention (exploratory, licenses nothing)
+================================================================================================
+  TILED canonical  Q0=0.9989  xi/h=27.55  Q2=0.9417
+  TILED shuffled   Q0=0.9600  xi/h=4.53  Q2=0.7805
+  If the two rows differ materially, the tiers respond to the ARRANGEMENT, and the
+  layout convention must be declared as a DC item before any tier can be used on a
+  tiled scene (audit s6 item 5).
+
+================================================================================================
+SUMMARY  (derived from flags)
+================================================================================================
+  tier quantity   (a)    (b)    (c)    verdict
+  --------------------------------------------------------------------------
+  L0   Q0         OK     OK     OK     ADMITTED
+  L1   Q1         OK     OK     OK     ADMITTED
+  L2   Q2         OK     OK     OK     ADMITTED
+  L3   Q3         OK     OK     OK     ADMITTED
+
+  tiers admitted                        : 4 of 4
+  matrix columns available              : 4
+  L3 under the reflection channel       : 0 of 9 scenes reach it (q = 0 exactly)
+  identical tier pairs                  : 0 of 6
+  planted defects caught                : 6 of 6
+
+PROVENANCE: NEITHER  (tier evaluation against a declared null; establishes no physics)

@@ -1,0 +1,248 @@
+
+====================================================================================================
+[A] ANCHORS AND PRESUPPOSITIONS
+====================================================================================================
+  38 markdown files under docs/
+
+P1 — is sigma : n_z -> (u,v) defined anywhere?
+   raw token hits = 18  (sigma = stress, Sigma = column density; the pattern cannot tell them apart)
+  location                                  token  what it actually is              
+  ----------------------------------------  -----  ---------------------------------
+  dimensional_conventions_v1.md:55          Sigma  column density / sum symbol      
+  dimensional_conventions_v1.md:83          Sigma  column density / sum symbol      
+  symbol_registry.md:75                     Σ      column density / sum symbol      
+  abandon_assumption_visual_v1.md:7         Sigma  column density / sum symbol      
+  abandon_assumption_visual_v1.md:59        sigma  stress                           
+  assumption_matrix_v1.md:14                Sigma  column density / sum symbol      
+  G0p_seven_row_verdict_v1.md:13            Σ      column density / sum symbol      
+  G0p_seven_row_verdict_v3.md:36            Σ      column density / sum symbol      
+  G0p_seven_row_verdict_v3.md:36            Σ      column density / sum symbol      
+  kinematic_vs_dynamic_unfolding_v1.md:96   σ      stress                           
+  kinematic_vs_dynamic_unfolding_v1.md:96   σ      stress                           
+  kinematic_vs_dynamic_unfolding_v1.md:108  σ      stress                           
+  kinematic_vs_dynamic_unfolding_v1.md:108  σ      stress                           
+  r4_finite_region_geometry_v1.md:263       Σ      column density / sum symbol      
+  r4_finite_region_geometry_v1.md:263       Σ      column density / sum symbol      
+  three_body_comparison_v1.md:44            sigma  UNCLASSIFIED — inspect           
+  intrinsic_structure_tiers_v1.md:42        σ      Gaussian width (image processing)
+  meff_boundary_v0_2.md:28                  Σ      column density / sum symbol      
+
+   hits that mention a site/lattice coordinate in the same line = 0
+   => every raw hit is stress or column density; none is a layer-to-site rule.
+   => P1 AS REGISTERED (raw count = 0): FAIL — the encoding tested a symbol, not a rule.
+   => P1 CORRECTED (no rule exists, 0 rule-shaped hits): PASS
+
+P2 — does front_sweep_v1 s2.1 already deny that anything selects Pi?
+   "nothing in the mechanism selects it over any other relabelling" -> 1 occurrence(s)
+   => P2 (expected 1): PASS
+   The submission's central inference (S2->S3: 'therefore the algorithm is X') is the negation of a
+   clause already in force. That is not my argument; it is the mechanism document's own.
+
+P3 — projection / traversal vocabulary in the record (excluding this run's own files)
+   total = 0  
+   => P3 (expected 0): PASS
+   Neither the criticised method nor the proposed one is named anywhere in docs/. D2 is not a
+   projection either: z survives as the site INDEX, so 'orthographic loses depth' is not about D2.
+
+====================================================================================================
+[B] DOES THE CITED SELECTION PRINCIPLE SELECT ANYTHING?  (S10 class)
+====================================================================================================
+  The submission says the choice is 'dictated by the physical constraints of information
+  conservation and zero deformation'. What those two constraints actually pin down:
+
+    information conservation  <=>  the piece->site map is injective
+    zero deformation         <=>  each piece is moved rigidly (a permutation of pieces, not of points)
+
+  A permutation of pieces satisfies BOTH, for every permutation. Formally the admissible set is the
+  full symmetric group on the piece set:
+
+    N (pieces)            = 1.180e+10
+    log10(N!)             = 1.1372e+11   i.e. N! = 10^(1.14e11)
+    admissible bijections = 10^1.14e+11
+   => P4 (expected log10 N! = 1.14e11): PASS  (1.1372e+11 vs 1.1370e11)
+   random bijection #1: injective=True  rigid(per-piece)=True  -> admissible
+   random bijection #2: injective=True  rigid(per-piece)=True  -> admissible
+   random bijection #3: injective=True  rigid(per-piece)=True  -> admissible
+   => P5 (expected 3/3): PASS
+
+  Consequence. The two cited constraints admit 10^1.1e11 configurations and rank none of them. They
+  cannot 'dictate' a Hilbert curve over any other order, so S2 -> S3 is a non-sequitur. The premise
+  S1 is right and is already in force as KIN-DYN; the inference does not survive it.
+
+====================================================================================================
+[C] THE VOXEL READING, PRICED
+====================================================================================================
+  S3 is written at voxel resolution: 'every Planck-scale grid cell (or voxel)'. Priced first at the
+  deposit's OWN in-plane resolution a = delta = 0.215 nm, which is the finest lattice the model has.
+
+    in-plane voxel area            = 4.6225e-20 m^2
+    voxels per plate               = 5.1271e+17
+    pieces if every voxel is a piece = 6.0500e+27
+   => P6 (expected 6.05e27, >1e27): PASS  (6.050e+27)
+
+    array side required @ 0.4001 m = 7.7782e+13 sites
+    canvas required                = 3.1120e+13 m
+   => P7 (expected 7.78e13 sites / 3.11e13 m = 208 AU): PASS  (7.778e+13 sites, 3.112e+13 m = 208.0 AU)
+   => P8 (expected 8.6e8 x the frozen canvas): PASS  (8.630e+08)
+
+  The census is FROZEN: 1.18e10 pieces, array 90126^2. Reading S3 literally multiplies the piece count
+  by 5.1e17 and the array side by 8.6e8. A submission cannot change a frozen quantity as a detail of
+  its algorithm; that is the 'change to D2 itself' category refused for the T4 insertion.
+
+====================================================================================================
+[D] THE GRID S3 ASSUMES
+====================================================================================================
+  S3 fixes the grid at 'a thickness of one Planck length' and 'all physical units ... (i.e., the Planck
+  scale)'. Annex B sB.8.2 was registered one round ago for exactly this:
+
+    n_max(l_P) = l_P / delta = 1.6159e-35 / 2.1500e-10 = 7.516e-26   < 1
+   => P9 (expected 7.52e-26 < 1): PASS
+   => no positive layer count satisfies it. The Planck thickness is not a fine grid the model declines
+      to use; it is a thickness at which the model has no configuration at all.
+
+    registered site pitch  0.4001 m   vs l_P: 2.476e+34x
+    registered thickness   2.1500e-10 m   vs l_P: 1.331e+25x
+  So the submission's unit cell is 34 decades from the site and 25 from the thickness. Its two
+  'invariants' (Planck cells, constant unit size) describe neither this deposit nor any admissible one.
+
+  'Size of all physical units remains constant' — against the registered plate census:
+  min plate area (m^2)  max plate area (m^2)  span factor
+  --------------------  --------------------  -----------
+  6.3000e-03            5.4000e-02            8.571      
+   => P10 (expected span 8.19): FAIL  (8.571)
+
+====================================================================================================
+[E] THE STEELMAN: WHAT A SPACE-FILLING sigma WOULD ACTUALLY BUY
+====================================================================================================
+  Ignore for a moment that S3 is inadmissible and ask the useful question: if the deposit's array is
+  read as an image, which ordering of layers onto sites is most legible? Implement three candidates
+  and measure two quantities on an S x S square:
+
+    rho        = median|dn| between VERTICALLY adjacent sites / same for HORIZONTALLY adjacent sites
+                 (anisotropy: how unequal the z-step is along the two array axes)
+    contiguity = fraction of the |dn| = 1 layer pairs that land on 4-adjacent sites
+
+  candidate sigma            rho      contiguity  median |dn| all adj  p90 |dn| all adj  max |dn| vert
+  -------------------------  -------  ----------  -------------------  ----------------  -------------
+  raster (n = r*S + c)       256.000  0.9961      128.5                256               256          
+  Hilbert (order 8)          1.000    1.0000      1.0                  45                21845        
+  spiral (centre-out rings)  1.500    0.9980      1.0                  907               1015         
+
+   => P11 (raster rho = S exactly = 256): PASS  (rho = 256.000)
+   => P12 (Hilbert rho <= 2): PASS  (rho = 1.000)
+   => P13 (spiral rho <= 3): PASS  (rho = 1.500)
+   => P14 (contiguity 1.000 for all three): FAIL  (raster 0.9961, Hilbert 1.0000, spiral 0.9980)
+
+  Reading. None of the three is best at everything:
+
+    raster  contiguity 0.9961  rho 256.0   — one array step along a row moves ONE layer
+            (0.215 nm of body height); one step down a column moves 256
+            (0.06 um). At the registered side that ratio is 90126:
+            a vertical neighbour is 19.4 um away, a horizontal one 0.215 nm.
+    Hilbert contiguity 1.0000  rho 1.0   — the only true Hamiltonian path of the three
+    spiral  contiguity 0.9980  rho 1.5   — isotropic, but breaks at ring seams
+
+  Contiguity was predicted to be a TIE (P14). It is not: contiguity separates the three, and Hilbert
+  wins it outright at exactly 1.0000. The raster's 0.9961 loss is the row-end wrap, the spiral's
+  0.9980 is the ring seam. So on the one property the submission's premise actually needs — that
+  consecutive layers land on adjacent sites — the proposed algorithm is the unique winner, and the
+  record's implicit order is not.
+
+  Anisotropy, however, and the cost of the curve, measured rather than assumed:
+
+    median |dn| over all adjacent pairs : raster 128.5   Hilbert 1.0   spiral 1.0
+    p90    |dn| over all adjacent pairs : raster 256   Hilbert 45   spiral 907
+    max    |dn| over adjacent pairs     : raster 256   Hilbert 21845   spiral 1015
+
+  Hilbert does not trade one statistic for another: it beats the raster on the median, the 90th
+  percentile and contiguity, and is isotropic. Its only loss is the single largest jump
+  (21845 layers, where the curve passes near itself), which raster does not have because raster
+  has no such passage. Raster keeps exactly one advantage: along a row it steps by precisely one
+  layer, which no curve can match on both axes at once.
+
+  So the submission's algorithmic instinct is CORRECT and its stated reason is not. A space-filling
+  sigma is the better ordering for reading the deposit as an image, and the submission is the first
+  text in this record to notice that the ordering was never chosen.
+  That is a real merit, and it is a DISPLAY merit. It is also a merit the submission never states: it
+  argues from 'information conservation', which all three satisfy equally.
+
+====================================================================================================
+[F] WHAT IS ALREADY SATISFIED WITHOUT CHANGE
+====================================================================================================
+  P15 — is information already conserved by D2, before any space-filling curve?
+
+    each piece is placed inside ONE cell, keeping its internal (x,y) identity map
+    a cell is one site of the array, so (piece, point) -> (cell, point) preserves every material point
+
+    plates per cell            = 1.4527   (GD10, open)
+    plate area placed in a cell = 3.4429e-02 m^2 of 0.1601 m^2 available = 21.5%
+    no two plates overlap if their total area fits the cell, and it does with 4.6x to spare
+   => P15 (expected pass): PASS
+
+  So 'lossless rearrangement' is not something to be added: D2 already is one, and the submission's own
+  criterion cannot distinguish it from any other lossless arrangement. That is the whole argument.
+
+  Side effect worth recording: reading (B) of GD10 (several plates per cell) is GEOMETRICALLY
+  admissible — 21.5% coverage — so GD10 is a labelling question, not a capacity question.
+
+====================================================================================================
+[G] LEDGER
+====================================================================================================
+  13 / 15 registered predictions pass
+  P1:P  P2:P  P3:P  P4:P  P5:P  P6:P  P7:P  P8:P  P9:P  P10:F  P11:P  P12:P  P13:P  P14:F  P15:P
+  (P1_RAW is a form-failure of my own encoding, reported separately: FAIL as expected)
+
+  FAILED: P10, P14 — each must be examined before any verdict is drawn from its section.
+
+====================================================================================================
+PROVENANCE: NEITHER  (adjudication of a submitted claim against the registered record; establishes no physics)
+
+================================================================================================
+ERRATUM — appended 2026-11-22 after reading the ledger. The run above is NOT edited.
+Two FAILs, four defects of mine. Both FAILs cut AGAINST me, not against the submission.
+================================================================================================
+
+E1 — P1 as registered was a bad encoding (FORM-FAILURE).
+   P1 was "no document supplies a layer->site assignment rule: 0 hits", encoded as a raw count of
+   \bsigma\b|\bσ\b. That pattern matches `σ` = stress and `Σ` = column density, which this corpus uses
+   constantly. It returned 18 hits and every one is stress, column density, or a Gaussian width; 0 of 18
+   mention a site or lattice coordinate. The claim survives on a rule-shaped query (0 rule hits), but the
+   *prediction* was satisfied only because the pattern was too coarse. Recorded as a form-failure, the same
+   ruling applied to P8/P11 in the T4 round and A1-P3 in the A.6 round.
+   Substantive verdict, unchanged: no document defines sigma.
+
+E2 — P10 predicted 8.19, measured 8.571. My arithmetic, not the submission's.
+   I took the abdomen's upper range end (0.0516 m^2) as the maximum plate area; the thorax row gives a
+   single value 0.0540 m^2, which is larger. 0.0540/0.0063 = 8.571. The prediction is wrong by 4.6%.
+   The claim it was testing is unaffected: a span of 8.571 still refutes "the size of all physical units
+   remains constant". Sixth instance of the class "a rounded or hastily selected figure tested against a
+   recomputation".
+
+E3 — P14 predicted a TIE on contiguity; contiguity separates the three candidates.
+   Predicted 1.000 for raster, Hilbert and spiral. Measured 0.9961 / 1.0000 / 0.9980. Raster loses 0.39%
+   at row-end wraps, spiral 0.20% at ring seams; only Hilbert is a true Hamiltonian path. My declared
+   falsifier for exactly this case was written in the registration ("If P14 fails for any candidate, then
+   contiguity does discriminate and the steelman in E is wrong"), and it fired.
+   Consequence, accepted: the submission's algorithm is BETTER than I predicted. On the four statistics
+   measured, Hilbert dominates the raster on median |dn| (1.0 vs 128.5), p90 (45 vs 256), contiguity
+   (1.0000 vs 0.9961) and isotropy (rho 1.0 vs 256). Raster's only advantage is an exact 1-layer step
+   along one axis. This is a merit of the submission, and it is recorded as one.
+
+E4 — the narrative in section [E] was a static string and contradicted the run, twice.
+   First draft of the closing paragraph hardcoded "Hilbert and spiral ... TIE on contiguity" — false per
+   P14. Replaced with a version derived from the flags, which then hardcoded "rises to 123.5-339.7"
+   (the MEAN of |dn|), while the table's MEDIAN column reads 1.0 for both curves — a second false
+   sentence, caught by reading the table against the prose. Both now derive from the measured values.
+   This is the recurring class named in the registry ("a static closing string that disagrees with the
+   verdict it sits under"); it is now the fourth instance and the reason all summary lines here are
+   f-string interpolations rather than prose.
+
+E5 — grid_spiral wrote negative indices for even S (IndexError, index 66048 > 65535).
+   First version assumed an exact centre (S odd) and walked ring k to +-k about it. Fixed with a
+   bounds-and-already-assigned guard. Disclosed because the first run crashed rather than mis-reported:
+   the guard is the reason the spiral numbers can be trusted at all.
+
+Effect on the disposition: none. The refusal rests on P2 (the in-force clause), P4/P5 (10^1.14e11
+admissible bijections), P6-P8 (5.1e17 x the frozen census) and P9 (Planck grid inadmissible), all of
+which passed on their first encoding. E3 changes the ACCEPTED part, not the refused part: the algorithm
+is admitted as a display convention and refused as a physical consequence.

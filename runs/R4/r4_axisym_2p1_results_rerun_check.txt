@@ -1,0 +1,129 @@
+D:\Docs\DCC\src\r4_frontier\axisym_2p1_evolution.py:265: RuntimeWarning: invalid value encountered in sqrt
+  sqg = np.sqrt(det2 * st["gpp"])
+====================================================================================
+R4 step (5) PRODUCTION / P2-C2 module B: 2+1 axisymmetric ADM evolution
+(two spatial coordinates rho,z + time; axisymmetry exact in the ansatz)
+====================================================================================
+[scope] (registered before run)
+  ADM free evolution, zero shift, 1+log lapse, kappa=1, signature -+++
+  coordinates (rho, phi, z) with d/dphi = 0, staggered grid, 2nd-order FD, RK4
+  geometry from generic Christoffel/Ricci contractions (einsum); no transcribed formulas
+  inner cut rho >= 4.0 (registered: the axis itself is FALSIFIED by test B7 below)
+  z = 0 plane by exact parity; outer edges by quadratic extrapolation (naive)
+  initial data: conformally flat spherical psi from the 2026-11-21 York solver
+  convergence: NORM convergence inside the interior window (staggered grids do not nest)
+[thresholds] (registered before run)
+  B1 ham_rel <= 1e-10 (normalised by 1/R^2), drift < 10.0x
+  B2/B3 observed order in [1.6, 2.4] ; B4 growth < 10.0x ; B6 spurious < 5%
+
+[B0] INSTABILITY DIAGNOSIS (flat space, t=2, three resolutions, no source at all)
+     flat space is an exact solution, so any growth is numerical. A continuum
+     (hyperbolicity) problem would give an h-INDEPENDENT growth rate; a discretisation
+     problem gives a rate ~ 1/h, which is what is measured:
+  N     h         Ham(0)      Ham(2)      growth    rate x h
+  48    0.4167    1.465e-04   9.348e-04   6.4       0.386
+  96    0.2083    7.316e-05   2.374e-03   32.5      0.362
+  192   0.1042    2.722e-05   4.077e-03   149.7     0.261
+  rate x h is ~constant => the unstable mode is grid-scale: ADM free evolution with
+  centred differences admits a growing high-frequency mode. Kreiss-Oliger damping
+  (eps=0.20) and a Dirichlet outer background were both tried; neither removes it, so
+  the cure is a strongly hyperbolic formulation (BSSN/Z4c + Gamma-driver), not tuning.
+
+[B1] flat-space stationarity (gamma=delta, K=0, alpha=1, phi=v, V(+-v)=0)
+  B1 EXCEPTION FloatingPointError: non-finite lapse at step 379/384 (t=19.74 of 20.00)
+
+[B2] independent-geometry cross-check: this code's Ham residual on the York slice
+     (that slice came from a DIFFERENT solver: 1D radial ODE, different discretisation)
+  N=80   h=0.1500  max|Ham|=4.316e-04  L2|Ham|=9.077e-05  ham_rel=6.021e-03
+  N=160  h=0.0750  max|Ham|=1.068e-04  L2|Ham|=2.119e-05  ham_rel=1.485e-03
+  N=320  h=0.0375  max|Ham|=2.266e-05  L2|Ham|=3.909e-06  ham_rel=3.148e-04
+  pairwise orders 2.10, 2.44 ; 3-grid Richardson order 2.01
+  B2 verdict: PASS
+
+[B3] spherical data must STAY spherically symmetric (isotropy defect, t=4)
+     defect = max(|g_rr/g_zz-1|, |g_pp/(rho^2 g_zz)-1|, |K_rr-K_zz|/|K_zz|, |K_rz|/|K_zz|)
+  N=64   h=0.1875  defect t=0 0.000e+00  t=4 7.857e+03
+  N=128  h=0.0938  defect t=0 0.000e+00  t=4 3.573e+04
+  N=256  h=0.0469  defect t=0 0.000e+00  t=4 1.190e+05
+  pairwise orders -2.19, -1.74 ; 3-grid Richardson order nan
+  B3 verdict: FAIL
+
+[B4] constraint propagation with an imposed momentum violation (Pi != 0, K_ij = 0)
+     registered: a CONSISTENCY test, not a constraint-clean run -- j_i != 0 at t=0
+  N=128 h=0.1564 dt=0.0391 steps=307
+  t       ham_rel     mom_rel     |K|_max     rho_max     alpha_min
+  0.00    7.416e-03   1.729e-02   0.000e+00   1.801e-02   1.000    
+  0.98    3.975e-02   2.084e-01   9.447e-03   2.098e-02   0.999    
+  1.95    1.015e-01   1.434e-01   9.049e-03   2.990e-02   0.999    
+  2.93    7.162e-02   2.109e-01   9.401e-03   3.440e-02   0.999    
+  3.91    9.416e-02   3.444e-01   1.022e-02   3.042e-02   0.998    
+  4.89    9.678e-02   3.402e-01   1.100e-02   2.978e-02   0.996    
+  5.86    1.310e-01   3.731e-01   1.257e-02   3.215e-02   0.993    
+  6.84    1.771e-01   3.927e-01   1.599e-02   3.870e-02   0.985    
+  7.82    2.232e-01   3.986e-01   2.257e-02   4.900e-02   0.975    
+  8.79    2.688e-01   3.981e-01   3.192e-02   5.965e-02   0.964    
+  9.77    3.044e-01   4.043e-01   4.695e-02   7.156e-02   0.948    
+  10.75   3.274e-01   4.053e-01   6.540e-02   8.567e-02   0.897    
+  11.73   3.664e-01   3.833e-01   6.735e-02   1.003e-01   0.826    
+  12.00   3.953e-01   3.770e-01   7.251e-02   1.046e-01   0.805    
+  growth: Ham x53.30, Mom x21.81 (threshold x10.0)
+  B4 verdict: FAIL
+
+[B5] the P1a full-strength wall: can it be evolved at all?
+  initial-data construction at scale=1.0 : no solution at scale=1.0 (RuntimeError)
+  therefore the strong wall is NOT evolved. Strongest VALID slice (scale=0.05):
+  N=128 h=0.1558 dt=0.0390 steps=154
+  t       ham_rel     mom_rel     |K|_max     alpha_min
+  0.00    6.552e-03   0.000e+00   0.000e+00   1.000    
+  0.97    4.361e-02   2.268e-01   9.455e-03   0.999    
+  1.95    9.887e-02   1.585e-01   9.618e-03   0.999    
+  2.92    6.706e-02   2.277e-01   1.051e-02   0.998    
+  3.90    1.046e-01   3.560e-01   1.206e-02   0.997    
+  4.87    1.095e-01   3.502e-01   1.357e-02   0.995    
+  5.84    1.441e-01   3.820e-01   1.543e-02   0.993    
+  6.00    1.519e-01   3.852e-01   1.570e-02   0.992    
+  B5 verdict: reported as-is (blocked at the initial-data layer, not in the
+              evolution; the geometric reason is module A's A6 finding)
+
+[B6] R4-6 exterior asymptotics: same physical solution, two domain sizes, same h
+  R=24   N=100  h=0.2000 steps=320  ham_rel=8.713e-01  max|alpha-1|(outer)=6.244e-02  max|psi_eff-1|(outer)=7.602e-02  amp=1.789e-01  alpha_min=0.616
+  R=36   N=160  h=0.2000 steps=320  ham_rel=8.724e-01  max|alpha-1|(outer)=5.262e-02  max|psi_eff-1|(outer)=5.715e-02  amp=1.783e-01  alpha_min=0.616
+  spurious-signal proxy: |d psi_eff(outer)| between domains = 1.887e-02
+  front amplitude 1.789e-01 -> ratio 0.1055 (threshold 0.05)
+  B6 verdict: FAIL
+
+[B7] FALSIFICATION test: the same scheme with the axis included (rho_in = 0)
+     the staggered axis avoids 1/rho division but not the 1/rho^2 cancellation between
+     d_rho Gam^phi_{rho phi} and Gam^rho_{phi phi} Gam^phi_{rho phi}
+  N     h         Ham(flat)      Ham(York)      rel
+  24    0.8333    7.680e+00      4.872e+00      139.980
+  48    0.4167    3.072e+01      1.959e+01      549.143
+  96    0.2083    1.229e+02      7.855e+01      2186.887
+  flat-space artifact growth per resolution doubling: 4.00, 4.00
+  (x4 per halving => artifact is O(h^-2): the scheme is NOT convergent at the axis)
+  B7 verdict: FALSIFIED AS PREDICTED (axis must be excised)
+  axis-inclusive evolution: FAILED with FloatingPointError (blow-up before t=2)
+
+[verdicts]
+  B1 flat stationarity       : FAIL
+  B2 Ham residual order      : PASS
+  B3 isotropy order          : FAIL
+  B4 constraint propagation  : FAIL
+  B6 exterior asymptotics    : FAIL
+  B5 strong wall             : REPORTED (no valid data)
+  B7 axis inclusion          : FALSIFIED (axis excised)
+
+[closing summary] derived from the verdicts above; no claim extends beyond them
+  worked       : the ADM geometry engine on the regular part of the chart
+                 (rho >= 4), cross-checked against an INDEPENDENT elliptic
+                 solver in B2 (order 2.01, PASS).
+  did NOT work : time stability. B1 flat stationarity FAIL ; B3 isotropy FAIL ;
+                 B4 constraint propagation FAIL ; B6 exterior asymptotics FAIL.
+  not representable : the axis itself (B7: falsified as predicted). The staggered grid removes the
+                 1/rho division but NOT the 1/rho^2 cancellation in the Ricci trace.
+  no valid initial data : the P1a full-strength wall (B5; the geometric reason is
+                 module A's A6 finding, not a numerical accident).
+evidence level: MODEL RESULT (screened machinery validation): 2nd-order FD, zero
+  shift, naive outer boundary, weak-source regime. NOT a production GR evolution.
+registered prohibitions: no physical-scale statement (kappa=1 code units); a local
+  wall may not be extrapolated into a front enveloping the Earth (roadmap 8.12).

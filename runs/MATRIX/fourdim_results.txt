@@ -1,0 +1,206 @@
+
+====================================================================================================
+[0] Object of record
+====================================================================================================
+  lock sha256 = 91098fbe7c680932…   spec sha256 = afe855c260030ce9…
+  M = 4   H = 0.23 m   r4 = 0.09 m   pitch = 0.4001 m   canvas = 26,221.0 m
+  pieces = 4,279,069,764   cells = 4,294,967,296   display decimation 1 : 16384
+
+====================================================================================================
+[A] Topological gate: 'components and genus 100% consistent'
+====================================================================================================
+  [self-test] chi(single voxel) = 1 (expect 1);  chi(2x2x2 block) = 1 (expect 1)
+
+  A1  the four shells share their interfaces by construction:
+      minimum shell width over z = 1.100e-02 m, and the shells tile [0, r4] with no gap
+      -> the union fills [0, r4] at every z
+      r2(z) in [0.0390, 0.0510] m;  r3(z) in [0.0620, 0.0780] m
+      => the object's MATERIAL is a solid cylinder. The 4 components are a label on it.
+
+  A2  voxel topology of the material (132^3): b0 = 1   b2 (cavities) = 0   chi = 1   =>  b1 = 0
+      solid cylinder: contractible. Boundary is a sphere, genus 0. The internal interfaces are
+      invisible to every Betti number: a homogeneously painted cylinder scores identically.
+
+  A3  deposit: every interface is vacuum (front_sweep_v1 §2), so every plate is its own component
+      b0(deposit) = pieces = 4,279,069,764
+      C1 spans [0, 0.0200] m = a disc (genus 0); C2..C4 are annuli, each with a through-hole
+      b1(deposit) = (M-1) x N_layer = 3 x 1,069,767,441 = 3,209,302,323 holes
+      largest plate extent = 0.180 m vs pitch 0.4001 m -> 2.22x clear, no plate touches another
+
+  reading                       b0                b1 (holes)        genus       
+  ----------------------------  ----------------  ----------------  ------------
+  object, material              1                 0                 0           
+  deposit, material             4,279,069,764     3,209,302,323     3,209,302,323
+  deposit, quotient by label    4                 3                 0           
+  idealised projection (disc)   1                 0                 0           
+
+  A4  verdict under each reading, and what the gate does with it:
+  reading                         components          genus             outcome                   
+  ------------------------------  ------------------  ----------------  --------------------------
+  material (the deposit as built)  4,279,069,764 vs 1  3,209,302,323 vs 0  FAIL — gate closes        
+  quotient by declared label      4 vs 1              3 vs 0            FAIL (genus)              
+  idealised projection            1 vs 1              0 vs 0            PASS — and blind to the shells
+
+  A5  WHY this is not a threshold problem. D2 severs every interface; pieces = M x N_layer.
+      b0(deposit) = 4,279,069,764 >= 2 whenever N_layer >= 2, and N_layer = H/delta = 1,069,767,442 for
+      this object. b0(object) = 1. No sigma can change either number: sigma permutes sites, and
+      permutation does not create contact across vacuum. The gate therefore closes for EVERY
+      admissible deposit, not for a badly-chosen one. An always-closing gate carries no information.
+
+  P1 b0 4,279,069,764 vs 1 : PASS
+  P2 object contractible (b0,b1,b2)=(1,0,0) : PASS
+  P3 genus clause is a tautology (predicted 0 = 0) : FAIL
+
+====================================================================================================
+[B] Metric gate: distance and epsilon
+====================================================================================================
+  convention                      d (m)         what fixes it                   what it measures        
+  ------------------------------  ------------  ------------------------------  ------------------------
+  index space (key held)          0.0000e+00    bijection; isometry of index    vacuous (S10 shape)     
+  mid-slice vs solid, W1          5.7500e-02    mean |z-H/2| over the solid     the object's height     
+  mid-slice vs solid, Hausdorff   1.1500e-01    max |z-H/2|                     the object's height     
+  true scale, half canvas         1.3110e+04    canvas/2                        the array's size        
+  true scale, Hausdorff sup       1.8541e+04    canvas/sqrt2                    the array's size        
+
+  B1  span over admissible conventions: 5.7500e-02 .. 1.8541e+04 m = 5.51 decades
+      (including the index-space reading, 0 is in the set and the ratio is unbounded)
+      The slice readings measure H. The true-scale readings measure the canvas. Neither measures
+      fidelity: on the index space the map is a bijection, so fidelity is 0 by construction, and on
+      the physical plane the two sets are 1.1e5 apart in extent — the number is the scale, not the error.
+  => epsilon cannot be declared before a scale AND an embedding are declared. Both are ours.
+  P4 span >= 5 decades : PASS  (measured 5.51)
+
+====================================================================================================
+[C] Information gate: mutual information
+====================================================================================================
+  C1  the label distribution at z = H/2 — the only structure the object can declare:
+  component   r_in (m)    r_out (m)   area (m2)    share   
+  ----------  ----------  ----------  -----------  --------
+  C1          0.0000      0.0200      0.001257     4.938%  
+  C2          0.0200      0.0450      0.005105     20.062% 
+  C3          0.0450      0.0700      0.009032     35.494% 
+  C4          0.0700      0.0900      0.010053     39.506% 
+      H over AREA  = 1.738970 bits        H over PIECES = 2.000000 bits
+      the two differ by 0.2610 bits (13.1%) and both are defensible.
+      The map counts PIECES, so every component gets 25.0% of the sites while their areas differ by
+      8.0x. I is not defined until the counting measure is declared: a deterministic
+      0.26-bit ambiguity, not measurement noise.
+  ordering                    pixel purity            I(pixel; piece)   H(piece)     H(piece|pixel)  
+  --------------------------  ----------------------  ----------------  -----------  ----------------
+  component-major (declared)  99.99885%               17.9947           31.9947      14.0000         
+  layer-major                 0.00000%                17.9947           31.9947      14.0000         
+  random permutation          0.00000%                17.9947           31.9947      14.0000         
+
+      purity above is exact (1 - 3/n_block); the 4,000-block sample returned 100.0% / 0.0% / 0.0%, consistent, and it happens to miss the 3 boundary blocks.
+
+  C2  the three orderings give the SAME I, to four decimals, and purities differing by four orders
+      of magnitude. I = log2(pieces) - log2(sites per pixel) = 17.9947 bits, which is injectivity
+      (pieces <= cells) plus the decimation, and nothing else. A completely random permutation of
+      the pieces scores identically. => the criterion CANNOT reject a scrambled output at the level
+      of the encoding, which is the level 'scrambled' names.
+
+  C3  why. Given a pixel you know it holds exactly 16,384 candidate pieces, so H(piece|pixel) = 14
+      bits whichever way those 16,384 were chosen. Information about the piece index is therefore
+      fixed by the decimation alone; the ordering moves the pieces around without changing it.
+      The quantity that does differ is PURITY: 99.9989% for the declared order, 0% for the others.
+      Purity is an arrangement property. It is not mutual information, and no I-based gate can
+      substitute for it — which is precisely what MR2 was reserved for.
+
+  C4  scrambled IMAGE (pixels permuted after encoding) is rejected by a position-paired estimator,
+      but that tests a corruption applied after the encoding, not the encoding itself. The submission's
+      claim is about 'scrambled outputs', and the encoding is where scrambling can be chosen.
+
+  C5  physical channel, homogeneous object: one content symbol per plate (KIN-DYN: D2 performs no
+      deformation, so no modulus enters; no compliant per-component reflectance exists — G6/DC2).
+      H(X) = 0 => I(X;Y) = 0 under every estimator. Declaring an object with four labelled components
+      is what creates any information at all, and the labels are a false-colour convention (EN2, FL1).
+
+  P5 H(label) = 1.7390 in 1.739±0.001 : PASS
+  P6 I identical across three sigma, = 17.994 : PASS
+  P7 registered as a two-layout numeric test — NOT COMPUTABLE as written (erratum E2); C2 replaces it
+  P8 homogeneous body: I = 0 under every estimator : PASS (C5)
+  P9 registered: I_min > 1.74 unachievable (I <= H(label)) : FAIL
+     measured I = 17.99 bits > 1.74, because Y is the piece index (H = 32 bits), not the label.
+
+====================================================================================================
+[D] Visual gate: 'there must exist an observer O'
+====================================================================================================
+  D1  Hilbert round trip, self-test: order 6 (all 4,096 points) PASS;
+      order 16 (20,000 sampled pieces of 4,279,069,764) PASS
+      So the site map is invertible and the key recovers every piece: recovery = 1.000000.
+  D2  Without the key there is no pairing, so the criterion has no value — not false, undefined.
+      'There exists an observer O' is satisfied by the only observer who holds sigma: the author.
+      An existence claim whose witness is our own convention cannot discriminate anything.
+  D3  'must not introduce physically non-existent information' needs the physical signal defined
+      first: per-component reflectance requires a compliant sigma_s, absent (G6/DC2). It cannot be
+      evaluated on any frame yet, including DEMO-1's false colour (EN2, FL1).
+  D4  the fourth criterion is therefore satisfied BY CONSTRUCTION and fails to be a test — the same
+      shape as S10: the witness exists because we made the map we made.
+  P10 recovery 1.000000 with the key : PASS
+
+====================================================================================================
+[E] Prediction ledger
+====================================================================================================
+  id      outcome 
+  ------  --------
+  P1      PASS    
+  P2      PASS    
+  P3      FAIL    
+  P4      PASS    
+  P5      PASS    
+  P6      PASS    
+  P7      FAIL    
+  P8      PASS    
+  P9      FAIL    
+  P10     PASS    
+
+  7 / 10 registered predictions pass
+  failed: ['P3', 'P7', 'P9']
+
+====================================================================================================
+PROVENANCE: NEITHER  (adjudication of a submitted framework against the registered record and the
+            locked object; establishes no new physics)
+====================================================================================================
+
+================================================================================================
+ERRATUM — appended 2026-11-22 after reading the ledger. The run above is NOT edited.
+Three FAILs, all three mine. None of them is a defect in the re-anchoring.
+================================================================================================
+
+E1 — P6's first encoding compared the wrong entropy, and never computed I at all.
+   It set I_paired := H(pixel label) and compared that against H(label) over AREA (1.739). The paired
+   estimator's variable is the PIECE, not the component label, so neither side was the right quantity.
+   Corrected: I(pixel; piece) = H(piece) - H(piece|pixel) = 31.9947 - 14.0000 = 17.9947 bits, the same
+   for all three orderings. P6 is satisfied on the corrected quantity.
+   Class: "a figure chosen before the quantity it measures is defined". Sixth instance of that family.
+
+E2 — P7 was registered in a form that cannot be computed.
+   It asked for I at "the same image coordinates", which requires pixel -> object position to be a
+   function. At 1:16384 decimation a pixel holds 16,384 pieces spanning 4,096 layers, so that map does
+   not exist. The registered test presupposed an object that is not there.
+   Replacement (section C2) is strictly stronger: I is identical to four decimals across three orderings
+   while purity spans 0 to 99.99885%. Recorded as a form-failure, the same ruling as P8/P11 and A1-P3.
+
+E3 — P9's ceiling was taken on the wrong variable and is false.
+   Registered: "I_min > 1.74 bits is unachievable, since I <= H(label) = 1.739". H(label) bounds I only
+   when Y is the component label. The criterion names "3D macroscopic structure", whose entropy is
+   H(piece) = log2(4,279,069,764) = 31.9947 bits. Measured I = 17.99, so I > 1.74 is achievable. The
+   prediction is refuted and the bound is withdrawn. Third round running that a bound was computed on a
+   variable adjacent to the one asked about.
+
+E4 — P3 predicted the genus clause was a tautology (0 = 0). It is not; my prediction assumed slabs.
+   C2, C3 and C4 are annuli, each with a through-hole, so b1(deposit) = 3 x 1,069,767,441 =
+   3,209,302,323 against b1(object) = 0. The measured result is STRONGER than the prediction: both
+   topological clauses fail, not one. My error was in the model of the plate, not in the measurement.
+
+E5 — the purity table's first run printed sampled 100.0000% while C3's prose said 99.9989%.
+   A static string against a measured value — fifth instance. Both are now exact: 1 - 3/261,120 =
+   99.99885%, and the sample is reported separately as consistent-but-lucky (it misses the 3 boundary
+   blocks).
+
+E6 — A1 labelled min(edge[k+1] - edge[k]) a "gap". It is the minimum SHELL WIDTH: the shells tile
+   [0, r4] with no gap between them. Wording only; no verdict depends on it.
+
+Effect on the disposition: none. The refusal of the four operational contents rests on P1, P2, P4, P5
+and P10, all of which passed on their first encoding, plus the counting argument in A5. The three FAILs
+rule against me, and two of them (E3, E4) made the submission's position worse, not better.

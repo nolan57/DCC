@@ -1,0 +1,63 @@
+====================================================================================================
+R4 instability localization, STAGE 2 -- C6 mode structure / constraint content, C7 seeded amplification
+registration + addendum: runs/R4/r4_instability_localization_registration.md
+stage-1 output: runs/R4/r4_instability_localization_results.txt
+====================================================================================================
+[parameters]
+  operator imported from axisym_2p1_evolution ; RHO_IN=4.0 R_DOM=24.0 KO_PROD=0.2
+  thresholds: grid-scale alt > 0.50 ; edge mass >= 0.50 ; neutral < 1% ; C7 edge 2.0 bulk 1.5
+
+[C6] mode structure + constraint content of the top-8 eigenmodes
+     criteria: grid-scale iff max(alt_rho,alt_z) > 0.50 ; edge iff >=50% within 10%
+               constraint-neutral iff Ham content < 1% of the top-8 max
+  --- N=16  h=1.2500  n_dof=2816
+    assembled J(N=16): n = 2816 (63.4 MB)
+    #   Re lam    alt_rho  alt_z    edge_in  edge_out peak     Ham/|v|   dominant
+    0    +0.51220    0.133    0.115     0.08     0.24    0.969  6.19e-02 gpp
+    1    +0.50501    0.124    0.019     0.08     0.24    0.969  6.15e-02 gpp
+    2    +0.48732    0.121    0.148     0.08     0.22    0.969  5.41e-02 gpp
+    3    +0.47978    0.017    0.005     0.11     0.06    0.531  2.27e-02 gpp
+    4    +0.47560    0.014    0.003     0.07     0.06    0.594  2.14e-02 gpp
+    5    +0.47480    0.097    0.030     0.07     0.18    0.969  4.41e-02 gpp
+    6    +0.46289    0.222    0.119     0.03     0.30    0.969  2.69e-02 gpp
+    7    +0.46026    0.055    0.005     0.13     0.14    0.844  1.96e-02 gpp
+    leading mode: NOT grid-scale by either-direction metric (max alt 0.13) ; delocalized (edge mass 0.24) ; constraint-carrying
+    largest CONSTRAINED mode: Re lam = +0.51220  (Ham/|v| = 6.19e-02, dominant gpp, alt max 0.13)
+  --- N=20  h=1.0000  n_dof=4400
+    assembled J(N=20): n = 4400 (154.9 MB)
+    #   Re lam    alt_rho  alt_z    edge_in  edge_out peak     Ham/|v|   dominant
+    0    +0.63602    0.104    0.095     0.05     0.20    0.975  1.30e-01 gpp
+    1    +0.62830    0.108    0.005     0.05     0.19    0.975  1.20e-01 gpp
+    2    +0.61762    0.093    0.085     0.05     0.19    0.975  1.28e-01 gpp
+    3    +0.61056    0.004    0.004     0.05     0.06    0.475  3.87e-02 gpp
+    4    +0.61056    0.004    0.004     0.05     0.06    0.475  3.87e-02 gpp
+    5    +0.59733    0.110    0.012     0.05     0.18    0.975  9.72e-02 gpp
+    6    +0.59289    0.151    0.095     0.02     0.25    0.975  6.12e-02 gpp
+    7    +0.58904    0.044    0.004     0.10     0.07    0.825  3.63e-02 gpp
+    leading mode: NOT grid-scale by either-direction metric (max alt 0.10) ; delocalized (edge mass 0.20) ; constraint-carrying
+    largest CONSTRAINED mode: Re lam = +0.63602  (Ham/|v| = 1.30e-01, dominant gpp, alt max 0.10)
+
+[C7] seeded amplification: the SAME analytic seed in every geometry, differenced
+     against an unseeded control on the same grid (removes the truncation-amplitude
+     confound A2). registered criterion is evaluated at t=2 ; t=4 is supplementary.
+  baseline  rho_in=4, R=24   N= 50 h=0.40  A(t=2)= 7.886  A(t=4)=43.235
+  inner cut rho_in=8, R=24   N= 40 h=0.40  A(t=2)= 7.878  A(t=4)=43.002
+  outer     rho_in=4, R=36   N= 80 h=0.40  A(t=2)= 7.886  A(t=4)=43.235
+    amplification ratios at t=2: 1.000, 0.999, 1.000
+    inner-cut change 1.00 ; outer-domain change 1.00 (edge threshold 2.0) -> BULK
+    C7 verdict: BULK
+
+[verdicts stage 2]
+  N=16 leading mode: Re +0.51220 ; alt_rho 0.13 alt_z 0.12 ; edge_in 0.08 edge_out 0.24 ; Ham 6.19e-02 ; dominant gpp
+         largest constrained mode: Re +0.51220 (Ham 6.19e-02, dominant gpp)
+  N=20 leading mode: Re +0.63602 ; alt_rho 0.10 alt_z 0.10 ; edge_in 0.05 edge_out 0.20 ; Ham 1.30e-01 ; dominant gpp
+         largest constrained mode: Re +0.63602 (Ham 1.30e-01, dominant gpp)
+  C7 geometry dependence: BULK
+
+[reading]
+  If the leading mode is constraint-neutral, stage-1 C4's failure is EXPLAINED and
+  not a contradiction: ||Ham|| grows at the rate of the largest CONSTRAINED mode,
+  not of the largest mode overall. The consistency test must use the former.
+  C7 is the unconfounded geometry test: if it says BULK, then the stage-1 INNER-EDGE
+  verdict is retracted as an artefact of A2, and the boundary is exonerated.
+  No verdict on B1/B3/B4/B6 changes here, and no physical-scale statement is made.

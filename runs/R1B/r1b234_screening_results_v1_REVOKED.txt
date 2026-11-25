@@ -1,0 +1,114 @@
+========================================================================================
+R1-B2/B3/B4 screening module (v1.4 s8.3, Sprint-1 screening grade)
+========================================================================================
+registered inputs (transcribed from G0 pathA + R1-B1 outputs; files NOT read - zero I/O):
+  Gamma_i = 0.179, Gamma_e = 7.14e-03, U_i = 4.14 MeV, a_i = 8.69 fm, Z = 5, m_i = 10 amu
+  tau_T = 0.146, L_z = 1 fm, t_expand = 4.7 ns, v_probe = 42.47 km/s, mu_e(frozen) = 23.20 MeV
+  carriers (R1-B1): X_p ~ 1e-05 (scan 2.9e-07), mu_e(beta-eq) = 1.29 MeV, electrons removed (N7)
+registered thresholds: Gamma_c(3D OCP) = 175, Gamma_c(2D) = 130; branch tau >= 1 -> thick;
+  T1/T2/T4 rel dev < 1e-06; C1/C2 consistency < 1e-02; AUX < 1e-04; eff-2D margin factor 10
+
+[R1-B2 phase screening]
+  Gamma_i = 0.179 < Gamma_c(2D) = 130 < Gamma_c(3D) = 175 -> weakly coupled ion LIQUID
+    under both the 2D and the 3D crystallization thresholds (phase boundaries registered)
+  Gamma_e = 7.14e-03 -> electron sector weakly coupled (degenerate background, registered)
+  determination: no Wigner crystal forms; the pycnonuclear (crystal-lattice zero-point)
+    channel is CLOSED at this Gamma (no lattice to localize ions)
+  input consistency: U_i computed = 4.142591 MeV vs registered 4.14 (dev 6.26e-04);
+    Gamma_i = U_i/mu_e recomputed = 0.178560 vs registered 0.179 (dev 2.46e-03)
+
+[R1-B2 zero-temperature tunnelling estimate (registered formulas)]
+  omega_i = sqrt(Z^2 e^2/(4 pi eps0 m_i a_i^3)) = 7.275233e+20 rad/s
+  hbar*omega_i = 0.478865 MeV ; E_cm = hbar*omega_i/2 = 0.239432 MeV
+    (zero-point scale is 5.8% of the ion Coulomb scale U_i = 4.14 MeV)
+  mu = m_i/2 = 5 amu ; v = sqrt(2 E_cm/mu) = 3.039849e+06 m/s (beta = 0.010140)
+  eta = (Z^2 e^2/(4 pi eps0 hbar)) sqrt(mu/(2 E_cm)) = 17.991777
+  P = exp(-2 pi eta) = 8.033205e-50
+  attempt frequency omega_i/(2 pi) = 1.157889e+20 1/s
+  rate = P * attempt = 9.301561e-30 1/s ; t_react = 1/rate = 1.075088e+29 s
+  t_react / t_expand(4.7 ns) = 2.287e+37
+  verdict: reaction timescale >> expansion timescale -> fusion channel CLOSED on the
+    expansion timescale at the registered E_cm (screening level: E_cm = zero-point proxy;
+    Gamow-peak / tail-integrated pycnonuclear rates deferred to the full R1-B2 module)
+
+[R1-B3 entropy-ledger screening]
+  tau_T = 0.146 < 1 -> optically THIN: photon/neutrino free streaming, not diffusion
+  thick-limit branch (validation only, two length tiers): t_diff = 3 tau L / c
+    L = 1 fm : t_diff = 1.461011e-24 s (indep path dev 1.26e-16)
+    L = 1 m  : t_diff = 1.461011e-09 s (indep path dev 0.00e+00)
+  thin branch (actual physics): t_esc = L / c
+    L = 1 fm : t_esc = 3.335641e-24 s ; L = 1 m : t_esc = 3.335641e-09 s
+  branch logic: tau_T = 0.146 -> 'thin' branch selected; synthetic tau = 150 -> 'thick' branch
+  t_esc(1 m) / t_expand(4.7 ns) = 0.7097
+  conclusion: the entropy-drain channel (photon + neutrino free streaming) is NOT the
+    bottleneck: t_esc(1 m) = 3.34 ns < t_expand = 4.7 ns (screening-level MODEL RESULT;
+    transport details - opacity evolution, neutrino diffusion - deferred to full R1-B3)
+
+[R1-B4 low-energy spectrum + carrier check]
+  DeltaE_z = pi^2 hbar^2 / (2 m L_z^2), L_z = 1 fm (registered NR box form):
+    n : SI numeric 2.045105e+02 MeV | natural-unit 2.045105e+02 MeV (rel dev 6.25e-10)
+    p : SI numeric 2.047924e+02 MeV | natural-unit 2.047924e+02 MeV (rel dev 6.25e-10)
+    e : SI numeric 3.760302e+05 MeV | natural-unit 3.760302e+05 MeV (rel dev 7.33e-10)
+    e value = 3.760e+05 MeV = 376.0 GeV
+  T2 spec-line correction (registered finding): the task-line quotes 'electron gap
+    ~376 MeV' and 'nucleon gap ~0.2 MeV' are 1e3 unit slips against the registered
+    formula at L_z = 1 fm; corrected values: nucleon 204.5 MeV, electron 3.76e+05 MeV.
+    Direction of all conclusions unchanged.
+  carriers (N7 + R1-B1): electrons removed (mu_e = 23.2 MeV above all capture thresholds;
+    X_p ~ 1e-05, scan 2.9e-07) -> low-dimensional carriers = n/p (heavy fermions)
+  DeltaE_z(nucleon) = 204.5 MeV >> T = 0 -> longitudinal ground band occupied
+    (DeltaE_z(n)/m_n c^2 = 0.218, see relativistic caveat below)
+  effective-2D domain (registered): E_probe <= DeltaE_z(n)/10 = 20.45 MeV
+    data: E_probe(G0 v_probe) = 9.428e-06 MeV (ratio 4.61e-08); E_F,n(strictly 2D, Sigma = 70 kg/m^2)
+    = 5.44 MeV; mu_e(beta-eq, R1-B1) = 1.29 MeV -> all registered low-E scales << 20.45 MeV
+    -> 'effective 2D' criterion holds across the registered low-energy domain
+  electron gap 3.76e+05 MeV: electrons are removed anyway (N7) -> excluded from the
+    low-energy theory regardless of the gap size
+  relativistic caveat (registered): DeltaE_z(n)/m_n c^2 = 0.218 -> NR box formula borderline;
+    exact relativistic ground state n : 186.1 MeV
+    exact relativistic ground state p : 186.3 MeV
+    exact relativistic ground state e : 619.4 MeV
+    (NR form kept as the registered T2 estimator; full treatment -> complete R1-B4 + R3)
+
+[s8.4 classification - computed screening determinations; B-window: B < B_ion = 2.4e-09
+  (dense layer, R1-B valid domain); no sector triggers label D (all registered models
+  inside their declared validity domains)
+  R1-B2 ion phase: Gamma_i = 0.179 in the liquid region (both thresholds)
+    -> label C for any 'Wigner crystal survives/forms' claim (crystalline order fails to
+    form); computed phase = weakly coupled ion liquid (screening grade)
+  R1-B2 fusion channel: t_react/t_expand = 2.29e+37 >> 1 -> channel CLOSED on the expansion
+    timescale (negative channel result: no restructuring via ion fusion at registered E_cm)
+  R1-B3 entropy drain: t_esc(1 m) = 3.34 ns < t_expand = 4.7 ns, tau_T < 1 free streaming
+    -> label A for the entropy-drain channel (functional, not the bottleneck) at screening
+    grade
+  R1-B4 effective-2D: carriers n/p; DeltaE_z(n) = 204.5 MeV >> E_F,n(2D) = 5.44 MeV, T = 0
+    -> label A for the low-energy carrier sector within E <= 20.45 MeV (longitudinal ground
+    band occupied); full spectrum and R3 consistency deferred to complete R1-B4
+
+[findings]
+  F-R1B2-1: at Gamma_i = 0.179 the ion subsystem sits 3 orders below both crystallization
+    thresholds: liquid, no Wigner order, crystal zero-point (pycnonuclear) channel closed.
+  F-R1B2-2: zero-T tunnelling at E_cm = hbar*omega_i/2 = 0.2394 MeV (5.8% of U_i):
+    eta = 17.99, P = 8.03e-50, t_react = 1.08e+29 s = 3.4e+21 yr >> 4.7 ns -> fusion cannot restructure
+    the dense layer within the expansion window (screening estimate; tail rates -> full B2).
+  F-R1B3-1: tau_T = 0.146 < 1: the registered Thomson depth is optically thin, so the
+    thick-limit formula t_diff = 3 tau L/c does not describe the layer; it is printed only
+    to validate the thick branch. Actual escape is free streaming, t_esc = L/c < t_expand.
+  F-R1B4-1: spec-line unit slips corrected against the registered formula: DeltaE_z(n) =
+    204.5 MeV (not 0.2 MeV), DeltaE_z(e) = 3.76e+05 MeV = 376 GeV (not 376 MeV); the
+    registered conclusions (ground-band occupation, electrons excluded) are unchanged.
+  F-R1B4-2: the NR box gap for the nucleon is borderline relativistic (ratio 0.218); the
+    exact relativistic ground state is 186.1 MeV (n) / 186.3 MeV (p) - both still >> every
+    registered low-energy scale, so the effective-2D conclusion is robust.
+
+[verdicts]
+  T1 thick-limit diffusion formula regression + branch logic (dev < 1e-06) : 1.257e-16  PASS
+  T2 DeltaE_z SI-numeric vs natural-unit analytic, 3 species (max dev < 1e-06) : 7.334e-10  PASS
+  T3 Gamma boolean: Gamma_i = 0.179 < 130 (2D crystal threshold) and < 175 (3D) : 0.179 < 130 < 175 PASS
+  T4 zero-point energy E_cm: SI vs natural-unit path (dev < 1e-06)         : 3.653e-10  PASS
+  C1 U_i computed vs registered 4.14 MeV (dev < 1e-02)                     : 6.258e-04  PASS
+  C2 Gamma_i = U_i/mu_e recomputed vs registered 0.179 (dev < 1e-02)       : 2.458e-03  PASS
+  AUX eta cross-path SI vs natural (dev < 1e-04)                           : 3.840e-10  PASS
+
+R1-B2/B3/B4 screening OVERALL: PASS
+evidence level: MODEL RESULT (screening grade; all inputs and thresholds registered above)

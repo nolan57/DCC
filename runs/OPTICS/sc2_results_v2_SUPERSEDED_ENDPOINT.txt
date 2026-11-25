@@ -1,0 +1,215 @@
+
+==============================================================================
+SC-2 / A : provenance of the spectral weight  (FSUM-SINGLE-SOURCE)
+==============================================================================
+  total weight, pi e^2 n_2D/(2 m*) = 6.782282e+18 S rad/s
+  n_2D = 2.200e+28 m^-2 ; m* = 143.58 m_e ; k_F = sqrt(2 pi n) = 3.7179e+14 1/m
+
+  A.1  FSUM-SPLIT: code defect, or theorem?
+       int_0^inf sigma0/(1+w^2 tau^2) dw = sigma0 pi/(2 tau) = pi e^2 n/(2 m*)   -- tau cancels
+       quadrature w' = (1/tau) u/(1-u), u in (0,1): the upper limit is infinite, no truncation.
+
+  tau [s]   int Re s dw (quad)   sig0 pi/(2 tau)   W_total           rel dev   
+  1e-19     6.78227976e+18       6.78228192e+18    6.78228192e+18    3.18e-07  
+  1e-18     6.78227976e+18       6.78228192e+18    6.78228192e+18    3.18e-07  
+  1e-16     6.78227976e+18       6.78228192e+18    6.78228192e+18    3.18e-07  
+  [P1] a single Drude pole consumes exactly W_total at every tau
+       -> FAILED   (max rel dev 3.18e-07)
+       => FSUM-SPLIT is an identity, not a numerical accident. Any interband term added on top
+          is a second draw on the same budget; 1.000000000003 is the theorem showing through.
+       NOTE ON WHAT THIS CHECK CAN PROVE: W_total = pi e^2 n/(2 m*) and sig0 pi/(2 tau) are the
+       same expression, so the comparison is algebraic, not empirical. The quadrature only
+       validates itself. The content of P1 is therefore: the pole saturates the budget BY
+       DEFINITION, so 'partition' cannot be repaired by an amplitude. Recorded, not overstated.
+
+  A.2  is W_total a property of the material?  (degeneracy convention)
+       n = g k_F^2/(4 pi), E_F = hbar k_F v_F, m* = p_F/v_F  =>
+       W(g) = (e^2 v_F/8 hbar) sqrt(4 pi n g) ;  E_F(g) = hbar v_F sqrt(4 pi n/g)
+
+  g     W_total(g)           E_F(g) [MeV]      W(g)/W(2)    
+  2     6.782763e+18         73.365            1.000071     
+  4     9.592275e+18         51.877            1.414314     
+  [P2] W(4)/W(2) = sqrt2 and E_F(4)/E_F(2) = 1/sqrt2 at fixed n_2D
+       -> HOLDS   (1.414213562373 / 0.707106781187)
+       the module's k_F = sqrt(2 pi n) IS the g = 2 choice: g = 2 <=> k_F^2 = 2 pi n.
+       The record fixes g = 2 by writing k_F that way, and never says it did.
+
+  A.3  what carries the interband amplitude?
+       A_INTER = e^2/(16 hbar) = 1.521334e-05 S
+       sigma_min = e^2/(4 hbar)  = 6.085337e-05 S   (2D Dirac universal value)
+  [P3] A_INTER = sigma_min/4, and its dimension is S, so it cannot be a weight fraction
+       -> HOLDS   (ratio 0.2500000000000000)
+       the 1/4 is underived: not 1 (the universal value), not a density fraction. A height in S
+       and a fraction in (0,1) are different objects; S5 needs the second one.
+
+  A.4  if a step is to be legal at all, where must it end?
+       W_inter = A (Omega - w_g);  W_inter = W_total  =>  Omega* = w_g + W_total/A
+       Omega* = 6.6875e+23 rad/s = 440.1784 MeV = 4.4018e+08 eV
+  [P4] a step that consumed the whole budget would have to run to Omega* < 4.5e8 eV
+       -> HOLDS   (4.4018e+08 eV)
+       => any step closing S5 must be cut off below that energy: it needs a band edge. 'A'
+          cannot say where the edge is; the band structure must. That is R1-B1's assignment.
+
+==============================================================================
+SC-2 / B : lineshape  (KK-LINESHAPE, FSUM-FINITE)
+==============================================================================
+  B.1  the step alone: closed-form partner, and round 36's residual reproduced
+       Im_step(w) = -(A/pi) ln|(w_g+w)/(w_g-w)|   (exact; P int from w_g to inf)
+       the module supplies Im_Drude only, so the residual IS Im_step.
+
+  hbar w [eV]    module Im s [S]   Im_step [S]      |resid|/|Im s|
+  1.0000e+00     -6.4118e+01       -6.6002e-14      1.0294e-15    
+  3.0000e+00     -1.6294e+02       -1.9801e-13      1.2152e-15    
+  1.0000e+02     -2.8297e+01       -6.6002e-12      2.3324e-13    
+  1.0000e+06     -2.8420e-03       -6.6003e-08      2.3224e-05    
+  1.0000e+08     -2.8420e-05       -8.0567e-06      2.8349e-01    
+  1.5000e+08     -1.8947e-05       -2.1845e-05      1.1530e+00    
+  2.0000e+08     -1.4210e-05       -9.0720e-06      6.3843e-01    
+  3.0000e+08     -9.4733e-06       -5.1808e-06      5.4688e-01    
+  [P5] the step's partner is the exact log, and S4's 1.5e8 eV residual reproduces at 1.153
+       -> HOLDS   (reproduced 1.1530)
+       the residual diverges as w -> w_g. No amplitude A can remove it: A cancels in the ratio,
+       and the divergence is in the line shape.
+
+  B.2  does Lorentzian broadening bound the interband weight?
+       Re s(w) = A [1/2 + arctan((w-w_g)/G)/pi],  G = Gamma
+       F(w) = A [ w/2 + (G/pi)( z atan z - ln(1+z^2)/2 ) ],  z = (w-w_g)/G
+
+       closed form vs quadrature at G/w_g = 1e-2, w = 10 w_g: 3.050087e+19 vs 3.050087e+19 (rel 1.82e-14)
+
+  G/w_g      W(10 w_g)/W_tot    W(100 w_g)/W_tot    growth x   
+  1e-03      4.5003e+00         4.9506e+01          11.00      
+  1e-02      4.4971e+00         4.9500e+01          11.01      
+  1e-01      4.4657e+00         4.9434e+01          11.07      
+  [P6] broadening does not bound the weight: at every G the ratio grows with Omega and exceeds 1
+       -> HOLDS   (growth factors 11.00, 11.01, 11.07)
+       Re s -> A as w -> inf for any finite G, so int dw diverges linearly. Broadening cures
+       neither S5 nor (fully) S4: it regularises the log but leaves the same missing upper scale.
+
+  B.3  what does bound it: an oscillator with a finite weight
+       s(w) = S_p (-i w) / ((w0^2-w^2) - i gamma w),  S_p = n_j e^2/m*
+       W = S_p pi/2  (finite), and (Re, Im) is a causal pair by construction
+
+       S_p = 1.295320e+18 S/s ; W(quadrature) = 2.034685e+18 ; S_p pi/2 = 2.034685e+18 ; rel dev 3.98e-09
+       W/W_total = 0.299999999   (target f_inter = 0.30)
+
+       K-K round trip: Im from the quadrature vs the closed form
+  band         Im via K-K        Im analytic       rel dev    
+  0.5 w0       -3.869198e-06     -3.869198e-06     2.9178e-08 
+  0.9 w0       -2.606038e-05     -2.606038e-05     9.1724e-08 
+  1.2 w0       1.555684e-05      1.555684e-05      2.8214e-08 
+  2.0 w0       3.869198e-06      3.869198e-06      2.6526e-09 
+  5.0 w0       1.210336e-06      1.210336e-06      9.1660e-09 
+  [P7] an oscillator carries finite weight and satisfies K-K by construction
+       -> HOLDS   (max round-trip rel dev 9.17e-08 over 0.5-5 w0)
+
+  B.4  the composite: which single move closes what?
+  repair                                 S4 (K-K)               S5 (partition)        
+  rescale A                              no (A cancels)         no (weight A*(Omega-w_
+  Lorentzian broadening G                partly (log regularise no (W ~ A*Omega)      
+  finite band edge / oscillator          yes (closed-form pair) yes (W = S_p pi/2)    
+  [P8] band-limiting closes S4 and S5; amplitude and broadening close neither
+       -> HOLDS   (measured in B.1 (A-cancellation), B.2 (linear growth), B.3 (finite W, K-K to 9.2e-08))
+       and note what B.3 costs: S_p is fixed by f_inter, i.e. by the SAME pi e^2 n/(2 m*) budget.
+       The interband term stops being a free amplitude and becomes a strength FRACTION. That is
+       exactly FSUM-SINGLE-SOURCE: one Hamiltonian, one current operator, one budget, sum f_j = 1.
+
+==============================================================================
+SC-2 / C : the tau instrument  (DRUDE-DOMAIN, TAU-KIND)
+==============================================================================
+  C.1  a single-pole diagnostic that needs no fitting
+       at the frequency of peak -Im s, a Cole-Cole response satisfies
+       alpha = (4/pi) arctan(-Im s / Re s)      [exact: -Im/Re = tan(pi alpha/4) at w tau = 1]
+       and the peak of -Im s sits at w tau = 1 for EVERY alpha.
+
+  alpha in   alpha recovered   w_peak * tau   error      
+  1.00       1.000000000       1.000000       0.00e+00   
+  0.90       0.900000000       1.000000       0.00e+00   
+  0.70       0.700000000       1.000000       1.11e-16   
+  0.50       0.500000000       1.000000       1.11e-16   
+  [P9] the diagnostic recovers alpha exactly, and the peak is at w tau = 1
+       -> HOLDS   (max error 1.11e-16)
+       alpha = 1 is the single Drude pole: ONE relaxation rate. alpha < 1 is a depressed arc,
+       which is what a distribution of relaxation rates produces. So 'does a unique scalar tau
+       exist' becomes a measurement, not an assumption.
+
+  C.2  does it discriminate a two-mode response?  (pre-registered case: equal weights, tau2 = 3 tau1)
+
+       equal weights, tau2 = 3 tau1 :  alpha_eff = 0.908743  at w tau1 = 0.5774
+       max radial deviation from the single Debye arc = 1.3397e-01
+  [P10] the same diagnostic reports a two-mode response as alpha_eff < 0.9 with a large arc deviation
+       -> FAILED   (alpha_eff 0.9087, deviation 1.34e-01)
+       one of the two conditions missed: alpha_eff = 0.9087 > 0.9, by 0.0087. The arc deviation
+       (13%) fires. So alpha is the WEAK statistic at a 3:1 mode separation; the deviation is
+       the strong one. That miss is recorded and not repaired by widening the threshold.
+
+  C.2b sensitivity calibration: where does alpha actually notice a second mode?
+       (added because P10 missed; this measures the instrument, it does not re-test P10)
+  tau2/tau1    alpha_eff      peak -Im deviation  
+  1.0          1.000000       3.3307e-16          
+  1.5          0.987001       2.0204e-02          
+  2.0          0.962537       5.7191e-02          
+  3.0          0.908743       1.3397e-01          
+  5.0          0.815538       2.5464e-01          
+  10.0         0.539202       4.2504e-01          
+  30.0         0.445990       6.4663e-01          
+       alpha falls below 0.9 only for tau2/tau1 >~ 4; the arc deviation is already 1.3e-1 at 3:1.
+       => DRUDE-DOMAIN must report BOTH statistics; alpha alone under-detects mild multi-mode.
+       so DRUDE-DOMAIN is decidable: fit alpha, and if alpha != 1 the Drude form is inadmissible
+       and the full current response must be computed. No tau scan can substitute for alpha.
+
+  C.3  tau is not one number: transport vs single-particle
+       |V(q)|^2 ~ (q+q_TF)^-2, q = 2 k_F sin(u),  1/ tau_sp ~ int |V|^2 du,
+       1/tau_tr ~ int (1-cos theta)|V|^2 du,  theta = 2u  =>  tau_tr/tau_sp = N/D
+       q_TF = g m* e^2/(4 pi eps0 hbar^2) = 5.4266e+12 1/m ;  q_TF/k_F = 0.014596 ;  a = q_TF/2k_F = 0.007298
+
+  a = q_TF/2k_F  tau_tr/tau_sp   (2/pi)/a      ratio to law 
+  1.00e-04       6.2997e+03      6.3662e+03    0.9896       
+  1.00e-03       6.4167e+02      6.3662e+02    1.0079       
+  1.00e-02       6.7768e+01      6.3662e+01    1.0645       
+  7.30e-03       9.1548e+01      8.7234e+01    1.0495       
+  1.00e-01       9.1809e+00      6.3662e+00    1.4421       
+  1.00e+00       2.8075e+00      6.3662e-01    4.4099       
+  [P11] tau_tr/tau_sp -> (2/pi)(1/a), monotone, and O(10^2) at the record's screening
+       -> HOLDS   (law dev 1.04e-02 / 7.93e-03 at a=1e-4 / 1e-3)
+       at the record's a = 0.007298 the two times differ by a factor 91.5.
+       MODEL ATTACHED: this is static Thomas-Fermi screening with no dynamic screening and no
+       vertex correction. It is not a value of either tau; it measures the size of the ambiguity.
+       Both divergences (a -> 0) are the forward-scattering divergence of the 2D Coulomb kernel.
+       A submission that says 'tau = 1e-16 s' without naming which tau has not said anything.
+
+  C.4  does the locked spec ask which tau?
+       occurrences in docs/specs/surface_conductivity_v1.md : 'transport' = 0 ; 'vertex' = 0 ; 'optical time' = 0
+  [P12] the locked spec never asks which tau
+       -> HOLDS   (count 'transport' = 0)
+
+==============================================================================
+VERDICTS
+==============================================================================
+  P1   FAILED
+  P2   HOLDS
+  P3   HOLDS
+  P4   HOLDS
+  P5   HOLDS
+  P6   HOLDS
+  P7   HOLDS
+  P8   HOLDS
+  P9   HOLDS
+  P10  FAILED
+  P11  HOLDS
+  P12  HOLDS
+
+  10 / 12 predictions hold.
+
+  WHAT THIS ROUND ESTABLISHES
+   1. FSUM-SPLIT is a theorem about the Drude pole, not a bug: the pole always draws the whole
+      budget. The defect is that the interband term is a HEIGHT (S) where the bookkeeping needs
+      a FRACTION. And the budget itself is a function of (g, v_F), which the module fixes to
+      g = 2 silently while the amplitude it uses descends from a g = 4 Dirac value.
+   2. KK-UV and FSUM-FINITE share one root - no upper scale - and one cure: a finite band edge.
+      Broadening is not the cure (B.2), rescaling is not the cure (B.1).
+   3. DRUDE-DOMAIN is now an instrument, not an opinion: alpha from the peak of -Im sigma, with
+      alpha = 1 meaning one relaxation rate. TAU-KIND is quantified: at the record's own
+      screening the two candidate tau differ by two orders of magnitude.
+   None of this produces a sigma_s. It produces the tests, and the cost of each repair.
+  NO visibility conclusion. NO candidate response. R1-B1 remains the only entry point.

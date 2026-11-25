@@ -1,0 +1,44 @@
+<<<LOG>>>
+====================================================================================
+check (3) v2 -- machine-executed dF=0 + full stress match (+ (1)(2) rerun)
+====================================================================================
+v1 defects fixed: (a) F_tx -> F_ty component; (b) dF now actually computed
+  symbolically; (c) full (rho,px,py,pz) simultaneous match replaces rho-only.
+
+[check 3 v2: exterior derivative, machine-executed]
+  ansatz A (F = f dx^dy only):        dF = Derivative(f(t, x), t)
+    -> constraint dt f = 0 (time-dependent f alone violates dF=0)
+  ansatz B (F = f dx^dy + E dt^dy):   dF = -Derivative(E(t, x), x) + Derivative(f(t, x), t)
+    -> constraint dt f = dx E   [machine-derived: YES]
+    substituting the constraint zeroes dF_B: YES
+  NOTE: the electric component is F_ty (field along y), NOT F_tx (v1 text fix).
+
+[P2 solver E-component identity (machine check)]
+  P_t = Z*sqrt(g)*(-g^tt)*g^yy = A_*C_*Z/B_   expect Z*A*C/B : match=YES
+  P_x = Z*sqrt(g)*g^xx*g^yy = C_*Z/(A_*B_)   expect Z*C/(A*B): match=YES
+  => P2 1+1 solver's E is the F_ty component; its E-1 (df=D(E)) implements
+     dt f = dx E exactly (numerical E self-generation: DCC_P2_1p1_results.txt)
+
+[full stress match: Maxwell F_xy vs const-rate target (all four components)]
+  required:  kappa*rho=h*(-2*gamma + h) ; kappa*px=-gamma**2 + gamma*h - h**2 ; kappa*py=-gamma**2 + gamma*h - h**2 ; kappa*pz=-3*h**2
+  Maxwell:   rho_B=f_m**2*exp(-4*h*t)/2 ; px_B=f_m**2*exp(-4*h*t)/2 ; pz_B=-f_m**2*exp(-4*h*t)/2
+  simultaneous solve for (h, gamma, f_m): NO solution
+  => Maxwell source cannot realize the const-rate target in any component
+     combination (machine-verified, replaces v1's rho-only comparison)
+
+[(1)(2) rerun anchors (unchanged conclusions)]
+  check 1: combo = -2*gamma**2 + 2*gamma*h + h**2 ; == -v1.1 formula : YES
+  check 2: power-law t^2*kappa*rho = alpha*(alpha - 2*beta_c)/kappa ; const-rate kappa(rho+p_z) = -2*h*(gamma + h)
+
+[verdicts]
+  check3-A (dt f = 0 constraint derived)            : PASS
+  check3-B (dt f = dx E derived & zeroing dF)       : PASS
+  P2 E-component identity (F_ty)                    : PASS
+  full-stress: no simultaneous Maxwell match        : PASS
+  check1 anchor (sign-flip relation)                : PASS
+
+check (3) v2 OVERALL: PASS
+G3' prerequisite status: checks (1)(2) hold (reviewer-confirmed); check (3)
+  now machine-executed; G3' gate itself remains OPEN pending P2-C6, N11
+  boundary condition, and reviewer confirmation of this v2.
+evidence level: ESTABLISHED (machine-derived identities within pinned conventions)

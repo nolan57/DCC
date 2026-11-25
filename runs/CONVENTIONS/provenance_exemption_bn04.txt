@@ -1,0 +1,47 @@
+# Provenance exemption manifest -- BN-04 (governor waiver, 2026-11-23)
+#
+# WHAT THIS IS
+#   A closed, digest-locked list of twelve products that predate the tag regime and cannot
+#   acquire a tag without being edited (s9.1 forbids editing archived products). Rule P9 of
+#   docs/conventions/provenance_tags_v1.md classifies them EXEMPT-LEGACY: non-blocking, but
+#   never OK.
+#
+# WHY A SECOND LIST AND NOT THE BASELINE
+#   provenance_baseline.txt was frozen on 2026-11-22 as the inventory at adoption. These
+#   twelve were written by the same production lines (SC, R1B p1-p4) that the convention was
+#   adopted around, and the baseline snapshot simply does not contain them. Appending them to
+#   a frozen manifest would silently extend a document whose own header says "append
+#   deliberately; do not regenerate" -- i.e. it would use the grandfathering mechanism to
+#   grandfather something new. A separate list that says "exemption" in its own name is
+#   honest; a longer baseline would not have been.
+#
+# WHY NOT SIMPLY ADD A TAG
+#   A tag written today would assert a provenance judgement made AFTER the numbers, which is
+#   the retro-declaration problem of docs/specs/theta_camera_v1.md s0 one level down: a tag
+#   claims "I classified this", and it cannot be dated. A digest claims only "this file is
+#   what it was". The weaker claim is the true one.
+#
+# THE CLOSURE RULE (this is what makes P9 an exemption and not a hole)
+#   The set is CLOSED. This file's own digest is in provenance_exemption_bn04.txt.sha256, and
+#   the linter verifies it before honouring any line below. Editing this manifest -- to add a
+#   thirteenth file, to change a digest -- invalidates the sidecar, voids the whole exemption,
+#   and returns all twelve to MISSING. An exemption that can be extended is not an exemption;
+#   it is a place to put things.
+#
+# FORMAT
+#   <sha256>  <repository-relative path>       (two spaces, sha256sum -c compatible)
+#
+# SCOPE: these twelve only. Not their directories, not their kinds.
+
+3bf6f0873250b0eb21c3f9ff5138f36b6f0a9f2c57f267db28399ce7321127ca  runs/OPTICS/sc2_results.txt
+a2318fe5bcd46bb8d055251f5b9cf4ece7782750ff6848807df990e5782ed855  runs/OPTICS/sc2_results_v1_SUPERSEDED_PREFACTOR.txt
+7766f63af19c1fbed4b2a25a357f2fa8f4095c27ec91171c9240668a22a3ec54  runs/OPTICS/sc2_results_v2_SUPERSEDED_ENDPOINT.txt
+5c35f48c095776538f17ce2ff26357bc6cdd6ef1ba8917d6c0975802fcaf2c5d  runs/OPTICS/sc3_check_v1_SUPERSEDED.py.txt
+9be2fcb53ba57d55be2919f3874abe93e577d57a6f7422720ab931de516091e3  runs/OPTICS/sc3_results.txt
+258de00ef8315dff5b0b37fcabdbe7a55560dd4052c6fecbf2da1cd68bd8718e  runs/OPTICS/sc3_results_v1_SUPERSEDED_POLARITY.txt
+601e1906dcfb6e6bec61a5e6d0b432bb390665fc018b48bf6f4d8896bfbc8b44  runs/R1B/r1b1_p1_closure_check_results.txt
+d351ba47273a1e5b9144654414331b3bd0f985ff2cca7cfc556ab545c4a7dcd9  runs/R1B/r1b1_p1_current_check_results.txt
+fe4d550cb345744b1b3097d7178fd6eac3614d43fc2e70b16d9d8e62818ac1f7  runs/R1B/r1b1_p1_dirac_check_results.txt
+362359622766599deb924b9b8e1dbe859d32878296595c1b27a0366fa19a7660  runs/R1B/r1b1_p2_eos_scan_results.txt
+0e8b05bc003bc8b8ef1e8a1a04cf0c5913b81c94f7aa03de219b67593c541978  runs/R1B/r1b1_p3_reachability_results.txt
+2a2335a5a5d3fab3f92fdc3d3250447ee80c4440ac56c5efe49dfcbc8b7e1b8f  runs/R1B/r1b1_p4_response_results.txt

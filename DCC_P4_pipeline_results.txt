@@ -1,0 +1,37 @@
+==================================================================================
+DCC P4 - observer pipeline (1+1 slab; geodesic frequency shift + P3 transmission coefficient)
+==================================================================================
+Background: P2 W1-slab-static frames (valid region T<=6.0; beyond that = assumption layer)
+Source: x=0 (inside the slab); observer: x=+60 (outer region)
+P3 transmission coefficients: n2=0.6065 T=0.940015 R=0.059985 (Fresnel normal incidence)
+----------------------------------------------------------------------------------
+[A-relativistic (beta_w=0.5)]
+  [Assumption-layer note: geometry for t_emit<0 is frozen at the first frame]
+  t_emit=-14.43 -> t_arr=58.36 (propagation 72.79)
+  Frequency-shift factor nu_obs/nu_src = dtau_src/dtau_obs = 0.560130
+  Wall crossings=0 -> total transmission T=0.940015
+  Intensity ratio I_obs/I_src = T*(nu_obs/nu_src)^3 = 0.165196
+  (gamma=1.1547; all factors given by the geodesic + P3 coefficients)
+----------------------------------------------------------------------------------
+[B-phenomenological (beta_w=1.42e-4, calibrated to 42.47 km/s; not a theoretical prediction)]
+  [Assumption-layer note: geometry for t_emit<0 is frozen at the first frame]
+  t_emit=-14.51 -> t_arr=58.24 (propagation 72.75)
+  Frequency-shift factor nu_obs/nu_src = dtau_src/dtau_obs = 0.635753
+  Wall crossings=0 -> total transmission T=0.940015
+  Intensity ratio I_obs/I_src = T*(nu_obs/nu_src)^3 = 0.241546
+  (gamma=1; all factors given by the geodesic + P3 coefficients)
+----------------------------------------------------------------------------------
+[Frequency-shift time series] Group A (beta_w=0.5), scanning emission time t_emit ∈ [1, 5]
+  t_emit=1.00 -> t_arr=75.48  nu_obs/nu_src=0.859324
+  t_emit=1.36 -> t_arr=75.84  nu_obs/nu_src=0.860045
+  t_emit=1.73 -> t_arr=76.21  nu_obs/nu_src=0.860581
+  t_emit=2.09 -> t_arr=76.57  nu_obs/nu_src=0.861190
+  t_emit=2.45 -> t_arr=76.94  nu_obs/nu_src=0.861906
+  t_emit=2.82 -> t_arr=77.30  nu_obs/nu_src=0.862422
+  t_emit=3.18 -> t_arr=77.67  nu_obs/nu_src=0.863017
+  t_emit=3.55 -> t_arr=78.03  nu_obs/nu_src=0.863259
+  t_emit=3.91 -> t_arr=78.40  nu_obs/nu_src=0.863878
+  t_emit=4.27 -> t_arr=78.76  nu_obs/nu_src=0.864321
+  t_emit=4.64 -> t_arr=79.13  nu_obs/nu_src=0.864800
+  t_emit=5.00 -> t_arr=79.49  nu_obs/nu_src=0.865318
+  (Frame window: valid region T<=6; arrivals with t_arr>6 for t_emit>5 belong to the assumption layer and were not used)

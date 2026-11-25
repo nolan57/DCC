@@ -1,0 +1,158 @@
+{
+  "cycle_id": "W1-ROW2-ARTIFACT-01",
+  "cycle_type": "artifact",
+  "programme": {
+    "path": "docs/program/RESEARCH_PROGRAM_v1.md",
+    "version": "v1.1.1",
+    "sections": "2.5, 2.6, 4.2-4.8, 5.3, 6.1"
+  },
+  "utc": "2026-11-25T02:54:43Z",
+  "row": {
+    "index": 2,
+    "label": "C1 C2 not-C3",
+    "scene_class": "CONSTRUCTIVE",
+    "constraints": {
+      "C1": "HELD",
+      "C2": "HELD",
+      "C3": "VIOLATED"
+    },
+    "c3_note": "C3 is violated by a declared 3 ns transient, not by a computed decay: the lifetime is IMPORTED from scifi_boundary_v1's npe branch and is not derived from this state's energy ledger (RESEARCH_PROGRAM_v1 section 4.2.6 marks that derivation OUT-OF-SCOPE here)"
+  },
+  "object": {
+    "height_m": 1.738,
+    "registered_volume_m3": 0.0601,
+    "reconstructed_volume_m3": 0.06111149999999948,
+    "reconstruction_ratio": 1.0168302828618883,
+    "shape": "synthetic whole-body phantom (src/analysis/unfold_appearance_v1.py slice_at)",
+    "density_kg_m3": 1000.0,
+    "density_note": "declared uniform; the phantom's tissue classes are used for the field, not for the mass"
+  },
+  "mechanism": {
+    "id": "front_sweep_v1",
+    "version": "v1 (unchanged)",
+    "front_law": "z_f(t) = min(H, v t), v = c/sqrt(2) = 2.119853e+08 m/s",
+    "layer_thickness_m": 2.15e-10,
+    "components_per_layer": 1.457,
+    "plate_census": 11800000000.0,
+    "registered_peelings": 8120000000.0,
+    "array": {
+      "sites_per_side": 90126,
+      "spacing_m": 0.4001,
+      "canvas_m": 36060.0,
+      "sites_total": 8122695876.0
+    },
+    "t_rip_s": 8.198682474541903e-09,
+    "transient": {
+      "tau_s": 3e-09,
+      "status": "IMPORTED",
+      "source": "docs/decisions/scifi_boundary_v1.md (3-5 ns), lower bound taken"
+    }
+  },
+  "map_M": {
+    "form": "u(t) = M[U(tau), phi(tau); 0 <= tau <= t]",
+    "domain": "the swept slab z in [0, z_f(t)] of U; z outside it is untouched and absent from u",
+    "coordinates": "u on the body cross-section uses (x,y) in m centred on the slice; u on the array uses raster site index",
+    "single_valued": "YES, by a declared bijection: layer k -> site k in raster order. One layer occupies one site.",
+    "competition_rule": "no layer competes for a site: the 1.457 components are the pieces of ONE layer sharing that layer's single site, so the site holds 1 or 2 fragments of the same slice",
+    "markov": "NO as written. History enters through the accumulated deposit and the interface position. With the extended state (deposited field, z_f, decayed front z_f - v tau) the map is instantaneous; that extended state is declared, not proved minimal.",
+    "discards": [
+      "mass (ledger row m_decayed)",
+      "particle number (tied to mass)",
+      "energy (OUT-OF-SCOPE: no energy equation is solved)",
+      "momentum (OUT-OF-SCOPE)",
+      "phase (OUT-OF-SCOPE)",
+      "per-site fragment multiplicity beyond the mean 1.457 (recorded as a count, not a field)"
+    ]
+  },
+  "theta": {
+    "q": {
+      "value": 1.0,
+      "unit": "dimensionless photon budget",
+      "domain": "[0, inf); 0 = naked-eye reflected channel",
+      "source": "intrinsic_structure_tiers_v1 section 5; declared instrument"
+    },
+    "band": {
+      "value": "declared density channel",
+      "unit": "none",
+      "domain": "no spectral band is claimed",
+      "source": "the field is a tissue-density index, not a radiance"
+    },
+    "gate": {
+      "value": 3e-09,
+      "unit": "s",
+      "domain": "(0, inf)",
+      "source": "scifi_boundary_v1 3 ns transient gate (IMPORTED)"
+    },
+    "aperture": {
+      "value": 0.1,
+      "unit": "m",
+      "domain": "(0, inf)",
+      "source": "declared instrument (not solved)"
+    },
+    "distance": {
+      "value": 1.0,
+      "unit": "m",
+      "domain": "(0, inf)",
+      "source": "declared viewing distance (not solved)"
+    },
+    "E": {
+      "value": "flat, dark, room temperature",
+      "unit": "none",
+      "domain": "declared environment",
+      "source": "no illumination model is used: the frame is not a radiance render"
+    },
+    "G": {
+      "value": "linear greyscale/violet density transfer, no tone curve",
+      "unit": "none",
+      "domain": "declared camera/transfer model",
+      "source": "declared; differs from theta_camera_v1's specular/fixed geometries because no reflection is computed"
+    }
+  },
+  "estimator": {
+    "identity": "intrinsic_structure_tiers_v1 v1 (T0 sec.2, T1 sec.3, T2 sec.4, T3 sec.5)",
+    "implementation": "src/analysis/tiers_core_v1.py (verbatim extraction of src/route/structure_tiers.py)",
+    "grid": [
+      128,
+      128
+    ],
+    "bins": 64,
+    "context_levels": 16,
+    "smoothing": "T3: DoG, sigma = xi/2 and 2*xi (cells)",
+    "null_ensemble": "uniform iid, 16 realisations, seeds 4000..4015",
+    "threshold_lock": "D:\\Docs\\DCC\\runs\\MATRIX\\threshold_lock.json",
+    "threshold_lock_sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+    "threshold_lock_recorded": "5f324e1513c5df0a8c60539c0c50af6ea23bd14924932115b2c926ebbc12b1cc"
+  },
+  "null_ensemble": {
+    "P0_mean": 0.05639902750651036,
+    "P0_sd": 0.00046869301873620243,
+    "Q2_mean": 0.1382005856936081,
+    "Q2_sd": 0.0007670727221043092,
+    "realisations": 16,
+    "seed_start": 4000
+  },
+  "discretization": {
+    "declaration": "one atomic layer per slice (the registered mechanism)",
+    "control": "NOT RUN in this cycle (delta x 10 control is programme item 6.1(3), OPEN)",
+    "slice_count_note": "8.12e9 is derived as H/delta for this mechanism, not chosen",
+    "fragment_count_note": "1.18e10 = 8.12e9 x 1.457 is a MODEL ESTIMATE: 1.457 is measured on the 200^2 phantom but its sample size, per-region variance and the weighting of the leg/neck/head regions are NOT in the registered record"
+  },
+  "acceptance": {
+    "o0_minimum_items": {
+      "1_card_and_manifest_locked_before_rendering": "PASS (this lock)",
+      "2_three_keyframes": "PASS (t0, t_mid, t_end)",
+      "3_display_declaration_label_profile_slot": "PASS (measured profile; stage B emits the sidecars)",
+      "4_constraint_state_and_consequence_visible": "PASS (caption line on every frame)",
+      "5_third_party_reproduction": "R2 only; no frame reproduction is claimed"
+    },
+    "publication_items": {
+      "6_profile_with_estimator_identity": "PASS",
+      "7_discretization_error_or_convergence": "FAIL -- the delta x 10 control is not run",
+      "8_conservation_ledger": "PASS (volume/mass ledger closes by construction)",
+      "9_price_ledger": "NOT APPLICABLE -- this row uses no relaxation rung",
+      "10_M_and_count_error": "PARTIAL -- M is stated as a history functional; the fragment count is labelled MODEL ESTIMATE and its sampling error is unregistered"
+    },
+    "verdict": "O0-ARTIFACT",
+    "verdict_reason": "items 7 and 10 are not satisfied, so the cycle may not be labelled RESULT"
+  }
+}

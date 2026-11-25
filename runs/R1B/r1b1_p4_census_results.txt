@@ -1,0 +1,301 @@
+# RQ-05 -- the interaction-level census: what the 4.6% is, and what binds
+
+**Round**: 57 (`RQ-05`).  **Registration**: `runs/R1B/r1b1_p4_census_registration.md`.
+**Instrument**: `src/r1_dense/r1b1_p4_census.py` -- this file is emitted by it, not transcribed.
+**Inputs**: `runs/R1B/r1b1_p2_eos_scan_results.txt` P2-5; `runs/R1B/r1b1_p4_response_results.txt` P4-2;
+`runs/R1B/r1b1_p4_tau_results.txt` s3 (`k_F l`, `q_TF`); `conv.beta_eq`; `conv.kF_2`;
+`docs/specs/R1_B1_Microscopic_Matter_Model_v1.0.md` s4.2; `docs/R1B1.md` s3.1.
+No fitted quantity; `alpha` and the two mass conventions are the only external inputs.
+
+```text
+
+==============================================================================
+[1] WHAT THE CENSUS COUNTS  (the ratio P2-5 prints is not a carrier fraction)
+==============================================================================
+  P2-5 prints, per L_z:  n_free,2D  against  n_Q,2D = ZA*N_B = 0.022005 fm^-2,
+  and a column n_free/n_Q.  The ruling's table cites that column as
+  'DERIVED (N7-SPLIT: 4.2-5.0% of the bookkeeping n_Q,2D)'.  Two readings are
+  possible and only one of them is a census:
+     (a) a carrier fraction -- of the carriers, this share is free;
+     (b) a composition ratio -- of the frozen charge column, this share is
+         what the solved state's proton column actually holds.
+
+  L_z   X_p          ZA       X_p/ZA      n_free      n_Q          n_free/n_Q   ratio
+  1.68  2.63458e-02   0.522    5.047084e-02  1.1106e-03   0.022005     5.047084e-02   1.000000000
+  1.76  2.50751e-02   0.522    4.803651e-02  1.0570e-03   0.022005     4.803651e-02   1.000000000
+  1.84  2.39142e-02   0.522    4.581272e-02  1.0081e-03   0.022005     4.581272e-02   1.000000000
+  1.92  2.28501e-02   0.522    4.377406e-02  9.6324e-04   0.022005     4.377406e-02   1.000000000
+  1.99  2.19893e-02   0.522    4.212509e-02  9.2696e-04   0.022005     4.212509e-02   1.000000000
+
+  [P1] -> CONFIRMED
+  n_free/n_Q = X_p/ZA to machine zero (max dev 0.0e+00) over the whole window: the
+  ratio is (b).
+  It is an identity of the EOS.  Charge neutrality is imposed as n_e = n_p
+  by construction (P2-7), so n_free = X_p*N_B and n_Q = ZA*N_B; their ratio is
+  the composition ratio X_p/ZA and contains no census information whatever.
+
+  Consequence: the 95.4% is NOT a population of bound or trapped carriers.
+  It is the charge column that the FROZEN composition ZA = 0.522 would assign,
+  minus the proton column the SOLVED state has (X_p = 2.4e-2).  The frozen
+  composition is 22x more proton-rich than the beta-equilibrium state; that
+  factor, not any binding, is what the column measures.  There is no carrier
+  row for the missing 95.4%, because it was never a carrier.
+
+  The population the census must count is therefore n_free,2D itself (= n_p,2D),
+  and the question is whether the interaction level removes any of it.
+
+==============================================================================
+[2] THE SCALES  (both mass conventions; the two E_F the record carries)
+==============================================================================
+  The HYB record carries two Fermi energies and they are not the same object:
+    mu_e      = hbar c k_F        (EOS; beta equilibrium; conv.eos_e_2D)  = 15.7 MeV
+    E_F^disp  = (hbar k_F)^2/2m   (the in-plane dispersion v_F = hbar k_F/m)
+  A bound state is a property of the in-plane Hamiltonian, so the binding
+  criteria use E_F^disp.  mu_e is printed beside it so a reader quoting 15.7 MeV
+  can see the ratio in that convention too.
+
+  m_eff = E_z1/c^2 convention:
+  L_z   k_F[fm^-1]  E_F^disp[MeV]  mu_e[MeV]  a_B*[fm]  r_s,2D[fm]  E_b[keV]   q_TF[fm^-1]
+  1.68   0.08354      0.36818         16.484         73.28    16.930      39.300    0.02729
+  1.76   0.08150      0.36710         16.081         76.77    17.353      37.513    0.02605
+  1.84   0.07959      0.36602         15.705         80.26    17.769      35.882    0.02492
+  1.92   0.07780      0.36494         15.351         83.75    18.178      34.387    0.02388
+  1.99   0.07632      0.36400         15.059         86.80    18.531      33.178    0.02304
+
+  q_TF = 2 alpha m_eff / (hbar c) 0.02492 fm^-1 -- independent of n_free (2D TF).
+  r_s,2D = 1/sqrt(pi n) = 17.769 fm ; a = 1/sqrt(n) = 31.495 fm (RQ-03's spacing).
+  [P2] -> CONFIRMED
+  k_F * r_s,2D = 1.414213562373095  vs  sqrt(2) = 1.414213562373095  -- exactly sqrt(2).
+  So the record's two coupling normalizations differ by exactly sqrt(2):
+    r_s(Fermi scale) = e^2/(eps hbar v_F) = q_TF/(2 k_F) = 0.1566  (RQ-03's column)
+    r_s(mean spacing) = E_C(r_s,2D)/E_F = 0.2214                   (this round)
+  Both are below 1/4, so the class answer cannot depend on which is quoted;
+  but a sentence that quotes 0.157 and compares it with 1 is off by sqrt(2).
+
+==============================================================================
+[3] C1 -- ORBIT OVERLAP  (Mott): does a bound orbit fit between neighbours?
+==============================================================================
+  Two electrons can be bound at the same proton only if their orbits do not
+  overlap the neighbours': the Mott criterion is n a_B*^2 < 1/4 for a bound
+  state to exist.  Above it the orbitals percolate and the carriers are
+  itinerant -- there is no localized state for a carrier to occupy.
+
+  convention   a_B*[fm]     n a_B*^2     threshold   margin
+  m_eff (E_z1/c^2)        80.26   6.4940e+00   0.25             26.0x
+  bare m_e             52917.61   2.8230e+06   0.25       11291873.2x
+  [P3] -> CONFIRMED
+  The orbit is 26.0x too large for the lattice to hold it, and the mismatch
+  is 26x in m_eff and 1.1e7x in the bare-electron convention.  C1 says: no
+  bound states, and says it by two orders of magnitude in the worse case.
+
+==============================================================================
+[4] C2 -- ENERGY AND BAND: is the bound level a level, or a band bottom?
+==============================================================================
+  A discrete level is a bound state only if it is not degenerate with the
+  occupied continuum AND not hybridized into a band by the neighbours.
+  The isolated 2D hydrogenic level sits at -E_b = -4 Ry* below the band edge.
+
+  convention   E_b[keV]   E_F^disp[keV]   E_b/E_F     W[keV]   W/E_b    U[keV]   U/W
+  m_eff             35.882       366.024   9.803e-02         233        6.49    11.213  4.812e-02
+  bare m_e           0.054    241327.843   2.255e-07   1.536e+05    2.82e+06     0.017  1.107e-07
+  [P4] -> CONFIRMED
+  [P5] -> CONFIRMED
+  E_b is 9.8% of E_F in m_eff (2.3e-07 in bare m_e): the level would sit inside
+  the occupied continuum, i.e. it is a resonance, not a level -- and its width
+  is set by hybridization, W/E_b = 6.5: the 'level' is the bottom of a
+  233 keV band, 6.5x wider than the binding that would localize it.
+  U = (5/8) e^2/(eps a_B*) is the 3D hydrogenic on-site value, used as an
+  order of magnitude (a 2D value differs by a factor of order unity).  The
+  Mott-Hubbard transition at half filling needs U/W of order 1 (U/t ~ 8 with
+  W = 4t); at U/W = 0.048 the margin is 21x, and a factor-3 error in U would
+  leave 7x.  No correlation gap opens.  C2 says: no level to be bound in.
+
+==============================================================================
+[5] C3 -- FILLING: an identity, not a criterion
+==============================================================================
+  [P6] -> CONFIRMED
+  Charge neutrality is imposed as n_e = n_p (P2-7), so the cell of the proton
+  array holds exactly one electron, always:
+    nu = n_e * a^2 = 1.000000000000000     (cell area a^2 with a = 1/sqrt(n_p))
+  With g = 2 that is a HALF-FILLED band -- the configuration in which a
+  one-band system is a metal unless U/W is large (C3: U/W = 0.048) or the
+  band is nested.  Neither holds.  The half-filling is not a coincidence to
+  be explained; it is charge neutrality written per cell.
+
+==============================================================================
+[6] C4 -- DISORDER: extended or trapped?
+==============================================================================
+  RQ-03's transport mean free path, re-derived from its two numbers
+  (v_F/c = 0.0466, tau_tr = 2.00e-20 s): l = 279.4 fm ; k_F l = 22.24
+  [P7] -> CONFIRMED
+  Ioffe-Regel: extended states require k_F l >> 1.  At 22.2 the quasiparticle
+  is well defined and the Boltzmann description is self-consistent; the
+  trapped fraction is 0 unless k_F l ~ 1.
+
+  The one channel that could still trap in 2D is weak localization, and the
+  round does NOT give it a number.  Its length is exp(c k_F l) x l with c of
+  order 1 -- at k_F l = 22.2 that is 1e+15 coherence lengths at c = pi/2 and
+  2e+95 at c = pi^2, so the channel's number is set by the coefficient c, not
+  by the state.  More importantly the quantity it actually needs
+  is a dephasing length, hence a temperature, and the state declares T = 0
+  (P2-8).  Naming the missing input is the answer here: the channel is
+  uncomputable ON THIS STATE, not zero by measurement.  Its size, if it were
+  computed, is a correction to sigma of order 1/(k_F l) = 4.5% -- a mobility
+  correction, not a carrier count, so it cannot move n_free,2D either way.
+
+==============================================================================
+[7] THE CENSUS  (the R1_B1 s4.2 rows, with a criterion each)
+==============================================================================
+  rows in fm^-2, at L_z = 1.84 fm (HYB); the envelope over the six cells is
+  in the last column (3 L_z x 2 mass conventions)
+
+  row                    count [fm^-2]  criterion                          envelope
+  free electrons         1.0081e-03    C1 26x, C2 10x, C3 21x, C4 22x       9.2696e-04 .. 1.1106e-03
+  bound electrons        0.0000e+00     C1 orbit overlap; C2 level-vs-band  0 in 6/6
+  trapped electrons      0.0000e+00     C3 U/W; C4 k_F l (WL unnamed)       0 in 6/6
+  ionized protons        1.0081e-03    neutrality identity n_p = n_e        9.2696e-04 .. 1.1106e-03
+  neutrons               4.1147e-02    N_B - n_p (baryon column)           4.1044e-02 .. 4.1228e-02
+  reacting species (nu)  --             weak-off: none converts           declared
+
+  charge check: free + bound + trapped = 1.008104e-03  vs  n_p = 1.008104e-03  (identical by
+  construction -- which is the point: the census closes trivially, and it
+  closes trivially because the EOS imposed it.  What the round adds is that
+  the imposition is now CHECKED rather than assumed: four criteria, the
+  smallest margin 10x, none of them marginal.
+
+  THE INTERVAL.  Condition (iii) asks for n_free,2D 'as an interval, never a
+  point'.  The interval exists and it is [9.269600e-04, 1.110600e-03] over the six cells, i.e.
+  its width is the L_z envelope and NOTHING ELSE: every census criterion is
+  passed in all six cells, so the census adds no width.  That is a degenerate
+  interval in the direction the condition was written for (bound/trapped), and
+  a wide one in the direction the state already had (L_z).  Saying which is
+  which is the whole of the condition's content; a document that reports only
+  '4.2-5.0% free' reports the second and calls it the first.
+  [P12] -> CONFIRMED
+
+==============================================================================
+[8] PROPAGATION -- what the census can move, and what it cannot
+==============================================================================
+  The ruling's condition (iii) reads: 'n_free,2D as an interval', moving
+  'n_free,2D, hence f_intra'.  The second clause is testable by inspection:
+
+    f_intra = m_e c^2 / E_z1 = 0.5110 / 336.91 = 1.516709e-03      (P4-2)
+    E_z1    = pi hbar c / L_z                            (no n_free anywhere)
+
+  n_free x 0.5 -> f_intra = 1.516709406786460e-03   sum f_1n = 9.932045695383242e-04   deficit = 9.974900860236752e-01
+  n_free x 1.0 -> f_intra = 1.516709406786460e-03   sum f_1n = 9.932045695383242e-04   deficit = 9.974900860236752e-01
+  n_free x 2.0 -> f_intra = 1.516709406786460e-03   sum f_1n = 9.932045695383242e-04   deficit = 9.974900860236752e-01
+  [P8] -> CONFIRMED
+  [P10] -> CONFIRMED
+
+  f_intra, the ladder sum and the deficit are IDENTICAL because none of the
+  three contains n_free: the partition is a ratio of masses and box matrix
+  elements.  The only place n_free enters the response is the overall weight
+  W_TRK = pi e^2 n_free/(2 m_e), which multiplies all three fractions.  So
+  refinement (iii) cannot move f_intra -- not by a little, by construction.
+
+  What it CAN move is the absolute weight, and there the density partly
+  cancels.  RQ-03's rate is
+    1/tau = A J2(x)/(2 pi k_F^2),  A ~ n_imp m,  k_F^2 = 4 pi n_free/g
+  and n_imp = n_free (the scatterers are the carriers), so
+    1/tau ~ m J2(x) / (2 pi)  .  (4 pi/g)   -- no n_free left but x = q_TF/(2 k_F)
+
+  n_free x 0.5 : x = 0.22140  J2 = 1.568602  1/tau[1/s] = 4.2756e+19  sigma_DC[S] = 5.0386e-04
+  n_free x 1.0 : x = 0.15655  J2 = 1.831060  1/tau[1/s] = 4.9910e+19  sigma_DC[S] = 8.6328e-04
+  n_free x 2.0 : x = 0.11070  J2 = 2.069709  1/tau[1/s] = 5.6415e+19  sigma_DC[S] = 1.5275e-03
+
+  [P9a] -> CONFIRMED
+  x(0.5n)/x(n) = 1.414214  vs sqrt(2) = 1.414214 -- the ONLY density dependence of the
+  rate is the screening ratio moving as n^(-1/2).
+  [P9b] -> CONFIRMED
+  [P9c] -> CONFIRMED
+  tau(2n)/tau(n)     = 0.8847   (a 2x density change moves the rate by 12%, not 100%)
+  sigma_DC(2n)/sigma(1n) = 1.7694   (sub-linear: the weight W ~ n, the mobility ~ 1/J2)
+  [P11] -> CONFIRMED
+  consistency: the census's own rate reproduces RQ-03's 2.00e-20 s to 0.18%.
+
+  So the census's lever on the response is exactly one number, and the
+  number is the absolute spectral weight.  Read the criteria list: every
+  entry is a shape (S12a/b), a closure between quantities that rescale
+  together (S5's W_intra + W_inter = pi e^2 n_2D/(2m*)), an identity check
+  (S6, S15), a binary (S7, S13) or a label (S8, S9, S14).  No entry is a
+  function of the absolute scale, so the census moves NO verdict.
+
+  That is the round's positive result, and it is not the same as 'no result':
+  S5 closes only if the n on its right-hand side is the n that produced the
+  weights on its left.  The census is what certifies that there is one such
+  n and only one -- the EOS's imposed one.  A bound-state pole would have
+  added weight outside the budget and broken the closure; the null census is
+  what keeps S5's partition honest, so it protects the partition instead of
+  moving it.
+
+  One conditional, so the cancellation is not over-read: the identity
+  n_imp = n_free is what cancels the density, and it holds BECAUSE the census
+  is null.  If a fraction f_b were bound while the protons still scattered,
+  n_imp = n_p would stay fixed while k_F^2 ~ n_free fell, and sigma would go
+  as n_free^2 instead of n_free.  The null result is load-bearing for the
+  propagation, not incidental to it.
+
+==============================================================================
+[9] WHAT THE CENSUS FEEDS BACK INTO RQ-03, AND ONE CONVENTION NOTE
+==============================================================================
+  RQ-03 declares eps = 1 'no bound electrons in the layer (declared)'.  That
+  declaration is now EARNED, by this round's C1-C3, in the same sense that a
+  premise earns its conclusion: bound fraction = 0, margin >= 6 on three
+  independent criteria, in both mass conventions.  The feedback is one-way
+  and small: a bound fraction f_b would enter q_TF at relative order f_b and
+  tau at ~2 f_b; with f_b = 0 the RQ-03 rate stands as printed.
+
+  Convention note, recorded not repaired: RQ-03's lattice check uses
+  G_min = 4 pi/(sqrt(3) a) (triangular) with a = 1/sqrt(n).  For a triangular
+  array at areal density n the spacing is sqrt(2/(sqrt(3) n)) = 1.0746/sqrt(n),
+  not 1/sqrt(n), so G_min is 7.5% too small and 2k_F/G_min becomes 0.743
+  rather than 0.691.  Both are below 1: RQ-03's conclusion (no umklapp channel
+  for these carriers) is unchanged; only the printed margin moves.
+
+==============================================================================
+[10] WHAT THIS ROUND DOES NOT DECIDE
+==============================================================================
+  * it does not decide whether the proton array is ordered or disordered --
+    it evaluates both arrangements, and the census answer is the same in both
+    (band metal / weakly disordered metal).  RQ-03's premise Q-1/Q-2 remains
+    the premise it was.
+  * it does not give the weak-localization length a number: that needs a
+    dephasing length, hence a temperature the state does not carry.
+  * it does not move any gate: no criterion in S1-S15 is keyed to the census
+    (section 8), so G6/DC2's condition (iii) is discharged without moving the
+    verdict -- which is what 'discharged' means for a refinement whose object
+    turns out to be null.
+  * it does not re-open the ruling's mark.  It corrects one cell of its table
+    (the 'DERIVED (N7-SPLIT: 4.2-5.0%)' row is the composition ratio X_p/ZA),
+    and the correction is recorded as an erratum, not as an edit.
+
+==============================================================================
+SUMMARY
+==============================================================================
+  the 4.6%           : n_free/n_Q = X_p/ZA to machine zero -- a composition ratio,
+                       not a carrier fraction.  The 95.4% is the frozen
+                       composition (ZA = 0.522) minus the solved one (X_p = .0239),
+                       not a population of bound carriers.
+  bound              : 0.  Mott margin 26x (m_eff) / 1.1e7x (m_e);
+                       E_b/E_F = 0.098; W/E_b = 6.5 (band, not level).
+  trapped            : 0.  U/W = 0.048 (no Mott-Hubbard gap); k_F l = 22.2
+                       (Ioffe-Regel, 22x).  Weak localization is named and
+                       NOT numbered: it needs a dephasing length = a T.
+  n_free,2D interval : [0.927, 1.111]e-3 fm^-2 -- the L_z envelope, unchanged.
+                       In the bound/trapped direction its width is ZERO, by
+                       measurement with four margins, not by assumption.
+  f_intra            : does NOT move.  m_e c^2/E_z1 has no n_free in it.
+                       Condition (iii)'s stated target is the wrong target.
+  what does move     : W_TRK ~ n_free (linear); tau ~ m J2(x) with the density
+                       cancelled between n_imp and k_F^2; sigma_DC sub-linear.
+  no verdict moves   : the null census protects S5's partition; it does not
+                       move it.
+
+  predictions        : 14 CONFIRMED, 0 FALSIFIED
+
+PROVENANCE: NEITHER  (criterion evaluation on declared state inputs; the census
+is a null result with margins and establishes no chain evidence)
+```
+
+*Content generated by AI*

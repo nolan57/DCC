@@ -1,0 +1,39 @@
+<<<LOG>>>
+====================================================================================
+R2-D L2: collision/thermalization response, relaxation-time buckets (v1.4 s4.5)
+====================================================================================
+model: K_z + 2 K_p buckets; drift dK_z=-2 H_B K_z; elastic relax -(K-K/3)/tau
+registered: beta_C=0.50, T_end=300, tau scan (in |H_B|^{-1} units)=(1e-06, 0.3, 1.0, 3.0, 1000000.0)
+thresholds: |s+3|<0.01 (u_z slope, tau->inf); pz/uz=2 |dev|<1e-03;
+            |s+5/3|<0.01 (u_total slope, tau->0); dS/dt>=-1e-12 all scan
+
+[p_z_eff(B) family]
+  tau        slope(u_z)     pz/uz@B=0.1    slope(u_tot) max dS/dt   
+  1.0e-06    -1.66667       0.66667        -1.66667     3.65e-07    
+  3.0e-01    -1.66307       0.66307        -1.66845     4.43e-02    
+  1.0e+00    -1.65431       0.65431        -1.67273     7.73e-02    
+  3.0e+00    -1.62518       0.62518        -1.68589     1.05e-01    
+  1.0e+06    -2.99987       1.99987        -2.94847     1.34e-01    
+
+[limits]
+  tau->inf (collisionless): u_z slope=-2.99987 (L1 expect -3); p_z/u_z=1.99987 (expect 2)
+  tau->0  (hydro):        u_tot slope=-1.66667 (adiabatic 1D expect -5/3=-1.66667)
+  max dS/dt across scan = 1.34e-01 (entropy production non-negative required)
+
+[verdicts]
+  L1 recovery (tau->inf): slope -3      : -2.99987  PASS
+  L1 recovery (tau->inf): p_z/u_z = 2   : 1.99987  PASS
+  hydro limit (tau->0): -5/3            : -1.66667  PASS
+  entropy production >= 0               : PASS
+
+[findings]
+  F-R2D2-1: the drift work in the bucket model is taken as -2 H_B K_z (per-particle redshift), not -3 (dilution is not counted as work);
+             the tau->0 limit therefore returns exactly to the one-dimensional adiabatic law B^{-5/3} (consistent with thermodynamic gamma=5/3).
+  F-R2D2-2: p_z_eff interpolates between the collisionless (2u_z) and hydrodynamic (2u_tot/3) limits; at B=0.1,
+             with tau~|H_B|^{-1} the back-reaction is ~30%% below the collisionless baseline -- the quantitative correction factor for item N6.
+  F-R2D2-3: the L3 layer (full T^{mu nu} feedback) is inherited from the DCC P2 homogeneous forward solution (self-consistent trajectory +
+             constraint monitoring + NEC saturation = Maxwell consistency, DCC_P2_homogeneous_results.txt);
+             incorporation of the N11 constraint stress P_2D=2.73e15 N/m as a boundary condition remains (registered for G3').
+
+R2-D L2 OVERALL: PASS
+evidence level: MODEL RESULT (relaxation-time kinetic model, assumptions registered)

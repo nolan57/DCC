@@ -1,0 +1,103 @@
+================================================================================
+[front_sweep v1] what the unfolding process looks like as the two-dimensionalization front sweeps over a human body
+================================================================================
+
+  Geometric ledger: d=0.2154 nm  A=324.9 km^2  A_c=0.0400 m^2  N_slice=8.123e+09  NT=90126
+
+[A] after cutting, are there 81 hundred million slices, or more fragments?
+  Criterion: take a cross-section of each layer and count 4-connected components. Two legs/two arms split a layer into several pieces.
+
+  Region          z range        components    area per piece (m^2)
+  calf -> thigh       0.012-0.800     2.00          0.0063 - 0.0221
+  pelvis            0.800-0.960     1.00          0.0457 - 0.0457
+  abdomen           0.960-1.170     1.00          0.0464 - 0.0516
+  chest             1.170-1.380     1.00          0.0540 - 0.0540
+  shoulder          1.380-1.470     1.00          0.0490 - 0.0490
+  neck              1.470-1.560     1.00          0.0098 - 0.0098
+  head              1.560-1.738     1.00          0.0202 - 0.0303
+
+  Mean components = 1.457  ->  total fragment count = 1.457 x 8.123e+09 = 1.18e+10 pieces
+  Fragment areas: min 6.26e-03 m^2, max 0.0540 m^2, median 0.0171 m^2
+  Note: each piece is not one atom, but a whole thin plate 0.215 nm thick, with area from mm^2 to 5e-2 m^2.
+
+  Phantom self-check: int A_c(z) dz = 0.0601 m^3 (nominal 0.070; the phantom is 14% too thin, so the area is slightly smaller by the same ratio)
+  Side area: int P(z) dz = 0.72 m^2 (negligible relative to the 325 km^2 front face)
+  => Fragments are essentially thin plates, not 3D debris; the sides account for only 2.2e-09
+  [CHECK   ] A_phantom_volume                         PASS   int A_c dz = 0.0601 m^3 vs 0.0700
+  [CHECK   ] A_fragment_count                         PASS   1.18e+10 pieces (not 8.1e9 slices; the excess comes from the two leg segments)
+
+[B1] what matter undergoes in sequence as the front sweeps through one layer
+  Step 1 break: all interlayer bonds between this layer and its neighbours lose their domain of definition in a single dimensionality reduction.
+             Not torn apart (stretching takes time), but the z direction ceases to exist -- the domain of the bonds vanishes.
+             Fracture area = cross-sectional area of the layer, all at once.
+  Step 2 spread: the whole layer, as a 2D rigid body, translates to its lattice site.
+             **In-layer (x,y) identity -> in-layer strain = 0, all displacement is taken up between layers.**
+  Step 3 place: on entering the site, it joins neighbouring sites edge-to-edge only, with no in-plane bonding.
+
+  Key inference: the whole unfolding = 8.12e+09 SE(2) rigid translations, not one of them a deformation.
+  So 'smooth' holds for the advance of the front (zero strain inside each layer),
+  but fails everywhere between layers (all 8.12e+09 interfaces are severed).
+  [ARGUMENT] B1_zero_strain_inside_layer              PASS   in-layer strain 0; all displacement taken up by interlayer interfaces
+  [ARGUMENT] B1_front_is_delamination                 PASS   front = layer-by-layer delamination surface, neither a flattening surface nor a tearing surface
+
+[B2] timing ledger: how fast the front moves, how fast the atoms must move
+  Placement distances (origin at the body center, square array 90126 x 90126):
+    mean 13.78 km   max 25.46 km (diagonal)
+
+  Total time      2.2 s -> farthest atom speed   11.57 km/s, kinetic energy  4.18 eV/atom
+  Total time     10.0 s -> farthest atom speed    2.55 km/s, kinetic energy  0.20 eV/atom
+  Total time    100.0 s -> farthest atom speed    0.25 km/s, kinetic energy  0.00 eV/atom
+  Total time   1750.0 s -> farthest atom speed    0.01 km/s, kinetic energy  0.00 eV/atom
+
+  Criterion: transport kinetic energy < bond energy (~4 eV) so matter is not scrambled
+    v_lim = 11.32 km/s  ->  minimum total time = r_max/v_lim = 2.25 s
+  That is: the 3D-to-2D conversion **cannot be completed in under a second**, otherwise atoms are flung into place rather than placed.
+  [CHECK   ] B2_min_duration                          PASS   T >= 2.2 s (set by transport kinetic energy < 4 eV)
+
+[B3] heat ledger: cutting releases heat -- will the image burn itself away?
+  Cut energy per unit area = 2*gamma_eff; total cut area = 3.249e+08 m^2
+
+  gamma_eff (J/m^2)    total heat (J)   temperature rise dT (K)   diffusion length (readable at mm scale?)
+  --------------------------------------------------------------------------
+  0.07                 4.55e+07      155           1e-07 m  readable
+  0.30                 1.95e+08      663           9e-08 m  readable
+  1.00                 6.50e+08      2210          4e-08 m  readable
+
+  How to read:
+    · Cutting soft tissue: gamma ~ 0.07 J/m^2 -> heat 4.5e7 J, temperature rise 150 K, the film is warm.
+    · If the cut cuts through many covalent bonds (gamma -> 1) -> temperature rise 2000 K, the film melts.
+    · In both cases atomic diffusion **before cooling completes** (10-30 us) is of order 10-100 nm.
+  Conclusion: atomic-scale detail is lost over 10-100 nm, but the readable scale of the image is 1 mm -- **a difference of 4-5 orders of magnitude**.
+        So: this picture is blurry at the atomic level, clear at the anatomical level.
+  [ESTIMATE] B3_heat_keeps_picture                    PASS   diffusion 1e-8 m << readable scale 1e-3 m
+  [ESTIMATE] B3_sheet_is_hot                          PASS   the freshly cut film carries 10^2-10^3 K residual heat and must cool before it is fixed
+
+[B4] ordering ledger: the placement order is not entirely free
+  If we require 'the picture is finished when the front finishes sweeping', then the farthest site must be filled first -- 'far first, near last'.
+  If we insist on 'placing in head-to-toe order', the sites for the last batch of slices are 25.5 km away, requiring a transport tail:
+    tail ~ 2.2 s (at the speed corresponding to the 4 eV limit)
+  Both are allowed; it is just that 'front finished sweeping' and 'picture formed' are two different moments.
+
+  Counterexample (why it cannot be laid out as one long film strip):
+    strip width 0.20 m -> strip length 1.62e+06 km, requiring 2.41 c at the minimum time of 2.2 s  REJECTED
+    strip width 0.49 m -> strip length 6.63e+05 km, requiring 0.98 c at the minimum time of 2.2 s  feasible
+    strip width 1.00 m -> strip length 3.25e+05 km, requiring 0.48 c at the minimum time of 2.2 s  feasible
+  That is: a 'film' layout 0.2 m wide fails the speed-of-light test; the strip width must be > 0.48 m.
+  [CHECK   ] B4_strip_layout_forbidden                PASS   0.2 m strip width requires 2.4 c
+  [ARGUMENT] B4_order_needs_tail                      PASS   order is free, but one pays a transport tail (~2 s)
+
+================================================================================
+[Conclusion] the complete process as the front sweeps through
+================================================================================
+  1. Morphology: a planar delamination front advancing along the body-height direction, peeling off one atomic layer (0.215 nm) at a time.
+  2. Three steps per layer: break (dimensionality reduction removes the domain of interlayer bonds) -> spread (rigid translation of the whole layer) -> place (edge-to-edge joining).
+     In-layer strain is always 0; all 8.1e+09 interfaces are severed, fracture area 325 km^2.
+  3. Fragments: not 8.1e9 whole slices, but 1.2e+10 pieces (the leg segments split into two per layer), areas 6e-3 to 5e-2 m^2.
+  4. Time: minimum 2.2 s (any faster and atoms are scattered) -> upper limit on front speed 0.78 m/s;
+     if relaxed to the minute scale, the front is a slow sweep of order 1 mm/s.
+  5. Heat: heat released by cutting brings the film to 300-2000 K, atoms diffuse 10-100 nm before cooling;
+     atomic-scale detail is lost, the 1 mm-scale anatomical image is intact -- this picture is "blurry at atoms, clear at anatomy".
+  6. Order: free, but either 'far first, near last' or keep a transport tail; the long-film-strip layout is ruled out by the speed of light.
+
+  In one sentence: this is not 'squashing a person into a picture', but 'peeling the person layer by layer, spreading the layers flat, and filing them in order'.
+  The front is more like a layer-peeling machine plus a placement machine, with a microsecond-scale heat flash in between.

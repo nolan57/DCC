@@ -1,0 +1,123 @@
+{
+  "cycle_id": "W1-ROW2-ARTIFACT-01",
+  "utc": "2026-11-25T03:02:35Z",
+  "python": "3.13.12",
+  "numpy": "2.4.6",
+  "matplotlib": "3.11.0",
+  "pillow": "12.2.0",
+  "inputs": {
+    "stage_a": {
+      "path": "src/analysis/w1_row2_scene_v1.py",
+      "sha256": "26e8f313937f6d8b7db13fcf53b31ebf7fa8c592c793cca10e588620577046d9"
+    },
+    "shared_module": {
+      "path": "src/analysis/w1_row2_common_v1.py",
+      "sha256": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+    },
+    "tiers_core": {
+      "path": "src/analysis/tiers_core_v1.py",
+      "sha256": "5f2ec9f8f2b9902b5e93a1fcae91f9e2f3f26afe12aaa15ec13b8a0317837a6d"
+    },
+    "phantom": {
+      "path": "src/analysis/unfold_appearance_v1.py",
+      "sha256": "933838993be612255ff6e1c5258dea0ba5017d1b149f60a9900a7144cb580208"
+    },
+    "threshold_lock": {
+      "path": "runs/MATRIX/threshold_lock.json",
+      "sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d"
+    }
+  },
+  "preregistration": {
+    "lock": "runs/W1-ROW2/row2_lock_v1.json",
+    "sha256": "02dfa432d814c7a5537a05e18893f4e280f2f4406360097984a102e555151150",
+    "lock_sha256_file": "02dfa432d814c7a5537a05e18893f4e280f2f4406360097984a102e555151150",
+    "verified": true,
+    "files": {
+      "scene_card": {
+        "path": "runs/W1-ROW2/row2_scene_card_v1.md",
+        "sha256": "bdeec95c0d11afa1f5d66219871a3b2a453259882bc17f2ef69801d044b86be1"
+      },
+      "manifest": {
+        "path": "runs/W1-ROW2/row2_manifest_v1.json",
+        "sha256": "80a973710d04c0676c56c996c2440ac612a1284cdbdfb95681a4ae486d3b11f4"
+      },
+      "solver_spec": {
+        "path": "runs/W1-ROW2/row2_solver_spec_v1.md",
+        "sha256": "fab9fc6fde512942a2452110c59ce0659d31c96e0073318b13acad5cc887724e"
+      },
+      "prediction": {
+        "path": "runs/W1-ROW2/row2_prediction_v1.json",
+        "sha256": "75b78795b9a86348bcc6b60d683dc9f8b0e366219dea94275b670aefc951b401"
+      },
+      "shared_module": {
+        "path": "src/analysis/w1_row2_common_v1.py",
+        "sha256": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+      },
+      "tiers_core": {
+        "path": "src/analysis/tiers_core_v1.py",
+        "sha256": "5f2ec9f8f2b9902b5e93a1fcae91f9e2f3f26afe12aaa15ec13b8a0317837a6d"
+      },
+      "phantom": {
+        "path": "src/analysis/unfold_appearance_v1.py",
+        "sha256": "933838993be612255ff6e1c5258dea0ba5017d1b149f60a9900a7144cb580208"
+      },
+      "threshold_lock": {
+        "path": "runs/MATRIX/threshold_lock.json",
+        "sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d"
+      }
+    }
+  },
+  "prediction_check": {
+    "n_cells": 24,
+    "n_mismatch": 0,
+    "status": "PASS"
+  },
+  "outputs": {
+    "row2_t0.png": {
+      "path": "runs/W1-ROW2/row2_t0.png",
+      "sha256": "9f82fd148cd1ef40368c1f8eccd88e9c0db7e3d7c2e010264fdfb3c3f71de33d"
+    },
+    "row2_tmid.png": {
+      "path": "runs/W1-ROW2/row2_tmid.png",
+      "sha256": "94618e54ba97b2bc942287dfcf30819e75ec26ca33b7e0b48e25fd1ac214620b"
+    },
+    "row2_tend.png": {
+      "path": "runs/W1-ROW2/row2_tend.png",
+      "sha256": "216be83e1b54b2b1722d862095a986368c7adf626107d2a33122cb6147293c3c"
+    },
+    "row2_sequence.gif": {
+      "path": "runs/W1-ROW2/row2_sequence.gif",
+      "sha256": "6960367a774b33934caf4db23347bb6dddbf24ecd46f6ed33f741ec998347edc"
+    },
+    "row2_t0.display.txt": {
+      "path": "runs/W1-ROW2/row2_t0.display.txt",
+      "sha256": "dc1b527d90407eb3b123a5b17a05653e0c17cff8d86a78fcc11912c87a81edc4"
+    },
+    "row2_tmid.display.txt": {
+      "path": "runs/W1-ROW2/row2_tmid.display.txt",
+      "sha256": "cead36bf4edec772366b993e65e5c5c9df2fc2522726bdd8549b040dc9265db9"
+    },
+    "row2_tend.display.txt": {
+      "path": "runs/W1-ROW2/row2_tend.display.txt",
+      "sha256": "a56897edc20c06342950293d799224f070fe7f62a604e54dafc6fd27d1f423b3"
+    },
+    "row2_sequence.display.txt": {
+      "path": "runs/W1-ROW2/row2_sequence.display.txt",
+      "sha256": "c4efc8dbe2aad4caf98578fedbfa8d788a0c4560e5b0dcb57accb232d97b916d"
+    },
+    "row2_profile_v1.csv": {
+      "path": "runs/W1-ROW2/row2_profile_v1.csv",
+      "sha256": "8b9b133d5210f7e293b3f36a6a4d8b7b2c6deaf708c1175796b2b498638b78f5"
+    },
+    "row2_effective2d_v1.json": {
+      "path": "runs/W1-ROW2/row2_effective2d_v1.json",
+      "sha256": "f592172b36c6c2bc886f2788bec8b181dab57ed3f37a007e7c4d5578114a914e"
+    },
+    "row2_results_v1.txt": {
+      "path": "runs/W1-ROW2/row2_results_v1.txt",
+      "sha256": "bb63278b0badc2b552b4a2328c09f15073f0f1787d34719709661e77de2a6ee7"
+    }
+  },
+  "reproduction_level": "R2 (physical quantities); frame reproduction not claimed (R3)",
+  "notes": "artifact cycle; geometry PRESCRIBED (D2); C3 is a declared imported transient; no reduction equation is solved; no visibility, readability or realizability claim"
+}

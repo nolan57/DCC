@@ -1,0 +1,171 @@
+# RQ-08 -- does N7 still block at the state-derived mu_e?
+
+**Round**: 58 (`RQ-08`).  **Registration**: `runs/R3/n7_recheck_registration.md`.
+**Instrument**: `src/r3/n7_recheck.py` -- this file is emitted by it, not transcribed.
+**Inputs**: `configs/g0_prime_v3.json` (kinetic Q table); `src/common/conv.py` (`frozen_state`,
+`beta_eq`, `eos_e_2D/3D`); `runs/R1B/r1b1_p2_eos_scan_results.txt` P2-1/P2-5;
+`runs/R1B/r1b1_p4_census_results.txt` (free fraction 1.000); `runs/R1B/r1b1_p4_tau_results.txt`
+(`tau`, `sigma_DC`).  No fitted parameter; no bar adjusted after the run.
+
+```text
+
+==============================================================================
+[1] THE FROZEN COMPARISON, REPRODUCED
+==============================================================================
+  frozen n_e,2D = 0.022005 fm^-2; k_F = 0.371834 fm^-1
+  E_F(2D, hbar c k_F) = 73.372975 MeV (kinetic); mu_e - m_e = 72.861975 MeV (over-conservative)
+  nuclide   Q[MeV]   mu_kin[MeV]   margin[MeV]   open
+  p            0.782      72.86197      72.07997   YES
+  Fe56         3.690      72.86197      69.17197   YES
+  N14          5.880      72.86197      66.98197   YES
+  O16          7.120      72.86197      65.74197   YES
+  Mg24        10.770      72.86197      62.09197   YES
+  C12         13.370      72.86197      59.49197   YES
+  The frozen E_F = hbar c k_F is already KINETIC, so the physical frozen comparison
+  is 73.373 MeV directly against kinetic Q (margin 60.003 MeV).  The column above
+  also subtracts m_e uniformly as an over-conservative shift: even 72.862 MeV
+  exceeds the largest Q by 59.492 MeV.  Both readings give 6/6 open; no verdict
+  depends on which of the two is used.
+  [P1] -> CONFIRMED   (CHECK)
+
+==============================================================================
+[2] THE SAME COMPARISON AT THE STATE-DERIVED mu_e
+==============================================================================
+  beta_eq: mu_n - mu_p = mu_e, mu_n = M_N + E_F,n, mu_p = M_P + E_F,p,
+  M_N - M_P = 1.293 MeV.  mu_kin = mu_e - m_e (m_e = 0.511 MeV).
+
+  label       mu_e[MeV] mu_kin[MeV] open/6   min margin   dF=Fn-Fp  beta_res
+  ALL3D        24.95657    24.44557     6/6     11.07557    23.6636  -3.6e-15
+  HYB          21.54451    21.03351     6/6      7.66351    20.2515  -3.6e-15
+  ALL2D         6.73311     6.22211     3/6     -7.14789     5.4401   0.0e+00
+  Lz=1.68      16.48376    15.97276     6/6      2.60276    15.1908   3.6e-15
+  Lz=1.76      16.08133    15.57033     6/6      2.20033    14.7883   0.0e+00
+  Lz=1.84      15.70468    15.19368     6/6      1.82368    14.4117   3.6e-15
+  Lz=1.92      15.35128    14.84028     6/6      1.47028    14.0583  -1.8e-15
+  Lz=1.99      15.05936    14.54836     6/6      1.17836    13.7664   3.6e-15
+
+  NAIVE READING: all HYB and ALL3D states remain 'capture open' at 6/6;
+  ALL2D is 3/6 -- p, Fe56, N14 open; O16, Mg24, C12 closed.
+  So the threshold arithmetic of the frozen baseline DOES reproduce at the
+  solved state.  Whether it means what N7 says it means is §4.
+  [P2] -> CONFIRMED   (CHECK)
+  [P3] -> CONFIRMED   (CHECK)
+  [P4] -> CONFIRMED   (CHECK)
+  [P5] -> CONFIRMED   (CHECK)
+  [P6] -> CONFIRMED   (CHECK)
+  [P13] -> CONFIRMED   (CHECK)
+
+==============================================================================
+[3] THE CONVENTION SHIFT IS NOT WHAT MOVES A VERDICT
+==============================================================================
+  g0_prime_v3.json: kinetic (excludes m_e); total-mu convention adds 0.511 MeV
+  conv.eos_e_3D returns sqrt(p^2+m_e^2) -- TOTAL; conv.eos_e_2D returns hbar c k_F
+  -- KINETIC, yet beta_eq puts that number in the total-chemical-potential slot.
+  For beta_eq OUTPUTS, mu_e - m_e is the kinetic capture energy in BOTH branches:
+  beta_eq sets mu_e = M_N-M_P + dF = 1.293 + dF in either dimensionality.  The
+  frozen E_F is different: it is kinetic already and is compared to Q directly.
+
+  ALL2D: mu_e = 6.73311 -> mu_kin = 6.22211
+    distance to N14 (5.88, open)   : +0.34211 MeV
+    distance to O16 (7.12, closed) : -0.89789 MeV
+  The 0.511 MeV shift is smaller than both distances: no ALL2D classification
+  depends on it.  It does change the LABEL of the 2D EOS output, which is a
+  naming defect, not a numerical one at this state.
+  G0p-v3 row 7 says mu_e in [6.73,24.96] exceeds all Q 'in every convention'.
+  At its own lower endpoint 6.7331 < Q(O16)=7.12: that clause is FALSE.
+  The row's NO verdict (the frozen electron gas is not the ground state) does
+  not depend on the clause: the frozen state alone is 6/6 open.
+
+==============================================================================
+[4] THE HOST-SPECIFIC THRESHOLD -- WHERE N7'S ANTECEDENT GOES
+==============================================================================
+  N7 compares mu_e with the VACUUM Q of a nuclide.  But the beta-equilibrium
+  state has that nuclide's daughter already filled to its Fermi surface.  A
+  Fermi-surface electron can capture on a proton only if the neutron can be
+  placed ABOVE E_F,n, so the host-specific kinetic threshold is
+
+      Q_eff,p = 0.782 + (E_F,n - E_F,p) = 0.782 + dF.
+
+  Since beta_eq gives mu_e = 1.293 + dF, we have mu_e - m_e = 0.782 + dF
+  identically: a solved state sits AT its own capture threshold at T = 0.
+
+  mode      Q_eff,p   mu_kin     rel dev    beta residual
+  ALL3D      24.44557   24.44557   4.44e-16      -3.55e-15
+  HYB        21.03351   21.03351   5.55e-16      -3.55e-15
+  ALL2D       6.22211    6.22211   9.99e-16       0.00e+00
+  [P7] -> CONFIRMED   (CHECK)
+  [P8] -> CONFIRMED   (CHECK)
+
+  TWO READINGS OF THE SAME SENTENCE:
+    vacuum Q (as the frozen baseline used it): mu_kin = 21.03351 > 13.37 -> OPEN 6/6
+    host-specific Q_eff,p                    : mu_kin = 21.03351 = 21.03351 -> AT THRESHOLD
+  Only the first reading blocks.  It is the reading that was appropriate to a
+  carbon/oxygen/iron host with an empty daughter level; it does not transfer to
+  an equilibrated npe fluid whose daughter neutron sea is filled to E_F,n.
+
+==============================================================================
+[5] THE IMPLICATION TEST -- DOES THE ELECTRON GAS LOSE ITS OBJECT?
+==============================================================================
+  N7's form: (mu_e > Q_host) ==> (carriers removed; no low-energy e-gas theory).
+  At the solved HYB state:
+    antecedent, vacuum reading   : TRUE  (6/6 open, margin 7.664 MeV)
+    consequent                   : FALSE (n_e,areal = 1.897232e-03 fm^-2 > 0;
+                                    RQ-05 free fraction = 1.000, margins >= 10x)
+  A TRUE => FALSE implication is falsified on that reading.  On the host-specific
+  reading the antecedent is FALSE (equality at T = 0), so the implication is
+  vacuous and the carriers stand.  Both readings agree on the object-level fact:
+  the solved state HAS carriers, and N7's block is a statement about the frozen
+  object, not about this one.
+  [P9] -> CONFIRMED   (CHECK)
+  [P10] -> CONFIRMED   (STRUCTURAL)
+
+  NOT CLAIMED: that capture never happens.  A displaced state (mu_e > mu_e,eq)
+  still captures; at exact equilibrium and T = 0 the net rate is zero.  The
+  claim is only that the EOS-produced state is the equilibrium product of the
+  very capture N7 invokes, so applying a one-way removal rule to it is circular.
+
+==============================================================================
+[6] WHAT DOES AND DOES NOT MOVE
+==============================================================================
+  mu_e is not an input to RQ-03's impurity kernel: it takes n_free,2D, m_eff,
+  eps = 1 and L_z.  Quoting the registered products (not recomputed here):
+    tau_tr    = 2.000e-20 s     sigma_DC = 8.630e-04 S     k_F l = 22.3
+  No S1-S15 verdict is a function of mu_e: S7/S13 are binary on the rate's NAME
+  and derivation, S12a/b are shapes, S5 is a closure.  The census (RQ-05) is
+  unchanged and remains null.  Nothing in the optical record moves.
+  [P11] -> CONFIRMED   (STRUCTURAL)
+  [P12] -> CONFIRMED   (STRUCTURAL)
+  [P14] -> CONFIRMED   (STRUCTURAL)
+
+==============================================================================
+[7] VERDICTS AND GATE STATUS
+==============================================================================
+  P1   PASS       CHECK
+  P2   PASS       CHECK
+  P3   PASS       CHECK
+  P4   PASS       CHECK
+  P5   PASS       CHECK
+  P6   PASS       CHECK
+  P13  PASS       CHECK
+  P7   PASS       CHECK
+  P8   PASS       CHECK
+  P9   PASS       CHECK
+  P10  PASS       STRUCTURAL
+  P11  PASS       STRUCTURAL
+  P12  PASS       STRUCTURAL
+  P14  PASS       STRUCTURAL
+
+  14/14 confirmed; tags: CHECK 10, IDENT/STRUCTURAL 4
+  RQ-08 verdict: CLOSED-CONSTRUCTIVE IF P3,P8,P9,P10 hold.
+  G5' is NOT passed by this round: the N7 objection is removed on the grounds
+  examined here, but the effective-2D conditional still needs its model,
+  subsystem, occupation and probe slots, and G4 remains unlocalised.
+  queue state read at run time: QUEUED (this instrument writes no decision document)
+  tags: CHECK = independent computation; STRUCTURAL = dependency inspection or
+  quoted product value, not a fresh measurement.
+
+PROVENANCE: NEITHER  (threshold arithmetic on registered states and a registered
+Q table; no chain evidence, no gate mark, and no new visibility claim)
+```
+
+*Content generated by AI*

@@ -1,0 +1,87 @@
+==========================================================================
+R1-A2 moving-wall double benchmark: Pinney numerical + registered analytic protocols
+spec: roadmap v1.4 sec 2.7 / sec 8.2 row R1-A2
+==========================================================================
+[parameters] (registered before run)
+  Pinney equation        : rho'' + w^2(t) rho = rho^{-3}
+  protocol (i)           : a(t) = t (c=1), u'' + (k/t)^2 u = 0 (Euler)
+                           exact branches sqrt(t) t^{+-i sigma}, sigma=sqrt(k^2-1/4)
+                           analytic N_k = 1/(e^{2 pi sigma} - 1)
+                           k list: (0.6, 1.0, 1.5, 2.5) ; t0=1.0, t_end=100.0
+  protocol (ii)          : sudden a1=1.0 -> a2=2.0, w_i=pi/a1, w_f=pi/a2
+  protocol (iii)         : w(t)=w0(1+eps cos(Omega t)), Omega=2 w0 (band center)
+                           w0=1.00, eps=0.05, T=400, fit window [300,400]
+  Pinney Euler case      : w(t)=k^2/t^2 with k=1.0, t in [1.0,10.0]
+  constant-w anchor      : w0=1.30, rho(0)=1/sqrt(w0), rho'(0)=0, T=10
+  solver                 : scipy solve_ivp, method=RK45, rtol=1.0e-10, atol=1.0e-12
+[thresholds] (registered before run)
+  protocol (i)  max_k |beta^2_num - N_k|        < 1.0e-03
+  protocol (ii) |beta^2_num - (w_f-w_i)^2/4w_iw_f| < 1.0e-03
+  protocol (iii) |rate - eps*w0/2| / (eps*w0/2) < 0.10
+  Pinney Euler  max rel dev vs closed form      < 1.0e-03
+  Lewis invariant max |I - 1/2|                 < 1.0e-06
+  Wronskian pair  max |W - 1|                   < 1.0e-06
+
+[protocol (i)] free expansion a(t) = t (registered protocol, v1.4 sec 2.7)
+  initial mode: Fuchsian half-monodromy vacuum u_in (registered normalization)
+  u_in = sqrt(t)[e^{+pi s/2} t^{-i s} + e^{-pi s/2} t^{+i s}]/sqrt(4 s sinh(pi s))
+  extraction: Wronskian decomposition onto exact branches f_+- at t_end
+  k      sigma    N_k analytic  beta^2 num    |dev|       KG-1      
+  0.60   0.3317   1.421318e-01  1.421318e-01  2.399e-11   9.55e-12  
+  1.00   0.8660   4.352281e-03  4.352281e-03  1.365e-12   -3.26e-11 
+  1.50   1.4142   1.383633e-04  1.383633e-04  1.990e-14   -1.17e-10 
+  2.50   2.4495   2.069895e-07  2.069895e-07  1.172e-15   -3.15e-10 
+  max_k |beta^2_num - N_k| = 2.399e-11  <  1.0e-03
+  diagnostic (not a verdict): instantaneous-Minkowski-vacuum normalization
+  k      beta^2_MW num  beta^2_MW closed |diff|     
+  0.60   0.40453403     0.40453403     3.497e-11  
+  1.00   0.07735027     0.07735027     6.714e-12  
+  1.50   0.03033009     0.03033009     2.665e-12  
+  2.50   0.01031036     0.01031036     3.149e-12  
+  -> MW normalization gives power-law tail [(k-sigma)^2+1/4]/(4 k sigma),
+     NOT the registered thermal N_k: this is the normalization/phase-matching
+     subtlety flagged in the task spec; the Fuchsian vacuum is the registered one.
+  protocol (i) verdict: PASS
+
+[protocol (ii)] sudden jump a1=1.0 -> a2=2.0 (1D box ground state)
+  w_i = pi/a1 = 3.141593 ; w_f = pi/a2 = 1.570796
+  analytic beta^2 = (w_f-w_i)^2/(4 w_i w_f) = 0.12500000
+  numeric  beta^2 (two-segment integration) = 0.12500000
+  |numeric - analytic| = 1.142e-10  <  1.0e-03
+  protocol (ii) verdict: PASS
+  (same benchmark as module R1-A1 test T4: sudden-limit cross-check)
+
+[protocol (iii)] periodic wall, main parametric resonance band center
+  w(t) = 1.00 (1 + 0.05 cos(2*1.00 t)) ; long integration T = 400
+  fitted Floquet rate ln|u|/t      = 0.024977
+  perturbative analytic eps*w0/2   = 0.025000
+  (cross-check ln|u|^2/t = 0.049953)
+  relative deviation = 9.353e-04  <  0.10
+  protocol (iii) verdict: PASS
+
+[Pinney] Euler case w(t) = k^2/t^2 (k = 1.0, sigma = 0.866025)
+  closed form rho = sqrt(2)|u_in| = sqrt(t [cosh(pi s)+cos(2 s ln t)]/(2 s sinh(pi s)))
+  initial rho(t0) = 1.147797 (order 1/sqrt(w0) with w0 = k = 1.0)
+  max_t |rho_num - rho_closed|/rho_closed = 3.547e-11  <  1.0e-03
+  Lewis invariant I = (1/2)[|u/rho|^2 + |rho u' - u rho'|^2], anchor I = 1/2:
+  max_t |I - 1/2| (Euler case)            = 9.007e-11  <  1.0e-06
+  Wronskian pair W(u1,u2), anchor W = 1:
+  max_t |W - 1| (Euler case)              = 1.801e-10  <  1.0e-06
+
+[Pinney] constant-w anchor: w0 = 1.30, rho(0)=1/sqrt(w0), rho'(0)=0
+  exact solution rho = 1/sqrt(w0) = 0.877058 (constant)
+  max_t |rho_num - 1/sqrt(w0)|/(1/sqrt(w0)) = 3.798e-16
+  max_t |I - 1/2| (constant case)           = 1.737e-10
+  max_t |W - 1| (constant case)             = 3.475e-10
+
+[verdicts]
+  V1 protocol (i) free expansion  max|beta^2_num - N_k| = 2.399e-11 : PASS
+  V2 protocol (ii) sudden         |beta^2_num - 1/8|    = 1.142e-10 : PASS
+  V3 protocol (iii) periodic wall rel dev vs eps*w0/2   = 9.353e-04 : PASS
+  V4 Pinney Euler vs closed form  max rel dev           = 3.547e-11 : PASS
+  V5 Lewis invariant I=1/2        max |I-1/2| both cases= 1.737e-10 : PASS
+  V6 Wronskian pair W=1           max |W-1| both cases  = 3.475e-10 : PASS
+R1-A2 OVERALL: PASS
+evidence level: MODEL RESULT (Pinney numerical solution + registered
+                analytic protocols i/ii/iii per v1.4 sec 2.7; unregistered
+                wall motions are not claimed as analytic validation)

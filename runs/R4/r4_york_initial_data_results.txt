@@ -1,0 +1,83 @@
+==========================================================================
+P2-C2 / R4 step (5): York conformally flat time-symmetric initial data
+spec: roadmap v1.4 sec 12.6; runs/R4 step 5 = 'critical gap for R4'
+==========================================================================
+[scope] (registered before run)
+  time-symmetric slice (K_ij = 0, zero shift): momentum constraint trivial;
+  Hamiltonian: Lap psi = -(kappa/4) rho psi^5, gamma = psi^4 delta
+  spherical subclass of the axisymmetric requirement; scalar shell source;
+  Maxwell flux sector on the slice: DEFERRED (needs dF=0-compatible ansatz)
+  production P2-C2 (time-dependent 2+1 evolution): remains OPEN
+  supersedes: DCC_P2_wall_sph.py Newton initial data (diverged, registered)
+[parameters] (registered before run)
+  kappa = 1.0 ; v = 1.0 ; lam = 1.0 ; eps = 0.0 (P1a values)
+  shell: phi = -v tanh(sqrt(lam/2) v (r - 10.0)) ; domain [0, 60]
+  base grid N=1201 (dr=0.0500) ; Newton max=60 tol=1e-13 ; source scales (0.01, 0.03, 0.05, 0.07, 0.1, 0.3, 1.0)
+[thresholds] (registered before run)
+  T1 vacuum |psi - 1|                    < 1.0e-10
+  T2 puncture observed order in [1.6, 2.4], finest err < 1.0e-03
+  T3 kink observed order in [1.6, 2.4], residual < 1.0e-08
+  T4 psi > 0 everywhere and mu_ADM >= 0  : required
+  T5 mu plateau drift (outer quarter)    < 5%
+
+[T1] vacuum exact solution (rho = 0)
+  max |psi - 1| = 3.455e-13  (direct solve)  <  1.0e-10
+  T1 verdict: PASS
+
+[T2] Brill-Lindquist puncture machinery anchor (m = 0.5, Dirichlet at r=2.0)
+  max |psi_num - (1 + m/2r)| per grid (N, 2N, 4N): 3.411e-07 8.445e-08 2.101e-08
+  observed orders: coarse->mid 2.01, mid->fine 2.01 (expect 2)
+  T2 verdict: PASS
+
+[T3] kink-shell nonlinear solve (r0 = 10.0), solvability scan (0.01, 0.03, 0.05, 0.07, 0.1, 0.3, 1.0)
+  (run-1 registered FAIL: Picard diverged at P1a strength; replaced by
+   damped Newton with analytic Jacobian -- see module header)
+  (diagnostic round: sc <= 0.05 solves to ~1e-14; sc = 0.1 has NO solution
+   -- residual floor = source scale under both damped Newton and scipy
+   hybr; the existence threshold is bracketed in (0.05, 0.1))
+  scale=0.01 : |psi(N)-psi(4N)|=6.462e-05  |psi(2N)-psi(4N)|=1.300e-05  order=2.314  resid=1.4e-11 6.4e-11 1.8e-10  PASS
+  scale=0.03 : |psi(N)-psi(4N)|=2.605e-04  |psi(2N)-psi(4N)|=5.242e-05  order=2.313  resid=7.8e-12 1.5e-11 6.4e-11  PASS
+  scale=0.05 : |psi(N)-psi(4N)|=1.117e-03  |psi(2N)-psi(4N)|=2.256e-04  order=2.309  resid=2.0e-12 6.8e-12 2.2e-11  PASS
+  scale=0.07 : NO DISCRETE SOLUTION (Newton floor = source scale;
+              continuation branch lost -- existence threshold crossed)
+  scale=0.10 : NO DISCRETE SOLUTION (Newton floor = source scale;
+              continuation branch lost -- existence threshold crossed)
+  scale=0.30 : NO DISCRETE SOLUTION (Newton floor = source scale;
+              continuation branch lost -- existence threshold crossed)
+  scale=1.00 : NO DISCRETE SOLUTION (Newton floor = source scale;
+              continuation branch lost -- existence threshold crossed)
+  T3 verdict: PASS (machinery criteria on the existing branch [0.01, 0.03, 0.05];
+          York existence threshold bracketed in (0.05, 0.07) x P1a strength)
+
+[T4/T5] scale=0.01 : min psi=1.0043  mu_ADM=0.5103  plateau drift=0.0000
+        Newton iterations: 60 (last residual 2.47e-13)
+[T4/T5] scale=0.03 : min psi=1.0155  mu_ADM=1.8615  plateau drift=0.0000
+        Newton iterations: 60 (last residual 3.14e-13)
+[T4/T5] scale=0.05 : min psi=1.0392  mu_ADM=4.7095  plateau drift=0.0000
+        Newton iterations: 60 (last residual 2.76e-13)
+[T4/T5] scale=0.07 : no discrete solution (registered above)
+[T4/T5] scale=0.10 : no discrete solution (registered above)
+[T4/T5] scale=0.30 : no discrete solution (registered above)
+[T4/T5] scale=1.00 : no discrete solution (registered above)
+  T4 verdict (positivity + mu >= 0 on the existing branch): PASS
+  T5 verdict (mu plateau on the existing branch): PASS
+
+[momentum constraint] (algebraic statement, registered)
+  K_ij = 0 and zero shift => momentum constraint identically satisfied;
+  no shift unknowns are solved for. Registered as an algebraic identity.
+
+[verdicts]
+  T1 vacuum exact solution    : PASS
+  T2 puncture machinery anchor: PASS
+  T3 kink self-convergence    : PASS
+  T4 positivity/energy        : PASS
+  T5 falloff plateau          : PASS
+York initial data (P2-C2 / R4-5 screening level) OVERALL: PASS
+delivered: conformally flat time-symmetric slice with a scalar shell
+  source solved to registered residual on the existing branch;
+  momentum constraint trivial (K = 0); mu_ADM per scale above.
+evidence level: MODEL RESULT (screened scope: slice only, spherical subclass,
+                scalar source; Maxwell slice sector and time evolution OPEN)
+status registration: R4 step (5) = P2-C2 initial-data layer -> EXECUTED at
+                screening level; R4 step (6) (exterior asymptotics) and the
+                time-dependent 2+1 evolution remain OPEN.

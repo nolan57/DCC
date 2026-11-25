@@ -1,0 +1,151 @@
+DCC P1 numerical verification results summary (G1-Review v2.0 closeout version)
+====================================================================
+Generation time: 2026-11-21T22:02:05
+Code: DCC_P1_bubble_wall.py
+Runtime environment: numpy 2.4.6, matplotlib 3.11.0
+
+[0] Conventions and units
+  Natural units c=hbar=1; lam=v=1 as the baseline.
+  Potential: V(phi)=lam/4 (phi^2-v^2)^2 + eps*phi/(2v)  => Delta_V_vac = eps
+  Tilt-term implementation = eps*phi/(2v) (not eps*phi/v)
+  spinodal critical slope eps_c = 4*lam*v^3/(3*sqrt3) = 0.769800
+  Actual eps = 0.01  =>  eps/eps_c = 1.299%
+  Z(phi) = exp(alpha*phi/v), alpha=0.5, Z>0 always holds (Z_min=0.6065)
+  Wall thickness definition: phi from -0.9v to +0.9v; wall position: linear interpolation of phi=0.
+  Energy density: rho = 0.5*phidot^2 + 0.5*phi'^2 + V(phi)
+  Energy residual definition: E_res = max_t |E(t)-E(0)| / |E(0)| (maximum over the whole run, not just the final value)
+
+[1] P1a static wall (G1 items 1-7)
+  Parameters: lam=1.0, v=1.0, eps=0.0
+  Grid: L=[-30,30], dx=0.05, dt=0.025, CFL=0.50, T=10.0, recording interval = 20 steps
+  Boundaries: first-order outgoing at both ends (Sommerfeld/Mur)
+  Initial conditions: phi(0,x)=v*tanh(a*x), a=0.707107, no perturbation, initial velocity 0
+
+  x_w final value     = +2.665e-15
+  v_w final value     = +1.720e-15
+  delta final value   = 4.165033  (analytic 4.164066, deviation 0.023%)
+  sigma_w final value = 0.942652  (analytic 0.942809, deviation 0.017%)
+  E_res (max_t)       = 1.172e-07  (threshold 1e-6)
+
+  [Item 7] BPS pointwise residual R_BPS (max inside wall)
+    solver profile + 2nd-order difference: 5.538e-04
+    solver profile + 6th-order difference: 6.332e-04
+    Resolution scan (analytic kink sampling):
+            dx          2nd          6th analytic deriv
+        0.2000    1.829e-02    2.784e-05    6.501e-16
+        0.1000    4.562e-03    4.722e-07    7.510e-16
+        0.0500    1.172e-03    7.536e-09    1.292e-15
+        0.0250    2.969e-04    1.185e-10    1.425e-15
+        0.0125    7.421e-05    1.925e-12    1.425e-15
+
+[2] A3 convergence (moving wall u=0.5, order determined against exact boosted kink)
+  Error definitions: L2 = ||phi_num-phi_exact||_2 / v; xw/delta/sigma are differences from exact values
+
+  (a) joint scan: dt = 0.5*dx
+         dx       dt   CFL          L2     L2_self          xw       delta       sigma       Eres
+     0.2000   0.1000  0.50   1.373e-03         nan  -1.347e-02   7.270e-04  -3.903e-03  5.719e-05
+     0.1000   0.0500  0.50   3.395e-04         nan  -3.318e-03  -4.463e-04  -9.733e-04  3.905e-06
+     0.0500   0.0250  0.50   8.461e-05         nan  -8.257e-04  -7.331e-05  -2.431e-04  3.282e-07
+     0.0250   0.0125  0.50   2.113e-05         nan  -2.061e-04   2.906e-05  -6.074e-05  3.097e-08
+    Orders (loglog fit): L2=2.01, xw=2.01, delta=1.65, sigma=2.00
+    Richardson apparent orders (L2): ['2.02', '2.01']
+
+  (b) dx-only scan: dt=0.0025 fixed
+         dx       dt   CFL          L2     L2_self          xw       delta       sigma       Eres
+     0.1000   0.0025  0.02   3.440e-04         nan  -3.362e-03  -4.906e-04  -9.682e-04  3.601e-06
+     0.0500   0.0025  0.05   8.584e-05         nan  -8.376e-04  -8.174e-05  -2.420e-04  2.261e-07
+     0.0250   0.0025  0.10   2.144e-05         nan  -2.091e-04   2.757e-05  -6.050e-05  1.492e-08
+     0.0125   0.0025  0.20   5.349e-06         nan  -5.217e-05   2.493e-05  -1.513e-05  1.701e-09
+    Orders (loglog fit): L2=2.00, xw=2.00, delta=1.45, sigma=2.00
+    Richardson apparent orders (L2): ['2.00', '2.00']
+
+  (c) dt-only scan: dx=0.1 fixed
+         dx       dt   CFL          L2     L2_self          xw       delta       sigma       Eres
+     0.1000   0.0800  0.80   3.316e-04   9.835e-06  -3.241e-03  -4.067e-04  -9.799e-04  4.557e-06
+     0.1000   0.0400  0.40   3.413e-04   2.341e-06  -3.335e-03  -4.576e-04  -9.717e-04  3.761e-06
+     0.1000   0.0200  0.20   3.435e-04   5.639e-07  -3.357e-03  -4.771e-04  -9.693e-04  3.639e-06
+     0.1000   0.0100  0.10   3.440e-04         nan  -3.361e-03  -4.852e-04  -9.686e-04  3.620e-06
+    Orders (loglog fit): L2=2.06, xw=-0.02, delta=-0.08, sigma=0.01
+    Richardson apparent orders (L2): ['2.08']
+
+
+[3] A1/A2: P1b terminal velocity
+  Collective-coordinate equation: sigma_w*d(gamma v)/dt = Delta_V_vac - eta_eff*v
+  Scan variable eta = eta_eff/sigma_w; effective driving force F_eff = eps/sigma_w = 0.010607
+  Relativistic terminal velocity: beta = (F_eff/eta)/sqrt(1+(F_eff/eta)^2)
+  Frame: v is the wall velocity in the plasma rest frame; P4 rendering must convert accordingly
+
+         eta        beta_SR        beta_NR      dev%     zone
+       0.000   1.000000e+00   1.000000e+00      0.00 analytic limit
+       0.001   9.955850e-01   1.000000e+00      0.44 measured
+       0.010   7.276069e-01   1.000000e+00     37.44 measured
+       0.020   4.685213e-01   5.303301e-01     13.19 measured
+       0.050   2.075143e-01   2.121320e-01      2.23 measured
+       0.100   1.054744e-01   1.060660e-01      0.56 measured
+       0.200   5.295859e-02   5.303301e-02      0.14 measured
+       0.500   2.120843e-02   2.121320e-02      0.02 measured
+       1.000   1.060601e-02   1.060660e-02      0.01 measured
+       3.000   3.535512e-03   3.535534e-03      0.00 extrapolated
+      10.000   1.060660e-03   1.060660e-03      0.00 extrapolated
+      30.000   3.535534e-04   3.535534e-04      0.00 extrapolated
+      74.871   1.416647e-04   1.416647e-04      0.00 extrapolated
+     100.000   1.060660e-04   1.060660e-04      0.00 extrapolated
+     300.000   3.535534e-05   3.535534e-05      0.00 extrapolated
+
+  Calibration: beta_f = 42.47 km/s / c = 1.416647e-04
+  => eta_target = F_eff/beta_f = 74.871 (this scan-variable convention)
+  => absolute friction coefficient eta_eff,target = eta_target*sigma_w = 70.589
+  Consistent with the 74.82 in report v2.0 (difference comes from rounding F to 0.0106):74.87 ≈ 74.8
+  Controllability verdict: eta/(lam*v^4) = 74.9 ≈ 75 >> 1
+    - Falls outside the original scan range [0,1] => extrapolation, not measurement;
+    - The collective-coordinate model assumes weak dissipation; eta/(lam v^4) ~ 10^2 is outside its domain of validity;
+    - Roadmap §5.2 'Does it lie within the controllable range of the effective theory?' => FAIL.
+  Conclusion (to be recorded per A1/A2): 42.47 km/s cannot be achieved within the friction parameter space of the current effective theory;
+    Reaching that speed would require a strong-dissipation extrapolation with eta/(lam v^4) ≈ 75, beyond the controllable range of the collective-coordinate phenomenological model.
+    42.47 km/s is only a phenomenological assumption for the low-speed front, not a theoretical prediction.
+
+  Relativistic-group correction (A2): at eta=0.01, beta 0.999 -> 0.7276 (old value too high by 37.3%); the eta=0 row is changed to the analytic limit v->1.
+  Maximum deviation in the eta>=0.05 range: 2.23%
+
+[4] P1a magnetic-source extension (wall motion itself DEFERRED to P2, §8(a))
+  Number of V_eff'(phi) zeros (>=3 required for bistability):
+    f=0.00: 3 (bistable)
+    f=0.05: 3 (bistable)
+    f=0.10: 3 (bistable)
+    f=0.20: 3 (bistable)
+    f=0.30: 3 (bistable)
+  f=0.1 trial run (T=10, fixed equilibrium boundaries): finite=True, final x_w=+0.248, final v_w=+4.856e-02, E_res=2.242e-02
+    Note: the large E_res is because the Dirichlet boundaries do work on the system, not a failure of conservation.
+  Boundary attribution (controlled experiment, correcting the old 'wall hit the boundary' claim):
+    - outgoing boundaries + source term: at f=0.1 the right endpoint diverges after T≈2.6 (phi reaches above 1e2),
+      while the interior wall structure is intact (phi_max=1.000, x_w≈0); the instability is at the boundary, not a collapse of the wall structure.
+    - Adding a sponge layer alone does not fix it: boundary points lack a source-term equilibrium, and damping only slows the divergence.
+    - After switching to fixing the local minimum of V_eff, the same parameters evolve stably to T=10, with the wall drifting slowly rightward (v_w≈0.049).
+    => The attribution to 'simple absorbing boundaries' in report v2.0 §8 holds; the mechanism is 'boundary conditions do not include the source term', not just reflection.
+  V_eff still has 3 zeros for all tested f<=0.3 (bistability not broken),
+    so the instability cannot be attributed to a collapse of the potential structure; the critical value of f must be measured separately within the fully coupled P2 framework.
+  Wall motion (phi<->F coupling) itself remains DEFERRED to P2 per §8(a).
+
+[5] Acceptance self-check (against the six-tier table in report v2.0 §3)
+  1  P1a static-wall analytic consistency      PASS
+  2  Energy conservation (max)            PASS  (1.17e-07)
+  3  Wall-thickness verification   PASS  (using the analytic delta_0.9 benchmark; the old 1.414 was a misused scale)
+  4  BPS pointwise residual     see table above (2nd/6th-order/analytic three tiers, threshold 1e-6)
+  5  Convergence order         PASS  (see [2], four resolutions + dt/dx separated)
+  6  Analytic check of wall tension      PASS  (0.942809)
+  7  P1b collective-coordinate model      PASS (phenomenological, frame declared)
+  8  Low-speed calibration (42.47 km/s)      NEEDS FIX -> corrected to eta=74.9 (report: 74.8)
+  9  Friction-parameter controllability      FAIL -> judged uncontrollable (extrapolation + outside domain of validity)
+  10 Relativistic velocity description      FIXED -> recomputed with relativistic formula (eta=0.01: 0.727)
+  11 Friction-law frame declaration      DONE
+  12 Deliverable metadata      DONE (see DCC_P1_metadata.md)
+  13 Magnetic-source-driven wall motion      DEFERRED -> P2
+  14 Fixed-background Maxwell solvability      -> see DCC_P1_A4_results.txt (new in this version)
+
+[6] Numerical inputs handed off to P2
+  sigma_w = 0.942809042  (analytic), 0.942651938 (numerical)
+  delta_0.9 = 4.164065538 (analytic), 4.165033387 (numerical)
+  Wall profile: phi(x) = v*tanh(a*x), a = v*sqrt(lam/2) = 0.707107
+  Tilt term: eps*phi/(2v), eps=0.01, eps/eps_c = 1.30% (far from reaching the spinodal)
+
+Content generated by AI

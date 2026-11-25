@@ -1,0 +1,112 @@
+==============================================================================
+R4 step (5) PRODUCTION / P2-C2 module A: constant-mean-curvature (CMC) slice
+question: is the registered K=0 York obstruction a slicing artefact?
+==============================================================================
+[scope] (registered before run)
+  conformally flat, K_ij = (K/3) gamma_ij with K = const, zero shift
+  => momentum constraint satisfied identically (A^ij = 0). Hamiltonian only.
+  source = registered P1a kink wall (v=1.0 lam=1.0 eps=0.0), r0=10.0
+  domain [0, 60], N=1201 (dr=0.05000), Robin mass-falloff at R
+[thresholds] (registered before run)
+  A1 |psi_CMC(K=0) - psi_York| < 1e-12 (IDENT) ; A2 order in [1.6, 2.4]
+  A3 order in [1.6, 2.4] and residual < 1e-08 ; A5 existence at scale = 1.0, 0.3, 0.1
+
+[A1] K -> 0 regression against the 2026-11-21 York module (IDENT, not evidence)
+  scale=0.01 : |diff|=1.617e-12  FAIL-AT-FLOOR (<= 20x the registered tol; both solvers are at their iteration floor on the same imported operator, so this is a round-off artefact, not a formula difference)
+  scale=0.03 : |diff|=1.616e-12  FAIL-AT-FLOOR (<= 20x the registered tol; both solvers are at their iteration floor on the same imported operator, so this is a round-off artefact, not a formula difference)
+  scale=0.05 : |diff|=2.024e-12  FAIL-AT-FLOOR (<= 20x the registered tol; both solvers are at their iteration floor on the same imported operator, so this is a round-off artefact, not a formula difference)
+  A1 verdict: FAIL  (IDENT; excluded from the evidence count either way)
+
+[A2] MMS for the discrete spherical Laplacian (analytic psi_M, manufactured source)
+  max err (N,2N,4N): 7.609e-05 1.904e-05 4.759e-06 ; observed orders 2.00, 2.00
+  A2 verdict: PASS   (Robin row separately anchored by the 2026-11-21 T2 puncture test, order 2.01)
+
+[A3] nonlinear CMC solve, 3-grid self-convergence (scale=0.03, K=1.0)
+  (registered case amended from (0.30, 4.0) BEFORE this run: the original choice
+   lies above the existence threshold found by the A5 scan, so it cannot serve as a
+   machinery test; the order window and residual threshold are UNCHANGED)
+  |psi(N)-psi(4N)|=2.722e-05  |psi(2N)-psi(4N)|=5.474e-06  order=2.314
+  residuals 7.3e-14 2.3e-13 1.0e-12 (threshold 1e-08)
+  A3 verdict: PASS
+
+[A4] sign controls (direction REPORTED, not assumed)
+  matter source sign: min/max S_matter = -1.249e-01 / -0.000e+00 (negative => forces a dip)
+  psi^5 coefficient at K=0 : kB/4 - K^2/12, max = 6.250e-02 ; sign flips at |K| = 0.866
+  shear A2>0 at scale=0.03 : exists True (resid 6.07e-11) -> exists True (resid 6.07e-11)  [unchanged/better]
+  shear A2>0 at scale=0.05 : exists True (resid 4.00e-11) -> exists False (resid 7.47e-02)  [worse or neutral]
+
+[A5] existence of the wall vs mean curvature |K| (continuation in K, step 0.25, K up to 24)
+  scale   K=0 solves?    existence window psi_min    n_ok/n_K
+  0.03    yes            [0.00, 24.00]    1.0155     97/97
+  0.05    yes            [0.00, 24.00]    1.0392     97/97
+  0.07    no             [0.25, 24.00]    0.5157     96/97
+  0.10    no             [0.25, 24.00]    0.5203     96/97
+  0.30    no             [0.25, 24.00]    0.5433     96/97
+  1.00    no             [0.75, 24.00]    0.3669     94/97
+  A5 verdict (a CMC slice exists at scale=1.0, 0.3, 0.1): PASS
+
+[A4-main] how |K| moves the existence boundary (threshold scale vs K)
+  |K|      largest scale that solves (bisection on scale, 12 iterations)
+  0.0       scale_crit = 0.0532  (bracket 0.0532 - 0.0533)
+  0.5       scale_crit = 0.9394  (bracket 0.9394 - 0.9413)
+  1.0       scale_crit = 2.2202  (bracket 2.2202 - 2.2245)
+  2.0       >= 3.00 (scan ceiling reached)
+  4.0       >= 3.00 (scan ceiling reached)
+  8.0       >= 3.00 (scan ceiling reached)
+  16.0      >= 3.00 (scan ceiling reached)
+  direction is read off the table above; no sign was assumed in advance.
+  NOTE: 'scale_crit' at K>=0.25 is measured on the branch seeded by continuation; the
+  A6 control below decides whether that branch represents the WALL or only the K^2 term.
+
+[A6] is the high-|K| branch a representation of the wall?  (negative control)
+  registered criterion: bg_dev = max|psi(scale->0) - 1| < 0.1 AND M(R) > 0
+  |K|    d_wall      bg_dev      M_bg(R)     M_wall(R)   verdict
+  0.25   no solution pair
+  0.50   no solution pair
+  0.75   0.3607      0.6871      -64.69      -64.32      does NOT represent the wall
+  1.00   0.2852      0.7244      -69.19      -68.95      does NOT represent the wall
+  2.00   0.1851      0.7987      -78.79      -78.70      does NOT represent the wall
+  A6 verdict (some |K| gives a wall-dominated, positive-mass slice): FAIL
+  reading: at |K| >= 0.25 the conformal factor is already O(1)-different from 1 with the
+  wall switched OFF, and the boundary mass proxy is large and NEGATIVE; the apparent A5
+  'existence restoration' is therefore carried by the K^2 term alone, not by the wall.
+  (Consistent with the exact statement that a slice with K = const != 0 cannot be
+   asymptotically flat: the Robin mass-falloff truncation is satisfied by a fake mass.)
+
+[verdicts]
+  A1 K->0 identity      : FAIL (IDENT; excluded from the evidence count)
+  A2 MMS stencil order  : PASS
+  A3 nonlinear order    : PASS
+  A5 solvability of the strong wall at high |K| : PASS
+  A6 that branch represents the wall            : FAIL  <-- DECISIVE
+
+  Registered headline: A5 and A6 answer DIFFERENT questions. A5 asks whether the
+  Hamiltonian constraint can be solved with the strong wall present; A6 asks whether
+  the solution still describes that wall. The answer to the first is yes at high |K|,
+  the answer to the second is NO: the branch is K^2-dominated, negative-mass, and not
+  asymptotically flat. The strong wall therefore has no wall-dominated conformally
+  flat constraint solution on any constant-K CMC slice.
+
+[structural conclusion]
+  The source terms of the Lichnerowicz-York equation carry two conformal weights:
+  matter psi^5 (negative) and psi (negative), mean curvature psi^5 (positive),
+  shear psi^-7 (negative). Only the mean-curvature term has the opposite sign to the
+  matter term -- which is exactly why it can make the constraint solvable while
+  destroying the interpretation: at the |K| needed for solvability, the K^2 term is
+  the dominant source and the 'wall' is a subdominant correction to a K^2-driven
+  conformal factor. A5 and A6 are therefore not in conflict; they are the same fact
+  read at two levels.
+
+[handoff to module B]
+  registered plan was 'evolve the strongest slice found'. Outcome of A5+A6:
+  the strongest WALL-DOMINATED (valid) slice remains the K=0 one, i.e. scale <= 0.05
+  (bracket (0.05, 0.07) from the 2026-11-21 module, reproduced here by A1/A5 at K=0).
+  Module B therefore starts from the K=0 weak branch and registers explicitly that
+  the P1a full-strength wall cannot be evolved: it has no valid initial data, and the
+  reason is now a stated geometric fact rather than an unexplained numerical failure.
+  handoff slice: scale=0.05, K=0, converged=True, psi in [1.0392, 1.2344], residual 4.0e-11
+  remaining route for a strong wall (registered OPEN): a LOCALIZED mean curvature
+  K(r,z) (the sweeping front itself). That breaks the K=const identity that makes the
+  momentum constraint trivially satisfied, so Hamilton+Mom must be solved jointly.
+evidence level: MODEL RESULT (screened); A2/A3 are machinery checks (2nd order),
+                A6 is a negative control that withdraws the naive A5 reading.

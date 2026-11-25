@@ -1,0 +1,151 @@
+
+==============================================================================
+PART 1:  DEGENERACY SET OF h(x,y)  (v1.4 5.1(c) / 8.10)
+==============================================================================
+Criterion: pi is a locally trivial interval-bundle on Omega = {h>0}; on the set
+{h -> 0} the fiber topology jumps (interval -> point) and the bundle degenerates.
+
+JUDGMENT TABLE
+object       h(x,y)                   degeneracy set             degeneracy set measure   verdict       
+sphere       2*sqrt(R^2-r^2)          {r=R} (boundary circle)    1D: 2*pi*R = 6.2832 m    DEGENERATE    
+sphere                                in base D^2: zero 2D measure; fiber: interval -> point jump               
+cylinder     L_z = const on D^2       empty in Omega             none                     NON-DEGENERATE
+cylinder                              (sidewall jump outside base) trivial bundle, fiber = I               
+
+Numeric sublevel check: area of {h < eps} INSIDE the base disc D^2 (sphere) vs cylinder.
+sphere: within D^2, {h<eps} <=> r > sqrt(R^2-eps^2/4) -> area = pi*eps^2/4 -> 0 quadratically.
+eps      A_sphere numeric     A_sphere = pi*eps^2/4 rel dev   
+0.30     7.061292e-02         7.068583e-02         1.032e-03  OK
+0.20     3.134738e-02         3.141593e-02         2.182e-03  OK
+0.10     7.805700e-03         7.853982e-03         6.147e-03  OK
+cylinder: count{h<eps} in D^2 = 0, 0, 0 for eps = 0.3, 0.2, 0.1 -> identically empty (h = L_z > eps).
+Degeneracy-set measure (sphere): the set {r=R} itself carries 1D measure 2*pi*R =
+6.283185 m on the base boundary circle, zero 2D measure inside D^2; the fiber topology
+jump is located exactly on it (v1.4 5.1(c): R3-2 must report location and measure).
+
+Bundle data (8.10 deliverable, equation level):
+  E = {(x,y,z): |z| <= h(x,y)/2};  B_2 = Omega = {h>0} (subset of the disc D^2);
+  fiber: open interval (-h/2, h/2) interior, point on the degeneracy set (sphere);
+         constant I (cylinder, trivial bundle).
+  transition functions: Omega is a single chart -> identity transition only.
+  Chern class: not applicable (fiber is an interval/point, not a principal S^1 bundle);
+  for a Model-C S^1 fibration over B_2, c_1 = 0 only for the trivial product (logged;
+  global claims require the five items of 5.2 first).
+  Consequence for 'no tearing': the v1.1 argument chain fails on the degeneracy set;
+  for the cylinder (non-degenerate) it is mathematically valid but does not imply
+  chemical-bond continuity (5.1(e)).
+
+==============================================================================
+PART 2:  PERIODIZED z ~ z + L_z :  S_ov AND DeltaE  (v1.4 5.1(d) / 8.10)
+==============================================================================
+Model: electron on a ring of circumference L_z; two attractive delta wells of
+strength -g at z=0 and z=L (arc lengths: L = body-core side, L_z-L = vacuum-gap side).
+g = hbar^2*kappa/m with kappa = 5.000e+09 1/m (logged); E_bind(single, free) = -m g^2/(2 hbar^2) = 9.524955e-01 eV.
+kappa identity: sqrt(2 m |E_bind|)/hbar = 5.000000e+09 1/m (= logged kappa; 'sqrt(2 m |V0|)/hbar' scale).
+Momentum-space diagonalization, plane waves n = -20..20 (N = 41):
+  H_mn = T_n delta_mn - (g/L_z) [1 + exp(i 2 pi (n-m) L / L_z)],  T_n = hbar^2 (2 pi n / L_z)^2 / (2 m).
+Parity classification via reflection about z = L/2 (z -> L-z):
+  (P psi)(z) = psi(L-z)  ->  P_mn = exp(-i 2 pi m L/L_z) delta_n,-m ; P = P^dagger, P^2 = I.
+  E_even = lowest eigenvalue with parity +1 ; E_odd = lowest with parity -1.
+  DeltaE = E_even - E_odd.  Bound status: E < 0 means below the ring continuum threshold.
+  S_ov = |<psi_A|psi_B>|: overlap of the two ISOLATED-well ground states (numerical
+  integral of the converged ring ground states A*cosh(kappa(L_z/2-d(z,well))).
+Bonding criterion logged as a QUANTITATIVE relation only: |DeltaE| vs exp(-kappa*arc);
+NO directional bonding conclusion is issued (v1.4 5.1(d), 8.10).
+
+==============================================================================
+TEST T1:  SINGLE DELTA WELL  E = -m g^2 / (2 hbar^2)
+==============================================================================
+setup: ring L_z = 2.0 nm (kappa0*L_z = 10.0), kappa0 = 5.000e+09 1/m
+analytic free space   E = -m g^2/(2 hbar^2)      = -9.524955e-01 eV
+analytic ring         kappa*tanh(kappa L_z/2)=kappa0 -> E = -9.526684e-01 eV (tanh saturation shift 1.81e-04 rel)
+   inverted-form check: |x - atanh(y/x)| = 1.25e-12 (math.atanh; x=kappa L_z/2, y=kappa0 L_z/2)
+numeric (converged momentum sum, N_SUM = 200000): E = -9.526587e-01 eV
+   sum-truncation error estimate: 2*kappa0*L_z/(pi^2*N_SUM) ~ 1.01e-05 rel
+reference N=41 plane-wave matrix eigenvalue: E = -8.653038e-01 eV (N=41 truncation gives a variational
+   upper bound, i.e. a less-bound state; convergence columns below quantify this)
+[T1] |E_num - E_free|/|E_free| = 1.713e-04   threshold 1.0e-03 -> PASS
+
+==============================================================================
+SCAN (L, L_z):  DeltaE AND S_ov  (no bonding-direction claim)
+==============================================================================
+DeltaE(N=41): registered basis per task. DeltaE_conv: converged secular solver
+(same Hamiltonian, N_SUM = 200000 plane waves, negative-energy roots; 'none' = no bound
+state of that parity, i.e. the lowest state of that parity lies in the continuum).
+
+L/L_z  L_z      min-arc   kappa*arc  DeltaE(N41) eV E_even eV      E_odd eV       S_ov        
+0.9    1.0      0.10      0.500      -3.282360e+00  -2.007444e+00  1.274916e+00   9.207622e-01
+0.5    1.0      0.50      2.500      -7.490413e-01  -1.167829e+00  -4.187880e-01  5.293300e-01
+0.1    1.0      0.10      0.500      -3.282360e+00  -2.007444e+00  1.274916e+00   9.207622e-01
+0.9    10.0     1.00      5.000      -5.112458e-02  -6.440562e-01  -5.929316e-01  4.042768e-02
+0.5    10.0     5.00      25.000     -1.109707e-02  -6.256018e-01  -6.145048e-01  7.221731e-10
+0.1    10.0     1.00      5.000      -5.112458e-02  -6.440562e-01  -5.929316e-01  4.042768e-02
+
+converged negative-energy roots (secular solver) and parity-commutation check:
+max |H P - P H| = 6.930e-33 J ; /energy scale 9.639e-17 -> ratio 7.19e-17 (threshold 1.0e-10) OK
+L/L_z  L_z[nm]  E_even_conv [eV] E_odd_conv [eV]  bound?        
+0.9    1.0      -2.086137e+00    none             even:bound,odd:unbound
+0.5    1.0      -1.209957e+00    -4.807037e-01    even:bound,odd:bound
+0.1    1.0      -2.086137e+00    none             even:bound,odd:unbound
+0.9    10.0     -9.649126e-01    -9.392012e-01    even:bound,odd:bound
+0.5    10.0     -9.524473e-01    -9.524473e-01    even:bound,odd:bound
+0.1    10.0     -9.649126e-01    -9.392012e-01    even:bound,odd:bound
+
+S_ov cross-check: Parseval momentum sum of the N=41 truncated isolated ground state vs
+the converged integral (difference = N=41 basis truncation): max abs diff = 4.312e-01
+internal symmetry check (ring arc relabeling): DeltaE(0.9 L_z) vs DeltaE(0.1 L_z):
+   L_z = 1.0 nm: DeltaE(0.9) = -3.282360e+00 eV, DeltaE(0.1) = -3.282360e+00 eV, rel dev = 1.50e-14
+   L_z = 10.0 nm: DeltaE(0.9) = -5.112458e-02 eV, DeltaE(0.1) = -5.112458e-02 eV, rel dev = 5.73e-14
+   threshold 1.0e-12 -> OK
+
+per-point tunneling factors (dimensionless) and the logged quantitative relation:
+L/L_z  L_z[nm]  exp(-k*arc)    exp(-k*L)      exp(-k*(L_z-L))  |DE(N41)|/exp 
+0.9    1.0      6.065307e-01   1.110900e-02   6.065307e-01     5.411697e+00  
+0.5    1.0      8.208500e-02   8.208500e-02   8.208500e-02     9.125191e+00  
+0.1    1.0      6.065307e-01   6.065307e-01   1.110900e-02     5.411697e+00  
+0.9    10.0     6.737947e-03   2.862519e-20   6.737947e-03     7.587560e+00  
+0.5    10.0     1.388794e-11   1.388794e-11   1.388794e-11     7.990434e+08  
+0.1    10.0     6.737947e-03   6.737947e-03   2.862519e-20     7.587560e+00  
+
+DeltaE basis convergence at N = 41 / 81 / 161 plane waves (DeltaE in eV):
+   L/L_z 0.9, L_z 1.0 nm: -3.282360e+00 / -3.315918e+00 / -3.333502e+00
+   L/L_z 0.5, L_z 1.0 nm: -7.490413e-01 / -7.387617e-01 / -7.338988e-01
+   L/L_z 0.1, L_z 1.0 nm: -3.282360e+00 / -3.315918e+00 / -3.333502e+00
+   L/L_z 0.9, L_z 10.0 nm: -5.112458e-02 / -3.857127e-02 / -3.170478e-02
+   L/L_z 0.5, L_z 10.0 nm: -1.109707e-02 / -4.029413e-03 / -1.230363e-03
+   L/L_z 0.1, L_z 10.0 nm: -5.112458e-02 / -3.857127e-02 / -3.170478e-02
+
+LOGGED RELATION (quantitative only): |DeltaE| tracks the tunneling factor
+exp(-kappa*arc_min) with kappa = sqrt(2 m |E_bind,single|)/hbar; pointwise ratios
+are printed above. Whether any point constitutes 'bonding' is a statement about
+the spectrum of the specified Hamiltonian only; per 5.1(d)/8.10 it is NOT inferred
+from topology, and no directional conclusion is issued here. For L/L_z = 0.9 vs 0.1
+the arc multiset is the same -> identical spectra (symmetry check above).
+
+==============================================================================
+TEST T2:  LARGE-SEPARATION LIMIT  DeltaE -> 0 (EXPONENTIAL FIT)
+==============================================================================
+wells at 0 and L_z/2 (equal arcs); DeltaE from the CONVERGED secular solver
+(the N=41 splitting falls below the finite-basis noise floor at kappa*arc >~ 8;
+both values are printed for comparison).
+L_z [nm]   gap [nm]   kappa*gap    |DE| conv [eV]   DE(N41) [eV]    
+2.0        1.00       5.000        5.158677e-02     -6.336884e-02   
+2.5        1.25       6.250        1.471999e-02     -2.354453e-02   
+3.0        1.50       7.500        4.215002e-03     -1.161936e-02   
+3.5        1.75       8.750        1.207553e-03     -8.222083e-03   
+4.0        2.00       10.000       3.459743e-04     -7.498576e-03   
+fit ln|DeltaE| = a + b*gap:  b = -5.003969e+09 1/m  -> decay length lambda = 1/|b| = 0.1998 nm
+reference 1/kappa0 = 0.2000 nm ; relative dev = 7.931e-04 ; fit R^2 = 0.99999958 ; monotone decay: True
+[T2] threshold |lambda-1/kappa|/kappa < 0.30 AND monotone decay -> PASS
+
+==============================================================================
+VERDICTS
+==============================================================================
+T1  single delta well, numeric vs -m g^2/(2 hbar^2) (rel, tol 1.0e-03): PASS (1.713e-04)
+T2  double-well large-separation exponential decay, converged solver (tol 0.30 + monotone): PASS (lambda = 0.1998 nm vs 1/kappa = 0.2000 nm)
+C1  sphere sublevel areas {h<eps} ~ pi*eps^2/4 inside D^2, monotone (tol 0.10): PASS
+C2  ring arc-relabeling symmetry DeltaE(0.9L_z)=DeltaE(0.1L_z) (tol 1.0e-12): PASS (5.73e-14)
+C3  parity operator check [H,P]=0 (rel, tol 1.0e-10): PASS
+OVERALL: PASS
+EVIDENCE LEVEL: MODEL RESULT (v1.4 8.10 mapping layer; designated background;
+no visibility claim; no 'unique self-consistent form' claim; no bonding-direction claim).

@@ -1,0 +1,79 @@
+
+==============================================================================
+PHASE 0 — S0/FL1 BASELINE PRODUCT  (gate: ME4, per gd_rulings_v1 s1)
+==============================================================================
+  lattice: 24x48x48 voxels, pitch h_v = t/3, plate = 3 voxels
+  states: sheet | stack (gap 5t) | slab (intact body, zero conversion)
+  pre-registered: runs/ROUTE/route_completion_registration.md P0a-P0e
+
+[P0-1] ME4 CENSUS  (clause 3 = no handles)
+  state      N_comp      chi   beta_2   beta_1   clause 3
+  sheet           1        1        0        0   PASS
+  stack           2        2        0        0   PASS
+  slab            1        1        0        0   PASS
+  prediction P0a (beta_1 = 0 everywhere): CONFIRMED
+  prediction P0b (N_comp = 1,2,1): CONFIRMED  measured [1, 2, 1]
+  check: chi = N_comp whenever beta_1 = beta_2 = 0, and here it does
+
+[P0-2] THE REGISTERED chi RATIO MIXES TWO CONVENTIONS
+  chi(solid ball) = 1 ; chi(its boundary surface) = 2 ; chi(disc) = 1
+  registered comparison: chi(2D)=1.183e+10  vs  chi(3D)=2  ->  5.915e+09
+    solid/solid   : 1.183e+10 / 1 = 1.183e+10
+    surface/surface: 2.366e+10 / 2 = 1.183e+10
+  the two same-convention ratios agree to +0.00e+00 relative -- the mixed one is 2x too small
+  prediction P0c: CONFIRMED (factor 2 in the ratio, conclusion unchanged: chi must INCREASE
+  by ~1.18e10 when conversion completes, so 'chi must not change' was inverted, as audit F8 said)
+
+[P0-3] CM5  (mu_ov at declared Delta_z_res; NOT a gate since gd_rulings_v1)
+  Primary table is ANALYTIC on the continuum spans; the lattice is a cross-check, because a
+  24-voxel box cannot hold a 70 mm body (correcting this module's own first output, which
+  reported slab mu=0 at coarse Delta_z_res -- a finite-box artefact, not physics).
+
+  spans (face-to-face):  sheet = t   stack = 7t   slab = 70 mm
+  convention   Delta_z_res  / t        sheet    stack    slab    
+  A t=15.40fm  1.5400e-14   1          1.0      1.0      1.0     
+  A t=15.40fm  1.0000e-09   6.49e+04   0.0      0.0      1.0     
+  A t=15.40fm  1.0000e-04   6.49e+09   0.0      0.0      1.0     
+  B t=1nm      1.0000e-09   1          1.0      1.0      1.0     
+  B t=1nm      1.0000e-04   1e+05      0.0      0.0      1.0     
+
+  lattice cross-check (only where Delta_z_res <= box thickness = 8t; else n/a):
+  Delta_z_res  sheet    stack    slab     note    
+  0.5          1.0      1.0      1.0      sheet on the knife edge (t - h_v = 0.667 t)
+  1            0.0      1.0      1.0      sheet on the knife edge (t - h_v = 0.667 t)
+  2            0.0      1.0      1.0      
+  5            0.0      1.0      1.0      
+  1e+03        -        -        -        n/a: exceeds the box
+
+  every CM5 row above carries (thickness, convention, Delta_z_res) as crosswalk s8.2 requires.
+
+[P0-4] THE CM5 KNIFE EDGE, AND WHY IT IS AT t - h_v
+  measured switch point for a single plate, as h_v -> 0 (column model, exact for this geometry):
+  h_v          switch at      in units of t 
+  t/3          0.666666667    0.666666667   
+  t/6          0.833333333    0.833333333   
+  t/12         0.916666667    0.916666667   
+  t/24         0.958333333    0.958333333   
+  prediction P0d (mu=0 for Delta_z_res > t): holds in the continuum limit; at finite h_v the
+  edge sits at t - h_v because the occupied set is sampled at voxel CENTRES. Monotone, convergent.
+  this is the fourth independent appearance of the same edge (cf. crosswalk s3.1).
+
+[P0-5] PHASE 0 GATE
+  clause 3 (no handles, contractible)      : PASS for all three states
+  clause 1 (N_comp non-decreasing)         : NOT TESTABLE at a single state -- needs a sweep
+  clause 2 (census match at phi_conv -> 1) : NOT APPLICABLE at the baseline (N_comp = 1 << 1.18e+10)
+  => gate PASS, and it certifies NO TEARING, not two-dimensionality.
+  Permitted wording : 'no handles created; census endpoint not yet applicable;
+                       resolution-relative injectivity reported separately as CM5 @ Delta_z_res'.
+  Forbidden wording : 'the state is two-dimensional', 'the state is a graph'.
+
+==============================================================================
+PHASE 0 SUMMARY
+==============================================================================
+  ME4 gate            : PASS (clause 3 only)
+  CM5                 : reported, not gated; no verdict without its Delta_z_res
+  delta_ov            : untouched (OPEN); no convenient value written in
+  frame               : s0_frame_fl1.png + s0_frame_fl1.png.display.txt
+  status              : Phase 0 DELIVERED (the first staged product)
+
+PROVENANCE: NEITHER  (gate-decidability + bookkeeping; certifies no tearing, establishes no physics)

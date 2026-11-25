@@ -1,0 +1,63 @@
+<<<LOG>>>
+====================================================================================
+v1.4 s4.4 checks (1)(2)(3) -- sympy machine derivation, G3' prerequisite
+====================================================================================
+conventions PINNED: signature (-,+,+,+); G=kappa*T; T^mu_nu=diag(-rho,px,py,pz);
+ds2=-dt2+A^2 dx2+B^2 dy2+C^2 dz2 (Bianchi-I, N=1); kappa=8*pi*G
+H_A=H_B=h (transverse), H_C=-gamma (longitudinal), per v1.4 s4.4 notation
+
+[machine anchors]
+  V1 isotropic exp(H t): G_00 - 3H^2 = 0               : PASS
+  V2 vacuum Kasner (2/3,2/3,-1/3): G_mu_nu = 0         : PASS
+  V3 Maxwell F_xy mixed-trace zero                     : PASS
+  V3 Maxwell F_xy p_x+p_y-p_z = 3*rho_B                : PASS
+  (V3 values) rho_B=f**2/(2*A(t)**2*B(t)**2) ; p_x=f**2/(2*A(t)**2*B(t)**2) ; p_z=-f**2/(2*A(t)**2*B(t)**2)
+
+[check 1: required stress budget, const-rate target (A=B=e^{h t}, C=e^{-gamma t})]
+  kappa*rho   = h*(-2*gamma + h)
+  kappa*p_x   = -gamma**2 + gamma*h - h**2
+  kappa*p_y   = -gamma**2 + gamma*h - h**2
+  kappa*p_z   = -3*h**2
+  p_x+p_y-p_z = -2*gamma**2 + 2*gamma*h + h**2
+  machine combo == +v1.1 formula : NO ; == -v1.1 formula : YES
+  h=0 limit: kappa*rho=0 ; kappa*p_x=-gamma**2 ; kappa*p_z=0
+  Maxwell rho_B matches required rho (const target)            : NO
+  VERDICT-1: (i) the v1.1 relation is numerically equal to the machine budget but with overall opposite sign (its unregistered signature/pressure
+             convention); the correct budget under the pinned conventions is given in the four lines above. (ii) the h=0 limit requires rho=0,
+             p_x=p_y=-g^2/kappa, p_z=0: all contradict the Maxwell source (rho_B>0, p_x=+rho_B),
+             and rho+p_x<0 violates NEC. 'rho_B=g^2/kappa automatically satisfies the budget' is falsified (a stronger result than the 3/2
+             factor); the h=0 constant-rate target is NO-GO within the specified action.
+
+[check 2: NEC two-level determination]
+  const-rate target: kappa*(rho+p_z) = -2*h*(gamma + h)
+                     kappa*(rho+p_x) = -gamma*(gamma + h)
+  => for any h>0, gamma>0 this is <0: the constant-rate target violates NEC (not only within the action).
+  power-law (t^a, t^a, t^{-b}): t^2*kappa*(rho+p_z) = 2*alpha*(-alpha - beta_c + 1)
+                                t^2*kappa*(rho+p_x) = alpha*(alpha - 2*beta_c) + t**(4*alpha)*(-alpha**2 + alpha*beta_c + alpha - beta_c**2 - beta_c)
+                                t^2*kappa*rho       = alpha*(alpha - 2*beta_c)
+  D2 background (a=b=1/2):        t^2*kappa*(rho+p_z) = 0
+                                  t^2*kappa*(rho+p_x) = -t**2/4 - 1/4
+                                  t^2*kappa*rho       = -1/4
+  VERDICT-2 (action-internal): for the D2 specified background (1/2,1/2,-1/2), Ham requires rho<0 and
+             NEC<0 for x-directed null rays -- NO-GO within the specified action (Z>0 Maxwell + positive kinetic scalar);
+             this background can only serve as a 'phenomenologically specified background' (the P3/P4 annotation must be retained), not as an endogenously realizable solution.
+  VERDICT-2 (theory-external): must not be extrapolated to 'no healthy theory works' (v1.4 two-level statement).
+  NEC feasible region (instantaneous): z direction 2*alpha*(1-alpha-beta_c)>=0; x direction (alpha-beta_c-
+             beta_c^2-alpha*beta_c)>=0; Ham: alpha>=2*beta_c. Decaying-rate trajectories can satisfy these.
+
+[check 3: Bianchi constraint on F_xy ansatz]
+   dF=0 for F=f(t,x)dx^dy => dt f = 0: pure F_xy with time-dependent f violates dF=0
+   a self-consistent ansatz includes F_tx=E: dF=0 => dt f = dx E (already implemented in the P2 1+1 solver, E-1,
+   with spontaneous E-field growth observed numerically: DCC_P2_1p1_results.txt).
+   VERDICT-3: PASS (closed by construction); additional components must enter the ansatz explicitly and be solved.
+
+[findings]
+  F-C1-1: the v1.1 inverse-problem relation = an overall sign flip of the machine budget (unregistered convention); under the pinned conventions
+          the correct budget is kappa*rho=h^2-2*gamma*h, kappa*p_x=p_y=gamma*h-gamma^2-h^2,
+          kappa*p_z=-3*h^2 (verified by this machine run).
+  F-C2-1: for the D2 power-law specified background (1/2,1/2,-1/2), Ham requires rho<0 and
+          NEC<0 in the x direction for any healthy matter -- the P3/P4 'specified contraction background' annotation must be permanently retained (written back to the roadmap).
+  F-C2-2: the NEC feasible region = decaying-rate trajectories; constant (h,gamma) targets are forbidden by NEC in all directions.
+
+machine anchors: ALL PASS
+evidence level: ESTABLISHED (machine-derived identities within pinned conventions)

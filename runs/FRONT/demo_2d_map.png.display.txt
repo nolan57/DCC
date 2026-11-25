@@ -1,0 +1,13 @@
+DISPLAY-DECLARATION v1
+FRAME:            demo_2d_map.png
+PROVENANCE:       NEITHER
+STAGE:            S0
+FIDELITY:         FL1
+BAND:             NONE (geometry only)
+COLOUR:           DECLARED-CONVENTION
+COLOUR-BASIS:     hue encodes the identity of a declared material component of a declared object (DEMO-1 C1-C4), and brightness encodes that component's declared cross-section area; no spectral measurement was made at any stage, so hue carries no wavelength information and the palette is a choice. The pale tint marks sites not yet reached by the front at f = 0.50, not a lower reflectance.
+SCALAR:           component identity (categorical); cross-section area of one piece (m^2); deposited / not-yet-deposited (binary); z (m)
+TIME:             t_span = 0 s (single snapshot) ; compression = 1 ; t_rip = 1.0850e-09 s ; ratio = 0
+GEOMETRY:         PRESCRIBED (D2)
+ENHANCEMENT:      EN2
+ME5-COROLLARY:    NOT-APPLICABLE

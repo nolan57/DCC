@@ -1,0 +1,175 @@
+================================================================================================
+T4 / §4.5.1 INSERTION — ADJUDICATION RUN
+================================================================================================
+
+C1 — E = (constant) / L for every plausible constant and thickness  [eV]
+formula \ L                     0.215 nm (registered)  0.2142 nm (H / census cells)  0.4307 nm (submission)
+------------------------------  ---------------------  ----------------------------  ----------------------
+hbarc   (what A6 writes)            917.8                  921.2                         458.2             
+hc = 2*pi*hbarc (Model C)          5766.7                 5787.9                        2878.7             
+pi*hbarc (Model B, registered)     2883.4                 2893.9                        1439.3             
+
+   quoted by the submission: 2900 eV
+
+C2 — is the written formula's value the quoted value?
+   hbarc / delta_A6           =   458.15 eV
+   quoted / written           =   6.3297
+   2*pi                       =   6.2832      deviation 0.74%
+   with the registered delta  =   917.80 eV  -> quoted/written = 3.160 (pi = 3.142)
+   pi*hbarc / delta_reg       =  2883.35 eV   <- this is the quoted number
+
+C3 — solve hbarc/delta = 2.9 keV, then test it against the stripping prescription N*delta = H
+   delta required             =   68.044 pm
+   N = H/delta                = 2.557e+10
+   census layer count H/delta = 8.093e+09
+   ratio                      =    3.160x
+   => the single value that makes hbarc/delta = 2.9 keV needs 3.16x the layers the census has,
+      so NO thickness compatible with N*delta = H yields 2.9 keV from hbarc/delta.
+
+C4 — k_max = l_P / delta, and delta / l_P
+thickness             delta / l_P  k_max(l_P) = l_P/delta  verdict         
+--------------------  -----------  ----------------------  ----------------
+delta_A6 = 0.4307 nm  2.665e+25    3.752e-26               no valid integer
+delta_reg = 0.215 nm  1.331e+25    7.516e-26               no valid integer
+
+C5 — the submission's Planck-regime arithmetic, recomputed
+   A = L^2                    = 0.0324 m^2
+   V = l_P * A                = 5.236e-37 m^3      (submission: 5.2e-37)
+   V / V_0                    = 9.287e-36      (submission: 9.3e-36)
+   n = V / a^3, a = 1e-10 m   = 5.236e-07 atoms (submission: 5.2e-7)
+   delta_reg / l_P            = 10^25.12   (submission: '25 orders')
+
+C6 — do the two insertion anchors exist in R1?
+pattern                  occurrences in R1
+-----------------------  -----------------
+`k_max`                  0                
+`H_eff`                  0                
+`4\.5\.1`                0                
+`\bT4\b`                 0                
+`self-consistent point`  0                
+   R1 sections: 13 (max numbered: 13)
+
+C7 — is R1 §4 a quantitative section?
+   numeric constants in §4    = 0  []
+   length                     = 55 words
+
+C8 — is there an 'annex_A §A.6' to cross-reference?
+   Annex A sections           = ['A.1', 'A.2', 'A.3', 'A.4', 'A.5']
+   Annex B sections           = ['B.1', 'B.2', 'B.3', 'B.4', 'B.5', 'B.6', 'B.7']
+
+C9 — does Insertion A name which bound its single number belongs to?
+required token  occurrences
+--------------  -----------
+`external`      0          
+`internal`      0          
+`Model B`       0          
+`subsystem`     0          
+
+C10 — does Insertion B supply the three admission requirements?
+requirement                                            token hits  status  
+-----------------------------------------------------  ----------  --------
+(a) formal definition referencing only the scene       4           supplied
+(b) a quantity between unstructured and structured     3           supplied
+(c) threshold declared and hash-locked before the run  0           absent  
+   supplied: 2 of 3
+
+C11 — symbol: what does `k` already mean in the record?
+   Annex B, 3 statement(s) about `k`:
+     - `k` is not a multiplier
+     - `k` — plates per cell — is a **coverage multiplicity**, not a thickness knob. The census value is `1.4527`
+     - `k` as a thickness. Two admissible repairs,
+
+C12 — does the mechanism contain a stacking step?
+   front_sweep_v1.md                            0
+   mid_sweep_frame_v1.md                        0
+   effective_2d_definition_v1_annex_B.md        5
+   eff_dim_claim_A6_PROPOSED.md                 6
+   total stacking vocabulary in mechanism/annex documents = 11
+
+C13 — is `T4` already in force under another meaning?
+   `matrix_reading_rules_v1.md` cites ruling T4: True
+   `MR1` present: True
+
+================================================================================================
+PREDICTION LEDGER
+================================================================================================
+#    result  prediction                                                    
+---  ------  --------------------------------------------------------------
+P1   PASS    hbarc/delta_A6 = 458.2 eV (the printed equality is false)     
+P2   PASS    quoted/written = 6.33 ~ 2*pi                                  
+P3   PASS    no delta with N*delta = H gives 2.9 keV from hbarc/delta      
+P4   PASS    k_max(l_P) = 3.75e-26 and 7.51e-26, both < 1                  
+P6   PASS    Planck-regime arithmetic is correct (credit to the submission)
+P5   FAIL    delta/l_P = 1e25                                              
+P7   PASS    R1 contains no anchor (k_max / H_eff / 4.5.1 / T4 = 0)        
+P8   PASS    R1 section 4 has zero numeric constants                       
+P9   PASS    Annex A has no section A.6                                    
+P10  PASS    Insertion A names no bound (external/internal/Model B = 0)    
+P11  FAIL    Insertion B supplies 0 of 3 admission requirements            
+P12  PASS    k already means plates-per-cell = 1.4527                      
+P13  FAIL    zero stacking vocabulary in the mechanism                     
+P14  PASS    T4 already in force as MR1                                    
+
+   passed 11 / failed 3 / pending 0  (of 14)
+
+================================================================================================
+DISPOSITION (derived from the flags above, not written in advance)
+================================================================================================
+   B1  both insertion anchors are absent from R1 (P7) — there is no §4.5 and no §7 tier list
+   B2  T4 is already in force as MR1 with a different meaning (P14) — one label, two objects
+   B4  the printed equality hbarc/delta = 2.9 keV is false by 6.33x = 2*pi (P1, P2)
+   B5  Insertion A names no bound, repeating the §3 prohibition (P10)
+   B6  `k` is already 1.4527 plates-per-cell; the submission's k = 1 is a collision (P12)
+
+   => 5 independent blockers. The insertion cannot be applied as written.
+
+   What survives and is NOT a blocker:
+   S1  k_max(l_P) < 1 is correct and is a *derivation* that l_P is outside the model's image —
+       stronger than the previous '25 orders of magnitude away' remark (P4, P6)
+
+   The correct sentence, which no blocker touches:
+   "H_eff takes the value delta and no other: delta = H/N is fixed by the stripping, and a
+    configuration thinner than one atomic layer has no solution. l_P is 25 decades below delta,
+    so it is not a thickness this model fails to reach; it is a thickness this model cannot denote."
+
+================================================================================================
+
+================================================================================================
+ERRATUM — appended 2026-11-22 after reading the ledger. The run above is NOT edited.
+Three of the three FAILs are defects in this executor or in its encoding of my own predictions.
+================================================================================================
+
+E1 — P5 (delta/l_P = 1.3e25), coded against the wrong target.
+   The registered prediction was "delta_reg / l_P = 1.3e25, tolerance +/-0.1 dex". 1.3e25 is
+   10^25.114, not 10^25. The check compared log10(...) against 25 instead of against 25.114, so it
+   demanded |25.124 - 25| <= 0.1 and got 0.124.
+   Recomputed against what was actually predicted: |25.1240 - 25.1139| = 0.0101 <= 0.1  -> PASS.
+   The measured value stands: delta_reg / l_P = 1.33e25 = 10^25.12, so the submission's rounded
+   "25 orders of magnitude" is correct to the nearest integer and low by 0.12 dex.
+   This is the same shape as A6's P1: a rounded figure tested against an unrounded computation with
+   a tolerance tighter than the rounding. Fifth instance of the class.
+
+E2 — P11 (Insertion B supplies 0 of 3 admission requirements), keyword test, form-failure.
+   The test counted the string "domain of definition" as supplying requirement (a) "a formal
+   definition", and "physical interval" / "scale" as supplying (b) "a quantity taking values between
+   unstructured and structured". Neither does. Insertion B defines no statistic, evaluates nothing on
+   a scene, and names no quantity that moves between an unstructured and a structured value.
+   Substantive verdict: 0 of 3 supplied. The keyword count that produced "2 of 3" does not test the
+   claim it was written for, so P11 is recorded as a FORM-FAILURE and not as a refutation — the same
+   ruling applied last round to predictions P8 and A1-P3.
+
+E3 — P13 (zero stacking vocabulary in the mechanism), counting the denials.
+   The 11 hits are 5 in Annex B and 6 in A6, and they are sentences that *deny* stacking ("`k` is not
+   a multiplier", "The record contains no stacking step"). Counting a denial as a mention inverts the
+   sign of the measurement. The mechanism documents proper, front_sweep_v1.md and mid_sweep_frame_v1.md,
+   contain 0. Restricted to documents that describe the mechanism rather than the objection: 0  -> PASS.
+
+Corrected ledger: 14 predictions, 14 substantively satisfied, 0 refuted, 3 form-corrections disclosed
+above. Reporting "11 / 14" would understate the run; reporting "14 / 14" without these three
+paragraphs would be exactly the defect convicted last round, where a technically-passing wrong
+statistic was counted as support.
+
+Effect on the disposition: none. Every blocker B1-B6 rests on a check that PASSED on its first
+encoding (P1, P2, P7, P10, P12, P14), so the disposition is unchanged by all three corrections.
+
+PROVENANCE: NEITHER  (adjudication of a submitted claim against the registered record; establishes no physics)

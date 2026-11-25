@@ -1,0 +1,150 @@
+# RQ-04 -- exact Dirac-box z-ladder: does the 0.9975 deficit survive?
+
+**Round**: 59 (`RQ-04`).  **Registration**: `runs/R1B/r1b1_p4_diracbox_registration.md`.
+**Instrument**: `src/r1_dense/r1b1_p4_diracbox.py` -- emitted, not transcribed.
+**Inputs**: `src/r1_dense/r1b1_p4_response.py` P4-2 (UR ladder);
+`runs/R1B/r1b1_p4_response_results.txt` P4-2; `conv` constants;
+`runs/R1B/r1b1_p4_tau_results.txt` (`tau`, `sigma_DC`, quoted only).
+No fitted parameter; no bar adjusted after the run.
+
+```text
+
+==============================================================================
+[1] REPRODUCING THE ARCHIVED SCHRODINGER-ENVELOPE BOX
+==============================================================================
+  L_z = 1.84 fm ; E_z,1 = pi hbar c/L_z = 336.913583 MeV ; m_e c^2 = 0.511 MeV
+  f_intra = m_e c^2/E_z,1 = 1.516709407e-03 (registered 1.516709407e-03)
+  sum f_1n (n=2..12) = 9.932045695e-04 (registered 9.932045695e-04)
+  deficit = 1 - f_intra - sum = 0.997490086 (registered 0.997490086)
+  n     |z_1n|[fm]      f_1n
+   2   3.3143285e-01   9.713765e-04
+   3   0.0000000e+00   0.000000e+00
+   4   2.6514628e-02   1.865043e-05
+   5   0.0000000e+00   0.000000e+00
+   6   7.3050506e-03   2.359462e-06
+   8   3.0061936e-03   5.594077e-07
+  10   1.5217303e-03   1.842953e-07
+  12   8.7522000e-04   7.451156e-08
+  [P1] -> CONFIRMED   (CHECK)
+
+==============================================================================
+[2] THE EXACT DIRAC BOX: SPECTRUM AND SPINORS
+==============================================================================
+  H_z = c sigma_z p_z + m_e c^2 sigma_x ; MIT bag: |psi_up| = |psi_down| at both walls.
+  S bag (same sign, like-for-like): k_n = n pi/L_z ; O bag: k_n = (n-1/2) pi/L_z.
+  E_n = sqrt((hbar c k_n)^2 + (m_e c^2)^2) ; alpha_n = m_e c^2/(E_n + hbar c k_n).
+  n     k_n[fm^-1]   E_n[MeV]    dE_n1[MeV]    alpha_n
+   1     1.7073873   336.913970       0.000000    7.584e-04
+   2     3.4147746   673.827359     336.913389    3.792e-04
+   3     5.1221619  1010.740877     673.826907    2.528e-04
+   4     6.8295492  1347.654427    1010.740457    1.896e-04
+   6    10.2443239  2021.481560    1684.567590    1.264e-04
+  12    20.4886477  4042.963023    3706.049053    6.320e-05
+  E_1 - E_z,1 = 3.875190e-04 MeV (relative 1.150e-06): the rest mass enters only quadratically.
+  [P2] -> CONFIRMED   (CHECK)
+  [P3] -> CONFIRMED   (CHECK)
+  f_intra exact = m_e c^2/E_1 = 1.516707662e-03 (relative shift -1.150e-06)
+
+==============================================================================
+[3] MATRIX ELEMENTS -- ANALYTIC SPINORS VS INDEPENDENT QUADRATURE
+==============================================================================
+  <n|z|1> = integral z [up_n* up_1 + down_n* down_1] dz, evaluated from
+  J(q) = integral_0^L z cos(qz) dz = L sin(qL)/q + (cos(qL)-1)/q^2.
+
+  bag  n     analytic |z_1n|[fm]   quadrature |z_1n|[fm]   rel dev
+  S     2     3.7290905590e-01      3.7290905590e-01    5.15e-12
+  S     3     0.0000000000e+00      3.0531133177e-16    3.05e-16
+  S     4     4.1443237569e-02      4.1443237571e-02    4.63e-11
+  S     6     1.4921207668e-02      1.4921207670e-02    1.29e-10
+  O     2     3.7286176520e-01      3.7286176520e-01    5.14e-12
+  O     3     7.5402862205e-05      7.5402862209e-05    4.68e-11
+  O     4     4.1429071191e-02      4.1429071193e-02    4.63e-11
+  O     6     1.4914464055e-02      1.4914464057e-02    1.28e-10
+  [P4] -> CONFIRMED   (CHECK)
+  [P10] -> CONFIRMED   (CHECK)
+  |z_12| = 3.7290906e-01 fm vs UR 3.3143285e-01 fm (ratio 1.12514)
+
+==============================================================================
+[4] THE LADDER AND THE DEFICIT
+==============================================================================
+  n     f_1n (UR)       f_1n (S bag)    ratio     f_1n (O bag)
+   2   9.713765e-04    1.229708e-03    1.2659    1.229395e-03
+   3   0.000000e+00    0.000000e+00       --       1.005546e-10
+   4   1.865043e-05    4.556433e-05    2.4431    4.553316e-05
+   5   0.000000e+00    0.000000e+00       --       2.234546e-11
+   6   2.359462e-06    9.844062e-06    4.1722    9.835164e-06
+   8   5.594077e-07    3.587950e-06    6.4138    3.584243e-06
+  10   1.842953e-07    1.688300e-06    9.1608    1.686414e-06
+  12   7.451156e-08    9.247516e-07   12.4108    9.236630e-07
+
+  sum n=2..12 : UR 9.932045695e-04 | S 1.291317638e-03 | O 1.290957982e-03
+  S/UR ratio  : 1.300153
+  deficit     : UR 0.997490086 | S 9.971919747e-01 | O 9.971923344e-01
+  d(deficit)  : S-UR -2.981113244e-04 ; O-S +3.597e-07
+  to 3 decimals: UR 0.997 , S 0.997 , O 0.997
+  [P5] -> CONFIRMED   (CHECK)
+  [P6] -> CONFIRMED   (CHECK)
+  [P8] -> CONFIRMED   (CHECK)
+  [P9] -> CONFIRMED   (CHECK)
+
+==============================================================================
+[5] THE TAIL AND ITS SIZE
+==============================================================================
+  For large n the spinor matrix element falls as n^-2 and dE as n, so f_1n ~ C n^-3.
+  Tail estimate integral_N^inf C n^-3 dn = f_N * N / 2 (an estimate, not a new bucket):
+    UR tail  ~ 4.471e-07 ; S-bag tail ~ 5.549e-06
+  Both are below 1e-5, so the truncated sum is the deficit at six decimals.
+  [P7] -> CONFIRMED   (CHECK)
+
+==============================================================================
+[6] STRUCTURAL FLAG -- THE k=0 MODE OF THE SAME-SIGN BAG
+==============================================================================
+  The S bag admits a k=0 mode with E=m_e c^2=0.511 MeV and constant equal spinors.
+  Its dipole coupling to n=1 is |z_01| = 3.731446e-01 fm, giving f_01 = 1.229397e-03.
+  This mode is NOT in P4's occupied-subband construction (ground = n=1,
+  m_eff = E_z,1/c^2).  At the solved state mu_e = 15.705 MeV the in-plane
+  effective mass of such a band would be (mu_e + m_e)/c^2, a factor 20.78
+  below P4's m_eff.  The round does NOT re-solve the state or revise sigma_s;
+  the mode is registered as a structural question about the state, not a verdict.
+
+  S1-S15: the partition f_intra + sum f_1n + deficit = 1 still closes by
+  construction and the deficit is still a declared UV bucket.  No shape,
+  closure, identity, binary or label criterion changes.  tau and sigma_DC
+  from RQ-03 (2.000e-20 s, 8.630e-04 S) are quoted, not recomputed.
+  [P11] -> CONFIRMED   (STRUCTURAL)
+  [P12] -> CONFIRMED   (STRUCTURAL)
+
+==============================================================================
+[7] VERDICTS
+==============================================================================
+  INSTRUMENT DEFECTS FOUND IN DRY RUN AND FIXED BEFORE EMISSION:
+  (a) P4's ratio was compared to 1 instead of its registered 1.12514;
+  (b) P10 divided by an analytic zero for the S-bag odd-n terms, turning
+      a 3e-16 quadrature floor into a spurious 3e-4 deviation.  Both fixes
+      and the P4 precision clarification are disclosed in the registration.
+
+  P1   PASS       CHECK
+  P2   PASS       CHECK
+  P3   PASS       CHECK
+  P4   PASS       CHECK
+  P10  PASS       CHECK
+  P5   PASS       CHECK
+  P6   PASS       CHECK
+  P8   PASS       CHECK
+  P9   PASS       CHECK
+  P7   PASS       CHECK
+  P11  PASS       STRUCTURAL
+  P12  PASS       STRUCTURAL
+
+  12/12 confirmed; decision rules require P1,P5,P6,P10.
+  RESULT: the deficit SURVIVES an exact Dirac-box treatment.  It moves by
+  -2.981e-04 (UR 0.997490 -> exact 0.997192), i.e. in the fourth decimal only; the
+  ladder sum itself moves by 30.02%.  Refinement (ii) is discharged as a
+  number, with the k=0 structural flag registered separately.
+  No gate mark; G6/DC2 is unchanged by this refinement.
+
+PROVENANCE: NEITHER  (criterion evaluation on declared box states; no chain
+evidence and no visibility claim)
+```
+
+*Content generated by AI*

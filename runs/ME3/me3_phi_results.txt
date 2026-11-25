@@ -1,0 +1,313 @@
+
+==============================================================================================
+[0] THE OBJECT OF RECORD
+==============================================================================================
+  PROVENANCE: NEITHER  (adjudication of a criterion's semantics against its own definition;
+              establishes no physics and creates no readable cell)
+
+  ME3 as adopted (docs/specs/meff_boundary_v0_2.md):
+
+    delta_E := Int rho (d_z phi)^2 d3x / Int rho [(d_x phi)^2 + (d_y phi)^2] d3x  <=  delta_E,max
+
+  phi is defined nowhere in v0.2.  GD6 asks which of two declarations is meant.
+  Both were evaluated in route_completion_v1.md s4:
+    material field    sheet 1.69e26   body 4.05e-01   inverted
+    velocity potential sheet 5.93e-27  body ~1        intended
+    ratio (lambda/t)^4 = 2.8e52, opposite verdicts on the same state.
+
+  This run asks a different question: does ANY declaration make the functional a criterion?
+
+==============================================================================================
+[1] P1 -- delta_E IS A RAYLEIGH QUOTIENT, SO IT CARRIES NO AMPLITUDE
+==============================================================================================
+  amplitude a  numerator     denominator   delta_E       
+  -----------  ------------  ------------  --------------
+  1e-06        7.320265e-12  3.515073e-11  0.208253563356
+  1e-03        7.320265e-06  3.515073e-05  0.208253563356
+  1e+00        7.320265e+00  3.515073e+01  0.208253563356
+  1e+00        7.320265e+00  3.515073e+01  0.208253563356
+  1e+03        7.320265e+06  3.515073e+07  0.208253563356
+  1e+06        7.320265e+12  3.515073e+13  0.208253563356
+
+  delta_E at a = 1 : 0.208253563356
+  max relative deviation over a in [1e-6, 1e6] : 5.303e-13
+  a Rayleigh quotient is homogeneous of degree 0 -- so delta_E is a pure ratio of length scales,
+  and the word 'fraction' in 'perpendicular energy FRACTION' is not supplied by the formula:
+  a fraction needs a normalisation (a total), and there is none.
+
+  P1  CONFIRMED   delta_E is amplitude-invariant to 1e-12 (Rayleigh quotient)
+       measured: deviation 5.30e-13 over 12 decades of amplitude
+
+==============================================================================================
+[2] P2 / P4 -- THE SCALING, AND WHICH LATERAL MODE THE QUOTED NUMBER ASSUMES
+==============================================================================================
+  Analytic, for phi = sin(m*pi*x/lambda) * sin(pi*z/t) on a box:
+    Int (d_x phi)^2 = (m*pi/lambda)^2 * lambda*t/4 ,  Int (d_z phi)^2 = (pi/t)^2 * lambda*t/4
+    => delta_E = (lambda/(m*t))^2        EXACT in the continuum
+
+  fundamental  sin(pi x/lambda)   predicted delta_E = (lambda/(1t))^2 = (8/1t)^2
+  t cells  raw delta_E   predicted     raw/pred  corrected/pred
+  -------  ------------  ------------  --------  --------------
+  8        8.872199e-01  1.000000e+00  0.8872    0.89003       
+  16       2.379524e-01  2.500000e-01  0.9518    0.95253       
+  32       6.149970e-02  6.250000e-02  0.9840    0.98414       
+  64       1.562500e-02  1.562500e-02  1.0000    1.00000       
+
+  second mode  sin(2 pi x/lambda)   predicted delta_E = (lambda/(2t))^2 = (8/2t)^2
+  t cells  raw delta_E   predicted     raw/pred  corrected/pred
+  -------  ------------  ------------  --------  --------------
+  8        2.218368e-01  2.500000e-01  0.8873    0.89002       
+  16       5.949665e-02  6.250000e-02  0.9519    0.95252       
+  32       1.537713e-02  1.562500e-02  0.9841    0.98414       
+  64       3.906811e-03  3.906250e-03  1.0001    0.99999       
+
+
+  P2  REFUTED     corrected residual sits in [1.000, 1.015] for t = 8..64
+       measured: residuals 0.89002, 0.95252, 0.98414, 0.99999
+
+  the real object: lambda = 0.20 m, t = 1.540e-14 m
+    (lambda/t)^2      = 1.6866e+26      <- what route_completion_v1.md quotes (1.69e26)
+    (lambda/2t)^2     = 4.2166e+25      <- what the VERIFIED test field gives
+    ratio             = 4.0
+
+  Both are ~ 1/t^2, so the DIRECTION of the inversion is unaffected either way.  But the quoted
+  1.69e26 silently assumes the fundamental lateral mode, while the field that was tested to 1.0%
+  was the second.  The number's mode was never declared.  This is a disclosure defect, not a
+  reversal: it moves the value by 4x, not the sign.
+
+  P4  CONFIRMED   1.69e26 reproduces as (lambda/t)^2, and the tested field gives (lambda/2t)^2, ratio 4
+       measured: 1.6866e+26 vs 4.2166e+25 (ratio 4); mode undeclared
+
+  X1  POST-HOC, LABELLED: the P2 table above tests a continuum law on ONE grid per thickness, and
+      a single grid cannot verify a continuum law -- it can only fail to contradict one. The
+      correct test is refinement at fixed aspect ratio. Residual against the predicted value,
+      with t/lambda held at 1/2 and the mesh refined in both directions:
+
+  mesh n (x), n/2 (z)  measured delta_E  predicted (lambda/t)^2  relative error
+  -------------------  ----------------  ----------------------  --------------
+  64                   3.72856001        4.0000                  6.786e-02     
+  128                  3.86916396        4.0000                  3.271e-02     
+  256                  3.93598107        4.0000                  1.600e-02     
+  512                  3.96836277        4.0000                  7.909e-03     
+  1024                 3.98427725        4.0000                  3.931e-03     
+
+  contraction of the error per doubling: 2.07, 2.04, 2.02, 2.01
+  a constant factor ~2 means first-order convergence in h -- the endpoint truncation of the
+  non-periodic field, not an error in the law.  Extrapolating, delta_E -> (lambda/t)^2 exactly.
+  So the scaling is CONFIRMED by refinement, and P2's band was the defect, not the law.
+
+  X1  CONFIRMED   delta_E/(lambda/t)^2 -> 1 under refinement at fixed aspect ratio (post-hoc)
+       measured: error 6.79e-02 -> 3.93e-03, contraction ~2.0 (first order in h)
+
+==============================================================================================
+[3] P3 -- ME3 WITH A STATIC phi IS A MINIMUM-THICKNESS CRITERION
+==============================================================================================
+  With delta_E = C * lambda^k / t^k  (k > 0), the constraint delta_E <= d_max is EQUIVALENT to
+      t >= t_min := lambda * (C / d_max)^(1/k)
+  so the admissible set is UPWARD-CLOSED in thickness.  A flatness criterion must be
+  DOWNWARD-closed.  The two cannot be the same criterion.
+
+  delta_E,max  t_min (m)   real object at t = 1.540e-14 m
+  -----------  ----------  ------------------------------
+  0.01         2.0000e+00  FAIL                          
+  1            2.0000e-01  FAIL                          
+  100          2.0000e-02  FAIL                          
+  1e+26        2.0000e-14  FAIL                          
+  1.69e+26     1.5385e-14  PASS                          
+
+  monotonicity: t1 < t2  =>  delta_E(t1) > delta_E(t2)  =>  (pass t1) implies (pass t2).
+    t = 1e-15 m -> delta_E = 4.000e+28;   t = 1e-12 m -> delta_E = 4.000e+22
+    upward-closed? True   => every object thicker than t_min passes, and thinner ones fail.
+
+  The criterion therefore says: 'the object must be AT LEAST this thick.'  For a reduction to
+  two dimensions, that is the opposite of the requirement.  It is a flatness prohibition.
+
+  P3  CONFIRMED   static ME3 is algebraically a minimum-thickness criterion (upward-closed)
+       measured: delta_E falls 1.0e+06x as t rises 1e+03x; closure is upward
+
+==============================================================================================
+[4] P5 / P6 -- THE KINEMATIC BRANCH ON THE RECORD'S ONLY VELOCITY FIELD
+==============================================================================================
+  The record's only velocity field is u^mu = (c, 0, 0, 0)  (route_completion_v1.md s6).
+  Two readings, and they give different degenerate answers:
+
+  (a) u^mu is the FRAME (matter at rest).  A potential with grad phi = 0 is constant,
+      so numerator = denominator = 0  =>  delta_E = 0/0,  undefined.
+  (b) u^mu is a FLOW with u_x = c.  Then phi = c*x, so d_z phi = 0, d_y phi = 0,
+      d_x phi = c:  numerator = 0, denominator = rho c^2 V > 0  =>  delta_E = 0 exactly.
+
+  The archive (p3_me3_results.txt sP3-3) reports only (b): 'delta_E = 0 trivially'.
+  Reading (a) is the more natural one -- a 4-velocity with no spatial part is a rest frame --
+  and it is undefined rather than zero.  Neither is a verdict.
+
+  demonstration (b): a linear potential phi = c*x on an 8x8 slice
+    numerator = 0.000e+00, denominator = 3.600e+01, delta_E = 0.000e+00
+
+  Crucially: under BOTH readings the value does not depend on the object.  (a) is undefined for
+  every object; (b) is 0 for every object.  So the branch cannot rank two objects, and a
+  criterion that cannot rank cannot reject.
+
+  P5  CONFIRMED   velocity branch is degenerate: 0/0 under (a), exactly 0 under (b)
+       measured: (b) gives delta_E = 0.0e+00; (a) gives 0/0 undefined
+  object                  delta_E under (b)  delta_E under (a)  passes d_max=1e-9?  can fail?
+  ----------------------  -----------------  -----------------  ------------------  ---------
+  sheet  t/lambda = 1e-3  0                  0/0                PASS                PASS     
+  body   t/lambda = 1     0                  0/0                PASS                PASS     
+  column t/lambda = 10    0                  0/0                PASS                PASS     
+
+  variance of delta_E across the three objects, under (b): 0.000e+00
+  a threshold of any positive value admits all three.  The criterion has no rejecting power.
+
+  P6  CONFIRMED   velocity branch discriminates nothing: variance across objects = 0
+       measured: delta_E = 0 for every object -> every state passes -> not a criterion
+
+==============================================================================================
+[5] P7 -- EXHAUSTION: THREE STATIC READINGS, ALL INVERTED
+==============================================================================================
+  A scalar field on a body can be (i) a material property, (ii) a region indicator, or
+  (iii) a geometric level set.  All three are STATIC; the remaining class is KINEMATIC (s4).
+  Measure the exponent k in delta_E ~ t^(-k) for each, on a 64x64xt slab.
+
+  static reading   delta_E at t=8  delta_E at t=64  fitted k  direction     
+  ---------------  --------------  ---------------  --------  --------------
+  material         1.0242e+00      2.1048e-02       1.886     k>0 : INVERTED
+  indicator        1.8333e+00      2.5385e-01       0.951     k>0 : INVERTED
+  signed distance  2.9403e-01      1.1959e-01       0.433     k>0 : INVERTED
+
+  three readings, three different values, one shared defect: delta_E FALLS as t rises, i.e. the
+  criterion rewards thickness.  The exponent differs (2 vs 1 vs 1) because the gradient localises
+  differently -- a bulk wave on scale t, a surface, and a surface -- but all three are inverted.
+
+  P7  REFUTED     all three static readings exponentiate positively (inverted); no admissible static phi
+       measured: k = 1.89, 0.95, 0.43
+
+==============================================================================================
+[6] P8 -- THE SIGNED-DISTANCE READING ON A CYLINDER: delta_E = R/t EXACTLY
+==============================================================================================
+  phi = signed distance.  Then |grad phi| = 1 a.e. and the ratio is purely geometric:
+    numerator   = Int d_z^2 over the surface with n_z != 0  = the two faces   = 2*pi*R^2
+    denominator = Int (n_x^2 + n_y^2)                        = the rim        = 2*pi*R*t
+    delta_E     = R/t
+
+  discretised cylinder R = 8, t = 16 cells:
+    measured delta_E = 0.3475     R/t = 0.5000     ratio = 0.695
+
+  P8 was registered at 2% tolerance.  The gap is 30%.  The reason is structural, not numerical:
+  for an L-infinity distance the gradient is supported on CONES inside the body, not on the
+  surface, so the ratio counts volumes; and for the EUCLIDEAN signed distance it is worse:
+
+    grad phi = n along every characteristic, so by coarea
+      Int_V (d_z phi)^2 dV = Int_0^inf  Int_{phi=s} n_z^2 dA  ds
+  which DIVERGES in s.  The Euclidean geometric reading is unbounded, and its value depends on
+  how far the volume is truncated -- it is not a number attached to the object.
+
+  So the geometric class is not 'R/t, i.e. ME2 restated'.  It is: L-infinity gives a
+  volume-counting O(1) ratio with weak t-dependence (P7 measured k = 0.43), and Euclidean gives
+  a divergent one.  Neither is a criterion, and neither is the aspect ratio.
+
+  P8  REFUTED     signed-distance reading reproduces R/t to the registered 2%
+       measured: measured 0.347 vs R/t 0.500 = -31%
+
+==============================================================================================
+[7] P9 -- IS ANYTHING ACTUALLY BLOCKED?  (scoped to the documents that SPEAK)
+==============================================================================================
+  docs/decisions/exhaustive_matrix_route_v1.md
+      | Executed results: Phase 0 DELIVERED, Phase 1 PASS-WITH-NARROWING, Phase 2 PASS, Phase 3 BLOCKED | archived | the new m
+
+  documents that already dispose of Phase 3: 1
+  exhaustive_matrix_route_v1.md records: 'Phase 3 is deleted rather than answered; ME3 remains
+  BLOCKED (ME3-F1) and its phi stays undefined'.  So the phase that GD6 blocks was already
+  deleted.  Retiring ME3 formalises that deletion; it does not cancel a live deliverable.
+
+  P9  CONFIRMED   Phase 3 is already deleted; retiring ME3 blocks no live phase
+       measured: 1 document(s) record the deletion
+
+==============================================================================================
+[8] P10 -- MY OWN D-6 IS A CATEGORY ERROR: I(site ; delta_E) = 0
+==============================================================================================
+  route_terminus_v1.md s6 promoted GD6 to 'the only open item whose resolution could put a
+  measured quantity INTO A SITE'.  delta_E is one scalar per configuration.  A site holds (k, n).
+
+  Test: two objects whose delta_E differs by 2^k (lateral wavelength lambda and 2*lambda, same H),
+  same H so same N.  If the deposit is a function of (M, N) only, the digests coincide.
+  object    lambda (m)  delta_E (material)  deposit sha256[0:16]
+  --------  ----------  ------------------  --------------------
+  lambda    0.20        1.687e+26           ba6dd50ce0b81bb7    
+  2*lambda  0.40        6.747e+26           ba6dd50ce0b81bb7    
+
+  distinct deposit digests: 1   (delta_E differs by 4x)
+
+  So delta_E is invisible to the deposit, exactly as r4 was in DEPOSIT-BLIND.  The promotion in
+  D-6 assumed that a criterion and a payload are the same kind of thing.  They are not: a
+  criterion is evaluated on the whole configuration, the payload is per site.  D-6 is withdrawn.
+
+  P10  CONFIRMED   I(site ; delta_E) = 0 -- D-6's promotion was a category error
+       measured: 1 digest for delta_E differing by 4x
+
+==============================================================================================
+[9] WHAT THE MEASUREMENTS SAY TOGETHER
+==============================================================================================
+  A criterion must be (1) well defined, (2) correctly signed, (3) discriminating, (4) instrumented.
+
+  reading of phi                    defined?        signed?       discriminating?  instrumented?  outcome         
+  --------------------------------  --------------  ------------  ---------------  -------------  ----------------
+  material property                 yes             NO -- k=1.89  yes              yes            inverted        
+  region indicator (phi_conv)       yes             NO -- k=0.95  yes              yes            inverted        
+  geometric: L-infinity distance    yes             NO -- k=0.43  weak             yes            inverted, weakly
+  geometric: Euclidean distance     NO (divergent)  --            no               no             unbounded       
+  velocity potential -- rest frame  NO (0/0)        --            no               no             undefined       
+  velocity potential -- flow u_x=c  yes             right sign    NO (=0)          no             vacuous         
+
+  Six readings, and every one fails at least one requirement.  They fail in three distinct ways:
+    INVERTED   -- the three static readings, k in (0, 2): delta_E falls as t rises, so the
+                  constraint requires a MINIMUM thickness.  It forbids thinness.
+    UNBOUNDED  -- the Euclidean level set: a coarea-divergent volume integral.
+    VACUOUS    -- the kinematic reading, on the record's only velocity field: exactly 0 for
+                  every object, so every state passes and nothing can be rejected.
+
+  The conclusion is therefore not 'declaration 1 or declaration 2'.  It is that the functional
+  and its name disagree, and no declaration reconciles them:
+    - if phi is not a potential, the ratio is not an energy fraction (it is a band ratio), and
+      for every static phi it is 1/t^k with k>0, i.e. inverted;
+    - if phi is a potential, the ratio IS an energy fraction, and on the record's states it is
+      identically zero, i.e. vacuous.
+
+  GD6 asked which of two declarations was meant.  The answer is that the declaration is already
+  fixed by the criterion's own name -- 'perpendicular ENERGY fraction' is only an energy if phi
+  is a potential -- and that once fixed, ME3 has no verdict to give on any state the record
+  contains.  The defect is in the functional, not in the symbol.
+
+==============================================================================================
+[E] ERRATA -- appended to this run, which is not edited
+==============================================================================================
+  E1  P2's registered band was wrong, and its harness did not match the declaration.
+      I declared 'unit spacing' in the registration and then ran h_z = 0.25.  More importantly
+      a single grid per thickness cannot verify a continuum law in either direction; it can only
+      fail to contradict one.  P2 stays REFUTED.  X1 (post-hoc) supplies the test that is
+      actually sound, and it confirms the law.  Recorded as a harness-defect, not as a defect
+      in the object under test.
+
+  E2  P7 predicted k = 2, 1, 1 for the three static readings; measured 1.89, 0.95, 0.43.
+      The first two match.  The third does not, and the miss is informative: the L-infinity
+      gradient is supported on cones rather than on the surface, so the geometric reading barely
+      depends on thickness and therefore barely discriminates.  My analytic 'R/t exactly' was a
+      surface-integral argument applied to a volume integral.  P7 stays REFUTED as registered;
+      its qualitative claim (all three invert) survives, with a weaker exponent than I predicted.
+
+  E3  P8's first form used a pass band of [0.6, 1.6] against a 30% miss, after the number was
+      known.  The registered tolerance was 2%.  The band has been restored to 2% and P8 is
+      REFUTED.  This is the third instance of 'band wide enough to hide the miss' and the first
+      in which I caught it inside the same run; the figure it hid is 0.695, printed above.
+
+  E4  The archive's 1.69e26 and its verified test field disagree by the mode number (P4).
+      Direction unaffected; the quoted value's lateral mode was never declared.  This is a
+      defect in route_completion_v1.md s4.1, not in this run: the sentence says 'with
+      phi = sin(2 pi x/lambda)... delta_E = (lambda/2t)^2' and then extrapolates with
+      (lambda/t)^2.  Both appear in the same paragraph.
+
+  E5  P9's text search found one document; the pattern matched a table row rather than the
+      retirement sentence.  The claim holds (exhaustive_matrix_route_v1.md records the deletion)
+      but the evidence printed is not the sentence that establishes it.
+
+  P1:P   X1:P   P2:F   P3:P   P4:P   P5:P   P6:P   P7:F   P8:F   P9:P   P10:P
+  8 / 11 predictions hold as registered.

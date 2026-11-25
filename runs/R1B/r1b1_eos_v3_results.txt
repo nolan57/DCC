@@ -1,0 +1,82 @@
+====================================================================================================
+R1-B1 v3: beta-equilibrium EOS -- three-convention envelope (review B2/B5)
+====================================================================================================
+model: cold ideal npe gas; charge neutrality; beta equilibrium mu_n=mu_p+mu_e
+registered constants: src/common/conv.py (single source, no local copies)
+  M_N=939.565 M_P=938.272 M_E=0.511 MeV | hbarc=197.3270 MeV fm | L_z=1.0 fm
+  E_sub(band gap)=619.9 MeV vs E_F,e=73.37 MeV -> electrons single-band (D=2)
+thresholds: beta resid<1e-06 MeV | cs2<1.0 | P monotone | P/u(UR)<1e-03 | Ekin(n0)=58.4+/-2.0
+
+[2] domain of existence (2D electron dispersion cannot reach 1.293 MeV at low n)
+  mode   n_thr[fm-3]  valid points   note                          
+  ALL3D  none         161/161        no lower bound (3D mu_e ~ n^(1/3) can always reach the gap)
+  HYB    6.1473e-06   105/161        below n_thr NO beta-equilibrium npe state exists
+  ALL2D  6.8241e-06   104/161        below n_thr NO beta-equilibrium npe state exists
+  => This is a dimensional fingerprint, not a numerical issue: mu_e(2D)~sqrt(n) vs mu_e(3D)~n^(1/3).
+     Under the 2D convention, a slab with n_B<n_thr simply cannot be in β equilibrium (it must be described as stable nuclei / a non-equilibrium state).
+
+[3] EOS scan (default = HYB: electrons 2D, nucleons 3D)
+  n_B[fm-3]  X_p         mu_e[MeV]   P[MeV/fm2]    P[N/m]        cs2      
+  6.31e-06   9.813e-01   1.231       2.7064e-06    4.3361e+11    0.0001102
+  1e-05      6.575e-01   1.268       3.0251e-06    4.8467e+11    8.628e-05
+  0.0001     1.040e-01   1.595       2.0158e-05    3.2297e+12    0.0003034
+  0.001      3.695e-02   3.007       7.8531e-04    1.2582e+14    0.00138  
+  0.01       3.527e-02   9.289       3.5914e-02    5.7540e+15    0.006285 
+  0.03981    4.449e-02   20.817      3.5566e-01    5.6983e+16    0.01539  
+  0.1        5.402e-02   36.353      1.6366e+00    2.6222e+17    0.02762  
+  0.1585     5.978e-02   48.144      3.5083e+00    5.6209e+17    0.03679  
+  0.3162     6.966e-02   73.412      1.1000e+01    1.7624e+18    0.05595  
+  1          8.941e-02   147.899     7.3690e+01    1.1806e+19    0.1048   
+  (points below n_thr=6.147e-06 fm^-3 omitted: 56 grid points, no solution)
+
+[4] three-convention comparison @ n_B(G0) = 4.215499e-02 fm^-3   [CORE DELIVERABLE]
+  mode   D_e  D_n   X_p         mu_e[MeV]  n_e[fm^-3]  reduction  P_tot[N/m]   
+  ALL3D  3    3     1.6198e-03  24.957     6.8281e-05   322.27     6.4790e+16
+  HYB    2    3     4.5006e-02  21.545     1.8972e-03   11.60      6.2654e+16
+  ALL2D  2    2     4.3957e-03  6.733      1.8530e-04   118.75     1.8439e+16
+  ENVELOPE  X_p 1.62e-03..4.50e-02 (x28) | mu_e 6.73..24.96 MeV (x3.7)
+            n_e 6.83e-05..1.90e-03 fm^-3 (x28) | P_tot 1.84e+16..6.48e+16 N/m (x3.5)
+  Note: ALL3D is retained only as a control. It contradicts the nucleon subband spacing (204 MeV) of R1-B4 -- if nucleons
+      are quantized in the z direction, load-bearing nucleons should occupy a single band, so nucleons must also be treated as 2D. Hence ALL3D's
+      X_p=1.6e-3 / reduction=3.2e2 must not be cited alone.
+
+[5] P(Sigma) at G0 column density (Sigma = M/A_perp = 70.0 kg/m^2)
+  mode   P_nuc[N/m]     P_e[N/m]       P_tot[N/m]    
+  ALL3D  6.4722e+16     6.8212e+13     6.4790e+16    
+  HYB    6.0471e+16     2.1830e+15     6.2654e+16    
+  ALL2D  1.8372e+16     6.6632e+13     1.8439e+16    
+
+[6] N7 bridge: frozen electron gas vs beta-equilibrium electrons
+  frozen: n_e=2.200490e-02 fm^-3 -> mu_e=73.37 MeV (2D single band) | 171.07 MeV (3D ctr)
+  ALL3D : n_e,eq/n_e,frozen=3.103e-03 | mu_e,eq/mu_e,frozen=0.340 | mu_e,eq=24.96 MeV
+  HYB   : n_e,eq/n_e,frozen=8.622e-02 | mu_e,eq/mu_e,frozen=0.294 | mu_e,eq=21.54 MeV
+  ALL2D : n_e,eq/n_e,frozen=8.421e-03 | mu_e,eq/mu_e,frozen=0.092 | mu_e,eq=6.73 MeV
+  => electrons are partially captured rather than eliminated; the reduction factor depends strongly on the convention (12 .. 322 times)
+     whether residual electrons can be neglected must be judged by the R1-B4 v3 energy gap; this module draws no separate conclusion.
+
+[7] checks (K = counted as evidence; R = registration only)
+  K1_beta_residual_all_modes 1.1369e-13  thr 1.00e-06  PASS   back-substitution at all solved points in all three conventions |mu_n-mu_p-mu_e|
+  K2_mu_e_low_limit_3D       3.7221e-04  thr 1.00e-02  PASS   at n_B=1e-8 solves mu_e=1.2926, analytic m_n-m_p=1.2930 MeV
+  K3_cs2_below_1             1.0548e-01  thr 1.00e+00  PASS   c_s^2=dP/deps maximum across all three conventions 0.1055 (v2's dual values 0.1005/0.0863 unified under this definition)
+  K4_P_monotone              0.0000e+00  thr 0.00e+00  PASS   P strictly monotonically increasing in n_B across all three conventions
+  K5_eos3D_UR                4.6712e-07  thr 1.00e-03  PASS   at n=1 fm^-3 P/u=0.333333 (should be 0.333333)
+  K6_ideal_gas_anchor_n0     4.8957e-02  thr 2.00e+00  PASS   E_kin(n_0=0.16)=58.45 MeV (literature ideal-gas anchor 58.4, not an identity)
+
+  R1 mu_e(n->0) by convention (dimension fingerprint, not pass/fail):
+     ALL3D  first solvable n_B=1.00e-08 -> mu_e=1.2926 MeV
+     HYB    first solvable n_B=6.31e-06 -> mu_e=1.2308 MeV
+     ALL2D  first solvable n_B=7.08e-06 -> mu_e=1.2921 MeV
+  R2 convention spread is the deliverable, not a criterion:
+     X_p span 28x, P_tot span 3.5x -- numbers G2'/G5' must consume as a range.
+
+[8] findings
+  F-R1B1-5(rev): v2's 'electrons reduced ~3e2 times rather than eliminated' holds only for ALL3D; HYB gives 12 times,
+                  ALL2D 119 times. The direction is retained, with the factor changed to a range.
+  F-R1B1-6(v3):  P_tot range 1.84e+16..6.48e+16 N/m, of the same order as the G0 frozen electron-gas pressure 8.62e16 N/m;
+                  the final-state EOS remains MODEL RESULT and is not frozen.
+  F-R1B1-7(v3):  c_s^2 is unified as dP/deps = 0.1055 (≪1); v2's dual values are no longer reported.
+  F-R1B1-8(NEW): the 2D electron convention has a lower density bound n_thr for β equilibrium; 3D has no such bound.
+                  This is an observable consequence of the dimensionality choice and can serve as an independent discriminator for R1-B4/R3.
+
+R1-B1 v3 OVERALL: PASS
+evidence level: MODEL RESULT (cold ideal npe gas); values co-registered as envelope.

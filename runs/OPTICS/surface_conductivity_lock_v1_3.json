@@ -1,0 +1,26 @@
+{
+  "file": "docs/specs/surface_conductivity_v1.md",
+  "version": "1.3",
+  "sha256": "ccc2fb7822c178490b9986953f426ef890bd02c45487f69c40bfab8e67f9e7cc",
+  "locked": "2026-11-22",
+  "supersedes": [
+    {
+      "version": "1.0",
+      "sha256": "91eca7acf6400bac11699a71d55c3a5644c114a52d067eae5225fc33d211a50f",
+      "lock": "runs/OPTICS/surface_conductivity_lock.json"
+    },
+    {
+      "version": "1.1",
+      "sha256": "a005533bf3c5e390e48a3ef992e7af4d89c49a74c23d1baca6117b5d92300aab",
+      "lock": "runs/OPTICS/surface_conductivity_lock_v1_1.json"
+    },
+    {
+      "version": "1.2",
+      "sha256": "ce2a5088c775ce1a3d3d71c8a796a3450511e4992441dad99f3026fa920e0761",
+      "lock": "runs/OPTICS/surface_conductivity_lock_v1_2.json"
+    }
+  ],
+  "note": "Prose-only correction of the section 10a.2 partition citation (errata E5, docs/decisions/sc4_partition_citation_errata_v1.md). S1-S15 byte-identical to v1.2. No threshold moved. The measured partition is W_intra/W_total = 1.000000000003 (runs/OPTICS/sc_route_results.txt section F); the v1.2 sentence quoted 1 - 7.1e-5, which is the m*/E_F double-pinning slack (sc2_results.txt section A.2), not a partition share.",
+  "locked_before": "no candidate sigma_s exists (unchanged from v1.2).",
+  "lock_rule": "no threshold in S12-S15 may be widened after a measurement (unchanged from v1.2). Every digest is computed from the file bytes, never retyped (E4 rule); the supersedes chain is copied from the v1.2 lock file programmatically."
+}

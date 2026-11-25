@@ -1,0 +1,67 @@
+==========================================================================================
+R4 instability localization: is the grid-scale mode BULK or EDGE?
+registration: runs/R4/r4_instability_localization_registration.md
+==========================================================================================
+[parameters]
+  production operator imported from axisym_2p1_evolution (no geometry re-implemented)
+  RHO_IN=4.0  R_DOM=24.0  KO_PROD=0.2  CFL=0.25  WEIGHT=0.050  field count=11
+  registered thresholds: C3 1e-06 ; C1 bulk 1.5 / edge 2.0 ; edge-mass 0.50 ;
+                         checker 0.50 ; C4 (0.3, 3.0) ; C5 1e-02
+
+    assembled J(N=12, anchor): n = 1584 (20.1 MB)
+[C3] Jacobian correctness anchor: J.d vs central finite-difference directional derivative
+    eps=1e-05   rel = 1.004e-09
+    eps=1e-06   rel = 1.035e-08
+    eps=1e-07   rel = 1.197e-07
+    best rel = 1.004e-09 at eps=1e-05  (threshold 1.0e-06) : PASS
+
+[C1] geometry dependence: flat space, h = 0.4 fixed, THREE geometries
+     if the mode is BULK the three growth factors agree; if EDGE they track the edge
+  baseline  rho_in=4, R=24   N= 50 h=0.400 dt=0.100 steps=20  Ham(0)=1.421e-04  Ham(2)=9.373e-04  growth=   6.60
+      |Ham| mass: inner 15% = 0.78   outer 15% = 0.19   max|Ham| = 8.834e-03
+  inner cut rho_in=8, R=24   N= 40 h=0.400 dt=0.100 steps=20  Ham(0)=1.738e-05  Ham(2)=4.608e-04  growth=  26.52
+      |Ham| mass: inner 15% = 0.66   outer 15% = 0.28   max|Ham| = 4.382e-03
+  outer     rho_in=4, R=36   N= 80 h=0.400 dt=0.100 steps=20  Ham(0)=1.421e-04  Ham(2)=9.373e-04  growth=   6.60
+      |Ham| mass: inner 15% = 0.85   outer 15% = 0.13   max|Ham| = 8.834e-03
+    growth ratios relative to baseline: 1.00, 4.02, 1.00
+    inner-cut change factor 4.02 (edge threshold 2.0) ; outer-domain 1.00
+    C1 verdict: INNER-EDGE
+
+[C2] eigen-analysis of the undissipated semi-discrete operator (KO_EPS = 0)
+  N=16  h=1.2500  n_dof=2816
+    assembled J(N=16): n = 2816 (63.4 MB)
+    method dense-eig ; leading Re lambda = +0.51220  Im = +0.00000
+    top-5 Re lambda: +0.5122, +0.5050, +0.4873, +0.4798, +0.4756
+    eigenvector field mass: gpp=0.57  Kpp=0.15  gzz=0.10  grr=0.09  Kzz=0.03
+    |v| mass: inner 8% = 0.08  outer 8% = 0.24  checkerboard index = 0.02
+  N=20  h=1.0000  n_dof=4400
+    assembled J(N=20): n = 4400 (154.9 MB)
+    method arpack-LR(k=8) ; leading Re lambda = +0.63602  Im = +0.00000
+    top-5 Re lambda: +0.6360, +0.6283, +0.6176, +0.6106, +0.6106
+    eigenvector field mass: gpp=0.49  Kpp=0.16  gzz=0.13  grr=0.11  Kzz=0.04
+    |v| mass: inner 8% = 0.05  outer 8% = 0.20  checkerboard index = 0.01
+
+[C5] FD-step independence of the leading eigenvalue (eps = 1e-6 vs 1e-7)
+    assembled J(eps=1e-7): n = 2816 (63.4 MB)
+    N=16  Re lam(1e-6) = +0.51220   Re lam(1e-7) = +0.51220   rel diff = 3.58e-10  (threshold 1e-02): PASS
+
+[C4] consistency: Re lambda_max vs the growth rate measured by time integration
+    same grid N=%d, KO_EPS=0, cfl=0.1 (tighter than production so that the RK4
+    stability limit cannot be mistaken for the physical growth)
+    Ham(0)=1.943e-04  Ham(2)=2.502e-04  dt=0.100 steps=20  measured rate=0.1266
+    Re lam / rate = 5.02   (window (0.3, 3.0)) : FAIL
+
+[C2-scaling] grid-scale modes should have Re lam ~ 1/h
+    N=16 vs 20: h ratio 1.250 (predicted Re-lam ratio if ~1/h) vs observed 1.242
+
+[verdicts]
+  C3 Jacobian anchor        : PASS
+  C1 geometry dependence    : INNER-EDGE
+  C5 FD-step independence   : PASS
+  C4 spectrum-vs-evolution  : FAIL
+
+[conclusion] INNER-EDGE mode: the instability tracks a boundary. The F.7.2-3 sentence 'the cure is a strongly hyperbolic formulation, not parameter tuning' is OVERTURNED for this mode and must be amended
+  leading eigenvalue (N=16): Re = +0.51220, Im = +0.00000; checkerboard 0.02; inner mass 0.08
+  REMINDER: locating the mode is not curing it. B1/B3/B4/B6 remain FAIL, and any fix
+  requires a full re-run of the B-block before a stability claim is licensed.
+  no physical-scale statement: kappa = 1 code units (roadmap 8.12 prohibition).

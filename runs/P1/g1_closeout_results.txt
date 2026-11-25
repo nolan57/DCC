@@ -1,0 +1,42 @@
+<<<LOG>>>
+================================================================================
+G1 closeout: G1-A third-grid convergence + G1-B sigma_w analytic check
+================================================================================
+registered params: lam=1.000 v=1.000 eps=0.000 domain=[-12.0,12.0] grids=(401, 801, 1601)
+thresholds (registered before run): |p_obs-2|<0.25, sigma_relerr<1.0e-04, wall_relerr<1.0e-03
+
+[G1-A static kink solve at three resolutions]
+  N=  401 dx=0.06000  eq-residual=9.05e-07  x_w=+0.00000007  d09=4.164747 (analytic 4.164066)  sigma_w=0.94258276
+  N=  801 dx=0.03000  eq-residual=8.02e-11  x_w=-0.00000100  d09=4.164271 (analytic 4.164066)  sigma_w=0.94275247
+  N= 1601 dx=0.01500  eq-residual=1.12e-07  x_w=-0.00000000  d09=4.164094 (analytic 4.164066)  sigma_w=0.94279490
+
+[observed order p per observable (v1.4 registered formula)]
+  field profile L2 : p = 2.000  (e1=1.458e-04, e2=3.645e-05)
+  wall thickness   : p = 1.419  (|d_h-d_h/2|=4.754e-04, |d_h/2-d_h/4|=1.777e-04)
+  wall tension     : p = 2.000  (|s_h-s_h/2|=1.697e-04, |s_h/2-s_h/4|=4.243e-05)
+  wall position    : x_w(fine)=-6.712e-10 (analytic 0; below interpolation resolution, listed separately)
+
+[error vs exact kink (eps=0)]
+  N=  401  L2(phi - kink_exact) = 1.4423e-04
+  N=  801  L2(phi - kink_exact) = 3.6060e-05
+  N= 1601  L2(phi - kink_exact) = 9.0108e-06
+
+[G1-B sigma_w analytic cross-check]
+  N=  401  sigma_w=0.9425827613  analytic=0.9428090416  relerr=2.40e-04
+  N=  801  sigma_w=0.9427524727  analytic=0.9428090416  relerr=6.00e-05
+  N= 1601  sigma_w=0.9427948994  analytic=0.9428090416  relerr=1.50e-05
+  Richardson-extrapolated sigma_w = 0.9428090417 (relerr vs analytic 9.99e-11)
+
+[verdicts]
+  field_L2 p_obs vs 2.0 (|dev|<0.25)       : 2.000  PASS (second-order scheme acceptance criterion)
+  delta_09 p_obs=1.419, sigma_w p_obs=2.000  : consistency registered (superconvergence of integral quantities is normal)
+  sigma_w analytic relerr <1.0e-04            : 1.50e-05  PASS
+  wall thickness analytic relerr <1.0e-03     : 6.74e-06  PASS
+
+[findings]
+  F-G1-1: The energy-residual decrease ratio (old criterion) is not used to determine order; p is computed directly from the v1.4 registered formula.
+  F-G1-2: The eps=0.015 tilted case has no analytic kink; its convergence order is represented by that of the eps=0 baseline scheme;
+          the P1a frozen version continues to use DCC_P1_bubble_wall.py (leapfrog+Sommerfeld, 2026-11-19).
+
+G1 closeout OVERALL: PASS
+evidence level: MODEL RESULT

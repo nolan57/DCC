@@ -1,0 +1,283 @@
+# RQ-09 -- the four unset observer parameters
+
+**Round**: 55 (`RQ-09`).  **Registration**: `runs/OPTICS/observer_params_registration.md`.
+**Instrument**: `src/route/observer_params.py` (this file is emitted by it, not transcribed).
+**Inputs**: `meff_boundary_v0_2.md` s1-s2; `theta_environment_v1.md`, `theta_camera_v1.md`;
+`demo_object_v1.md` s2; `runs/LADDER/r2_relief_contrast_results.txt`.  No free parameter.
+
+```text
+
+==============================================================================
+RQ-09 -- THE FOUR UNSET OBSERVER PARAMETERS: WHAT EACH IS A FUNCTION OF
+==============================================================================
+  registration : runs/OPTICS/observer_params_registration.md
+  declared     : NOT EVIDENCED BY MTIME -- the registration carries an appended erratum
+  question     : Delta_z_res, delta_E,max, l_samp, Delta_z_tol -- and what sets each
+  method       : for each, test FUNCTION / FUSED / INVARIANT / VOID.  No tolerance is registered.
+
+==============================================================================
+[1] FOUR NAMES, FOUR ARGUMENTS -- the a-priori claim, stated before any number
+==============================================================================
+  parameter    lives in       its criterion                       what could set it                                  
+  -----------  -------------  ----------------------------------  ---------------------------------------------------
+  Delta_z_res  CM5 (ex-ME1)   mu_ov(Delta_z_res) <= delta_ov      theta's band or theta's gate                       
+  l_samp       ME2            l_samp*|grad z|_inf <= Delta_z_tol  the frame's pixel pitch                            
+  Delta_z_tol  ME2            same                                the viewer's depth acuity, or the frame's quantiser
+  delta_E,max  ME3 (retired)  delta_E <= delta_E,max              nothing -- ME3 has no registrable value            
+
+  The claim this round tests: none of the four is a free number.  Three are functions of
+  declared quantities, and the fourth is void.  A parameter whose verdict moves with a choice
+  that nothing fixes would falsify the claim, and the round would have to say so.
+
+==============================================================================
+[2] Delta_z_res IS A FUNCTION OF theta -- the optical channel
+==============================================================================
+  E (eV)  lambda (nm)  Delta_z (um) NA=1  Delta_z (um) NA=0.1
+  ------  -----------  -----------------  -------------------
+  1       1239.84      0.6199             61.99              
+  2       619.92       0.3100             31.00              
+  3       413.28       0.2066             20.66              
+
+  Delta_z = lambda/(2 NA^2) is the axial half-width of the focus; NA = 1 is the floor.
+  band : [206.6 nm, 62.0 um] = 2.477 decades
+
+  Q1  CONFIRMED   Delta_z_res depends on theta only; optical endpoints in the exact ratio 3.000
+       measured: lambda(1)/lambda(3) = 3.000000000000
+
+  Q2  CONFIRMED   optical band = [206.6 nm, 62.0 um], 2.477 decades
+       measured: [206.6 nm, 62.0 um], 2.4771 dec
+
+==============================================================================
+[3] THE RANGE-GATE CHANNEL -- the same slot, a different function of theta
+==============================================================================
+  gate dt  Delta_z (m)  plate (15.4 fm)  slab (0.07 m)
+  -------  -----------  ---------------  -------------
+  3000 ps  0.4497       graph            graph        
+  300 ps   0.0450       graph            NOT graph    
+  100 ps   0.0150       graph            NOT graph    
+  30 ps    0.0045       graph            NOT graph    
+  1 ps     0.0001       graph            NOT graph    
+
+  Delta_z = c*dt/2 for a round trip, because the channel is reflected light (ME5 corollary).
+  the slab becomes a graph at dt > 2*0.07/c = 467.0 ps; the declared gate is 3 ns = 6.42 x that.
+  At the declared gate Delta_z = 0.4497 m: the slab (0.07 m) is a graph, and the 1.74 m body is
+  not.  So a range gate does not erase "everything" -- it erases every object thinner than the
+  gate, and WHICH objects those are is set by the pulse width.  At 0.4 ns the same gate would fail
+  the slab; at 3 ns it passes it.  That is the archived A5 PASS in a different instrument.
+
+==============================================================================
+[4] THE VERDICT ON THE CENSUS -- one plateau, and the instrument band sits inside it
+==============================================================================
+  object  t (m)     mu_ov at lo  mu_ov at hi  sep. from band  status                 
+  ------  --------  -----------  -----------  --------------  -----------------------
+  plate   1.54e-14  0            0            7.13            CONVENTION thickness   
+  slab    0.07      1            1            3.05            the archived ME1 object
+  body    1.74      1            1            4.45            H of the census object 
+
+  mu_ov = 1 means the column holds two resolvable points: NOT a graph.  Three objects, and the
+  verdicts are flat across the band: the plate never reaches 1 (7.13 dec below the fine end), and
+  the slab and the body never leave it (3.05 and 4.45 dec above the coarse end).  A parameter
+  whose verdict is flat over its whole admissible range is not being used by the criterion.
+  the switch points sit at 1.54e-14 m and 0.07 m: 12.66 decades of plateau, and the whole
+  admissible instrument band (2.477 decades) lies inside it.
+
+  Two archived numbers this must be read against, and neither conflicts with it:
+   - the audit's "6.49e12" is 0.1 m / 1.54e-14 m, the ratio of the resolutions the two objects
+     were said to NEED; the 12.66 decades here is the plateau between their switch points.  Both
+     are thickness-conditional and both are correct; they answer different questions.
+   - the archived "the slab PASSES ME1 at Delta_z_res = 0.1 m" is reproduced (mu_ov = 0 at 0.1 m)
+     and 0.1 m is 1613 x the coarse end of the optical band: no passive instrument at 1-3 eV can
+     reach the resolution at which that PASS exists.  The PASS was never a possible observation.
+
+  Q3  CONFIRMED   verdicts constant over the band; margins >= 3 decades on both sides
+       measured: margins 7.13 dec (plate), 3.05 dec (slab), 4.45 dec (body); no flip inside the band
+
+  Q4  CONFIRMED   only a gate coarser than 467 ps makes the slab a graph: 6.42x the declared 3 ns
+       measured: dt_erase = 467.0 ps ; gate/dt_erase = 6.424
+
+  READ THE TWO CHANNELS TOGETHER.  The optical channel never erases the slab (5.5 decades of
+  margin at the fine end); the range gate erases whatever is thinner than its own pulse, which at
+  3 ns is the 0.07 m slab and the plates but not the 1.74 m body.
+  So Delta_z_res is not a tolerance that can be set: it is a CHANNEL SELECTOR.  And the channel
+  that makes the slab a graph needs a 0.45 m depth resolution on a 0.18 m object -- coarser than
+  the object is wide.  At that resolution the object has no internal structure to be a graph OF,
+  so the criterion is satisfied by not resolving.  The rendering line's dichotomy, inside CM5.
+
+==============================================================================
+[5] l_samp AND Delta_z_tol -- TWO NAMES, ONE RATIO
+==============================================================================
+  TEST 1 -- scale both together.  If the criterion is a function of the ratio only, this must do
+  nothing:
+  scale k  l_samp (m)  Delta_z_tol (m)  s_max        terrace at eps*
+  -------  ----------  ---------------  -----------  ---------------
+  1e-06    1.7578e-10  1.3985e-10       0.795591682  PASS           
+  1        1.7578e-04  1.3985e-04       0.795591682  PASS           
+  1000     1.7578e-01  1.3985e-01       0.795591682  PASS           
+  1e+06    1.7578e+02  1.3985e+02       0.795591682  PASS           
+
+  TEST 2 -- move one name and hold the other.  If the ratio claim is not empty, this MUST move:
+  Delta_z_tol x f  Delta_z_tol (m)  s_max    terrace at eps*
+  ---------------  ---------------  -------  ---------------
+  0.01             1.3985e-06       0.0080   FAIL           
+  0.1              1.3985e-05       0.0796   PASS           
+  1                1.3985e-04       0.7956   PASS           
+  10               1.3985e-03       7.9559   PASS           
+  100              1.3985e-02       79.5592  PASS           
+
+  Both tests together are the proof, and neither alone is: the criterion is a function of the
+  ratio and of nothing else.  Two open names, one dimension-free number: the largest slope the
+  presentation can draw without exceeding the accepted depth error.
+
+  Q5  CONFIRMED   ME2 invariant under (l_samp, Delta_z_tol) -> (k l_samp, k Delta_z_tol)
+       measured: s_max = 0.795591682 at every k from 1e-6 to 1e6 (spread < 1e-15); with l_samp fixed, f = 0.01 FAILS and f = 1 PASSES the deposit
+
+==============================================================================
+[6] ME2 ON THE DEPOSIT -- the value where 30 arcsec of stereoacuity meets a pixel pitch
+==============================================================================
+  Delta_z_tol = D^2*dtheta/b = 0.2500^2*1.454e-04/0.065 = 1.3985e-04 m   (a viewer at the near point)
+  l_samp      = a 1024-px frame of the 0.18 m object -> 1.7578e-04 m
+  s_max       = 0.7956   (= 38.51 deg)
+  form at eps* = 0.000172  max slope   margin  verdict
+  -----------------------  ----------  ------  -------
+  sine, a = eps* pitch     2.1614e-03  368.09  PASS   
+  terrace, same amplitude  2.2016e-02  36.14   PASS   
+
+  the switch in eps: terrace slope a/w = eps*pitch/PX_M exceeds s_max above
+    eps = s_max*PX_M/pitch = 6.2156e-03 = 36.1 x eps* = 0.0195 x eps_max
+  and at eps_max = 0.318229 the terrace slope is 40.73, i.e. 51 x s_max.
+
+  Q6  CONFIRMED   at the viewer's reading ME2 passes the deposit at eps* by 368x (sine), 36x (terrace)
+       measured: margins 368 x and 36.1 x; switch at eps = 6.216e-03
+
+  the switch is FORM-CONDITIONAL, by exactly the factor section 7 measures:
+    sine    eps_switch = s_max*lam/(pi*pitch) = 6.3311e-02  (10.19 x the terrace switch)
+  so one registered s_max would be a threshold for ONE form.  That is the third reason ME2
+  cannot carry a registry value: s_max is a property of (form, viewer, frame), not of the object.
+
+  IS THE CONVENTION DOING THE WORK?  dtheta in [20, 120] arcsec, everything else fixed:
+  stereoacuity (arcsec)  Delta_z_tol (m)  s_max   margin over terrace
+  ---------------------  ---------------  ------  -------------------
+  20                     9.3233e-05       0.5304  24.1               
+  30                     1.3985e-04       0.7956  36.1               
+  60                     2.7970e-04       1.5912  72.3               
+  120                    5.5940e-04       3.1824  144.5              
+  the verdict does not move across a 6x range of the declared convention.
+
+  THE OTHER READING, and why it is a misreading.  If Delta_z_tol is the frame's depth
+  quantiser over the relief 2a (8 bit), s_max = 2a/(255*l_samp) = 3.0705e-03, and the criterion
+  FAILS at eps*. The two readings differ by 259 x and give opposite verdicts.
+  The spec settles it in its own words -- "the depth error a viewer at the declared sampling
+  scale will accept" -- so the viewer's reading is the declared one, and the quantiser is a
+  frame capability rather than a tolerance.  That is the same relation ME3-F1 found between
+  its two readings of phi: one is declared by the criterion's own name, the other is imported.
+
+==============================================================================
+[7] THE SLOPE MEASUREMENT, AND ITS CONVERGENCE -- round 50's factor of 2, re-tested
+==============================================================================
+  px per riser  dx (m)      measured max|dz/dx|  measured/analytic
+  ------------  ----------  -------------------  -----------------
+  1             3.1258e-03  1.1008e-02           0.500000         
+  2             1.5629e-03  2.2016e-02           1.000000         
+  4             7.8145e-04  2.2016e-02           1.000000         
+  8             3.9072e-04  2.2016e-02           1.000000         
+  16            1.9536e-04  2.2016e-02           1.000000         
+  32            9.7681e-05  2.2016e-02           1.000000         
+  64            4.8840e-05  2.2016e-02           1.000000         
+
+  The absolute value is right on any grid of 2 px per riser or finer, and is exactly HALF the
+  analytic value at 1 px per riser -- the two-pixel central difference, which is what round 50
+  hit. It is a step, not a slope of convergence: 0.500000 then 1.000000 for every n >= 2.
+
+  Q8  FALSIFIED   measured below analytic at every finite grid, deficit halving as the grid doubles
+       measured: ratio = 0.500000 at 1 px, exactly 1.000000 at 2 px and above: the deficit disappears in one step, so the "halving" clause is FALSIFIED while the 2x factor at 1 px is exact
+
+  The sine is a different case -- it has no riser, so it loses a little to sampling:
+  px per period  measured/analytic  deficit 
+  -------------  -----------------  --------
+  8              0.900316           9.97e-02
+  16             0.974495           2.55e-02
+  32             0.993587           6.41e-03
+  64             0.998394           1.61e-03
+  128            0.999598           4.02e-04
+  the ladder's own grid is 32 px per period: 0.9936 of the analytic slope. Nothing in this round
+  depends on that 0.6 per cent, but a later round that does must correct for it explicitly.
+
+  Q7  CONFIRMED   terrace slope exceeds the sine by 32/pi = 10.186 at equal peak-to-peak amplitude
+       measured: analytic ratio 10.185916 ; 32/pi = 10.185916 ; measured on a converged grid: 10.190008
+
+==============================================================================
+[8] delta_E,max -- VACUOUS IN ONE READING, REDUNDANT IN THE OTHER, AND BOTH ARE MEASURED
+==============================================================================
+  object             t (m)     delta_E = R/t  log10  delta_E if phi is a potential
+  -----------------  --------  -------------  -----  -----------------------------
+  sheet, L_z = 1 fm  1e-15     9.0000e+13     14.0   0 (potential reading)        
+  plate, 15.4 fm     1.54e-14  5.8442e+12     12.8   0 (potential reading)        
+  sheet, L_z = 1 nm  1e-09     9.0000e+07     8.0    0 (potential reading)        
+  slab, 0.07 m       0.07      1.2857e+00     0.1    0 (potential reading)        
+
+  The potential reading is an identity, not a small number: u^mu = (c,0,0,0) gives d_z phi = 0,
+  so delta_E = 0 for every state in the record and EVERY threshold passes everything.
+  The signed-distance reading gives exactly R/t (me3_phi P8), so the criterion reads
+  R/t <= delta_E,max  <=>  t >= R/delta_E,max: a THICKNESS floor wearing an energy's name.
+
+  how much of that is thickness: the census spans 13.85 decades in t and 0.65 decades in R,
+  so the conversion t = R/delta_E is fixed to within a factor R_max/R_min = 4.50.  The
+  informative window of delta_E,max is 13.85 decades wide and its entire content is that
+  ordering: vacuous on one reading, a duplicate of a thickness floor on the other, and in both
+  cases unregistrable -- there is no value that fails an object without being a thickness.
+  A parameter that can only be satisfied by choosing which object to fail is not identifiable.
+
+  Q9  CONFIRMED   delta_E ranks exactly as 1/t; informative window is a thickness threshold
+       measured: rank order of delta_E = rank order of 1/t on all 4 objects; potential reading 0 for all; R spans 0.65 dec against t's 13.85 dec
+
+==============================================================================
+[9] WHAT THE FOUR ARE NOW
+==============================================================================
+  parameter    status             value or function            its floor                                        binding                              
+  -----------  -----------------  ---------------------------  -----------------------------------------------  -------------------------------------
+  Delta_z_res  FUNCTION of theta  207 nm .. 62.0 um (passive)  lambda/2 : no optics at 1-3 eV is finer          bound; verdict fixed over 7.1/3.1 dec
+  l_samp       FUSED              frame pixel pitch            the pitch itself, floored by lambda/(2NA)        bound as s_max                       
+  Delta_z_tol  FUSED              139.9 um (viewer, D=0.25 m)  stereoacuity: cannot declare finer than the eye  bound as s_max                       
+  delta_E,max  VOID               none                         no floor exists                                  unregistrable                        
+
+  FOUR NAMES -> TWO QUANTITIES -> ZERO FREE PARAMETERS.
+  Delta_z_res = f(theta) and s_max = Delta_z_tol/l_samp; delta_E,max is void; one of the four
+  names was retired before this round began.  The open list carried four because nobody asked
+  what each was a function of -- the same counting error as 224 tiers for 20, and 8 rows for 7.
+
+  Q10  CONFIRMED   four names -> two computable quantities -> zero free parameters
+       measured: 2 quantities, 0 free parameters, 1 void; no parameter survived as free
+
+==============================================================================
+[10] WHAT THIS ROUND DOES NOT DO
+==============================================================================
+  1. No membership verdict.  No object is certified in or out of M_eff (meff_boundary_v0_2 s1).
+  2. No visibility conclusion (S9).  The round measures tolerances and nothing about seeing.
+  3. No threshold registered.  Delta_z_res and s_max are computed, not chosen; delta_E,max is
+     shown unregistrable, which is a verdict on it and not a value for it.
+  4. No reclassification.  If l_samp/Delta_z_tol are frame properties, then ME2 is an
+     observation predicate and GD1 Option B's argument applies to it word for word.  Moving a
+     gate is a governor act: the finding is recorded (BN-17), the gate set is left identical.
+  5. No delta_ov.  It is not in this question and it has its own owner (GD3).
+
+==============================================================================
+SUMMARY
+==============================================================================
+  declaration order : NOT EVIDENCED BY MTIME -- the registration carries an appended erratum.
+  Delta_z_res       : BOUND.  = f(theta): lambda/(2NA^2) over the 1-3 eV band is [207 nm, 62.0 um],
+                      or c*dt/2 for a range gate.  The plate is a graph by 7.1 dec and the slab is
+                      not by 3.1 dec, so the verdict is invariant across the whole optical band.
+  the channel point : the only channel that makes the 7 cm slab a graph needs 467 ps of gate,
+                      i.e. a 0.45 m depth resolution on a 0.18 m object: coarser than the object.
+                      CM5 is satisfied there by not resolving, which is not a graph property.
+  l_samp, Delta_z_tol: NOT TWO PARAMETERS.  ME2 contains only their ratio s_max; the viewer's
+                      reading gives s_max = 0.7956 and passes the deposit by 36x at eps*.
+  delta_E,max       : VOID.  0 identically under the potential reading; exactly R/t under the
+                      other, i.e. a thickness floor.  No value is registrable, by measurement.
+  the count         : 4 names -> 2 quantities -> 0 free parameters.  Nothing was back-solved.
+
+  predictions Q1-Q10 : 9 CONFIRMED, 1 FALSIFIED
+
+PROVENANCE: NEITHER  (unit arithmetic on declared constants + one numerical convergence check;
+            establishes no physics and licenses no visibility sentence, S9)
+```

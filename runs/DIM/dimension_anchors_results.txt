@@ -1,0 +1,361 @@
+
+====================================================================================================
+[0] OBJECT OF RECORD AND PROVENANCE
+====================================================================================================
+  the claim adjudicated : four dimension theorems are offered as the foundation of route_terminus_v1
+  the object tested     : the locked DEMO-1 deposit, sigma(p) = hilbert_16(k*N + n)
+
+  PROVENANCE: NEITHER  (this adjudicates the validity of citations; it establishes no physics,
+              sets no threshold, and creates no readable cell -- it cannot move G1)
+
+  M = 4   S = 65536   H = 0.23 m   delta = 2.15e-10 m   pitch = 0.4001 m
+  N = floor(H/delta) = 1,069,767,441   pieces = 4,279,069,764   cells = 4,294,967,296   free = 15,897,532
+  canvas = S*pitch = 26,221.0 m
+
+====================================================================================================
+[S] HILBERT SELF-CHECK, BOTH DIRECTIONS (P10)
+====================================================================================================
+  a) d2xy is a bijection at every finite order -- exhaustive to order 6
+
+  order k  indices 4^k  cells (2^k)^2  distinct hit  4-adjacent  bijection
+  -------  -----------  -------------  ------------  ----------  ---------
+  1        4            4              4             100.00%     True     
+  2        16           16             16            100.00%     True     
+  3        64           64             64            100.00%     True     
+  4        256          256            256           100.00%     True     
+  5        1024         1024           1024          100.00%     True     
+  6        4096         4096           4096          100.00%     True     
+
+     4^k = (2^k)^2 identically, so the finite Hilbert curve is a bijection between two sets of
+     equal size.  The adjacency column is the Hilbert property (a raster order gives 99.61%).
+
+  b) d2xy and xy2d are mutually inverse at order 16 -- sampled
+     20,000 samples round-tripped: 20,000 exact, 0 failure(s)
+
+  curve usable: True   -- if False, stop: [A] and [D] would be meaningless
+
+====================================================================================================
+[A] SCOPE -- WHAT DIMENSION IS THE DEPOSIT?  (P1, P2)
+====================================================================================================
+  The four anchors are theorems about spaces.  Before any of them can apply, the deposit has to
+  BE a space of the kind they name.  Its domain is a set of plate indices; its codomain is a set of
+  grid cells.  Both are FINITE.  A finite set of isolated points is a discrete space, and a discrete
+  space has Lebesgue covering dimension 0 -- the singletons are an open refinement of every cover.
+
+  reduced object for exhaustive check: M=2, S=8 (order 3), N=30, pieces=60, cells=64
+    distinct cells occupied: 60 of 60  ->  bijection: True
+    minimum separation between two occupied sites: 1.0 cell(s)
+    -> every site is isolated (separation > 0), the space is discrete, dim = 0
+
+  Any bijection between two discrete spaces is a homeomorphism: continuity of f and f^-1 requires
+  only that preimages of open sets be open, and in a discrete space EVERY subset is open.  So:
+    dim(domain) = 0,  dim(codomain) = 0,  bijection = homeomorphism  ->  0 = 0
+  Brouwer's INVARIANCE half -- dimension is a topological invariant -- is SATISFIED by the deposit,
+  at 0 = 0.  It is an instance of that half, not an exception to it.  The other half, invariance of
+  DOMAIN, begins 'if U is an OPEN subset of R^n', and does not apply: see [B].
+
+  full object: the same argument, at scale
+    domain     : 4,279,069,764 plate indices, all isolated (index step 1)
+    codomain   : 4,279,069,764 distinct cells of 4,294,967,296, minimum separation pitch = 0.4001 m
+    occupancy  : 0.996299   free cells: 15,897,532
+    200,000 draws -> 199,997 distinct indices (3 birthday repeat(s), expected 4.7 by n^2/2C)
+    199,997 distinct indices -> 199,997 distinct cells (no collision)
+  P1   PASS   deposit domain and codomain are finite discrete => dim 0 and dim 0 => it SATISFIES Brouwer at 0
+        toy bijection 60/60, min sep 1.0 cell, 199,997 distinct indices collision-free
+
+  ...but the deposit LOOKS two-dimensional, and that is measurable.  Box-counting on the occupancy:
+
+    at eps >= pitch  : N(eps) tracks (canvas/eps)^2 -- exactly at eps = pitch up to the measured
+                       0.996299 occupancy, and up to 1.9e-10 at eps >= 2 cells:
+                       P(one cell empty) = 0.003701;  P(2x2 box empty) = 1.88e-10
+                       expected empty 2x2 boxes over the canvas: 0.20
+                       => log-log slope 2  =>  box dimension 2 at every scale a viewer sees
+    at eps <  pitch  : each box holds at most one site, N(eps) = pieces = 4,279,069,764 constant
+                       => N(eps) independent of eps  =>  box dimension 0
+    the LIMIT eps -> 0 is 0.  So the deposit is a 0-dimensional space that is drawn on a
+    2-dimensional lattice:  it looks like a picture at every scale a person can see, and is not
+    one-to-one anywhere.  That gap is the decimation gap, not a topological fact.
+
+  P2  which anchors have a hypothesis a FINITE set can satisfy?  (The string is not the test: a
+      Kakeya set never says 'continuum', it says 'a unit segment in every direction', which already
+      forces uncountably many points.  Each row is decided by what the hypothesis REQUIRES.)
+  anchor       what the hypothesis requires                  why a finite set fails it                       applies?
+  -----------  --------------------------------------------  ----------------------------------------------  --------
+  A1 Brouwer   U must be OPEN in R^n                         an open set has cardinality c and is not finite  no      
+  A2 Cantor    two sets of equal cardinality, and a bijection  cardinality alone; a finite pair satisfies it vacuously  YES     
+  A3 Hilbert   a CONTINUOUS surjection from [0,1]            the domain is [0,1], which is not finite        no      
+  A4 Kakeya    a set containing a unit SEGMENT in every direction  a segment has cardinality c; the set is not finite  no      
+
+    anchors whose hypothesis a finite set satisfies: 1 of 4  (A2)
+    A2 applies -- and it applies VACUOUSLY: 'a bijection exists because the cardinalities match'
+    is true of any two finite sets with N <= C.  That is the deposit's own branch, and it is the
+    load-bearing one.  P2 as registered predicted 0 of 4.  It is refuted: the count is 1, and the
+    1 is the anchor the conclusion actually needs.
+  P2   FAIL   0 of 4 anchors has the deposit in its hypothesis class
+        measured 1 of 4 -- A2 applies vacuously; P2 REFUTED as registered
+
+====================================================================================================
+[B] A1 BROUWER  (P3, P4, P5)
+====================================================================================================
+  'Brouwer' in docs/ (45 files): 0 occurrence(s) in 0 file(s)
+  P3   PASS   'Brouwer' is absent from docs/ -- the anchor is new to the record, not a restatement
+        0 hits
+
+  the hypothesis, verbatim from the 1912 paper's modern form:
+      'If U is an OPEN subset of R^n and f: U -> R^n is injective and continuous, then f(U) is
+       open and f is a homeomorphism.'   Consequence: for n > m there is NO continuous injective
+       map f: U -> R^m from a nonempty open U subset R^n.
+  The first word of the hypothesis is 'open'.  Is the deposit's domain open in R^3?
+
+    the domain is a finite set of 4,279,069,764 points
+    Lebesgue measure of a finite set in R^3: 0  (countable union of singletons)
+    an open ball of radius 0.2001 m about a site contains 1 site and uncountably many
+    non-sites => no open ball is contained in the domain => interior is empty
+    largest open ball inside the domain: radius 0
+  P4   PASS   the deposit's domain has empty interior in R^3, so the hypothesis fails on its first word
+        measure 0, interior empty, inscribed ball radius 0
+
+  P5  attribution -- external check performed 2026-11-22, recorded here (not measured by this script)
+      Math. Ann. 70, 161-165 : dimension invariance, submitted JUNE 1910, published FEBRUARY 1911
+      Math. Ann. 71, 305-315 : invariance of DOMAIN, 1912
+      zbMATH review of the 1912 paper says so explicitly: 'Der von Brouwer (Math. Ann. 70,
+      161-165) bewiesene Fundamentalsatz ... wird hier so verscharft'.
+
+      => '1910' is the SUBMISSION year of the dimension paper, not a fabricated date.  The claim in
+         the submission is not false, it is under-specified: published 1911 (dimension) / 1912
+         (domain).  Recorded as a provenance note; it changes nothing in the argument.
+  P5   PASS   1910 is a submission date, not the standard publication year (1911 / 1912)
+        Math. Ann. 70 (Feb 1911); Math. Ann. 71 (1912)
+
+====================================================================================================
+[C] A2 CANTOR  (P6, P7, P8, P9)
+====================================================================================================
+  Cantor 1877: a bijection [0,1] <-> [0,1]^2.  The submission extends it to a solid ball <-> a plane.
+  Both are sets of cardinality c, so the extension is free.  The question is what such a bijection
+  COSTS to specify -- because 'a bijection exists' is the weakest statement in mathematics.
+
+  number of injections from 4,279,069,764 pieces into 4,294,967,296 cells = C!/(C-N)!
+    log2 of that number = 1.3089e+11 bits  =  16.36 GB
+    the rule p = kN + n that the deposit actually uses costs 0 bits (2 integers, 62 bits total)
+    => the deposit is one of ~2^1.3089e+11 possible injections, and it names its own for free.
+  P6   PASS   an injection is guaranteed by cardinality alone; naming one costs ~1.3e11 bits (~16 GB)
+        log2 = 1.3089e+11 bits (registered band 1.25-1.40e11)
+
+  P7  does the deposit preserve cardinality exactly?
+    pieces 4,279,069,764 -> distinct occupied cells 4,279,069,764, free 15,897,532
+    occupancy 0.996299   (a bijection by construction, verified in [S] and [A])
+  P7   PASS   the deposit is one such injection: cardinality preserved exactly
+        4,279,069,764 distinct cells, 15,897,532 free
+
+  P8  'the structure is shattered' -- is that true of the deposit?  Interfaces are d3 = 0:
+  interface  d3 (m)  d2 deposit (m)
+  ---------  ------  --------------
+  C1|C2      0       12,401.7      
+  C2|C3      0       12,085.3      
+  C3|C4      0       12,989.4      
+    reproduces the archived MR2-D row ([12401.7, 12085.3, 12989.4]): True
+
+    mean over 4,000 layers per interface: ['14,430', '13,078', '14,439'] m
+    the archived value sampled n = 0 only; n = 0 is NOT representative
+    -> an interface that is 0 m apart in 3D is ~1.2e4 m apart in the deposit: shattered by 4 decades
+  P8   FAIL   structure destruction reproduces MR2-D exactly at n=0; mean stays in [1.1e4, 1.4e4] m
+        n=0 exact True; means [14430, 13078, 14439]
+
+  P9  does the '3D solid sphere -> plane' framing add anything?
+    any two sets of cardinality c admit a bijection.  A ball and a plane both have cardinality c.
+    So does a ball and a line, and a plane and a line segment.  The theorem's content is CARDINALITY;
+    its 3D-ness is decoration.  Cantor's result is not about dimension at all -- it cannot be, since
+    it holds equally in every dimension.
+  P9   PASS   the 3D framing is decoration: the theorem is about cardinality, not dimension
+        the same bijection exists for any pair of sets of cardinality c
+
+====================================================================================================
+[D] A3 HILBERT  (P10, P11, P12, P13)
+====================================================================================================
+  P10  'continuous surjection [0,1] -> [0,1]^2, not injective' -- true, and inapplicable as stated
+
+    at finite order the map is a BIJECTION: 4^k indices onto 4^k cells, 0 collisions (see [S])
+    the deposit uses exactly the finite map, at order 16: p -> hilbert_16(p)
+  P10  PASS   at finite order the Hilbert index map is a bijection -- the deposit uses the finite map
+        orders 1-6 exhaustive, order 16 round-tripped 20,000 samples
+
+  P11  the statement says: 'a continuous surjective mapping ... from a ONE-dimensional interval onto
+       a TWO-dimensional unit square ... multiple THREE-dimensional points will inevitably map to the
+       same two-dimensional coordinate.'
+    the map described : 1 -> 2
+    the conclusion    : about 3 -> 2
+    => the conclusion is about a map the sentence never described.  Non-injectivity of a space-filling
+       curve is a property of the PARAMETER (many t give one (x,y)), not of 3D points.
+  P11  PASS   the Hilbert sentence is dimension-mis-stated (1->2 described, 3->2 concluded)
+        src dim 1, target dim 2, subject dim 3
+
+  P12  is non-injectivity a finite-order phenomenon?
+  order k  indices  max multiplicity  distinct cells
+  -------  -------  ----------------  --------------
+  1        4        1                 4             
+  2        16       1                 16            
+  3        64       1                 64            
+  4        256      1                 256           
+  5        1,024    1                 1024          
+  6        4,096    1                 4096          
+
+    maximum multiplicity over orders 1..6: 1
+    The continuum limit is CITED, not measured here: Hilbert (1891) gives a surjection that is not
+    injective, with at most 4 preimages per point, and the multiply-covered set has measure zero.
+    What this script establishes is the negative: at every finite order the multiplicity is exactly 1.
+  P12  PASS   non-injectivity is exclusively a continuum-limit phenomenon; multiplicity = 1 at finite order
+        max multiplicity 1 over orders 1..6
+
+  P13  consequence: Hilbert's non-injectivity is not an obstacle to this record.
+    the deposit is a bijection (P7); the renderable map is not (2^16 vs 2^9).  The wall is
+    resolution, and route_terminus_v1 s4 already located it there.
+  P13  PASS   Hilbert's non-injectivity does not touch the deposit; the obstacle is resolution
+        bijection at order 16; gap 2^16/2^9 = 2^14
+
+====================================================================================================
+[E] A4 KAKEYA  (P14, P15, P16)
+====================================================================================================
+  P14  external check 2026-11-22: Wang & Zahl, 'Volume estimates for unions of convex sets, and the
+       Kakeya set conjecture in three dimensions', 24 February 2025, 127 pages.  Result: every Kakeya
+       set in R^3 has Hausdorff dimension AND Minkowski dimension equal to 3.  n >= 4 remains open.
+       (A shorter proof with Guth appeared in 2026.)
+
+    what the theorem is about : the dimension of a SET
+    what it states           : dim_H(K) = dim_M(K) = 3
+    what it says about maps, channels, information, folding or containers : nothing.  A dimension
+      is a property of a set; an information bound is a property of a channel.  The statement
+      relates the two nowhere, so the bridge between them is the submission's, not the theorem's.
+  P14  PASS   A4 is real as a theorem, but it is about a set's dimension, not an information bound
+        Wang-Zahl 2025, dim_H = dim_M = 3; no statement about maps
+
+  P15  'lossless' -- with respect to WHAT?  Both readings are measurable and they differ:
+    (i)  w.r.t. the plate inventory : EXACT.  a bijection, 4,279,069,764 -> 4,279,069,764 distinct cells.
+    (ii) w.r.t. the object          : FALSE.  I(canvas ; r4) = 0 bits; six distinct objects ->
+         one digest (DEPOSIT-BLIND).  10 of 12 declared parameters do not reach a site.
+    So 'lossless serialization' is true under (i) and false under (ii).  The unqualified word is
+    ambiguous between a true and a false claim, and the ambiguity is the whole difference between
+    a file and a physical reduction.
+  P15  PASS   'lossless' is referent-dependent: exact for the inventory, false for the object
+        (i) bijection; (ii) I = 0 bits on 10 of 12 parameters
+
+  P16  taken literally, is the Kakeya gloss true OF THE DEPOSIT?
+    the deposit carries 4,279,069,764 labels and 0 bytes of 3D geometry.
+    'it is impossible to compress the full three-dimensional information into a purely two-
+     dimensional container' -- if '3D information' means the object's geometry, this is TRUE here,
+    because the deposit does not contain it.  It corroborates DEPOSIT-BLIND.
+    ...which means it CANNOT also support unqualified 'lossless serialization'.  A4 and A5 pull
+    in opposite directions, and both cannot be used in one sentence.
+
+    and the theorem's own hypothesis: a Kakeya set contains a unit line segment in every direction.
+    A line segment has cardinality c = 2^aleph_0.  The deposit has 4,279,069,764 points, which is finite.
+    => a finite set contains NO line segment at all, in any direction.
+    => the deposit contains 0 Kakeya sets.  Even fewer than the other three anchors apply to.
+    (a finite set's Hausdorff dimension is 0; a Kakeya set's is 3)
+  P16  PASS   the gloss is true of the deposit only by conceding it has no 3D geometry; it holds 0 Kakeya sets
+        finite set contains no segment; dim_H = 0 vs 3
+
+====================================================================================================
+[F] A5 THE CONCLUSION  (P17, P18)
+====================================================================================================
+  P17  'a lossless physical collapse 3D -> 2D is strictly prohibited' -- for which maps?
+
+  map class  R^3 sup -> R^2              exists?          what survives             authority               
+  -------------------------------------  ---------------  ------------------------  ------------------------
+  homeomorphism / continuous injective   NO               dimension preserved       Brouwer 1911/1912       
+  continuous surjection                  YES              many-to-one, forced       Peano 1890 / Hilbert 1891
+  bijection, no regularity               YES              distance destroyed        Cantor 1877             
+  bijection between finite sets          YES (4,279,069,764)  address only, dim 0 = 0   the deposit             
+
+    classes prohibited by the four anchors: 1 of 3 (the deposit is a fourth row they
+    do not govern at all).  The unqualified 'strictly prohibited' is therefore refuted by A2 and A3,
+    which it cites: a bijection exists (Cantor), a continuous surjection exists (Peano/Hilbert).
+    What is prohibited is exactly one thing: a CONTINUOUS INJECTIVE map.  No more.
+  P17  PASS   'strictly prohibited' holds for 1 of 3 map classes -- continuous injective only
+        surjection and bijection both exist
+
+  P18  does 'no picture' follow from any of the four anchors?
+    injective needs ceil(sqrt(pieces)) = 65,415 sites/side  -> 2^16 = 65,536
+    renderable on one frame is 2^9 = 512/side  -> 262,144 cells = 0.0061% of the deposit
+    a 4K frame (8,294,400 pixels) shows 0.19% of the deposit
+    ratio of cell counts 2^16/2^9 squared = 16,384 = 2^14   (the linear ratio is 128 = 2^7)
+
+    every one of those numbers is a COUNT OF SITES.  None of them is a dimension, a topology,
+    or a continuity.  The four anchors establish 'no embedding'; 'no picture' comes from arithmetic
+    about resolution, which route_terminus_v1 s4 already contained and which uses no anchor at all.
+  P18  PASS   'no picture' is a resolution fact (2^16 vs 2^9), not a consequence of the four anchors
+        cell ratio 2^14; 4K shows 0.19%
+
+====================================================================================================
+[G] VERDICTS
+====================================================================================================
+  P1:P   P2:F   P3:P   P4:P   P5:P   P6:P   P7:P   P8:F   P9:P   P10:P   P11:P   P12:P   P13:P   P14:P   P15:P   P16:P   P17:P   P18:P
+  16 / 18 predictions hold as registered.
+  verdict() calls: 18 / 18 registered   -- COMPLETE
+
+  THE RESULT, in one paragraph:
+
+  A1 has two halves and they behave differently.  'Dimension is a topological invariant' holds for
+  ALL spaces, and it applies here: the deposit's domain and codomain are FINITE DISCRETE sets,
+  dimension 0 on both sides, so the invariant is satisfied trivially at 0 = 0.  'Invariance of
+  DOMAIN' -- the half that forbids an embedding, and the half the submission actually needs --
+  begins 'if U is an OPEN subset of R^n', and the deposit's domain has empty interior in R^3.
+  A3 does not apply (its domain is [0,1]).  A4 does not apply (its set contains a unit segment in
+  every direction; a finite set contains no segment at all).  A2 DOES apply -- its hypothesis is
+  cardinality, which a finite pair satisfies vacuously -- and A2 is satisfied.
+
+  So the deposit is not forbidden by any anchor, and not permitted by any either: three are out of
+  scope and the fourth is satisfied by counting.  The one that applies is the one that says
+  'a bijection exists and it destroys structure', which is exactly what the deposit measures:
+  cardinality exact (4,279,069,764 -> 4,279,069,764), interfaces from 0 m to 1.2e4 m.
+
+  And the reason nothing is forbidden is the topological form of DEPOSIT-BLIND: by the time you
+  have a deposit, the 3-dimensional continuum is gone.  Its dimension is 0.  There is nothing
+  left for a dimension theorem to protect.
+
+  A3 is mis-stated (1->2 described, 3->2 concluded; the finite curve is a bijection).  A4 is a
+  non-sequitur (a theorem about a set's Hausdorff dimension, offered as an information bound)
+  and, read literally, it contradicts the conclusion it is cited for -- see P16.
+
+  The conclusion is RIGHT and its stated foundation is not what establishes it.  'No picture' is
+  arithmetic: 2^16 sites needed, 2^9 available, gap 2^14.  'A file, not a picture' is Cantor's
+  branch measured on the deposit: cardinality exact, interfaces shattered by 1.2e4 m.
+
+====================================================================================================
+[H] ERRATA -- appended to this run, which is not edited
+====================================================================================================
+  E1  P8's reproduction check used a reference list with a TRANSPOSED DIGIT in this script:
+      12,899.4 where the registered and archived value is 12,989.4.  The registration text was
+      right; the executor's constant was wrong, so the first run printed rep = False against data
+      that matches.  Corrected in place.  Recomputed 12,989.3887 -> 12,989.4, exact.  P8's first
+      half therefore HOLDS; its FAIL is the mean band (E4) alone.  Fifth instance of the class
+      'a constant in the harness is looser or wrong while the registered claim is fine'.
+
+  E2  The first sampling check in [A] drew 200,000 piece indices WITH replacement and then tested
+      the image for collisions.  The three 'collisions' it reported were birthday repeats of the
+      sampler: expected 200,000^2/(2*4.279e9) = 4.7, observed 3.  Deduplicating the INPUTS first:
+      199,997 distinct indices -> 199,997 distinct cells.  Recorded because the original output
+      printed COLLISION, and a reader of that line would have concluded the sigma was broken.
+
+  E3  P2 is REFUTED, and the refutation is the finding.  I registered '0 of 4 anchors has the
+      deposit in its hypothesis class'.  False: A2's hypothesis is cardinality, and a finite pair
+      satisfies it vacuously.  The true count is 1 of 4 -- and the 1 is the load-bearing anchor.
+      My test was also wrong in its first form: it regex-matched the anchor STRINGS for
+      'continu|open', which scored A4 as having no continuum in its hypothesis because the word
+      'continuum' never appears in 'a unit segment in every direction'.  The string is not the
+      hypothesis.  Fourth round with a text test standing in for a mathematical one.
+
+  E4  P8's second half registered means in [1.1e4, 1.4e4] m and measured 14,430 / 13,078 / 14,439
+      m.  Two of three exceed the band, so P8 FAILS as registered.  The qualitative claim is
+      untouched (still 4 decades of destruction), but the band was too tight: I derived it from
+      n = 0, which is one layer of 1.07e9 and sits 5-16% below the mean at two interfaces.  The
+      archived MR2-D figure is a single-layer sample, and this run shows it understates.
+
+  E5  P18's first draft printed 'gap = 2^16/2^9 = 128 = 2^7' -- the LINEAR ratio -- while its own
+      prose said 2^14, which is the ratio of CELLS.  It also printed '4K shows 0.01%' using 512^2
+      instead of 3840x2160.  Both were wrong when printed; the claim is unaffected (2^14 and 0.19%).
+      The general defect: a ratio of two powers of two is only well defined once the quantity is
+      named, and I named it in prose while computing it in the other convention.
+
+  E6  P10 had no verdict call in the first run, so the tally printed 17 predictions instead of 18.
+      A missing verdict is indistinguishable from a passing one in a tally -- the counts are now
+      checked against the number of verdict() calls, not written by hand.

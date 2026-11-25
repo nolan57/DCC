@@ -1,0 +1,362 @@
+==============================================================================
+AXIOM AUDIT AX-01
+==============================================================================
+Date: 2026-11-24T03:06:44Z
+Instrument: src/ax/ax01_axiom_audit.py
+Pre-registration: runs/AX/ax01_axiom_audit_registration.md
+  registration sha256   a2c39364620cdce67cf3bfaa251a19163fad6b506d5ac975694be64f6ecd9059
+  frozen-at-registration MATCH
+  PROVENANCE: NEITHER (structural audit; derives no physics, adjudicates no gate)
+  scope: labels, derivation chains, coordinate tests, blast radii. No repair, no re-seal,
+         no gate/threshold/terminal/D-state movement, no interpretation, no recommendation.
+
+  Label schema
+    MEASURED          from experiment, model-independent
+    DERIVED-COVARIANT derived; scalar/invariant
+    DERIVED-COORD     derived; value/form depends on coordinates or gauge
+    CONVENTION        fixed by fiat inside the programme
+    ASSUMPTION        used as a premise, never justified or derived
+    UNVERIFIED        claimed true; no derivation, measurement or citation on file
+
+------------------------------------------------------------------------------
+SECTION A: ITEM INVENTORY
+------------------------------------------------------------------------------
+AX-G01   MEASURED          a0 = 5.2917721e-11 m                          
+         Bohr radius used as the denominator of 2.91e-4 a0; the standard CODATA value, not a model-specific effective radius, although the record does apply m* corrections elsewhere (omega_p) and not here
+         root: G0p_seven_row_verdict_v3.md:47; constraint_crosswalk_v1.md:217
+AX-G02   DERIVED-COVARIANT N_s = M/(mbar A_perp) = 4.2155e27 m^-2        
+         nuclear column density; identity from particle-number conservation at fixed projected area
+         root: dimensional_conventions_v1.md:16
+AX-G03   DERIVED-COORD     d_parallel = 15.40 fm = N_s^-1/2              
+         mean in-plane nuclear column pitch quoted as a length; equals 2.911e-4 a0 for the registered object
+         root: constraint_crosswalk_v1.md:215-222; G0p_seven_row_verdict_v3.md:47
+AX-G04   CONVENTION        metric ansatz ds^2 = -dt^2+dx^2+dy^2+f(t,x)^2 dz^2
+         N=1, beta=0, g_xx=g_yy=1, c=1; forbids shift, transverse conformal factor and lapse variation
+         root: phase1_symbolic_constraint_results.txt:5
+AX-G05   CONVENTION        L_z = 1.0 fm (density-inferred)               
+         normalisation fixed by 70 kg / (1 m^2 x 0.026 n_nuc); sets E_sub and the optics column, not the 2D claim itself
+         root: dimensional_conventions_v1.md:18,110
+AX-G06   CONVENTION        atomic spacing 0.3 nm                         
+         representative molecular/atomic spacing (3 A); not measured for the object
+         root: scifi_boundary_v1.md:88; meff_boundary_disposition_v1.md:168
+AX-G07   ASSUMPTION        d_parallel used as the plate thickness        
+         RL-6 denominator and ME1/C1b thickness identify the in-plane pitch with the z-thickness; the crosswalk calls this a modelling choice, the ladder does not carry the qualification
+         root: constraint_crosswalk_v1.md:227-236; relaxation_ladder_v1.md:41
+AX-G08   CONVENTION        reference object (70 kg, 1 m^2, 10 amu)       
+         d_parallel scales as (A_perp/M)^1/2; without it 2.91e-4 a0 is incomplete
+         root: dimensional_conventions_v1.md:12
+AX-G09   CONVENTION        Z/A = 0.522                                   
+         frozen-state composition; fixes n_2D, E_F and every capture margin
+         root: dimensional_conventions_v1.md:12
+AX-G10   ASSUMPTION        T = 0 for the frozen state                    
+         Fermi sea taken at zero temperature; no argument that the transient is cold
+         root: G0p_seven_row_verdict_v3.md:32
+AX-D01   DERIVED-COORD     kappa*rho_req = -f_xx/f                       
+         Hamiltonian constraint solved for the required energy density in the ansatz gauge; takes this form only with Lambda=0 and j=0
+         root: phase1_symbolic_constraint_results.txt:21
+AX-D02   DERIVED-COORD     kappa*j_x,req = d_x(f_t/f)                    
+         momentum constraint solved for the required x-flux; same gauge conditions, Lambda drops out
+         root: phase1_symbolic_constraint_results.txt:22
+AX-D03   DERIVED-COVARIANT j_y = j_z = 0                                 
+         consequence of the d_y, d_z Killing vectors of the ansatz, not an extra physical assumption
+         root: phase1_symbolic_constraint_results.txt:29
+AX-D04   DERIVED-COVARIANT K^2 - K_ij K^ij = 0                           
+         identity of the ansatz (K_xx=K_yy=0, K_zz=-f f_t), not an independently imposed constraint
+         root: phase1_symbolic_constraint_results.txt:20
+AX-D05   ASSUMPTION        Lambda = 0                                    
+         no cosmological term appears in either constraint equation; the omission is nowhere declared
+         root: phase1_symbolic_constraint_results.txt:21-22 (no Lambda term)
+AX-D06   CONVENTION        c=1, G, hbar unit fixing                      
+         unit choice only; every audited ratio is dimensionless
+         root: phase1_symbolic_constraint_results.txt:5
+AX-T01   DERIVED-COORD     Phi = -4.5 orders                             
+         3.4387e10 x (1e-7/3.3166)^2 = 3.126e-5, log10 = -4.505; consumes a scene-measured contrast, a band, a Weber constant and an environment
+         root: relaxation_ladder_v1.md:233-236; DCC_terminal_answer_v1.md:5
+AX-T02   CONVENTION        V = epsilon                                   
+         the violation currency is defined to equal the relief ratio; no derivation that this is the violation magnitude
+         root: relaxation_ladder_v1.md:37
+AX-T03   UNVERIFIED        the value of epsilon                          
+         epsilon is a dial; E2 measured that C is not a function of relief/pitch and that useful travel is 5e-4 of range
+         root: relaxation_ladder_v1.md:176-193
+AX-T04   DERIVED-COORD     RL-6 = 2e4 x atomic spacing                   
+         0.3 nm / 15.402 fm = 1.948e4 rounded to 2e4 (2.60%); recomputed with the other candidate lengths the price spans 15.4x
+         root: relaxation_ladder_v1.md:41,289
+AX-T05   CONVENTION        purchasable / not purchasable                 
+         binary relative to an undeclared budget; two incommensurable currencies are ordered ordinally, not summed
+         root: relaxation_ladder_v1.md:13-29
+AX-T06   MEASURED          full sun 2.7740e21 m^-2 s^-1 at 2.25 eV       
+         solar irradiance converted to photon flux in the declared band
+         root: relaxation_ladder_v1.md:56
+AX-T07   CONVENTION        declared band 2.25 eV (1.65-3.26 eV)          
+         instrument band; the whole Phi line is denominated in it
+         root: relaxation_ladder_v1.md:36
+AX-L01   CONVENTION        effective-2D four-slot conditional            
+         model ^ subsystem ^ E_occ<dE_z ^ E_probe<dE_z => z not excitable; a stipulated definition carrying no frame slot
+         root: effective_2d_definition_v1.md:21-30
+AX-L02   CONVENTION        observation scale (theta tuple)               
+         aperture, gate, band, distance, plus environment E and camera G; set by the experimenter
+         root: relaxation_ladder_v1.md:84; theta_environment_v1.md
+AX-L03   ASSUMPTION        'frozen' degrees of freedom                   
+         freezing is defined relative to the frame in which the well is static; no frame is named
+         root: effective_2d_definition_v1.md:84
+AX-L04   CONVENTION        Kasner f=t as the negative control            
+         chosen because it is the p=1 power law with K=0; the flat sector is exactly f affine in (t,x)
+         root: phase1b_singularity_results.txt:29
+AX-L05   UNVERIFIED        row 1 reverse-on: 'none stated (geometric, convention-independent)'
+         d_parallel is fixed only once (M, A_perp, mbar) are fixed, so the parenthetical has no derivation on file
+         root: G0p_seven_row_verdict_v3.md:47; DCC_terminal_answer_v1.md:9; constraint_crosswalk_v1.md:215-222
+AX-S01   ASSUMPTION        existence of a continuous controlled 3D->2D route
+         the deposit is a kinematic map; no dynamical mechanism is on file, and C1 has no non-degenerate test
+         root: constraint_crosswalk_v1.md:100-115
+AX-S02   ASSUMPTION        adiabaticity of the smooth 2D-ization branch  
+         never stated as a condition; the record measures thickness returning 1.9e4x before t_rip and in-plane settling 2.2e4x after, ratio 4.19e8
+         root: kinematic_vs_dynamic_unfolding_v1.md:153-159
+AX-S03   ASSUMPTION        L_z as external control parameter (no back-reaction)
+         holding L_z needs a stress source; Phase 1 finds the required source and assigns it to no field
+         root: phase1_symbolic_constraint_results.txt:35-42
+AX-X01   CONVENTION        C_eye = 0.01 (Weber)                          
+         physiological contrast constant; sets every Q3 and the 3e-2 L3 threshold
+         root: intrinsic_structure_tiers_v1.md:139
+AX-X02   CONVENTION        Q3 = log2(1 + C/C_eye)                        
+         legibility law; monotone in C, with no derivation of the log form
+         root: intrinsic_structure_tiers_v1.md:149
+AX-X03   CONVENTION        lambda = 500 nm                               
+         the wavelength at which C1 optical test is vacuous (lambda/d_parallel = 3.2e7)
+         root: constraint_crosswalk_v1.md:105
+AX-X04   ASSUMPTION        neglected pair-plasma back-reaction in RL-5   
+         E4 records it as ignored and as helping the rung; no error bound is on file
+         root: relaxation_ladder_v1.md:266-271
+
+------------------------------------------------------------------------------
+SECTION B: DERIVATION CHAINS
+------------------------------------------------------------------------------
+[B-001] AX-G01 -> EXT:codata-a0
+[B-002] AX-G02 -> EXT:particle-number-conservation, AX-G08
+[B-003] AX-G03 -> AX-G02, AX-G01
+[B-004] AX-G04 -> EXT:gauge-choice
+[B-005] AX-G05 -> AX-G08, EXT:n-nuc-0.026
+[B-006] AX-G06 -> EXT:molecular-resolution
+[B-007] AX-G07 -> AX-G03, AX-G05
+[B-008] AX-G08 -> EXT:object-definition
+[B-009] AX-G09 -> AX-G08
+[B-010] AX-G10 -> EXT:frozen-state
+[B-011] AX-D01 -> AX-G04, AX-D05, AX-D03, AX-D04
+[B-012] AX-D02 -> AX-G04, AX-D05, AX-D03
+[B-013] AX-D03 -> AX-G04
+[B-014] AX-D04 -> AX-G04
+[B-015] AX-D05 -> EXT:vacuum-choice
+[B-016] AX-D06 -> EXT:unit-system
+[B-017] AX-T01 -> AX-T06, AX-T07, AX-X01, EXT:measured-contrast
+[B-018] AX-T02 -> EXT:currency-definition
+[B-019] AX-T03 -> AX-T02, EXT:relief-measurement
+[B-020] AX-T04 -> AX-G03, AX-G06, AX-G07
+[B-021] AX-T05 -> AX-T02, AX-T01, EXT:budget
+[B-022] AX-T06 -> EXT:solar-irradiance
+[B-023] AX-T07 -> EXT:instrument-band
+[B-024] AX-L01 -> AX-G05, AX-L03
+[B-025] AX-L02 -> EXT:experimenter-tuple
+[B-026] AX-L03 -> AX-G05, EXT:preferred-frame
+[B-027] AX-L04 -> EXT:power-law-family
+[B-028] AX-L05 -> AX-G03, AX-G08
+[B-029] AX-S01 -> AX-G03, EXT:kinematic-map
+[B-030] AX-S02 -> AX-S01, EXT:front-sweep-measurement
+[B-031] AX-S03 -> AX-D01, AX-G05
+[B-032] AX-X01 -> EXT:psychophysics
+[B-033] AX-X02 -> AX-X01
+[B-034] AX-X03 -> EXT:visible-band
+[B-035] AX-X04 -> EXT:pair-production-rate
+
+  Recurrence is resolved: every parent that is itself an audited item appears in this table
+  as its own row, so the chains close at EXT: roots only.
+
+------------------------------------------------------------------------------
+SECTION C: COORDINATE-DEPENDENCE TESTS
+------------------------------------------------------------------------------
+[C-001] AX-G03  survives: PARTIAL       area-preserving transverse diffeo x->Lx, y->y/L; then reinterpret as z-thickness
+         d_parallel survives as a derived length from an invariant areal density (15.40194 fm under the diffeo) but not as a thickness: the same plate is L_z=1 fm thick, a factor 15.4 apart
+[C-002] AX-G04  survives: NO            restore beta != 0 and a transverse conformal factor g_xx=g_yy=Omega^2
+         a non-zero lapse divides out of H=0 and is immaterial; the restriction is beta=0 and the unit transverse metric. With beta != 0 the momentum constraint gains a j_x source and the Hamiltonian the shift scalar, so K=-f_t/f and kappa*rho_req=-f_xx/f are gauge-fixed. K_ijK^ij=(f_t/f)^2 is intrinsic to the slice and survives, so AX-D04 survives while the printed equations do not
+[C-003] AX-G05  survives: PARTIAL       z -> z/lambda with f -> lambda f (proper length invariant); then L_z = 1 nm
+         L_z as a proper length is diffeo-invariant; the number 1.0 fm is a normalisation chosen to reproduce n_nuc = 0.026 fm^-3. At L_z = 1 nm, E_sub falls 619.9 MeV -> 619.921 eV (1e6) and the internal bound E_F < dE_z fails
+[C-004] AX-G06  survives: NO            spacing 0.3 nm -> 0.15 nm, and -> 1 nm
+         RL-6 ratio scales as 1/spacing: 1.948e+04, 3.896e+04, 6.493e+04. Ordering against the 1x bar is unaffected in all three
+[C-005] AX-G07  survives: NO            replace d_parallel by L_z = 1 fm as the thickness
+         RL-6 becomes 3.000e+05 (15.4x larger); ME1 ratios 6.49e12 and 4.5e12 move by the same factor. The ordering sheet PASS / stack PASS / slab FAIL at 100 um is unchanged
+[C-006] AX-G08  survives: NO            scale the object M -> 10M at fixed A_perp, and M -> 0.1M
+         d_parallel ~ (A/M)^1/2: 15.402 fm -> 4.871 fm at 10x mass and 48.705 fm at 0.1x; the RL-6 ratio spans 6.16e+03..6.16e+04
+[C-007] AX-G09  survives: PARTIAL       Z/A 0.522 -> 0.500
+         n_2D -4.2%, E_F -2.1% (6.2221 -> 6.0896 MeV at the ALL2D endpoint); the O16 margin at that endpoint grows from 0.342 to 1.030 MeV. No classification flips
+[C-008] AX-G10  survives: NO            T -> 1 MeV
+         E_F is the T=0 value. kT/E_F is 1.4% at 73.37 MeV but 16% at the ALL2D endpoint 6.22 MeV, and the 0.342 MeV endpoint margin is smaller than kT at 1 MeV, so the row-7 endpoint comparison is not T-robust
+[C-009] AX-D01  survives: NO            add Lambda, and add j_x != 0
+         kappa*rho_req = -f_xx/f + Lambda - (momentum terms); the printed form is the Lambda=0, j=0 slice. With Lambda the residual is exactly Lambda in the same units
+[C-010] AX-D02  survives: PARTIAL       add Lambda; then add beta != 0
+         Lambda is a constant and drops out of the momentum constraint, so D02 is Lambda-robust; with beta != 0 the required flux mixes into rho_req and the printed separation fails
+[C-011] AX-D05  survives: NO            Lambda = 1e-3 fm^-2 against Lambda = 0
+         rho_req shifts by Lambda/kappa, i.e. by exactly 1e-3 fm^-2 in the printed units; no bound on Lambda is on file, so the omission is not numerically negligible by record
+[C-012] AX-D06  survives: YES           switch MeV/fm to GeV/fm
+         every audited ratio is dimensionless; only printed values change
+[C-013] AX-T01  survives: NO            boost beta = 0.5 along z: 2.25 eV -> 3.375 eV
+         3.375 eV lies outside the declared 1.65-3.26 eV band, so the declared channel ceases to exist. Phi is an observer-frame number, not a scalar
+[C-014] AX-T02  survives: PARTIAL       boost along x: the pitch contracts by gamma, the relief does not
+         epsilon = relief/pitch is a ratio of proper lengths at one point (invariant under transverse diffeos) but a beta=0.5 x-boost sends epsilon -> 1.155 epsilon
+[C-015] AX-T03  survives: N/A (justified) none available
+         no value of epsilon is on file, so there is nothing to transform; E2 tested the dependence at the level of C, not epsilon, and found C independent of relief/pitch
+[C-016] AX-T04  survives: NO            recompute with thickness 6.742 fm (v3 carrier spacing), then 1 fm (L_z)
+         the ratio is 1.9478e+04 at 15.402 fm, 4.4497e+04 at 6.742 fm, 3.0000e+05 at 1 fm: a 15.4x spread in the printed price, all with the same rounding to 2e4
+[C-017] AX-T05  survives: NO            double the declared budget; move the observer to 1 AU
+         the binary is a comparison against a declared budget and scene. RL-5 26.5-order overrun is measured against that budget and moves with it; RL-6 2e4 is a ratio of lengths and does not, so the two rungs are not on one axis even before the budget is chosen
+[C-018] AX-T07  survives: NO            band centre 2.25 eV -> 3.00 eV
+         the 9.539e31 requirement is band-independent while the solar flux in band falls, so the ratio Phi is denominated in the band and is not invariant under a band change
+[C-019] AX-L01  survives: PARTIAL       z-boost at fixed dE_z, evaluated at both ends of the L_z domain
+         at L_z = 1 fm, dE_z = 619.9 MeV and the flip needs gamma = 2.76e+08; at the external-bound edge L_z = 250 nm, dE_z = 2.4797 eV and the flip needs gamma = 1.1021 (beta = 0.420). The conditional has no frame slot, so its truth value is observer-dependent where its own domain ends
+[C-020] AX-L02  survives: NO            aperture x10, gate x10 at fixed scene
+         the observation scale is stipulated by the experimenter; it has no invariant content and the Q3 numbers move with it
+[C-021] AX-L03  survives: NO            boost to a frame moving along z
+         'frozen' presupposes the frame in which the well is static; the occupation distribution is not frame-independent, so the predicate is frame-relative
+[C-022] AX-L04  survives: PARTIAL       extend the control to f = t + eps*x^2
+         K = 16*epsilon**2/(epsilon*x**2 + t)**2 -> infinity as f -> 0, so the flat sector is exactly f affine in (t,x), a codimension-2 slice of (f_tt, f_xx, f_tx) space. The control is representative of a measure-zero set, not of the generic class; the Phase 1b qualitative conclusion is strengthened, not weakened
+[C-023] AX-L05  survives: NO            substitute the frozen, charged and equilibrium objects in turn
+         the same symbol resolves to 15.402 fm = 1/sqrt(N_s) (nuclear column) or 6.742 fm = 1/sqrt(n_2D) (electron areal density), and both scale as (A_perp/M)^1/2; the parenthetical does not survive
+[C-024] AX-S01  survives: N/A (justified) none available
+         a dynamical existence claim admits no coordinate test; the record contains no evolution solution (Phase 1 reports NOT an evolution solution, NOT a joint solution)
+[C-025] AX-S02  survives: NO            compare the three settling timescales
+         thickness returns in 2*delta/c_s = 4.30e-13 s, 1.9e4x before t_rip = 8.2553e-9 s; the in-plane arrangement settles at R/c_s = 1.8e-4 s, 2.2e4x after; R/(2 delta) = 4.19e8. No window exists in which the map is adiabatic
+[C-026] AX-S03  survives: NO            ask what holds L_z fixed, pointwise under RL-2 relief
+         the constraint returns a required source and Phase 1 assigns it to no field; controlled L_z therefore needs an unassigned stress, and RL-2 L_z(x) needs it pointwise
+[C-027] AX-X01  survives: NO            C_eye 0.01 -> 0.02
+         Q3(3.3166) 8.37790 -> 7.38223; the L3 threshold moves from C=3e-2 to 6e-2, so RL-2 zero-margin pass at 3e-2 fails while Q3 stays above 2
+[C-028] AX-X02  survives: NO            replace log2(1+C/C_eye) by C/C_eye
+         Q3(3.3166) 8.37790 -> 331.66; every Q3 number and the L3 crossing move, the ordering does not
+[C-029] AX-X03  survives: NO            lambda 500 nm -> 0.1 nm
+         lambda/d_parallel = 3.25e+07 -> 6.49e+03, still vacuous; making the test bite needs lambda ~ 15.4 fm. E = hc/lambda = 12.8 MeV there; the crosswalk prints 80.5 MeV, which is 2*pi*hbar*c/d on the same length, so the two differ by 2*pi and the record does not state which is meant
+[C-030] AX-X04  survives: NO            include the pair drain
+         no error bound is on file; E4 states the omission helps the rung, so including it can only raise the 1.22e40 W/m^2 price
+[C-031] AX-G02  survives: YES           area-preserving transverse diffeo x->Lx, y->y/L
+         N_s is particles per unit proper area; 4.2155e27 m^-2 is unchanged
+[C-032] AX-D03  survives: YES           rotate in x-y; boost along z
+         j_y=j_z=0 follows from the d_y, d_z Killing vectors; a z-boost preserves both
+[C-033] AX-D04  survives: YES           arbitrary f(t,x): symbolic simplification
+         K^2-K_ijK^ij simplifies to 0 identically
+
+------------------------------------------------------------------------------
+SECTION D: BLAST RADIUS MAP
+------------------------------------------------------------------------------
+[D-001] AX-G01 -> affects: G0p-row-1, RL-6
+[D-002] AX-G02 -> affects: AX-G03, C1, n_2D
+[D-003] AX-G03 -> affects: G0p-row-1, RL-6, ME1, C1, terminal-answer
+[D-004] AX-G04 -> affects: AX-D01, AX-D02, AX-D04, G5p
+[D-005] AX-G05 -> affects: E_sub, RL-4, AX-L01, n_B
+[D-006] AX-G06 -> affects: RL-6, G0p-row-1
+[D-007] AX-G07 -> affects: RL-6, ME1, C1, AX-T04
+[D-008] AX-G08 -> affects: AX-G02, AX-G03, RL-6, A_min
+[D-009] AX-G09 -> affects: n_2D, EF, G0p-row-7
+[D-010] AX-G10 -> affects: EF, G0p-row-7
+[D-011] AX-D01 -> affects: G5p, AX-S03
+[D-012] AX-D02 -> affects: G5p, AX-S03
+[D-013] AX-D03 -> affects: G5p
+[D-014] AX-D04 -> affects: G5p, AX-D01
+[D-015] AX-D05 -> affects: AX-D01, AX-D02, G5p
+[D-016] AX-D06 -> affects: NO-DOWNSTREAM
+[D-017] AX-T01 -> affects: D8, RL-1, RL-2, terminal-answer
+[D-018] AX-T02 -> affects: RL-2, D8, terminal-answer
+[D-019] AX-T03 -> affects: RL-2, D8
+[D-020] AX-T04 -> affects: RL-6, G0p-row-1, terminal-answer
+[D-021] AX-T05 -> affects: RL-5, RL-6, PG-03, terminal-answer
+[D-022] AX-T06 -> affects: AX-T01, D8
+[D-023] AX-T07 -> affects: AX-T01, RL-1, RL-4
+[D-024] AX-L01 -> affects: G5p, N7, AX-L03
+[D-025] AX-L02 -> affects: RL-1, RL-2, Q3, AX-T01
+[D-026] AX-L03 -> affects: AX-L01, G5p, E_sub
+[D-027] AX-L04 -> affects: G0p-row-1, AX-L05
+[D-028] AX-L05 -> affects: G0p-row-1, terminal-answer
+[D-029] AX-S01 -> affects: D8, PG-03, terminal-answer
+[D-030] AX-S02 -> affects: C2, D8, terminal-answer
+[D-031] AX-S03 -> affects: RL-2, RL-5, AX-D01, terminal-answer
+[D-032] AX-X01 -> affects: Q3, L3, RL-2
+[D-033] AX-X02 -> affects: Q3, RL-1, RL-2, RL-3
+[D-034] AX-X03 -> affects: C1, ME1
+[D-035] AX-X04 -> affects: RL-5, D8
+
+  Closure: each target is either an audited id or a registered downstream token. Tokens
+  denote recorded artefacts, not audited premises; their own status is unchanged here.
+
+------------------------------------------------------------------------------
+SECTION E: SUMMARY STATISTICS
+------------------------------------------------------------------------------
+Total items audited: 35
+MEASURED          :  2   (predicted  2)
+DERIVED-COVARIANT :  3   (predicted  3)
+DERIVED-COORD     :  5   (predicted  5)
+CONVENTION        : 15   (predicted 15)
+ASSUMPTION        :  8   (predicted  8)
+UNVERIFIED        :  2   (predicted  2)
+
+no_test_possible  : 2   (C-row with an explicit justification, directive 7)
+test_rows         : 33   (30 test-requiring + 3 covariant controls)
+closure_errors    : 0
+
+------------------------------------------------------------------------------
+SECTION F: CRITICAL FINDINGS
+------------------------------------------------------------------------------
+[F-001] [HIGH] d_parallel appears in the record in two roles: an in-plane column pitch (15.40194 fm) and the plate thickness used by RL-6, ME1 and C1b. Replacing it by L_z = 1 fm moves the RL-6 ratio from 1.948e+04 to 3.000e+05 (15.4x). constraint_crosswalk_v1.md 8.2 calls the identification a modelling choice; relaxation_ladder_v1.md 2 does not carry that qualification
+
+[F-002] [HIGH] row 1's reverse-on reads 'none stated (geometric, convention-independent)'. The same record states d_parallel is fixed only once (M, A_perp, mbar) are fixed and scales as (A_perp/M)^1/2 (constraint_crosswalk_v1.md 8.1). No derivation of convention-independence is on file
+
+[F-003] [HIGH] K^2 - K_ijK^ij = 0 is an identity of the ansatz, not a separately imposed constraint: K_xx=K_yy=0 and K_zz=-f f_t make the two sides equal for every f(t,x) (symbolic residual 0). The term therefore cannot fail and carries no constraint information: the Hamiltonian constraint reduces to R^(3) = 2*kappa*rho. Phase 1 self-test SY2 already labels this IDENT, and IDENT is explicitly not counted as evidence
+
+[F-004] [HIGH] adiabaticity is the unstated premise of the smooth 2D-ization branch. The record measures the opposite ordering: thickness returns 1.9e4x before t_rip, in-plane settles 2.2e4x after, ratio R/(2 delta) = 4.19e8 (kinematic_vs_dynamic_unfolding_v1.md:153-159)
+
+[F-005] [MEDIUM] Lambda = 0 is nowhere declared and is not idle: it appears additively in kappa*rho_req and is absent from kappa*j_x,req only because it is a constant
+
+[F-006] [MEDIUM] Phi = -4.5 is not a scalar. It consumes a scene-measured contrast (3.3166), a band (2.25 eV), a Weber constant (0.01) and an environment E; a beta=0.5 z-boost moves the probe to 3.375 eV, outside the declared 1.65-3.26 eV band
+
+[F-007] [MEDIUM] L_z = 1 fm is a normalisation, but it does physical work: E_sub = 619.9 MeV supplies the internal 2D argument, and the internal bound L_z <~ 2 fm is a bound on this normalisation. At L_z = 1 nm, E_sub = 619.9 eV and the internal bound fails
+
+[F-008] [MEDIUM] the effective-2D conditional has no frame slot. At the external-bound edge L_z = 250 nm the truth value flips at gamma = 1.1021 (beta = 0.420), inside the domain the definition itself admits
+
+[F-009] [LOW] the Kasner control occupies a codimension-2 slice: for f = t + eps*x^2, K = 16*epsilon**2/(epsilon*x**2 + t)**2 diverges as f -> 0, and flatness requires f affine in (t,x). The Phase 1b generic-singular conclusion is strengthened; the control is not representative of the generic class
+
+[F-010] [LOW] the printed RL-6 price 2e4 is a 2.60% rounding of 1.9478e+04; disclosed already in runs/P1/phase1c_repricing_results.txt and listed here so the blast map is closed
+
+  Counts: HIGH 4, MEDIUM 4, LOW 2
+  These are descriptions of dependency, not assessments of the programme. No finding
+  changes a gate, threshold, terminal class, price or queue state.
+
+==============================================================================
+[SELF-TESTS]
+==============================================================================
+  CK1    item count = 35 and labels equal the pre-registered distri PASS
+         35 items
+  CK2    closure: 0 error(s)                                        PASS
+  CK3    test coverage: 30/30 test-requiring items; 3/3 covariant c PASS
+  CK4    d_parallel = 15.40194 fm = 2.9105e-04 a0 (pred 15.40194, 2 PASS
+  CK5    RL-6 ratios 1.9478e+04 / 4.4497e+04 / 3.0000e+05 (pred 1.9 PASS
+  CK6    Phi = -4.50499 (pred -4.50499); Q3 = 8.37790 (pred 8.37790 PASS
+  CK7    dE_z(250 nm) = 2.4797 eV (pred 2.4797); gamma_flip = 1.102 PASS
+  CK8    K^2 - K_ijK^ij simplifies to 0 for arbitrary f(t,x)        PASS
+         0
+  CK9    extended control f=t+eps*x^2 gives K = 16*epsilon**2/(epsi PASS
+         0
+  CK10   no file opened for writing during emission (procedural)    PASS
+         []
+  IDENT  label counts sum to the item count (partition, not evidence) PASS
+  NEGCTRL-N1 unlabelled item detected once                              PASS
+  NEGCTRL-N2 dangling blast token detected once                         PASS
+  NEGCTRL-N3 untested covariant item detected once                      PASS
+  NEGCTRL-N4 rootless item detected once                                PASS
+
+==============================================================================
+[VERDICTS]
+==============================================================================
+  CHECK    10/10
+  IDENT    1/1  (partition identity, not evidence)
+  NEGCTRL  4/4
+  Findings: HIGH 4 / MEDIUM 4 / LOW 2
+  No prior MET or PASS was accepted as evidence of DERIVED-COVARIANT: each covariant item
+  carries its own C-row, and IDENT labels were counted separately throughout.
+  OVERALL: PASS-WITH-FINDINGS
+  evidence level: STRUCTURAL AUDIT / NOT GATE EVIDENCE
+  PROVENANCE: NEITHER
+
+Content generated by AI

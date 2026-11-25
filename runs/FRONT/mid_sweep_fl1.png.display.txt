@@ -1,0 +1,13 @@
+DISPLAY-DECLARATION v1
+FRAME:            mid_sweep_fl1.png
+PROVENANCE:       NEITHER
+STAGE:            S0
+FIDELITY:         FL1
+BAND:             NONE (geometry only)
+COLOUR:           DECLARED-CONVENTION
+COLOUR-BASIS:     the mapped quantities are a binary occupancy indicator (converted versus intact) and a cardinal distance on the deposit array; no spectral measurement was made at any stage, so hue carries no wavelength information and the palette is a choice
+SCALAR:           converted fraction of object height (dimensionless); deposit-site occupancy (binary); z (m)
+TIME:             t_span = 0 s (single snapshot) ; compression = 1 ; t_rip = 8.198682e-09 s ; ratio = 0
+GEOMETRY:         PRESCRIBED (D2)
+ENHANCEMENT:      EN2
+ME5-COROLLARY:    NOT-APPLICABLE

@@ -1,0 +1,66 @@
+# Provenance baseline manifest -- frozen inventory at adoption of
+# docs/conventions/provenance_tags_v1.md (2026-11-22).
+# Files listed here are grandfathered LEGACY-UNTAGGED and are never edited (s9.1).
+# Files NOT listed here must carry a PROVENANCE line (rule P1).
+# One repository-relative path per line. Append deliberately; do not regenerate.
+
+runs/ANALYSIS/abandon_assumption_visual_v1.txt
+runs/ANALYSIS/assumption_matrix_v1.txt
+runs/ANALYSIS/front_sweep_v1.txt
+runs/ANALYSIS/instrument_visualization_v2.png
+runs/ANALYSIS/instrument_visualization_v2.txt
+runs/ANALYSIS/internal_consistency_v1.txt
+runs/ANALYSIS/no_weak_freeze_v1.txt
+runs/ANALYSIS/painting_limits_v1.png
+runs/ANALYSIS/painting_render_v1.png
+runs/ANALYSIS/painting_render_v1.txt
+runs/ANALYSIS/persistent_visualization_v1.txt
+runs/ANALYSIS/sigma_s_rendering_v1.png
+runs/ANALYSIS/sigma_s_rendering_v1.txt
+runs/ANALYSIS/slab_visibility_v1.png
+runs/ANALYSIS/slab_visibility_v1.txt
+runs/ANALYSIS/three_body_comparison_v1.png
+runs/ANALYSIS/three_body_comparison_v1.txt
+runs/ANALYSIS/unfold_appearance_v1.png
+runs/ANALYSIS/unfold_appearance_v1.txt
+runs/ANALYSIS/unfold_is_real_v1.txt
+runs/CONVENTIONS/symbol_lint_results.txt
+runs/G0/g0_prime_log.txt
+runs/G0/g0_prime_results.json
+runs/G0/g0_prime_stdout_raw.txt
+runs/G0/g0_prime_table.csv
+runs/G0/g0p2_results.txt
+runs/G0/g0p3_results.txt
+runs/P1/g1_closeout_results.txt
+runs/R1A/r1a1_bogoliubov_results.txt
+runs/R1A/r1a1_kz_results.txt
+runs/R1A/r1a1_ptilde_scan_results.txt
+runs/R1A/r1a2_pinney_results.txt
+runs/R1A/r1a3_lattice_results.txt
+runs/R1B/r1b1_eos_results.txt
+runs/R1B/r1b1_eos_results_v1_REVOKED.txt
+runs/R1B/r1b1_eos_v3_results.txt
+runs/R1B/r1b234_screening_results_v1_REVOKED.txt
+runs/R1B/r1b234_v2_results.txt
+runs/R1B/r1b234_v3_results.txt
+runs/R2/check123_results_v1_REVOKED.txt
+runs/R2/check123_v2_results.txt
+runs/R2/check123_v3_results.txt
+runs/R2/r2c6_linear_stability_results.txt
+runs/R2/r2d_l1_results.txt
+runs/R2/r2d_l2_results.txt
+runs/R2/r2d_l3_n11_slab_results.txt
+runs/R3/r31_models_results.txt
+runs/R3/r32_bundle_results.txt
+runs/R3/r33_measure_results.txt
+runs/R4/r4_axisym_2p1_results.txt
+runs/R4/r4_axisym_2p1_results_rerun_check.txt
+runs/R4/r4_cmc_initial_data_results.txt
+runs/R4/r4_instability_localization_results.txt
+runs/R4/r4_instability_localization_stage2_results.txt
+runs/R4/r4_york_initial_data_results.txt
+runs/R5/r5l2_sigma_s_results.txt
+runs/R5/r5l2_sigma_s_results_v1_REVOKED_BASELINE.txt
+runs/S45/meff_boundary_probe_results.txt
+runs/S45/meff_boundary_probe_results_v1_LABELS_P.txt
+runs/S45/meff_disposition_checks_results.txt

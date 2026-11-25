@@ -1,0 +1,48 @@
+==============================================================================
+Three-assumption combination matrix v1
+==============================================================================
+E defining bound L_z < 8.45 fm | W effective bound L_z < 2.32e+06 fm (= 2.32 nm)
+Sigma=70 kg/m^2, E_deg=1.724e+17 J/m^2=41.2 Mt
+
+[Numerical ledger]
+  101: KE=8.620e+16 J = 20.6 Mt ; radiation=20.6 Mt ; total 41.2 Mt
+  110: nu=9.657e+16 J = 23.1 Mt (invisible)
+  100: after neutronization P in [1.84e+16, 6.48e+16] N/m -> KE in [4.4, 15.5] Mt, v in [0.076, 0.144]c
+  0xx: 7 cm, n_e=3.14e-16 fm^-3, mu_e=4.15e-03 MeV -> no degeneracy pressure, no neutronization
+
+| Combination E/S/W | State of matter | Energy ledger | Seen by human eye | Duration | Verdict |
+|---|---|---|---|---|---|
+| ✓✓✓ | 1 fm, 0.30ρ_nuc, E_F=73.4 MeV | 41.2 Mt all locked inside | mirror (ΔR=0.001 between the two states), no self-emission | 3-5 ns | **EMPTY** |
+| ✓✓✗ | after neutronization Y_p=0.005, E_F=21.5 MeV | 23.1 Mt -> nu (invisible); 18.1 Mt still locked inside | mirror, no self-emission; nu burst needs a 10 kt-class detector | 3 ns | **EMPTY** + neutrino burst |
+| ✓✗✓ | 1 fm disintegrates -> thermalizes in a meter-scale air column | 20.6 Mt kinetic -> fireball; 20.6 Mt gamma | **41 Mt fireball, 99x solar surface** | **1-10 s color** | **fireball (most spectacular)** |
+| ✓✗✗ | first nu burst (3 ns), then disintegration | 23.1 Mt -> nu; KE 4.4-15.5 Mt | weaker fireball (2-5 times dimmer) | ~1-10 s | weak fireball + nu burst |
+| ✗✓✓ | 7 cm, 1000 kg/m^3, atoms intact | no extra energy (not compressed) | passively reflects 35% of sunlight (same as a white wall) | infinite | static sheet (clear, not spectacular) |
+| ✗✓✗ | same as above (W has no target: mu_e=4 eV) | same as above | same as above | infinite | ≡ ✗✓✓ |
+| ✗✗✓ | same as above (S has no target: no degeneracy pressure) | same as above | same as above | infinite | ≡ ✗✓✓ |
+| ✗✗✗ | same as above (all three fail) | same as above | same as above | infinite | ≡ ✗✓✓ |
+
+==============================================================================
+[Dependency structure] 8 combinations -> 5 distinct outcomes
+==============================================================================
+  {111}            EMPTY (mirror, 3 ns)
+  {110}            EMPTY + neutrino burst
+  {101}            41 Mt fireball  <- the only spectacular one
+  {100}            weak fireball + neutrino burst
+  {011,010,001,000} same outcome: 7 cm static sheet
+
+  Reason: E is the only energy source. ¬E => mu_e drops from 73.4 MeV to 4.2e-3 MeV,
+  degeneracy pressure vanishes (S has nothing to do), the neutronization threshold is no longer crossed (W has nothing to do).
+  So the last three combinations share one physical state: not four things, but one.
+
+[Inverse relation] visual effect vs number of assumptions holding
+  3 hold -> EMPTY
+  2 hold -> EMPTY (110) or fireball (101)
+  1 holds -> static sheet
+  0 hold -> static sheet
+  => Visual intensity has no monotonic relation to 'number of assumptions holding'; it depends only on 'whether S is abandoned and E kept'.
+
+[Only simultaneous condition] to be visible, one must simultaneously have:
+  (a) MeV-scale energy available for release -> requires E to hold
+  (b) permission to release it      -> requires ¬S
+  (c) energy not carried off by nu  -> requires W to hold
+  => 101 is the unique solution. E supplies energy, ¬S supplies visibility, W preserves 44% from going down the drain.

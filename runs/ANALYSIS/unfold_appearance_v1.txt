@@ -1,0 +1,25 @@
+======================================================================================
+[unfold_appearance v1] What unfolded human-body slices look like: five levels of view
+======================================================================================
+
+[0] Convention recomputation (correction: the average cross-sectional area is not 0.5 m^2)
+  V = 0.0700 m^3; H = 1.75 m -> A_c = V/H = 0.0400 m^2 (side 0.200 m)
+  Number of slices N_s = A/A_c = 8.123e+09; unfolded height = N_s d = 1.750 m
+  Array 90126 x 90126, total side length 18.03 km
+  Anatomical difference between adjacent tiles = d = 0.215 nm
+  To see anatomical variation (1 mm scale), one must sample one tile per 4.64e+06 -> decimation ratio 4.64e+06 : 1
+  [CHECK   ] U1_decimation_ratio                      PASS   The human figure exists only in the 4.6e+06-fold decimation; the original is a 4.6e+06-fold redundant sequence
+
+[1] Physical meaning of each of the five views
+  View A, 18 km overhead: resolvable 5.2 m -> on average 676 tiles per resolution element
+  View B, standing on the picture: resolvable 73 um (at 1 m) -> 2700 points within one tile, tiles all identical
+  View C, decimated array: this is 'unfolded human-body slices', but it is a 5e+06-fold synthesized view
+  View D, two channels of one tile: naked eye = gray film; 284 eV = anatomical image (tau 1.2e-3)
+  View E, atomic scale: each atom is a pixel, 0.215 nm per cell, 8.6e+17 pixels per tile
+
+  [ARGUMENT] U2_five_views_are_not_interchangeable    PASS   C is the 'blueprint', B/D are the 'real object' — mistaking C for what the naked eye sees is the easiest mistake to make in this project
+[2] How many pixels are in one tile
+  0.20 m tile / 0.215 nm = 9.28e+08 atoms across; area 8.62e+17 pixels
+  At human-eye 73 um, one tile gives only 2740 x 2740 resolvable points
+  => The 1.1e+11-fold information inside the tile is completely unreadable to the naked eye.
+

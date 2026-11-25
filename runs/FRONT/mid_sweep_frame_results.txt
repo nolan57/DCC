@@ -1,0 +1,29 @@
+============================================================================================
+MID-SWEEP FRAME -- derived numbers and prediction ledger
+============================================================================================
+  registered: z_top=1.738 m  layer=0.215 nm  array=90126^2  max=25.5 km  mean=13.8 km
+  t_rip = sqrt2 z_top / c = 8.198682e-09 s
+
+  N1   PASS  layers z_top/a_L = 8.0837e+09 vs registered peelings 8.120e+09 (0.45% apart)
+  N4   PASS  site spacing = 0.4001 m
+  N5   PASS  canvas side = 36.06 km
+  N6   PASS  farthest plate (N5/2)*sqrt2 = 25.500 km -> recovers the registered 25.5 km
+  N7   PASS  mean distance 0.3826*N5 = 13.797 km vs registered 13.8 km
+  N8   PASS  front speed = 2.119853e+08 m/s = c/sqrt2 to 1e-9
+  N9'  PASS  declared reconstruction integrates to 0.04992 m^3, 16.9% below the registered 0.0601
+
+  frame prints f = z/H = 0.500 (definitional).
+  volume fraction NOT printed -- the table gives ranges, not a profile; the reconstruction
+  misses the registered volume by 16.9%, and that miss is the reason the number is absent.
+  layers deposited so far = 4.0419e+09 ; plates ~ 5.8890e+09 (x 1.457 comp/layer)
+  fraction of the census deposited = 0.4991  (this is what the label used to print as a percentage of sites)
+  cells holding >=1 plate          = 0.7250  = min(1, f x 1.4527)   <- the corrected label
+  NOTE  census/cells = 1.4527 > 1, so cells hold more than one plate; one-plate-per-cell would need an array of side 108628.
+        Registered OPEN as GD10; H_eff unaffected (plates are coplanar -- effective_2d_definition_v1_annex_B sB.1).
+  plate side = 0.1539 m on 0.4001 m spacing (so a plate fits its site)
+  max silhouette radius = 0.1311 m -> the plume is drawn beyond 0.19 m (falsifier check)
+
+  frame written: runs\FRONT\mid_sweep_fl1.png
+  predictions confirmed 7 of 7 ; FAILED 0 -
+
+PROVENANCE: NEITHER  (presentation product on prescribed geometry; establishes no physics)

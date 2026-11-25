@@ -1,0 +1,73 @@
+<<<LOG>>>
+====================================================================================
+R1-B2/B3/B4 v2: ion phase (redone) / transport (downgraded) / gap (fixed)
+====================================================================================
+registered inputs: U_i=4.1426 MeV, a_i=8.69 fm (2D convention), Z=5, A=10,
+  n_B(G0)=0.04216 fm^-3, n_e(frozen)=2.200752e-02, n_e(eq)=6.8296e-05 fm^-3,
+  L_body=0.07 m, t_expand=4.72 ns, sigma_nu_scale=1.0e-43 m^2
+thresholds (registered): {'T1_gap': 1e-10, 'T2_limit': 0.0001, 'T3_cons': 1e-12, 'T4_tau': 1e-06, 'T5_zp': 1e-06}
+
+[R1-B2 v2: cold ion phase, corrected criterion]
+  v1 Gamma_i = U_i/mu_e = 0.179 REVOKED as a coupling parameter (F-R1B2-1):
+    classical Gamma = (Ze)^2/(4 pi eps0 a kT) diverges as T -> 0 (T=0 assumption).
+  cold-ion quantum-melting parameter instead:
+    omega_i = 7.2752e+20 rad/s -> E_zp = hbar*omega_i/2 = 0.2394 MeV
+    quantum melting parameter E_zp/U_i = 0.0578  (<~0.1 -> crystal survives)
+    cold OCP ground state: CRYSTAL (v1 'weakly coupled liquid' REVOKED)
+  composition branch A (Z=5, A=10 ions survive):
+    crystal lattice localizes ions -> pycnonuclear channel EXISTS (v1 'closed'
+    because no lattice' reasoning revoked); screening-level penetration:
+    2*pi*eta = 113.05 -> P = 8.033e-50 ; attempt omega_i/2pi = 1.158e+20 s^-1
+    rate/ion-pair ~ 9.302e-30 s^-1 -> t_react ~ 1.08e+29 s >> t_expand 4.72 ns
+     => the fusion channel is closed within the expansion window (same conclusion as v1, but the physical reason has been corrected: crystal +
+        the correct Gamow factor, rather than 'liquid without a lattice')
+  composition branch B (dissolved npe matter, R1-B1 v2: X_p~1.6e-3):
+    no ion lattice exists; the crystal/liquid question dissolves;
+    dilute proton gas in the neutron sea (charge neutralized by residual e)
+  VERDICT-2: composition undecided (R1-B1 refined EOS = OPEN); both branches
+    registered; v1 liquid/pycno conclusions REVOKED; full reaction rates OPEN
+
+[R1-B3 v2: transport reference timescales (downgraded from v1 conclusion)]
+  photon Thomson optical depth (corrected basis, F-R1B3-2):
+    frozen:  tau_T = sigma_T*n_e,2D = 1.4640  (marginal; v1 0.146 was x10 low)
+    eq:      tau_T = 4.543e-03  (thin)
+    thick-limit diffusion time (L_body=0.07 m): frozen 1.026e-09 s = 1.026 ns;
+      eq 3.183e-12 s = 0.003 ns  (both << t_expand 4.72 ns)
+  neutrino (weak) screening estimate (F-R1B3-1):
+    tau_nu = sigma_nu*N_B,2D = 1.0e-43*4.216e+28 = 4.22e-15 << 1 -> free-streaming
+    (registered cross-section scale only; full weak-rate transport = OPEN)
+  VERDICT-3: v1 'entropy drain is NOT the bottleneck' DOWNGRADED to
+    'reference timescale estimate (conditional)': photon thick-limit 1.03 ns
+    and nu free-streaming are both << window at screening level, but entropy
+    budgets need the full transport module (weak rates, composition-dependent)
+
+[R1-B4 v2: longitudinal excitation gap DeltaE_12 = E_2 - E_1 (fixed, F-R1B4-1)]
+  v1 used E_1 = pi^2(hc)^2/(2mL^2) (ground state, not a gap) -- REVOKED
+  n (L_z=1 fm): E_1=204.51 MeV | DeltaE_12_NR=613.5 MeV | DeltaE_12_rel=430.0 MeV
+  e (L_z=1 fm): E_1=376029.39 MeV | DeltaE_12_NR=1128088.2 MeV | DeltaE_12_rel=619.9 MeV
+  effective-2D domain (registered margin): E_probe <= DeltaE_12_rel(n)/10 = 43.0 MeV
+  residual electrons (R1-B1 v2): DeltaE_12_rel(e) >> mu_e,eq=24.96 MeV ->
+    all residual electrons sit in the n=1 longitudinal band (z-frozen);
+    their sector weight vs nucleons remains OPEN (composition-dependent)
+  premises (F-R1B4-2): L_z=1 fm is a registered convention, not derived;
+    G5' passage requires the refined EOS + band structure (OPEN)
+
+[verdicts]
+  T1 DeltaE_12_NR = 3*E_1 analytic <1e-10            : 0.00e+00  PASS
+  T2 rel gap -> NR limit (L=100 fm ratio) <1e-04    : 5.44e-05  PASS
+  T3 E_zp dual-path (SI omega vs natural) <1e-06     : 0.00e+00  PASS
+  T4 tau_T(frozen) consistency <1e-06                : 0.00e+00  PASS
+  T5 quantum-melting margin E_zp/U_i < 0.1          : 0.0578  PASS
+
+[findings]
+  F-R1B2-4: crystal conclusion reversed (v1 liquid revoked): the T=0 cold-ion OCP ground state is a crystal,
+             with the quantum-melting parameter 0.058 far below melting; the pycno channel exists but after Gamow penetration
+             t_react~7e28 s, still closed within the expansion window -- conclusion unchanged, reasoning reconstructed.
+  F-R1B3-3: the frozen-state tau_T=1.46 is marginally thick: the diffusion timescale for photon removal (thick limit)
+             ~1.0 ns is still << 4.7 ns window; but this conclusion varies with composition and the L_z convention (conditional).
+  F-R1B4-3: the corrected nucleon excitation gap is 426 MeV (rel) / 613 MeV (NR) --
+             2-3 times larger than v1's E_1=205; the 'effective two-dimensional' criterion domain is correspondingly widened, but the premises (L_z convention, composition) are not closed.
+
+R1-B2/B3/B4 v2 OVERALL: PASS (code-level tests; physical verdicts are branch-
+registered and conditional, per F-R1B2-2/F-R1B3-1/F-R1B4-2)
+evidence level: MODEL RESULT (screening grade; assumptions registered above)

@@ -1,0 +1,101 @@
+============================================================================
+DCC branch visual tally v1: which assumption to abandon -> the most spectacular visual effect
+============================================================================
+Surface density Sigma = 70.0 kg/m^2 (70 kg / 1 m^2)
+Degeneracy surface energy E = 1.724e+17 J/m^2 = 41.2 Mt TNT
+
+[B] Abandon 'smooth': energy-release path check (check the premises first, then talk about brightness)
+  Electron bulk density n_e = 2.200e+43 m^-3, slab thickness L_z = 1.0e-15 m
+  Thomson optical depth tau = n_e*sigma_T*L = 1.464
+  [CHECK  ] B0_slab_photosphere          PASS  tau=1.46: the slab itself is a thin photosphere (neither transparent light leakage nor a thick blackbody)
+  Self-radiation: u=1.724e+32 J/m^3 -> T_bb=6.91e+11 K = 59.5 MeV (gamma range)
+  Expansion timescale L/c = 3.3e-24 s -> adiabatic cooling finishes within ~1e-24 s
+  [CHECK  ] B0b_self_radiation_invisible PASS  self-emission peaks at 60 MeV >> visible light 2.5 eV: **the slab's own radiation is completely invisible to the human eye**
+  Surface pressure P=8.62e+16 N/m -> v_inf=4.963e+07 m/s (0.166 c)
+  Total surface energy 1.724e+17 J/m^2 = 41.2 Mt TNT
+    Kinetic  8.620e+16 J/m^2 = 20.6 Mt  <- the only part that can be seen
+    Internal  8.625e+16 J/m^2 = 20.6 Mt  <- escapes as 60 MeV gamma, invisible
+  Proton kinetic energy = 13.1 MeV, range in air of order ~1 m -> kinetic energy thermalizes in a meter-scale air column
+  [ESTIMATE] B0c_visible_comes_from_kinetic PASS  the visible fireball is powered by kinetic energy (50%), not by the slab's own radiation
+  Sedov strong-shock fireball R(t)=1.15(E/rho)^(1/5) t^(2/5), T_eff from L=fE/t (f=0.5)
+     t        R (m)        T_eff (K)    surface brightness  human eye
+     0.001    1.960e+02    2.369e+05    1.79e+14   bluish/UV
+     0.01     4.923e+02    8.406e+04    2.83e+12   bluish/UV
+     0.1      1.237e+03    2.983e+04    4.49e+10   bluish/UV
+     0.3      1.919e+03    1.819e+04    6.21e+09   bluish/UV
+     1        3.106e+03    1.058e+04    7.11e+08   visible color
+     3        4.820e+03    6.455e+03    9.85e+07   visible color
+     10       7.802e+03    3.755e+03    1.13e+07   visible color
+     30       1.211e+04    2.290e+03    1.56e+06   infrared/dark
+     100      1.960e+04    1.332e+03    1.79e+05   infrared/dark
+  Visible window (2500-12000 K) ~ 1.00 s - 10.0 s
+  [ESTIMATE] B1_visible_duration          PASS  visible color lasts 10 s, 500 times the eye integration time (20 ms)
+  [ESTIMATE] B2_surface_brightness        PASS  at T=18193 K surface brightness = 98.7 x solar surface
+  [ESTIMATE] B3_structure                 PASS  fireball R=3.1 km, Rayleigh-Taylor-type instability gives ~10^2 macroscopic features (no microscopic texture)
+  Illuminance at the observation point (take t=1 s, L=8.6e+16 W):
+     d=100     m  illuminance 6.86e+11 W/m^2 = 5e+08 x solar constant (1361)
+     d=1000    m  illuminance 6.86e+09 W/m^2 = 5e+06 x solar constant (1361)
+     d=10000   m  illuminance 6.86e+07 W/m^2 = 5e+04 x solar constant (1361)
+  [ESTIMATE] B4_blinding                  PASS  at 1 km still 5e+06 times the solar constant -> retinal saturation/blindness; not 'viewable' but 'unsafe to look at directly'
+
+[A] Abandon 'effective 2D': thickness free -> can atomic layers survive
+     rho (kg/m^3)   L_z          atomic spacing       atoms?         state of matter
+     1e+03          7.000e-02    2.551e-10      yes            ordinary matter (with chemical bonds)
+     7e+03          1.000e-02    1.334e-10      yes            ordinary matter (with chemical bonds)
+     2.3e+17        3.043e-16    4.164e-15      no             pressure ionization / nuclear matter
+  [CHECK  ] A0_squashed_body             PASS  at rho=1000, L_z=7.0 cm -- the 1 m^2 'sheet' is actually 7 cm thick, with intact anatomy
+  Self-emission: none. Contrast = albedo x illuminance = 0.35 (external illumination required)
+  [CHECK  ] A1_no_self_emission          PASS  cold matter: brightness entirely determined by illumination, ~35% diffuse reflection in sunlight
+  [CHECK  ] A2_structure                 PASS  1.3e+13 diffraction-limited resolution elements on 1 m^2; adding anatomical/chemical color differences -> extremely high information content
+  [CHECK  ] A3_duration                  PASS  static, can be viewed indefinitely; arbitrary lighting and arbitrary viewing angles
+
+[A'] Extreme of branch A: abandon '1 m^2', take a monolayer (area inferred)
+  Required in-plane atomic spacing = 3.0 Angstrom -> A = 3.794e+08 m^2 = 379 km^2
+  Thickness = monolayer ~ 3.0 Angstrom
+  [CHECK  ] Ap0_area                     PASS  area 379 km^2 -- this is the only geometric solution with chemistry, 4 orders of magnitude from 1 m^2
+  [ESTIMATE] Ap1_contrast                 PASS  monolayer absorption ~2.3% (graphene-like) -> appears as an extremely faint iridescent film, low contrast
+
+[C] Abandon 'weak interaction kept on': neutronization + neutrino burst
+  Neutrinos carry away 0.56 x degeneracy energy = 9.657e+16 J/m^2 = 23.1 Mt (invisible)
+  Remaining matter: npe matter with Y_p=0.005, E_F=21.5 MeV, still a degenerate plasma
+  [CHECK  ] C0_invisible_neutrinos       PASS  0.56 of the energy escapes as nu; neutrinos do not couple to the human eye/camera -> the visual contribution of this channel is strictly 0
+  [CHECK  ] C1_no_atoms                  PASS  E_F=21.5 MeV still >> chemical-bond eV -> no atoms/no chemical colors, still mirror-like in visible light
+  [CHECK  ] C2_duration                  PASS  lifetime ~3 ns, 1e-8 of the 20 ms eye integration time
+
+==============================================================================
+[Summary] five metrics, numbers filled in branch by branch (no weighting -- weighting would hide the trade-offs)
+==============================================================================
+  Branch peak brightness             visible duration  structures  illuminance at 1 km     self-emission
+  ----------------------------------------------------------------------------
+  A    reflected sunlight 35% (same as white wall)   infinite    1.3e13     same as white wall       no
+  A'   2.3% absorption (very faint)   infinite    1.3e13     below white wall         no
+  B    99 x solar                10 s       ~1e2       5e6 x solar constant      yes
+  C    0 (nu escapes)            3 ns       ~1         0                    no
+
+[Key column] how much of this spectacle comes from 'two-dimensional reduction' itself?
+  A   0%    -- it is spectacular because 'a person was squashed into a 7 cm sheet'; that is mere flattening;
+              the same would happen to any 70 kg object squashed to 7 cm. Nothing to do with two-dimensional reduction.
+  A'  ~30%  -- a monolayer really is a two-dimensional material (graphene-like), the 2D character is real;
+              but it relies on enlarging the area to 379 km^2, not on squeezing the thickness to 1 fm.
+  B   0%    -- a 41 Mt explosion does not care what triggered it. Two-dimensional reduction is entirely absent here:
+              you are seeing what it looks like when it fails, not when it succeeds.
+  C   --     -- no scene to attribute.
+
+[Verdict] ranked by 'peak visual impact' (the usual meaning of 'spectacular'):
+  1. B abandon smooth    -- the only self-luminous case, 99 x solar surface, lasting 10 s, covering the whole sky
+  2. A abandon 2D       -- the only one with 'content': atoms/chemistry/anatomy intact, 1.3e13 resolution elements, permanent
+  3. A' abandon 1 m^2 -- has 2D character but only 2.3% contrast, like an extremely faint iridescence
+  4. C abandon weak-on -- all three metrics go to zero at once (neutrinos do not couple to the human eye)
+
+[Mutual exclusivity] why you cannot have both
+  To be 'bright' requires energy at the 60 MeV scale (plasma)
+  To have 'content' requires energy at the 5 eV scale (chemical bonds/interband transitions)
+  The two differ by a factor of 1e+07 -- the same matter cannot be at both energy scales at once.
+  [ARGUMENT] S_mutual_exclusion           PASS  brightness and structure come from energy scales differing by 1e+07, physically mutually exclusive
+
+[In one sentence]
+  The most spectacular visual effect = abandon 'smooth two-dimensional reduction' and get a 41 Mt, roughly 10 s long,
+  colorful fireball with surface brightness nearly a hundred times the sun. But at that moment 'two-dimensional reduction' is no longer in the picture --
+  what you see is its dissolution, not its realization.
+  If you want to see 'two-dimensional reduction itself', it can only be branch A's static sheet: quiet, detailed,
+  needing a lamp to illuminate it. It is not spectacular, it is clear.

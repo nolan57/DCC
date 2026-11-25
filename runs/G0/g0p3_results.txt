@@ -1,0 +1,85 @@
+========================================================================================
+G0' v3 (G0P-003): fixed-area survival threshold -- threefold fix of handoff/convention/test integrity
+========================================================================================
+run: 2026-11-21T07:28:21
+config: configs/g0_prime_v3.json (status=REGISTERED_BEFORE_RUN)
+constants: src/common/conv.py (single source of truth)
+
+[1] frozen baseline (v3; supersedes G0P-002)
+  N_s(nuclei)   = 4.215499e+27 m^-2
+  N_B(baryons)  = 4.215499e+28 m^-2  (= m_bar*N_s)
+  n_2D          = 2.200490e+28 m^-2 = 2.200490e-02 fm^-2  (same value as v2; convention entered into conv)
+  k_F           = 0.371834 fm^-1
+  E_F = mu_e    = 73.373 MeV   (E_F/m_e c^2 = 143.6; 2D UR hence v_F = c)
+  u_2D          = 1.7245e+17 J/m^2 = 41.218 Mt/m^2
+  P_2D          = 8.6227e+16 N/m
+  c_s           = 2.1199e+08 m/s = c/sqrt2
+  v_inf         = 4.9635e+07 m/s = 0.1656 c
+  t_rip(1 m)    = 4.72 ns
+  u_2D/Mc^2     = 2.741 %   (v1's 0.087% revoked; v2's 2.74% retained)
+  tau_T(frozen) = 1.4639
+  A_min / B_ion = 3.794e+08 m^2 / 2.375e-09
+  Gamma_e = 2.258e-03 ; U_i/E_F = 5.646e-02  [RELABEL F-G0-6: not the ion coupling parameter]
+  [C7_registered] E_F(3D)=171.07 vs E_F(2D)=73.37 MeV, ratio 2.331 -- registered item,
+                   not used as a pass criterion (no prior true value to compare against)
+
+[2] B1 handoff fix: four routes for n_e (r4 is the negative control for the v2 erroneous formula)
+  r1  = 2.200490e-02 fm^-3
+  r2  = 2.200490e-02 fm^-3
+  r3  = 2.200490e-02 fm^-3
+  r1 vs r2 reldev = 0.0e+00 ; r1 vs r3 reldev = 0.0e+00
+  r4(v2 wrong) = Z_eff*n_B = 2.200490e-01 fm^-3 ; r4/r1 = 10.000000  [must = 10]
+  => handoff value n_e,frozen = ZA*n_B = 2.200490e-02 fm^-3 (v2 log printed 2.200490e-01, off by a factor of 10)
+
+[3] B2 dimensional-convention envelope (X_p / mu_e / P_tot must not be reported as single-point values)
+  mode   D_e  D_nuc X_p         mu_e[MeV]  n_e[fm^-3]  reduction   P_tot[N/m]  
+  ALL3D  3    3    1.6198e-03  24.957     6.8281e-05   322.27      6.4790e+16
+  HYB    2    3    4.5006e-02  21.545     1.8972e-03   11.60       6.2654e+16
+  ALL2D  2    2    4.3957e-03  6.733      1.8530e-04   118.75      1.8439e+16
+  envelope: X_p 1.62e-03..4.50e-02 (spanning a factor of 28) ; P_tot 1.84e+16..6.48e+16 N/m (spanning a factor of 4)
+  Note: HYB is the default convention. ALL3D is retained as a control, but it contradicts
+        the 204 MeV subband spacing of R1-B4 (load-bearing nucleons should occupy a single band), hence it must not be cited alone.
+
+[4] Tests (classified by config.test_registry; the summary counts only CHECK)
+  name                       tag      value        thr        res    note
+  I1_Nb_over_Ns_eq_mbar      IDENT    1.7764e-16   1.00e-12   PASS   N_B/N_s = m_bar = 10.0 -- follows directly from the definitions of N_B and N_s, not a test
+  I2_Amin_inverse_3A         IDENT    0.0000e+00   1.00e-12   PASS   A_min is back-solved from D_BOND after defining it -- identity; v2 had mislabeled it PASS
+  I3_dim_coefficient_2D      IDENT    0.0000e+00   1.00e-12   PASS   u/nE_F = d/(d+1) = 2/3 is an analytic-formula restatement for D=2; the genuine independent test is C2
+  C1_kF_closed_vs_quad       CHECK    1.4929e-16   1.00e-06   PASS   closed form (4πn/g)^1/2 = 0.371834 fm^-1 vs quadrature inverse 0.371834 fm^-1
+  C2_u_closed_vs_quad        CHECK    5.5667e-16   1.00e-06   PASS   u = 1.724546e+17 vs 1.724546e+17 J/m^2
+  C3_cs2_numeric_vs_half     CHECK    0.0000e+00   1.00e-04   PASS   dP/du = 0.50000000 (should be 0.5 for 2D UR); v2's T7 only compared two copies of c/sqrt2 from the same source
+  C4_eos3D_UR_limit          CHECK    3.0191e-07   1.00e-04   PASS   3D EOS at n=10 fm^-3 gives P/u=0.333333 (should be 0.333333) -- validates the functions used by HYB/ALL3D
+  C5_subband_gap_ratio       CHECK    8.4489e+00   3.00e+00   PASS   E_sub = 619.9 MeV vs E_F = 73.37 MeV, ratio 8.45 (>3.0 means a single subband, D=2 holds)
+  C6_capture_all_open        CHECK    6.0003e+01   0.00e+00   PASS   mu_e=73.37 MeV has a 60.00 MeV margin over the largest Q(C12)=13.37 MeV (kinetic convention, F-G0-8)
+  C8_beta_residual_HYB       CHECK    3.5527e-15   1.00e-12   PASS   mu_n - mu_p - mu_e = 3.55e-15 MeV (back-substituted after solving in the HYB convention)
+  N1_handoff_v2_wrong_x10    NEGCTRL  1.0000e+01   1.00e+01   PASS   ratio of v2's erroneous formula Z_eff*n_B to the correct value = 10.000000 (should be exactly m_bar=10); if this guard fails, B1-type errors will silently pass again
+  => CHECK 7/7 ; IDENT 3/3 (not counted as evidence); NEGCTRL 1/1
+  overall: PASS
+  !! Evidence-level note: v2's '10/10 PASS' contained 4 identities. v3 has only 7 CHECKs
+      that can serve as correctness evidence; IDENT only guarantees no typo in the code, not physical correctness.
+
+[5] Seven-row verdicts v3
+  1. Maintaining the original atoms/chemical bonds/non-covalent network at fixed area     => NO-GO
+       d_par=15.40 fm = 2.91e-04 a0 (geometric quantity, independent of the electron convention) [MODEL RESULT]
+  2. New stable high-density state                                       => OPEN
+       R1-B1 v3 three-convention envelope: X_p in [1.62e-03, 4.50e-02], mu_e in [6.73, 24.96] MeV [OPEN (convention-dependent, see B2)]
+  3. Healthy positive solution for geometric contraction                 => OPEN
+       D3/R2; N6 p_z back-reaction + N11 constraint stress, with the input changed to the envelope P_tot in [1.84e+16, 6.48e+16] N/m [OPEN]
+  4. Effective two-dimensional low-energy theory                         => OPEN
+       R1-B4 v3 (including the OPEN flag for the conflict between E_F,nuc and the 2D criterion) + R3 [OPEN]
+  5. Other matter/radiation states                                       => OPEN
+       R1-B2 v3 criterion changed to UNDECIDED / R1-B3 [OPEN]
+  6. Mechanical self-equilibrium of the fixed-area final state           => NO-GO (conditional: frozen-state ideal UR electron-gas pressure + P_constraint=0)
+       P_2D=8.623e+16 N/m; without constraint c_s=2.120e+08 m/s, 1 m region 4.72 ns, v_inf=0.166 c. Limitation: this model only; final-state EOS undetermined, interface stress not included [MODEL RESULT (model-conditioned)]
+  7. Whether the v1.3 cold-electron-gas final state is the ground state at this density    => NO
+       mu_e in [6.73, 24.96] MeV exceeds all kinetic-energy-convention Q across all conventions (maximum 13.37); nu_budget is a registered placeholder (/u_2D=1.125, not a transport result) [MODEL RESULT]
+
+[6] Handoff to R1-B1 v3 / N11
+  n_B(baryon)   = 4.215499e-02 fm^-3
+  n_e(frozen)   = 2.200490e-02 fm^-3   [FIXED: derived from conv, not Z_eff*n_B]
+  mu_e(frozen)  = 73.37 MeV
+  P_2D(frozen electron gas) = 8.6227e+16 N/m -> N11 constraint-stress input
+  P_tot(beta-eq) envelope   = 1.84e+16 .. 6.48e+16 N/m -> final-state stress requirement range
+
+G0' v3 OVERALL: PASS
+evidence level: MODEL RESULT; frozen baseline values may be cited, the three-convention envelope must be cited together.

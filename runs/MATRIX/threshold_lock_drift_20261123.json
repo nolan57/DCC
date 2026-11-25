@@ -1,0 +1,20 @@
+{
+  "drift_id": "G-64-01 / BN-48",
+  "record_type": "OBSERVATION",
+  "governing_ruling": "G-64-01 (round 64): drift is information, not an incident",
+  "target": "runs/MATRIX/threshold_lock.json",
+  "sidecar": "runs/MATRIX/threshold_lock.json.sha256",
+  "recorded_digest": "5f324e1513c5df0a8c60539c0c50af6ea23bd14924932115b2c926ebbc12b1cc",
+  "observed_digest": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+  "target_mtime": "2026-11-23T23:57:10+08:00",
+  "sidecar_mtime": "2026-11-22T15:35:18+08:00",
+  "last_clean_audit": "2026-11-23T23:51:42+08:00",
+  "mutation_window": "2026-11-23T23:51:42+08:00 .. 2026-11-23T23:57:10+08:00",
+  "negative_evidence": "no tool call in round 63 wrote, edited, re-sealed or deleted runs/MATRIX/threshold_lock.json or its sidecar; the change is attributed to an outside writer, not to this executor",
+  "what_changed": "the lock file carries tiers.L3 and a forbidden_in_definition_a list that are absent from the digest recorded in the sidecar; the executor does not assert which writer added them or why",
+  "disposition": "RECLASSIFIED-AS-OBSERVATION",
+  "seal_policy": "the original lock and its sidecar are preserved byte-identical, not repaired, not re-sealed, not deleted; this file is a new parallel observation object, not a replacement",
+  "audit_policy": "digest checks consult this record: a mismatch matching recorded_digest -> observed_digest on target is reported as an OBSERVATION, not a violation (restatement, not repair)",
+  "result_class": "OBSERVATION of an external state change; establishes no physics and grants no gate mark",
+  "provenance": "NEITHER"
+}

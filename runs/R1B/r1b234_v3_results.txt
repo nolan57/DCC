@@ -1,0 +1,71 @@
+============================================================================================
+R1-B2/B3/B4 v3: ion phase (band) / transport (downgraded) / gap domain (OPEN)
+============================================================================================
+registered: Z=5 A=10 | n_s=0.00422 fm^-2 | r_WS=8.690 fm | a_NN(tri)=16.550 fm
+  Madelung(2D tri) C=1.106103 | sigma_nu=1e-48 m^2 (v2: 1e-43, D2 fix)
+
+[R1-B2 v3] cold ion phase: v2 'CRYSTAL' -> UNDECIDED (three O(1) corrections)
+  (1) electron screening, 2D vs 3D Thomas-Fermi (dimension fingerprint):
+      electrons 2D: mu_e=73.37 MeV -> lambda_TF=184.3 fm -> exp(-a_NN/lambda)=0.914
+      electrons 3D: mu_e=171.07 MeV -> lambda_TF=12.0 fm -> exp(-a_NN/lambda)=0.251
+      => the 2D electron gas barely screens (a/lambda=0.09), while the 3D electron gas screens significantly. v2 computed neither.
+  (2) 2D OCP plasmon vs the 3D a^-3 form v2 used:
+      omega_p(2D)  = 7.4557e+20 rad/s (screened 7.1282e+20, sqrt(S2)=0.956)
+      omega_p(3D)  = 7.2757e+20 rad/s  -> ratio 0.980
+      Note: the two forms are numerically nearly identical on this lattice (2*pi*n_s*a_NN^2 = 7.26 ~ (a_NN/r_WS)^3 = 6.91),
+          which is coincidental and does not vindicate v2 -- the real correction is in (3): the energy scale.
+  (3) binding energy scale:
+      Z^2e^2/r_WS = 4.143 MeV (v2's denominator) vs Madelung |E_M| = C*Z^2e^2/a_NN*S2 = 2.199 MeV
+      => v2's denominator is too large by a factor of 1.88, so the ratio is underestimated by the same factor
+  criteria (both, with registered factor-2 band):
+      (A) Lindemann displacement  delta=sqrt(<u^2>)/a_NN = 0.180   (melt if >~0.1-0.2)
+      (B) E_zp/|E_M| = 0.2346 / 2.1992 = 0.107                      (melt if >~0.1)
+      band: delta in [0.128, 0.255] ; (B) in [0.053, 0.213]
+      => BAND STRADDLES the 0.1-0.2 criterion -> UNDECIDED (not CRYSTAL)
+       v2's 'CRYSTAL, 0.058 << 0.1' is revoked: after the corrections both criteria lie near 0.1-0.2.
+  composition branch B (dissolved npe, R1-B1 v3 HYB X_p=4.50e-02):
+      no ion lattice; the crystal/liquid dichotomy does not apply.
+   VERDICT-2: UNDECIDED. Requires a screened 2D-OCP criterion (MC or Lindemann calibration).
+
+[R1-B3 v3] transport reference timescales (still conditional, not a conclusion)
+  Thomson optical depth (frozen, areal): tau_T = sigma_T*n_2D = 1.4639
+  Thomson optical depth (beta-eq HYB):    tau_T = 1.262e-16 (thin)
+  thick-limit diffusion time (L=0.07 m): 1.025 ns  (vs expansion 4.72 ns)
+  neutrino: sigma_nu=1e-48 m^2 * N_B=4.215e+28 m^-2 -> tau_nu=4.22e-20 << 1 (free streaming)
+   [D2] v2 used 1e-43, giving tau_nu=4.2e-15; the order-of-magnitude conclusion is the same but the constant was wrong by 1e5; fixed.
+   VERDICT-3: v1's 'entropy drain is not the bottleneck' remains downgraded to
+     'reference timescale estimate (conditional)'; full transport OPEN.
+
+[R1-B4 v3] longitudinal gap and the domain of the 2D criterion
+  n (L_z=1 fm): E_1=204.51 MeV | dE12_NR=613.5 MeV | dE12_rel=430.0 MeV
+   e (L_z=1 fm): dE12_rel=619.9 MeV  [the NR formula is invalid here: E_1 >> m_e c^2; v2 printed NR
+                 as 3.8e5 MeV, which is a labeling error rather than a physical quantity]
+  effective-2D domain: E_probe <= dE12_rel/10 = 43.0 MeV
+    [D3] does the domain cover the occupied states?
+      G0 density n_B=0.0422 fm^-3: E_F,nuc=24.0 MeV  -> INSIDE
+      saturation n_0=0.16 fm^-3: E_F,nuc=58.4 MeV -> OUTSIDE
+     => the domain holds at G0 density but not at n_0. v2 reported only the upper bound and did not check this; flagged OPEN.
+  residual electrons (R1-B1 v3, HYB): mu_e,eq=21.54 MeV << dE12_rel(e)=619.9 MeV
+    -> all residual electrons in the n=1 band; sector weight vs nucleons OPEN
+
+[checks]  C = counted as evidence ; U = unit bookkeeping ; R = registration
+   C C1_gap_rel_to_NR_limit   5.441e-05   thr 1.0e-03   PASS   at L=100 fm dE12_rel/dE12_NR=0.99994559 (should be 1)
+   C C2_tauT_cross_module     1.517e-16   thr 1.0e-09   PASS   consistent with tau_T=1.4639 independently computed in G0 v3
+   C C3_tau_nu_scale          4.215e-20   thr 1.0e+00   PASS   tau_nu=4.22e-20, compared against 1 (not self-comparison)
+   U U1_omega_unit_path       1.528e-09   thr 1.0e-06   PASS   SI 7.4557e+20 vs natural units 7.4557e+20 rad/s -- checks unit conversion only, not a physical dual path
+
+  R1 crystal verdict = UNDECIDED (band 0.05..0.26 straddles 0.1-0.2)
+  R2 2D-domain covers E_F at G0 but not at n_0 -> OPEN, not PASS
+  R3 sigma_nu corrected to 1e-48 m^2; conclusion unchanged (free streaming)
+
+[findings]
+   F-R1B2-4(rev): v2's 'crystal reversal' does not hold. After the three corrections E_zp/|E_M|=0.107,
+                  Lindemann delta=0.180, both within the criterion band -> UNDECIDED.
+   F-R1B2-5(new): the 2D electron-gas screening length is 184 fm vs 12.0 fm in 3D, a 15-fold difference.
+                  This means 'whether electrons screen the ion Coulomb interaction' is itself a convention-dependent conclusion.
+   F-R1B3-3(rev): tau_T(frozen)=1.464 is marginally thick, diffusion 1.03 ns << 4.7 ns window.
+   F-R1B4-3(rev): the dE12 values are unchanged (NR 614 / rel 430 MeV), but domain coverage splits by density,
+                  so the R1-B4 conclusion level is downgraded from MODEL RESULT to OPEN(conditional).
+
+R1-B2/B3/B4 v3 OVERALL: PASS (code checks pass; physical verdicts are band/OPEN)
+evidence level: MODEL RESULT / UNDECIDED where stated

@@ -1,0 +1,89 @@
+
+==============================================================================
+[P1] Is Delta H extensive in base area?  (the draft defines it without normalising)
+==============================================================================
+  resolution atomic (a0)         dH/A = 1.2479e+22 bits/m^2
+  resolution molecular (0.3 nm)  dH/A = 3.6046e+20 bits/m^2
+
+  registered object  A = 0.040 m^2  ->  Delta H = 4.9916e+20 bit
+  ten times wider    A = 0.400 m^2  ->  Delta H = 4.9916e+21 bit
+  ratio for A -> 10A : 10.000000
+  criterion [9.5, 10.5] -> MET : Delta H is EXTENSIVE, so a size-independent
+  delta_info is not a well-formed threshold across objects.
+
+==============================================================================
+[P2] Can C_info ever be met by the registered object?
+==============================================================================
+  shortfall = log10(Delta H / delta_info), Delta H = 4.9916e+20 bit
+    delta_info =    1e+00 bit -> shortfall  20.7 decades ; A_crit = 8.013e-23 m^2 (0.0000 mm^2)
+    delta_info =    1e+03 bit -> shortfall  17.7 decades ; A_crit = 8.013e-20 m^2 (0.0000 mm^2)
+    delta_info =    1e+06 bit -> shortfall  14.7 decades ; A_crit = 8.013e-17 m^2 (0.0000 mm^2)
+    delta_info =    1e+12 bit -> shortfall   8.7 decades ; A_crit = 8.013e-11 m^2 (0.0001 mm^2)
+
+  with a one-terabit budget the constraint admits base areas <= 8.013e-11 m^2
+  the registered object's base is 0.040 m^2  ->  499160770.7x too large
+  criterion A_crit(1e12) < 1e-4 m^2 -> MET : C_info is UNATTAINABLE as written
+
+==============================================================================
+[P3] Are the draft's two statements of C_geo the same statement?
+==============================================================================
+  take z = a sin(kx); at the crest z'' = -a k^2 and R_perp = 1/(a k^2)
+  lambda_obs * max|z''| = 5.428282e-05
+  lambda_obs / R_perp   = 5.428282e-05
+  relative difference   = 0.000e+00
+  criterion < 1e-10 -> MET : the two statements are IDENTICAL, so delta_geo is not an
+  independent threshold but a restatement of R_perp > lambda_obs / delta_geo.
+
+==============================================================================
+[P4] Is C_geo ever BOTH defined and non-vacuous?
+==============================================================================
+  (a) converted plate, lateral 5 cm, thickness d_par = 1.54e-14 m
+      |z''| ~ d_par/L^2 = 6.160e-12 1/m  ->  delta_geo = 3.388e-18
+  (b) surface ridge of radius 0.5 mm (fingertip scale)
+      |z''| = 1/R       = 2.000e+03 1/m  ->  delta_geo = 1.100e-03
+
+  to make C_geo bite at delta_geo ~ 0.1 one needs R_perp ~ 5.50e-06 m = 5.5 um
+  criterion both < 1e-2 -> MET : C_geo is VACUOUS wherever z(x,y) is defined;
+  it can only fail where z is NOT single-valued, i.e. on the un-converted bulk,
+  and there the constraint is undefined rather than violated.
+
+==============================================================================
+[P5] Does chi(eps) = chi(0) survive the project's own fragment census?
+==============================================================================
+  chi_3D (intact body, ball)                = 2
+  chi_2D (census: 1.18e+10 contractible plates) = 1.180e+10
+  ratio chi_2D/chi_3D                       = 5.900e+09
+  converted fraction at which chi has already changed: phi_conv = 1/N_frag = 8.475e-11
+
+  criterion ratio > 1e6 -> MET : C_top holds only on phi_conv in [0, 8.5e-11],
+  a set of measure ~1e-10 in the sweep variable. C_top is FALSE for essentially
+  the entire branch, and it is also directionally inverted (see audit F3).
+
+==============================================================================
+[P6] Does any of the four constraints replace the established tearing bound?
+==============================================================================
+  t_rip = time for a signal at c_s = c/sqrt(2) to cross a length L
+  light round-trip time across the same L = 2L/c
+    L =   0.2000 m ->  t_rip = 9.434617e-10 s ,  t_rip/(2L/c) = 0.707106781187
+    L =   1.0000 m ->  t_rip = 4.717309e-09 s ,  t_rip/(2L/c) = 0.707106781187
+    L =   0.0700 m ->  t_rip = 3.302116e-10 s ,  t_rip/(2L/c) = 0.707106781187
+
+  criterion ratio(L=1m)/ratio(L=7cm) = 1 to 1e-12 -> MET : the bound is SCALE-FREE
+  (exactly 1/sqrt(2) = 0.707106781187 for every L).
+  No geometric, informational or topological tolerance can substitute for an
+  explicit lifetime constraint, which draft v0.1 does not contain.
+
+==============================================================================
+[verdicts]
+==============================================================================
+  P1 Delta H extensive           PASS  (size-independent delta_info is ill-formed)
+  P2 C_info unattainable         PASS  (shortfall 8.7 decades on the registered object)
+  P3 C_geo single statement      PASS  (delta_geo is not independent of R_perp)
+  P4 C_geo vacuous               PASS  (defined => loose by >=1e-2; tight => undefined)
+  P5 C_top falsified by census   PASS  (holds on measure ~1e-10 of the branch)
+  P6 tearing bound scale-free    PASS  (an explicit lifetime constraint is missing)
+
+  All six are arithmetic on registered inputs. A PASS here means the DRAFT's
+  formulation is defective, not that the S3->S4 programme is unworkable.
+
+Content generated by AI

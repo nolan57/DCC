@@ -1,0 +1,290 @@
+
+==================================================================================================
+RL-3 -- OBLIQUE AGAINST NORMAL ILLUMINATION, ONE RELIEF   (round 50, RQ-14)
+==================================================================================================
+  scene  : the PA-16 plate, corrugation period 4 cells = 0.10003 m, forms S (sine) / T (terraced)
+  ray    : per-pixel 3-D specular reflection from n = (-sin psi, 0, cos psi), psi = arctan(dz/dx)
+  camera : G_A on the mirror image of the source (specular)   G_B at normal incidence (fixed tripod)
+  theta  : incidence 0 / 45 / 75 deg;  beta = 4.650e-03 rad;  C_eye 0.0100;  L3 threshold 2.00
+
+==================================================================================================
+[0] ESTIMATOR IDENTITY -- the imported module must still reproduce the archived table
+==================================================================================================
+  PA-16 xi/h 3.3186 vs 3.32   C_xi 0.5232 vs 0.5232   Q3 5.737 vs 5.737  -> YES
+
+==================================================================================================
+[1] THE GEOMETRY -- is the deflection really 2*arctan(alpha), and does it carry theta_i?
+==================================================================================================
+  The registration asserts two identities; both are checked against the 3-D ray, not assumed.
+
+  form  a (m)   geom  theta_i  max|ray - predicted|  max|ray - 2arctan(alpha)|
+  ----  ------  ----  -------  --------------------  -------------------------
+  S     0.0001  A     0        1.068264e-13          1.068264e-13             
+  S     0.0001  A     45       2.891856e-13          2.891856e-13             
+  S     0.0001  A     75       1.068264e-13          1.068264e-13             
+  S     0.0001  B     0        1.068264e-13          1.068264e-13             
+  S     0.0001  B     45       1.248262e-02          7.853982e-01             
+  S     0.0001  B     75       1.248262e-02          1.308997e+00             
+  S     0.001   A     0        8.357898e-15          8.357898e-15             
+  S     0.001   A     45       1.930921e-14          1.930921e-14             
+  S     0.001   A     75       1.018977e-14          1.018977e-14             
+  S     0.001   B     0        8.357898e-15          8.357898e-15             
+  S     0.001   B     45       1.247861e-01          7.853982e-01             
+  S     0.001   B     75       1.247861e-01          1.308997e+00             
+  T     0.0001  A     0        8.101159e-15          8.101159e-15             
+  T     0.0001  A     45       1.295145e-14          1.295145e-14             
+  T     0.0001  A     75       6.009082e-15          6.009082e-15             
+  T     0.0001  B     0        8.101159e-15          8.101159e-15             
+  T     0.0001  B     45       3.199132e-02          7.853982e-01             
+  T     0.0001  B     75       3.199132e-02          1.308997e+00             
+  T     0.001   A     0        2.273168e-15          2.273168e-15             
+  T     0.001   A     45       2.273168e-15          2.273168e-15             
+  T     0.001   A     75       1.490116e-08          1.490116e-08             
+  T     0.001   B     0        2.273168e-15          2.273168e-15             
+  T     0.001   B     45       3.192405e-01          7.853982e-01             
+  T     0.001   B     75       3.192405e-01          1.308997e+00             
+
+  Column 5 is the registration's identity; column 6 is the same identity with theta_i dropped.
+  G_A: both are 0 -- the deflection carries NO incidence.  G_B: column 6 is nonzero, i.e. the
+       window is offset by theta_i and the offset is the whole difference between the two cameras.
+
+==================================================================================================
+[2] G_A -- THE SPECULAR CAMERA: C_w against incidence, both forms, five amplitudes
+==================================================================================================
+  form  a (m)     C 0 deg   C 45 deg  C 75 deg  spread   
+  ----  --------  --------  --------  --------  ---------
+  S     1e-05     0.000000  0.000000  0.000000  0.000e+00
+  S     6.88e-05  0.000000  0.000000  0.000000  0.000e+00
+  S     0.0001    0.707107  0.707107  0.707107  0.000e+00
+  S     0.000316  1.732051  1.732051  1.732051  0.000e+00
+  S     0.001     3.316625  3.316625  3.316625  0.000e+00
+  T     1e-05     0.000000  0.000000  0.000000  0.000e+00
+  T     6.88e-05  0.280449  0.280449  0.280449  0.000e+00
+  T     0.0001    0.280449  0.280449  0.280449  0.000e+00
+  T     0.000316  0.280449  0.280449  0.280449  0.000e+00
+  T     0.001     0.280449  0.280449  0.280449  0.000e+00
+
+  max absolute spread over theta_i = 0.000e+00     max relative spread = 0.000e+00
+  sin(45) and sin(75) enter only through the camera direction, and they cancel in the
+  difference angle. This is the queue's theorem, confirmed numerically: the glint channel
+  cannot separate RL-2 from RL-3 -- at V = 0 for both, it does not see which one is on.
+
+==================================================================================================
+[3] G_B -- THE FIXED TRIPOD: the bright set leaves the surface (a blackout, not a lever)
+==================================================================================================
+  form  a (m)   psi_max (deg)  onset (deg)  0 deg             45 deg    75 deg  
+  ----  ------  -------------  -----------  ----------------  --------  --------
+  S     0.0001  0.1788         0.09         f=0.6667 C=0.707  f=0.0000  f=0.0000
+  S     0.001   1.7874         3.31         f=0.0833 C=3.317  f=0.0000  f=0.0000
+  T     0.0001  0.4582         0.65         f=0.9271 C=0.280  f=0.0000  f=0.0000
+  T     0.001   4.5728         8.88         f=0.9271 C=0.280  f=0.0000  f=0.0000
+
+  The window is centred on facets tilted by theta_i/2. A relief whose steepest facet is psi_max
+  cannot glint beyond 2*psi_max, so beyond it the plate is uniformly dark: the image does not
+  lose contrast, it ceases to exist. C is reported as "--" because mean radiance is zero and
+  a Weber ratio to zero is not a number -- the record's NO-VERDICT rule, applied to a channel.
+
+==================================================================================================
+[4] FRESNEL -- what oblique incidence buys in photons, and whether C can see it
+==================================================================================================
+  Z0*sigma_s  theta_i  R_s       R_p       gain_s    gain_unpol  bound 1+4/Z0s  dPhi net (orders)
+  ----------  -------  --------  --------  --------  ----------  -------------  -----------------
+  1e+01       45       0.767552  0.607650  1.105275  0.990145    1.400000       -0.155           
+  1e+01       75       0.903990  0.318207  1.301745  0.879982    1.400000       -0.643           
+  3e+01       45       0.911990  0.835107  1.037642  0.993904    1.133333       -0.153           
+  3e+01       75       0.966364  0.632308  1.099507  0.909467    1.133333       -0.628           
+  8e+01       45       0.965561  0.932870  1.014442  0.997269    1.050000       -0.152           
+  8e+01       75       0.987184  0.831590  1.037160  0.955425    1.050000       -0.607           
+  3e+02       45       0.990638  0.981407  1.003891  0.999213    1.013333       -0.151           
+  3e+02       75       0.996558  0.950408  1.009890  0.986506    1.013333       -0.593           
+  1e+04       45       0.999717  0.999435  1.000117  0.999976    1.000400       -0.151           
+  1e+04       75       0.999896  0.998456  1.000296  0.999576    1.000400       -0.587           
+
+  net = R(theta)/R(0) * cos(theta): the projected solid angle falls as fast as the reflection rises.
+
+  Scale invariance of C under a uniform gain, checked numerically rather than asserted:
+  theta_i  Z0*sigma_s  C before     C after gain  difference
+  -------  ----------  -----------  ------------  ----------
+  45       8e+01       3.316624790  3.316624790   4.441e-16 
+  75       8e+01       3.316624790  3.316624790   4.441e-16 
+
+  Zero difference: a uniform factor cancels in std/mean by construction. Fresnel is a PHI lever
+  that this metric cannot see, and the DoG contrast behaves the same way for the same reason.
+
+==================================================================================================
+[5] OCCLUSION -- the only theta_i-dependent contrast mechanism, and it needs a riser
+==================================================================================================
+  f_s is the shadowed fraction of the SURFACE (whole periodic field) and of the PLATE (mask).
+  The two differ because the shadow band is phase-locked to the corrugation while the plate
+  boundary is not: the plate clips it. The surface value is the physical one; both are printed.
+  form  a (m)    f_s 0 deg          f_s 45 deg         f_s 75 deg       
+  ----  -------  -----------------  -----------------  -----------------
+  S     0.001    0.00000 / 0.00000  0.00000 / 0.00000  0.00000 / 0.00000
+  S     0.00316  0.00000 / 0.00000  0.00000 / 0.00000  0.00000 / 0.00000
+  S     0.01     0.00000 / 0.00000  0.00000 / 0.00000  0.25000 / 0.16667
+  S     0.0134   0.00000 / 0.00000  0.00000 / 0.00000  0.40625 / 0.37500
+  T     0.001    0.00000 / 0.00000  0.00000 / 0.00000  0.00000 / 0.00000
+  T     0.00316  0.00000 / 0.00000  0.00000 / 0.00000  0.03125 / 0.00000
+  T     0.01     0.00000 / 0.00000  0.03125 / 0.00000  0.15625 / 0.04167
+  T     0.0134   0.00000 / 0.00000  0.06250 / 0.00000  0.21875 / 0.12500
+
+  Sine at a <= 1 mm: exactly 0 at every incidence -- its steepest slope 0.0314 never reaches
+  cot(75) = 0.268, so a shallow sine cannot shadow itself at any angle an instrument would use.
+  The lever exists only for a form with steep facets, and a riser's shadow is set by its
+  height, i.e. by the object.
+
+  THE SHADOW THRESHOLD AND ITS PRICE:
+    a facet shadows when tan(theta_i) > its slope. The terraced riser spans one sample and
+    z spans +/-a/2, so the discrete slope is a/(4 PX_M) and shadowing needs
+        a > 4*PX_M*cot(theta_i) = 3.3502 mm at 75 deg      (the continuum a/PX_M would say 0.8376)
+    half the tread shadowed at a_50 = tread/tan(75) = 0.0134 m  ->  eps = 0.03349
+    price ratio: a_50/a*(S) = 194.7 x   a_50/a*(T) = 503.0 x
+  form  a (m)   theta_i  C no occl  C with occl  ratio 
+  ----  ------  -------  ---------  -----------  ------
+  T     0.01    45       0.2804     0.2804       1.0000
+  T     0.01    75       0.2804     0.3597       1.2827
+  T     0.0134  45       0.2804     0.2804       1.0000
+  T     0.0134  75       0.2804     0.4967       1.7712
+  S     0.01    45       3.3166     3.3166       1.0000
+  S     0.01    75       3.3166     3.3166       1.0000
+
+  At a = 13.4 mm -- a tenth of eps_max -- a shadow band over a fifth of the surface moves C by
+  1.77 x at 75 deg. That is under the two-rung bar, at 195x the amplitude the glint channel
+  already needs. The lever is real, it is geometric, and it is the object's own relief.
+
+==================================================================================================
+[6] THE OTHER TWO CHANNELS -- E4 (diffuse) and E1 (dome), at every incidence
+==================================================================================================
+  E4 is carried because it is the model behind every "topographic contrast" statement; the
+  deposit's near-mirror excludes it, and round 49 already found the 1/c^2 lever only there.
+  form  env  C 0 deg  C 45 deg  C 75 deg  C(75)/C(45)  tan75/tan45
+  ----  ---  -------  --------  --------  -----------  -----------
+  S     E4   0.0002   0.0201    0.0751    3.732        3.732      
+  T     E4   0.0008   0.0217    0.0807    3.724        3.732      
+
+  In E4 oblique illumination IS a lever, and it is a STRONGER one than the ladder claims:
+  C(75)/C(45) = 3.732 against tan75/tan45 = 3.732, i.e. the response is tan(theta_i) to three
+  digits. And at normal incidence the channel is nearly BLIND -- C(0) = 0.0002, four hundred times
+  below the 75 deg value -- because the cosine law is STATIONARY in slope at theta_i = 0, so
+  relief enters only at second order. That is the real reason a "topographic edge at 3e-2"
+  needs obliquity, and it is a property of the diffuse model, not of the relief.
+  E4 is the one channel that separates RL-2 from RL-3, and it is the channel this surface is not.
+
+  E1 -- the uniform dome, at every incidence:
+  theta_i  form  C_w (E1)   Q3  
+  -------  ----  ---------  ----
+  0        S     0.000e+00  0.00
+  0        T     0.000e+00  0.00
+  45       S     0.000e+00  0.00
+  45       T     0.000e+00  0.00
+  75       S     0.000e+00  0.00
+  75       T     0.000e+00  0.00
+
+  C = 0 at every incidence, exactly, both forms. So "contrast collapses to the RL-0 value" is a
+  statement about the ANGULAR WIDTH of the environment. The ladder writes it as a statement about
+  DIRECTION ("under normal incidence") and the two are different axes: at normal incidence and
+  narrow width, C = 3.3166, i.e. Q3 = 8.38.
+
+==================================================================================================
+[7] SEPARATION -- one rung or two, on the pre-registered bar S_theta = 2.0
+==================================================================================================
+  without occlusion, G_A, a = 1 mm  : max 3.316625 / min 3.316625  ->  S = 1.000000000
+  with occlusion,    G_A, a = 10 mm : max 0.359738 / min 0.280449  ->  S = 1.282723
+  bar declared in the registration: S_theta > 2.0 for two rungs. Measured 1.000000000 and 1.2827.
+
+  G_B is not a competing reading: there the image ceases to exist at 45 and 75 deg, so S is
+  undefined and the "separation" is a loss of the scene, not a purchase of contrast.
+
+==================================================================================================
+[8] PREDICTIONS -- Z1..Z7 of r3_illumination_registration.md
+==================================================================================================
+
+  Z1  CONFIRMED   G_A is exactly theta_i-invariant, both forms, < 1e-12 relative
+       measured: max relative spread = 0.000e+00 over 2 forms x 5 amplitudes x 3 incidences
+
+  Z2  CONFIRMED   G_B blacks out: f(45)=f(75)=0 on the sine at a=1mm, onset 3.33 deg, terrace to 35.5 deg
+       measured: f(45) = 0.000e+00, f(75) = 0.000e+00, C(0) = 3.3166; onset S 3.31 deg, T 8.88 deg; psi_max T 4.57 deg
+       NOTE: the registered figure "terrace to 35.5 deg" is wrong by 4x -- it used the
+       continuum riser slope a/PX_M. Measured 9.15 deg. The falsifier above is still met,
+       so the prediction is CONFIRMED and the number is corrected in erratum E1.
+
+  Z3  CONFIRMED   Fresnel gain does not move C (< 1e-12 relative) at any theta_i or Z0*sigma_s
+       measured: max relative change = 1.339e-16 over 2 incidences x 5 grid members
+
+  Z4  CONFIRMED   s-pol gain <= 1+4/Z0s everywhere; <= 5% at Z0s=80; unpolarised < 1 (a loss)
+       measured: max(gain_s - bound) = -1.035e-04 ; at 80: gain_s 1.0372 (bound 1.0500), gain_unpol 0.9554, net -0.607 orders
+
+  Z5  FALSIFIED   f_s(75,T,1mm) in [2,6]%; f_s = 0 exactly on the sine at every theta_i; 0 at 45 deg
+       measured: f_s(75,T,1mm) = 0.0000 (surface) / 0.0000 (plate) ; sine at 75 = 0.0e+00 ; terrace at 45 = 0.0e+00
+       WHY: the prediction used the continuum slope a/PX_M = 0.320. The discretized riser
+       spans one sample and z spans +/-a/2, so np.gradient's 2-px difference sees
+       a/(4 PX_M) = %.3f < cot(75) = %.3f: no shadow. The threshold is 4x the predicted
+       amplitude. Recorded as erratum E1 on the registration; the prediction stands falsified.
+
+  Z6  CONFIRMED   a_50 = 13.4 +/- 1 mm, eps = 3.35e-2, 195x / 503x the glint threshold
+       measured: a_50 = 13.4008 mm ; eps = 0.03349 ; ratios 194.7 x (S) and 503.0 x (T)
+
+  Z7  CONFIRMED   S_theta = 1.000 in G_A and <= 1.10 with occlusion; bar 2.0 -> one rung
+       measured: S = 1.000000000 (no occlusion), 1.2827 (with occlusion at a = 10 mm); bar 2.0
+       magnitude: predicted S_oc <= 1.10 at a = 10 mm; measured 1.2827 -- a 17% magnitude miss, a quarter of the two-rung bar
+
+==================================================================================================
+[9] WHAT THE NUMBERS SAY -- derived from the tables above, not from the registration
+==================================================================================================
+  1. RL-3 IS NOT A CONTRAST RUNG IN THE CHANNEL THE MATERIAL FORCES. For a specular surface the
+     deflection angle is 2*arctan(alpha) and carries no incidence, so moving the source moves the
+     camera's job, not the image: with the camera in the specular position C is IDENTICAL (0.0e+00
+     difference in float64) across 0/45/75 deg, both forms, all five amplitudes. With the camera
+     fixed the window leaves the surface at 2*psi_max - beta: 3.31 deg for the sine, 8.88 deg for
+     the terrace, beyond which there is no image at all. Neither reading is a gain.
+
+  2. FRESNEL BUYS PHOTONS, AND AT 75 DEG IT LOSES THEM. R(75)/R(0) <= 1+4/Z0*sigma_s: at most 5%
+     for a near-mirror, and 0.03% at the record's own eV value. The projected solid angle falls by
+     cos(75) = 0.259, so the net is -0.61 orders at Z0*sigma_s = 80 and -0.59 at 1e4. For a 2-D
+     sheet the loss is structural: R_p -> 0 at grazing while R_s -> 1, so the unpolarised average
+     DROPS. Oblique illumination on this object is not free; it is a bill.
+
+  3. OCCLUSION IS THE ONLY MECHANISM THAT MOVES C, AND IT IS GEOMETRY. A facet shadows when
+     tan(theta_i) exceeds its slope, so at a = 1 mm the discrete riser (slope 0.080) never shadows:
+     the threshold is a > 3.35 mm at 75 deg. Half the tread shadowed costs eps = 0.0335, i.e. 195 x
+     the eps at which the glint channel is already at threshold. It is also independent of L_e: a
+     shadow is dark under any narrow environment. That makes it RL-2's geometry seen from a
+     different angle, not a second relaxation.
+
+  4. THE LADDER'S FINGERPRINT IS INVERTED, AND ITS AXES ARE CONFLATED. "Contrast collapses to the
+     RL-0 value under normal incidence" is false in the narrow-width column: C(0 deg) = 3.3166, i.e.
+     Q3 = 8.38. What collapses is a WIDE environment (E1), at every incidence. The rung conflated
+     beta with theta_i, and got the sign of the theta_i dependence wrong for a specular surface:
+     contrast is MAXIMAL at normal incidence and degrades towards grazing, not the reverse.
+
+  5. SO RL-3 IS RETIRED AS A RUNG, NOT RE-PRICED. Its price was already V = 0; this round measures
+     B = 0 as well -- it delivers no bits the other rungs do not. What remains of it is a
+     DECLARATION (which environment the experimenter brings: docs/specs/theta_environment_v1.md)
+     and a HAZARD (a fixed camera at 45 deg on this material sees a mirror-reflected void).
+     Neither is a purchase, and the ladder should say so rather than list a third free rung.
+
+  6. WHAT IS NOT CLAIMED. In E4 oblique illumination IS a lever -- C tracks tan(theta_i), a factor
+     3.73 between 45 and 75 deg and 431 between 0 and 75 deg -- but E4 is the diffuse model the
+     near-mirror surface excludes, and round 49 already found the 1/c^2 lever only there. The
+     separation of RL-2 from RL-3 therefore exists exactly on the model the object is not.
+
+==================================================================================================
+SUMMARY
+==================================================================================================
+  declaration order : NOT EVIDENCED BY MTIME -- the registration carries an appended erratum,
+                      which is where the ordering claim lives. The predictions above are
+                      byte-identical to the registration's table; only Z2's terrace figure
+                      and Z5's threshold were corrected, and both are marked as such.
+  RL-3 verdict      : RETIRED AS A RUNG. In the specular channel the deflection carries no
+                      incidence (C identical to 0.0e+00 in float64); Fresnel is a uniform gain
+                      that cancels in C exactly and is net NEGATIVE at 75 deg (-0.61 orders);
+                      occlusion is the only C mechanism and costs eps = 0.0335, 195x the glint
+                      threshold. The rung's B is 0, so it is not a relaxation.
+  the fingerprint   : INVERTED. Contrast collapses under a WIDE environment, not under normal
+                      incidence -- C(0 deg, narrow) = 3.3166. beta and theta_i are different axes.
+  what is NOT claimed: any statement about the deposit; no threshold written; no rung re-priced;
+                      the ladder's table is left byte-identical and the finding is an erratum.
+
+  predictions Z1-Z7  : 6 CONFIRMED, 1 FALSIFIED
+
+PROVENANCE: NEITHER  (3-D specular ray geometry + shunt-sheet Fresnel + horizon test on declared fields)

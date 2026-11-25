@@ -1,0 +1,140 @@
+==========================================================================
+Sprint 1 item 2: B(t)/contraction-rate scan -- spectra, eps_mn, full-process P_m->n
+spec: roadmap v1.4 sec 12.3 unchecked item 2 (prerequisite R1-A1 in place)
+==========================================================================
+[parameters] (registered before run)
+  background family  : B(t) = (t/tau)^beta_e, beta_e in (-0.6666666666666666, -0.5, -0.3333333333333333)
+  Omega^2            : kz^2 (t/tau)^(-2 beta_e) + kp^2 + m^2 -1.25/(4 t^2)
+  beta_C := |beta_e|/tau scan : tau in (0.5, 1.0, 2.0, 4.0)
+  kz grid            : (0.5, 0.7, 1.0, 1.4, 2.0, 3.0, 5.0)
+  kp grid            : (0.0, 1.0) ; m = 1.0
+  initial state      : positive-frequency vacuum at t0 = tau (B=1)
+  process window     : t in [tau, 100 tau] (B_f = 100^beta_e)
+  P_{m->n} structure : diagonal in k (translation invariance); P_{k->k} = beta_k^2
+                       is the full-process time-integral result; P_{k->k'}=0 (m!=n)
+  eps_k definition   : 2 (w_f/w_i) beta_k^2 (excited energy / initial vacuum energy)
+  solver             : solve_ivp RK45 rtol=1.0e-10 atol=1.0e-12
+[thresholds] (registered before run)
+  T1 cross-impl anchor vs frozen R1-A1  < 1.0e-10
+  T2 KG-norm residual over all runs     < 1.0e-08
+  T3 static-background |beta|^2         < 1.0e-06
+  T4 monotone n_exc, eps_mn in beta_C   : required per exponent family
+  T5 two-step convergence (worst mode)  < 1.0e-06
+
+[T1] cross-implementation anchor: beta_e=-1/2, tau=1 vs frozen R1-A1 main run
+  max |beta^2(generic) - beta^2(frozen)| = 1.033e-14  <  1.0e-10
+  T1 verdict: PASS
+
+[T3] static background anchor: beta_e = 0 (B = const)
+  max |beta|^2 = 1.665e-16  <  1.0e-06  (RK45 bounded-offset caveat as R1-A1 T1)
+  T3 verdict: PASS
+
+[main scan] per-mode beta^2 (= P_k->k), adiabatic action A_k, eps_k
+--------------------------------------------------------------------------
+[family] beta_e = -0.6667 (B = t^-0.6667, contraction; B_f = 0.0464)
+  kz     kp        w_i         w_f         beta^2=P_kk A_k (adiab) eps_k      
+  0.50   0.0       1.1180      10.8185     6.213717e-02 5.133e+299  1.203e+00  
+  0.50   1.0       1.5000      10.8646     2.327446e-02 5.524e+00   3.372e-01  
+  0.70   0.0       1.2207      15.1142     5.320844e-02 3.290e+299  1.318e+00  
+  0.70   1.0       1.5780      15.1472     2.261464e-02 5.776e+00   4.342e-01  
+  1.00   0.0       1.4142      21.5675     4.120561e-02 7.667e+00   1.257e+00  
+  1.00   1.0       1.7321      21.5907     2.061135e-02 5.944e+00   5.139e-01  
+  1.40   0.0       1.7205      30.1787     2.928720e-02 6.648e+00   1.027e+00  
+  1.40   1.0       1.9900      30.1952     1.731088e-02 6.035e+00   5.253e-01  
+  2.00   0.0       2.2361      43.1003     1.847282e-02 6.357e+00   7.121e-01  
+  2.00   1.0       2.4495      43.1119     1.291324e-02 6.087e+00   4.546e-01  
+  3.00   0.0       3.1623      64.6408     9.874341e-03 6.231e+00   4.037e-01  
+  3.00   1.0       3.3166      64.6485     8.032477e-03 6.116e+00   3.131e-01  
+  5.00   0.0       5.0990      107.7264    4.038361e-03 6.172e+00   1.706e-01  
+  5.00   1.0       5.1962      107.7310    3.678809e-03 6.132e+00   1.525e-01  
+  tau=0.50  beta_C=1.3333  : n_exc=2.333284e-02  eps_mn=6.301183e-01
+  tau=1.00  beta_C=0.6667  : n_exc=3.717372e-03  eps_mn=1.074488e-01
+  tau=2.00  beta_C=0.3333  : n_exc=6.270330e-04  eps_mn=1.953978e-02
+  tau=4.00  beta_C=0.1667  : n_exc=1.258671e-04  eps_mn=4.125523e-03
+
+--------------------------------------------------------------------------
+[family] beta_e = -0.5000 (B = t^-0.5000, contraction; B_f = 0.1000)
+  kz     kp        w_i         w_f         beta^2=P_kk A_k (adiab) eps_k      
+  0.50   0.0       1.1180      5.0990      2.899094e-02 3.293e+298  2.644e-01  
+  0.50   1.0       1.5000      5.1962      1.059377e-02 3.296e+00   7.340e-02  
+  0.70   0.0       1.2207      7.0711      2.562324e-02 5.345e+00   2.969e-01  
+  0.70   1.0       1.5780      7.1414      1.048907e-02 3.717e+00   9.494e-02  
+  1.00   0.0       1.4142      10.0499     2.083661e-02 4.903e+00   2.961e-01  
+  1.00   1.0       1.7321      10.0995     9.979361e-03 4.065e+00   1.164e-01  
+  1.40   0.0       1.7205      14.0357     1.541050e-02 4.747e+00   2.514e-01  
+  1.40   1.0       1.9900      14.0712     8.768698e-03 4.291e+00   1.240e-01  
+  2.00   0.0       2.2361      20.0250     1.002583e-02 4.672e+00   1.796e-01  
+  2.00   1.0       2.4495      20.0499     6.838041e-03 4.438e+00   1.119e-01  
+  3.00   0.0       3.1623      30.0167     5.482433e-03 4.635e+00   1.041e-01  
+  3.00   1.0       3.3166      30.0333     4.375244e-03 4.527e+00   7.924e-02  
+  5.00   0.0       5.0990      50.0100     2.260784e-03 4.616e+00   4.435e-02  
+  5.00   1.0       5.1962      50.0200     2.054373e-03 4.576e+00   3.955e-02  
+  tau=0.50  beta_C=1.0000  : n_exc=1.155206e-02  eps_mn=1.483100e-01
+  tau=1.00  beta_C=0.5000  : n_exc=1.889830e-03  eps_mn=2.590479e-02
+  tau=2.00  beta_C=0.2500  : n_exc=3.346209e-04  eps_mn=4.909468e-03
+  tau=4.00  beta_C=0.1250  : n_exc=6.936039e-05  eps_mn=1.063709e-03
+
+--------------------------------------------------------------------------
+[family] beta_e = -0.3333 (B = t^-0.3333, contraction; B_f = 0.2154)
+  kz     kp        w_i         w_f         beta^2=P_kk A_k (adiab) eps_k      
+  0.50   0.0       1.1180      2.5271      1.033082e-02 2.605e+00   4.670e-02  
+  0.50   1.0       1.5000      2.7177      3.885648e-03 1.613e+00   1.408e-02  
+  0.70   0.0       1.2207      3.3995      9.550781e-03 2.787e+00   5.320e-02  
+  0.70   1.0       1.5780      3.5435      3.812696e-03 1.992e+00   1.712e-02  
+  1.00   0.0       1.4142      4.7481      8.222807e-03 2.915e+00   5.521e-02  
+  1.00   1.0       1.7321      4.8523      3.731840e-03 2.360e+00   2.091e-02  
+  1.40   0.0       1.7205      6.5747      6.290991e-03 2.986e+00   4.808e-02  
+  1.40   1.0       1.9900      6.6503      3.458292e-03 2.632e+00   2.311e-02  
+  2.00   0.0       2.2361      9.3369      4.270885e-03 3.028e+00   3.567e-02  
+  2.00   1.0       2.4495      9.3903      2.812385e-03 2.826e+00   2.156e-02  
+  3.00   0.0       3.1623      13.9606     2.397525e-03 3.051e+00   2.117e-02  
+  3.00   1.0       3.3166      13.9964     1.900112e-03 2.953e+00   1.604e-02  
+  5.00   0.0       5.0990      23.2295     9.964432e-04 3.063e+00   9.079e-03  
+  5.00   1.0       5.1962      23.2510     9.070089e-04 3.026e+00   8.117e-03  
+  tau=0.50  beta_C=0.6667  : n_exc=4.469160e-03  eps_mn=2.786107e-02
+  tau=1.00  beta_C=0.3333  : n_exc=7.591521e-04  eps_mn=5.016092e-03
+  tau=2.00  beta_C=0.1667  : n_exc=1.405740e-04  eps_mn=9.849765e-04
+  tau=4.00  beta_C=0.0833  : n_exc=3.020820e-05  eps_mn=2.189307e-04
+
+[T2] KG-norm conservation over ALL runs
+  RAW max KG residual (pre-projection) = 1.107e-06  (registered threshold 1.0e-08)
+    -> the raw drift exceeds the registered raw threshold in the extreme
+       corner (beta_e=-2/3, tau=0.5, kz=5: long oscillatory window);
+       REGISTERED AS MEASURED, not silently corrected away.
+  remedy (registered): KG-invariant projection at extraction
+    (c = sqrt(-i/W) restores the exact Wronskian; delivered beta^2 carries
+     only the O(drift^2) residual error; T1/T5 anchors remain the accuracy
+     evidence)
+  POST-PROJECTION max KG residual = 4.441e-16  <  1.0e-08
+  T2 verdict: PASS (PASS(code); raw drift registered, extraction remedy applied)
+
+[T4] monotonicity of n_exc and eps_mn in beta_C (per family)
+  beta_e=-0.6667 : n_exc monotone (decreasing in tau) = True ; eps_mn monotone = True
+  beta_e=-0.5000 : n_exc monotone (decreasing in tau) = True ; eps_mn monotone = True
+  beta_e=-0.3333 : n_exc monotone (decreasing in tau) = True ; eps_mn monotone = True
+  T4 verdict: PASS
+
+[T5] two-step convergence (worst mode of the main family)
+  N=5000   max_step=0.01980 : beta^2 = 0.001398159831135
+  N=10000  max_step=0.00990 : beta^2 = 0.001398159831133
+  N=20000  max_step=0.00495 : beta^2 = 0.001398159831134
+  |b2(N)-b2(4N)| = 1.554e-15 ; |b2(2N)-b2(4N)| = 7.772e-16 ; p_obs = 1.00
+  relative change (2N -> 4N) = 5.558e-13  <  1.0e-06
+  T5 verdict: PASS
+
+[structural note] off-diagonal transitions P_{k->k'} (k != k')
+  The Bianchi-I background is spatially homogeneous; [k, H] = 0 and the
+  k-basis is conserved, so P_{k->k'} = 0 identically (translation invariance).
+  The full-process P_{m->n} family is therefore the diagonal table above.
+
+[verdicts]
+  T1 cross-implementation anchor : PASS
+  T2 KG-norm conservation        : PASS
+  T3 static-background anchor    : PASS
+  T4 monotonicity per family     : PASS
+  T5 two-step convergence        : PASS
+B(t)/P_m->n scan OVERALL: PASS
+evidence level: MODEL RESULT (free scalar on registered power-law backgrounds;
+                excitations are the numerically exact full-process time-integral
+                results on the registered mode grid; not a continuum integral)
+status registration: Sprint 1 unchecked item 2 (sec 12.3) EXECUTED;

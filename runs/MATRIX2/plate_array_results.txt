@@ -1,0 +1,94 @@
+
+================================================================================================
+[0] ESTIMATOR IDENTITY -- the imported module must reproduce the archived table
+================================================================================================
+  P0(null)  imported 5.639902751e-02   archived 5.639903000e-02   MATCH (tol 5e-09)
+  q2(null)  imported 0.1382006      archived 0.138201       MATCH (tol 5e-07)
+  => the numbers below come from the same estimator that produced runs/MATRIX/: YES
+
+  locked thresholds read from runs/MATRIX/threshold_lock.json (not written here):
+    L0  Q0 >= 0.50
+    L1  Q1 >= 4.00
+    L2  Q2 >= 0.50
+    L3  Q3 >= 2.00
+
+================================================================================================
+[1] SCENE CLASS -- periodic square plates, pitch p, side s, fill (s/p)^2
+================================================================================================
+  id        p    s    fill     deposit s/p = 0.7300, fill 0.5330
+  --------------------------------------------------------------------------
+  PA-8     8    6    0.5625   
+  PA-16    16   12   0.5625   
+  PA-32    32   24   0.5625   
+  PA-16f   16   11   0.4727   (fill control)
+
+================================================================================================
+[2] MEASUREMENT -- Q0, Q1, Q2 under the locked estimators
+================================================================================================
+  id        P0         Q0        xi/h     Q2        L0     L1     L2
+  ------------------------------------------------------------------------------
+  PA-8      0.015625   0.7230    1.66     0.5155    PASS   FAIL   PASS
+  PA-16     0.003906   0.9307    3.32     0.7718    PASS   FAIL   PASS
+  PA-32     0.000977   0.9827    6.64     0.8991    PASS   PASS   PASS
+  PA-16f    0.003906   0.9307    3.67     0.7899    PASS   FAIL   PASS
+
+  control   P0         Q0        xi/h     Q2        L0     L1     L2
+  SHUF-16   0.040405   0.2836    0.63     -0.1601   FAIL   FAIL   FAIL
+  (shuffle = pixel permutation, seed 9999 -- same marginal, no arrangement)
+
+================================================================================================
+[3] PREDICTIONS W1..W6 -- registration runs/MATRIX2/plate_array_registration.md
+================================================================================================
+
+  W1  Q0 < 0 on all four, in [-9.2,-8.7], pitch-invariant to 0.05    : FALSIFIED  (range [0.7230, 0.9827], spread 0.2597)
+  W2  Q1 ~ 3.8 / 7.6 / 15.2 at p = 8 / 16 / 32, within +-20 %        : FALSIFIED  (got 1.66 / 3.32 / 6.64)
+  W3  Q2 >= 0.95 on all four, spread <= 0.03                         : FALSIFIED  (range [0.5155, 0.8991])
+  W4  shuffle leaves Q0 (|d|<=0.02) and destroys Q2 (<0.10)          : FALSIFIED  (dQ0 = 0.6472, Q2(shuffled) = -0.1601)
+  W5  L0 pass set excludes isolated minority phase above f = 2.82 %  : FALSIFIED  (f_max = 0.02820, but P0 measured 1/p^2 (fill-blind) -> Q0 0.72..0.98, L0 PASSES)
+  W6  the L1 verdict is a property of h, not of the scene (verdicts differ) : CONFIRMED  (L1 at p=8/16/32: FAIL / FAIL / PASS)
+
+================================================================================================
+[4] V1..V3 of runs/MATRIX2/matrix_v2_registration.md -- decided by this run
+================================================================================================
+  V1  severed Q0 < 0.5                              : FALSIFIED
+  V2  severed xi/h < 4                              : FALSIFIED  (xi/h >= 4 at PA-32)
+  V3  Q2 >= 0.5 half                                : CONFIRMED
+      V3  "and the pass is non-evidential" half     : FALSIFIED  (shuffled Q2 = -0.1601, threshold 0.50)
+      => V3 as registered: FALSIFIED
+
+================================================================================================
+[5] WHAT THE NUMBERS SAY -- derived from the table above, not from the registration
+================================================================================================
+  1. Q0 counts LATTICE CELLS, not structure, and it is blind to fill. Every plate is one
+     component whose lifetime is the full range, so P0 = N_plates/|Lambda| = 1/p^2 exactly --
+     independent of s. The fill control proves it: PA-16 (f = 0.5625) and PA-16f (f = 0.4727)
+     return the identical Q0 = 0.9307 to four decimals, while Q1 moves 3.32 -> 3.67.
+     Consequence: Q0 >= 0.5 holds iff 1/p^2 <= 0.5*P0(null) = 0.02820, i.e. iff p >= 5.96 cells.
+     A periodic plate array passes L0 at every pitch the grid can hold above 6 cells, and
+     fails it below -- a statement about p/h, not about the deposit.
+
+  2. Q1 measures the pitch in cells: xi/h = 0.207 p across the sweep (1.66/3.32/6.64 at
+     p = 8/16/32), so the L1 threshold 4.0 is crossed between p = 16 and p = 32 -- i.e. at
+     h = pitch/19.3. Same geometry, opposite verdicts: W6, and the reason R2's L1 cell is
+     not a property of the row.
+
+  3. Q2 is the only column that behaves like a structure criterion -- it rises with pitch
+     (0.5155 / 0.7718 / 0.8991) because a coarser lattice is more predictable from a 16-level
+     west/north context -- but it too is reporting the lattice, and it too moves with h.
+
+  4. The shuffle kills all three: Q0 0.2836, xi/h 0.63, Q2 -0.1601. So the passes ARE evidential,
+     which is the opposite of TILED under MR1.1. The reason is now visible: TILED's pass
+     survives a shuffle because a disc tiled into permuted blocks keeps its local contrast,
+     whereas a plate array's predictability IS the tile-to-tile relation, and a pixel
+     permutation destroys precisely that. V3 imported TILED's non-evidentiality into a
+     scene with the opposite structure, and the import was wrong.
+
+  5. The load-bearing result is not a verdict but a dependency: for the deposit's class,
+     EVERY tier verdict is a function of p/h. L0 crosses at p ~ 6, L1 at p ~ 19, L2 drifts
+     0.52 -> 0.90. Therefore "R2 passes/fails column k" is not answerable until h is
+     declared -- and once h is declared, the row can be steered to any verdict by choosing
+     the grid. That is the ceiling MR1.6 states, met from a new direction: the tiers read
+     (M, N) and the lattice, so their verdicts cannot be facts about the object.
+
+PROVENANCE: NEITHER  (declared synthetic scene measured with a locked estimator; no physics)
+registration to this run : 113.5 s later  -> declared BEFORE evaluation

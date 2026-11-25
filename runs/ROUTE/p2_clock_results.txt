@@ -1,0 +1,87 @@
+
+==============================================================================
+PHASE 2 — EVOLUTION CLOCK AND EXPOSURE  (GD5: no Lambda_max; verify tau_exp <= t_rip)
+==============================================================================
+  adopted ME5 has NO rate constant. The only registered time scale is t_rip = sqrt(2) L / c.
+  clock declared: a FRAME is timed by t_rip. The front-sweep clock tau_conv is a DIFFERENT
+  quantity and remains OPEN; it is not used below.
+  pre-registered: P2a (t_rip values), P2b (round-trip ratio = sqrt2), P2c, P2d (photon counts)
+
+[P2-1] TEARING TIME
+  L (m)      t_rip (s)        2L/c (s)         (2L/c)/t_rip  
+  0.200      9.434617e-10     1.334256e-09     1.414213562   
+  1.000      4.717309e-09     6.671282e-09     1.414213562   
+  0.070      3.302116e-10     4.669897e-10     1.414213562   
+  prediction P2a (9.43e-10 / 4.71e-9 / 3.30e-10 s, 3 s.f.): CONFIRMED  [tolerance 0.5%, matching
+  the precision the prediction was stated to; the exact value is 9.434617e-10 s]
+  prediction P2b (round trip exceeds t_rip by exactly sqrt2): CONFIRMED  ratio = 1.414213562373
+
+[P2-2] ADMISSIBLE EXPOSURE PER CHANNEL, AT L = 0.20 m
+  transmission : tau_exp <= t_rip            = 9.434617e-10 s   (margin 1.000)
+  reflection   : tau_exp <= 2L/c            -> the round trip IS the tearing time; no
+                 exposure fits inside it       = 1.334256e-09 s required vs 9.434617e-10 s available
+  deficit      : 2L/c - t_rip = 3.908e-10 s, i.e. the frame is short by a factor sqrt2
+  => ME5's corollary, restated as a measurement: the reflected channel has ZERO exposure
+     budget. This is the frozen identity, not a new result.
+
+[P2-3] PHOTONS PER RESOLUTION ELEMENT INSIDE t_rip
+  contrast-limited detection with N photons: SNR = dtau * sqrt(N)  =>  N = (SNR/dtau)^2
+  channel        dtau       N required     flux (m^-2 s^-1)     verdict     
+  visible 2 eV   1.0e-07    9.000e+14      9.539e+31            see P2-4    
+  soft X-ray 284 eV 1.0e-03    9.000e+06      9.539e+23            see P2-4    
+
+  prediction P2d registered N = 9e6 (dtau = 1e-3) and 9e20 (dtau = 1e-7).
+  measured: 9.000e+06 and 9.000e+14 -- the first matches; the second does NOT.
+  REGISTERED ARITHMETIC ERROR. (3/1e-7)^2 = 9e14, not 9e20: the pre-registration dropped a
+  factor 1e6. The verdict it was attached to is unaffected (both are unattainable in-frame),
+  but the number is corrected here and the error is recorded rather than quietly fixed.
+
+[P2-4] THE REQUIREMENT IS PER AREA; THE COST IS PER FRAME
+  photons per frame  = N * (frame area / pixel area)
+  flux per area      = N / (pixel area * tau_exp)   <-- independent of the frame size
+  power              = flux * frame area * photon energy   <-- grows with the frame area
+
+  visible 2 eV:
+    flux required = 9.539e+31 m^-2 s^-1  (9.5e+09 x a 1e22 m^-2 s^-1 beamline class)
+    at 1e5 W (bright lab source)          max frame side = 5.7197e-05 m  (area 3.27e-09 m^2)
+    at 1e6 W (large laser facility)       max frame side = 1.8087e-04 m  (area 3.27e-08 m^2)
+    at 1e9 W (inertial-fusion class)      max frame side = 5.7197e-03 m  (area 3.27e-05 m^2)
+    frames needed to cover the canvas at 1e6 W: 9.93e+15  (one frame per sheet event)
+    total energy = 9.37e+12 J
+  soft X-ray 284 eV:
+    flux required = 9.539e+23 m^-2 s^-1  (9.5e+01 x a 1e22 m^-2 s^-1 beamline class)
+    at 1e5 W (bright lab source)          max frame side = 4.7998e-02 m  (area 2.30e-03 m^2)
+    at 1e6 W (large laser facility)       max frame side = 1.5178e-01 m  (area 2.30e-02 m^2)
+    at 1e9 W (inertial-fusion class)      max frame side = 4.7998e+00 m  (area 2.30e+01 m^2)
+    frames needed to cover the canvas at 1e6 W: 1.41e+10  (one frame per sheet event)
+    total energy = 1.33e+07 J
+
+  => the visible channel needs 1.0e+08 x more flux than the X-ray channel, and its flux exceeds
+     anything that exists by ~9 orders. The X-ray channel is within reach of a declared
+     source for a SUB-FIELD frame and far out of reach for the full canvas in one frame.
+
+[P2-5] GD5 FALSIFIER: DOES AN ADMISSIBLE EXPOSURE EXIST?
+  transmission @ 284 eV : flux 9.54e+23  -> ADMISSIBLE (sub-field)
+  transmission @ visible: flux 9.54e+31  -> NO
+  reflection (any band) : zero budget     -> NO (frozen corollary, exact)
+
+  VERDICT: the route does NOT terminate. An admissible exposure exists in the transmission
+  channel at 284 eV, for a sub-field frame. It exists for NO frame in reflection, which is
+  ME5's corollary rather than a new failure.
+  CONDITION ATTACHED: every such frame declares its sub-field side. At a 1e6 W source the
+  284 eV channel reaches a 0.15 m frame, so the canvas needs ~1.4e10 frames -- and a sheet
+  exists for one t_rip, so that is ~1.4e10 separate sheet events. The picture is not
+  readable from one object; that is a statement about the canvas, not about the channel.
+
+==============================================================================
+PHASE 2 SUMMARY
+==============================================================================
+  clock                 : t_rip = sqrt2 L / c (exact); tau_conv remains OPEN and unused
+  Lambda_max            : retired; nothing to calibrate (GD5)
+  P2a CONFIRMED / P2b CONFIRMED / P2c CONFIRMED / P2d PARTIAL - arithmetic error at dtau=1e-7 recorded
+  admissible exposure   : YES, transmission 284 eV, sub-field only
+  reflected faithful frame: still nonexistent (ME5 corollary)
+  PHASE 2: PASS -- the clock exists, is exact, and the falsifier does not fire.
+
+PROVENANCE: NEITHER  (kinematics + detection arithmetic; establishes no physics)
+

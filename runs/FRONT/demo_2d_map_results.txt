@@ -1,0 +1,122 @@
+
+================================================================================================
+[A] CENSUS -- and the reason a new object could be declared at all
+================================================================================================
+  delta = 2.1500e-10 m   H = 0.23 m   M = 4   S = 65536 = 2^16
+
+  N (layers)          = floor(H/delta) = 1,069,767,441
+  pieces = M*N        = 4,279,069,764
+  cells  = S^2        = 4,294,967,296
+  occupancy           = 0.996299   ->  0.9963 plates per cell
+   => P1 (expected 4.279069764e9 / 4.294967296e9 / 0.99629): FAIL
+
+  H_max = S^2*delta/M = 0.230854 m     declared H = 0.23 m  ->  99.6% of cap
+   => P2 (expected H_max = 0.230854, H below it): PASS
+   => P3 (plates per cell < 1 so GD10 cannot arise): PASS
+
+  The body failed exactly here: 1.18e10 plates on 8.1227e9 cells = 1.4527 per cell (GD10). DEMO-1 is
+  declared so that pieces sit BELOW cells by construction; the 0.37% residue is vacuum, not a defect.
+
+================================================================================================
+[B] ADMISSIBILITY OF THE PIECES
+================================================================================================
+  id  role          rho_A (kg/m^2)  A_min (m^2)  A_max (m^2)  A_max / site
+  --  ------------  --------------  -----------  -----------  ------------
+  C1  core, dense   4.0e+03         1.25664e-03  1.25664e-03  0.0079      
+  C2  shell, light  1.2e+03         3.52173e-03  6.91465e-03  0.0432      
+  C3  shell, heavy  7.5e+03         3.90500e-03  1.43351e-02  0.0895      
+  C4  jacket        2.0e+03         6.33345e-03  1.33706e-02  0.0835      
+
+   largest piece A_3,max = 1.43351e-02 m^2 on a 0.1601 m^2 site = 9.0%  (11.17x clear)
+   => P4 (expected 1.4335e-2 vs 0.1601): PASS
+   => P5 (expected 0.180 <= 0.4001): PASS  (0.180 m vs 0.4001)
+   => P6 (expected min(r3-r2) > 0): PASS  (11.000 mm)
+   => P7 (expected C3 span 3.67): PASS  (3.671)
+
+   C2 and C3 are anti-phased: C3's cross-section swings by this factor along the axis while the TOTAL
+   area is constant at pi*r4^2 = 2.54469e-02 m^2 identically. That exchange is the structure.
+   check: total area span over z = 2.544690e-02 .. 2.544690e-02  (flat to 0.000 ppm)
+
+================================================================================================
+[C] THE ORDERING -- measured, because the choice is not free
+================================================================================================
+  display grid = 512^2 sub-squares, each covering 16384 sites
+  decimation   = 16384 sites per display pixel   (a 4K frame still shows 0.19% of the deposit)
+
+  layer-major  p = 4n + k : component mix of ONE decimated block
+  component  share of a decimated block
+  ---------  --------------------------
+  C1         25.00%                    
+  C2         25.00%                    
+  C3         25.00%                    
+  C4         25.00%                    
+   => P8 (expected 25.0% each within 1%): PASS
+     All four components in equal measure, exactly. The block resolves to their average, so under
+     layer-major NO decimated pixel can carry component identity. This is arithmetic, not a measurement.
+
+  component-major  p = kN + n : single-shell blocks = 0.999985
+   => P9 (expected >= 0.99): PASS  (0.999985)
+   => P10 (expected exactly 3 shell-straddling blocks): PASS  (3 shell, 1 at the empty boundary)
+
+  distinct shells present in the map: 4  (expected 4)
+  empty sites: 0.370% -- vacuum, drawn as vacuum
+
+================================================================================================
+[D] DEAD CONSTANTS AND THE CURVE
+================================================================================================
+  canvas            = S*pitch = 26221.0 m = 26.22 km
+  mean placement    = 0.3826*canvas = 10032 m
+  max placement     = canvas/sqrt2 = 18541 m
+   => P11 (expected 26218.6 / 10032 / 18539): FAIL
+
+  t_rip             = sqrt2*H/c = 1.0850e-09 s
+  transport floor   = mean/v_max = 0.8878 s
+  ratio             = 8.183e+08   (the deposit forms long after the conversion ends)
+   => P12 (expected 1.0847e-9 / 0.888 / 8.2e8): PASS
+
+  total cut area    = N*pi*r4^2 = 2.72223e+07 m^2
+   => P13 (expected 2.7222e7): PASS
+
+  contiguity, order 10 exhaustive (1,048,576 sites) = 1.000000
+  contiguity, order 16 sampled (200,000 of 4,294,967,296)          = 1.000000
+   => P14 (expected exactly 1.0000): PASS
+      (P14 as registered said order 16 exhaustively; 4.295e9 indices are not enumerable here, so it is
+       evaluated at order 10 exhaustively plus a 2e5 sample at order 16. Substitution disclosed.)
+
+================================================================================================
+[E] LEDGER
+================================================================================================
+  12 / 14 predictions pass
+  P1:F  P2:P  P3:P  P4:P  P5:P  P6:P  P7:P  P8:P  P9:P  P10:P  P11:F  P12:P  P13:P  P14:P
+
+  FAILED: P1, P11 -- inspect before drawing a verdict from its section.
+
+  figure written: runs\FRONT\demo_2d_map.png
+
+================================================================================================
+PROVENANCE: NEITHER  (declared geometry + a traversal; establishes no physics)
+
+================================================================================================
+ERRATUM — appended 2026-11-22 after reading the ledger. The run above is NOT edited.
+Two FAILs. Both are my arithmetic, and neither touches the object's admissibility.
+================================================================================================
+
+E1 — P1 failed on a rounding-vs-tolerance mismatch, the sixth instance of this class.
+   Predicted occupancy 0.99629; measured 0.996299; tolerance 5e-6; gap 9e-6. The two quantities that
+   matter are exact: pieces = 4,279,069,764 = 4 x 1,069,767,441 and cells = 4,294,967,296 = 65536^2,
+   both as predicted to the unit. I rounded the RATIO to 5 decimal places and then tested it with a
+   tolerance tighter than that rounding. Corrected verdict: PASS (occupancy 0.99630, < 1).
+   This is the same shape as A6's P1 and T4's P5: a rounded figure tested against an unrounded
+   computation. Third occurrence in three rounds, and it is on me each time.
+
+E2 — P11 failed on a wrong constant of mine, carried into the specification.
+   I wrote canvas = S*pitch = 26,218.6 m. It is 65536 x 0.4001 = 26,221.0 m. The error is 2.4 m in
+   26 km (9e-5 relative) and it came from doing the multiplication by hand. It had already been
+   copied into docs/specs/demo_object_v1.md as a "dead constant"; the spec has been corrected there
+   (that file is new and unlocked, so this is a correction, not an edit to frozen text).
+   Consequence for the derived quantities: mean placement 0.3826 x 26,221.0 = 10,032 m (unchanged to
+   the metre), max placement 26,221.0/sqrt2 = 18,541 m (was 18,539). Nothing else references it.
+
+Effect on the disposition: none. P2 (the height cap), P3 (one plate per cell), P4-P7 (piece
+admissibility), P8/P9/P10 (the ordering decision), P12-P14 (dead constants and the curve) all passed
+on their first encoding, and those are the checks the object's admissibility rests on.

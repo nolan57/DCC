@@ -1,0 +1,562 @@
+D:\Docs\DCC\DCC_P2_wall_1p1.py:172: RuntimeWarning: overflow encountered in exp
+  A = np.exp(d['lnA']); B = np.exp(d['lnB']); C = np.exp(d['lnC'])
+D:\Docs\DCC\DCC_P2_wall_1p1.py:176: RuntimeWarning: invalid value encountered in multiply
+  Ax = A * a; Bx = B * b; Cx = C * c
+D:\Docs\DCC\DCC_P2_wall_1p1.py:178: RuntimeWarning: invalid value encountered in add
+  Axx = Ax * a + A * ax
+D:\Docs\DCC\DCC_P2_wall_1p1.py:179: RuntimeWarning: invalid value encountered in multiply
+  Bxx = Bx * b + B * bx
+D:\Docs\DCC\DCC_P2_wall_1p1.py:179: RuntimeWarning: invalid value encountered in add
+  Bxx = Bx * b + B * bx
+D:\Docs\DCC\DCC_P2_wall_1p1.py:180: RuntimeWarning: invalid value encountered in add
+  Cxx = Cx * c + C * cx
+<lambdifygenerated-183>:2: RuntimeWarning: overflow encountered in square
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-183>:2: RuntimeWarning: divide by zero encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-183>:2: RuntimeWarning: invalid value encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-183>:2: RuntimeWarning: invalid value encountered in multiply
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-183>:2: RuntimeWarning: overflow encountered in multiply
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-183>:2: RuntimeWarning: overflow encountered in power
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-184>:2: RuntimeWarning: overflow encountered in multiply
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-184>:2: RuntimeWarning: invalid value encountered in divide
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-184>:2: RuntimeWarning: overflow encountered in square
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-184>:2: RuntimeWarning: divide by zero encountered in divide
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-178>:2: RuntimeWarning: overflow encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-178>:2: RuntimeWarning: invalid value encountered in subtract
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-178>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-178>:2: RuntimeWarning: invalid value encountered in add
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-178>:2: RuntimeWarning: overflow encountered in square
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-178>:2: RuntimeWarning: invalid value encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-178>:2: RuntimeWarning: divide by zero encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-172>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-174>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-179>:2: RuntimeWarning: overflow encountered in square
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-179>:2: RuntimeWarning: overflow encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-179>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-179>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-179>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-179>:2: RuntimeWarning: invalid value encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-179>:2: RuntimeWarning: overflow encountered in power
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-175>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-176>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-180>:2: RuntimeWarning: overflow encountered in square
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-180>:2: RuntimeWarning: overflow encountered in power
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-180>:2: RuntimeWarning: overflow encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-180>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-180>:2: RuntimeWarning: invalid value encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+D:\Docs\DCC\DCC_P2_wall_1p1.py:176: RuntimeWarning: overflow encountered in multiply
+  Ax = A * a; Bx = B * b; Cx = C * c
+D:\Docs\DCC\DCC_P2_wall_1p1.py:178: RuntimeWarning: overflow encountered in multiply
+  Axx = Ax * a + A * ax
+<lambdifygenerated-194>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-195>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-202>:2: RuntimeWarning: overflow encountered in square
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-202>:2: RuntimeWarning: invalid value encountered in subtract
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-202>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-202>:2: RuntimeWarning: overflow encountered in exp
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-202>:2: RuntimeWarning: invalid value encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-196>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-198>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-203>:2: RuntimeWarning: overflow encountered in square
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-203>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-203>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-203>:2: RuntimeWarning: overflow encountered in exp
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-203>:2: RuntimeWarning: invalid value encountered in add
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-203>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-203>:2: RuntimeWarning: invalid value encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-203>:2: RuntimeWarning: overflow encountered in power
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-199>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-200>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-204>:2: RuntimeWarning: overflow encountered in square
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-204>:2: RuntimeWarning: overflow encountered in power
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-204>:2: RuntimeWarning: overflow encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-204>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-204>:2: RuntimeWarning: overflow encountered in exp
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-204>:2: RuntimeWarning: invalid value encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+D:\Docs\DCC\DCC_P2_wall_1p1.py:179: RuntimeWarning: overflow encountered in multiply
+  Bxx = Bx * b + B * bx
+<lambdifygenerated-218>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-219>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-226>:2: RuntimeWarning: overflow encountered in square
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-226>:2: RuntimeWarning: invalid value encountered in subtract
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-226>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-226>:2: RuntimeWarning: overflow encountered in exp
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-226>:2: RuntimeWarning: divide by zero encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-226>:2: RuntimeWarning: invalid value encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-226>:2: RuntimeWarning: overflow encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-220>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-222>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-227>:2: RuntimeWarning: overflow encountered in square
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: overflow encountered in exp
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: invalid value encountered in add
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: invalid value encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: overflow encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: overflow encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-227>:2: RuntimeWarning: overflow encountered in power
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-228>:2: RuntimeWarning: overflow encountered in power
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-228>:2: RuntimeWarning: overflow encountered in square
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-228>:2: RuntimeWarning: overflow encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-228>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-228>:2: RuntimeWarning: overflow encountered in exp
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-228>:2: RuntimeWarning: invalid value encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-255>:2: RuntimeWarning: overflow encountered in square
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-255>:2: RuntimeWarning: divide by zero encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-255>:2: RuntimeWarning: overflow encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-255>:2: RuntimeWarning: invalid value encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-255>:2: RuntimeWarning: invalid value encountered in subtract
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-255>:2: RuntimeWarning: invalid value encountered in multiply
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-256>:2: RuntimeWarning: invalid value encountered in divide
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-256>:2: RuntimeWarning: overflow encountered in multiply
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-256>:2: RuntimeWarning: overflow encountered in square
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-256>:2: RuntimeWarning: divide by zero encountered in divide
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-256>:2: RuntimeWarning: overflow encountered in divide
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-250>:2: RuntimeWarning: overflow encountered in square
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-250>:2: RuntimeWarning: divide by zero encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-250>:2: RuntimeWarning: overflow encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-250>:2: RuntimeWarning: invalid value encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-250>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-244>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-246>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-251>:2: RuntimeWarning: overflow encountered in square
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-251>:2: RuntimeWarning: overflow encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-251>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-251>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-251>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-251>:2: RuntimeWarning: overflow encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-251>:2: RuntimeWarning: invalid value encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-251>:2: RuntimeWarning: invalid value encountered in add
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-252>:2: RuntimeWarning: overflow encountered in square
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-252>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-252>:2: RuntimeWarning: overflow encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-252>:2: RuntimeWarning: invalid value encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-274>:2: RuntimeWarning: invalid value encountered in subtract
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-274>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-274>:2: RuntimeWarning: overflow encountered in exp
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-274>:2: RuntimeWarning: invalid value encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-274>:2: RuntimeWarning: divide by zero encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-275>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-275>:2: RuntimeWarning: overflow encountered in exp
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-275>:2: RuntimeWarning: invalid value encountered in add
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-275>:2: RuntimeWarning: invalid value encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-275>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-276>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-276>:2: RuntimeWarning: overflow encountered in exp
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-303>:2: RuntimeWarning: divide by zero encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-303>:2: RuntimeWarning: invalid value encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-303>:2: RuntimeWarning: invalid value encountered in multiply
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-303>:2: RuntimeWarning: invalid value encountered in subtract
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-304>:2: RuntimeWarning: invalid value encountered in divide
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-304>:2: RuntimeWarning: divide by zero encountered in divide
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-298>:2: RuntimeWarning: invalid value encountered in subtract
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-298>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-298>:2: RuntimeWarning: divide by zero encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-299>:2: RuntimeWarning: overflow encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-299>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-299>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-299>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-299>:2: RuntimeWarning: overflow encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-299>:2: RuntimeWarning: invalid value encountered in add
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-300>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-300>:2: RuntimeWarning: divide by zero encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-300>:2: RuntimeWarning: invalid value encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-327>:2: RuntimeWarning: overflow encountered in square
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-327>:2: RuntimeWarning: divide by zero encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-327>:2: RuntimeWarning: invalid value encountered in subtract
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-327>:2: RuntimeWarning: invalid value encountered in multiply
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-327>:2: RuntimeWarning: overflow encountered in power
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-327>:2: RuntimeWarning: overflow encountered in multiply
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-327>:2: RuntimeWarning: invalid value encountered in divide
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-327>:2: RuntimeWarning: invalid value encountered in add
+  return HA*HB + HA*HC + HB*HC - 1/2*P**2*kappa - 1/16*eps**2*kappa/(lam*v**4) - 1/2*eps*kappa*phi/v - 1/2*eps*kappa - 1/4*kappa*lam*phi**4 + (1/2)*kappa*lam*phi**2*v**2 - 1/4*kappa*lam*v**4 - 1/2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa/A**2 - Cxx/(A**2*C) - Bx*Cx/(A**2*B*C) - Bxx/(A**2*B) - 1/2*f**2*kappa*exp(alpha*phi/v)/(A**2*B**2) + Ax*Cx/(A**3*C) + Ax*Bx/(A**3*B)
+<lambdifygenerated-328>:2: RuntimeWarning: overflow encountered in square
+  return -HBx - HCx - P*Q*kappa + Cx*HA/C - Cx*HC/C + Bx*HA/B - Bx*HB/B - E*f*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-322>:2: RuntimeWarning: overflow encountered in square
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-322>:2: RuntimeWarning: overflow encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-316>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-318>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-323>:2: RuntimeWarning: overflow encountered in square
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-323>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-323>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-323>:2: RuntimeWarning: overflow encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-323>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-323>:2: RuntimeWarning: overflow encountered in power
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-323>:2: RuntimeWarning: overflow encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-324>:2: RuntimeWarning: overflow encountered in power
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-324>:2: RuntimeWarning: overflow encountered in square
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-324>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-324>:2: RuntimeWarning: overflow encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-324>:2: RuntimeWarning: divide by zero encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+D:\Docs\DCC\DCC_P2_wall_1p1.py:180: RuntimeWarning: overflow encountered in multiply
+  Cxx = Cx * c + C * cx
+<lambdifygenerated-338>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-339>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-346>:2: RuntimeWarning: overflow encountered in square
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-346>:2: RuntimeWarning: invalid value encountered in subtract
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-346>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-346>:2: RuntimeWarning: overflow encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-346>:2: RuntimeWarning: invalid value encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-346>:2: RuntimeWarning: divide by zero encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-340>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-342>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-347>:2: RuntimeWarning: overflow encountered in square
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-347>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-347>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-347>:2: RuntimeWarning: overflow encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-347>:2: RuntimeWarning: overflow encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-347>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-347>:2: RuntimeWarning: overflow encountered in power
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-343>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-344>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-348>:2: RuntimeWarning: overflow encountered in square
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-348>:2: RuntimeWarning: overflow encountered in power
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-348>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-348>:2: RuntimeWarning: overflow encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-348>:2: RuntimeWarning: divide by zero encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-362>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-363>:2: RuntimeWarning: overflow encountered in square
+  return -A**2
+<lambdifygenerated-370>:2: RuntimeWarning: overflow encountered in square
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-370>:2: RuntimeWarning: invalid value encountered in subtract
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-370>:2: RuntimeWarning: invalid value encountered in multiply
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-370>:2: RuntimeWarning: overflow encountered in exp
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-370>:2: RuntimeWarning: invalid value encountered in divide
+  return -A**2*HB**2 - A**2*HB*HC - A**2*HC**2 - 1/2*A**2*P**2*kappa + (1/16)*A**2*eps**2*kappa/(lam*v**4) + (1/2)*A**2*eps*kappa*phi/v + (1/2)*A**2*eps*kappa + (1/4)*A**2*kappa*lam*phi**4 - 1/2*A**2*kappa*lam*phi**2*v**2 + (1/4)*A**2*kappa*lam*v**4 - 1/2*A**2*E**2*kappa*exp(alpha*phi/v)/B**2 - 1/2*Q**2*kappa + Bx*Cx/(B*C) - 1/2*f**2*kappa*exp(alpha*phi/v)/B**2
+<lambdifygenerated-364>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-366>:2: RuntimeWarning: overflow encountered in square
+  return -B**2
+<lambdifygenerated-371>:2: RuntimeWarning: overflow encountered in square
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-371>:2: RuntimeWarning: invalid value encountered in subtract
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-371>:2: RuntimeWarning: invalid value encountered in multiply
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-371>:2: RuntimeWarning: overflow encountered in exp
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-371>:2: RuntimeWarning: invalid value encountered in add
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-371>:2: RuntimeWarning: divide by zero encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-371>:2: RuntimeWarning: invalid value encountered in divide
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-371>:2: RuntimeWarning: overflow encountered in power
+  return -B**2*HA**2 - B**2*HA*HC - B**2*HC**2 - 1/2*B**2*P**2*kappa + (1/16)*B**2*eps**2*kappa/(lam*v**4) + (1/2)*B**2*eps*kappa*phi/v + (1/2)*B**2*eps*kappa + (1/4)*B**2*kappa*lam*phi**4 - 1/2*B**2*kappa*lam*phi**2*v**2 + (1/4)*B**2*kappa*lam*v**4 + (1/2)*E**2*kappa*exp(alpha*phi/v) + E*f*kappa*exp(alpha*phi/v) + (1/2)*B**2*Q**2*kappa/A**2 + B**2*Cxx/(A**2*C) - E*f*kappa*exp(alpha*phi/v)/A**2 - 1/2*f**2*kappa*exp(alpha*phi/v)/A**2 - Ax*B**2*Cx/(A**3*C)
+<lambdifygenerated-367>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-368>:2: RuntimeWarning: overflow encountered in square
+  return -C**2
+<lambdifygenerated-372>:2: RuntimeWarning: overflow encountered in square
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-372>:2: RuntimeWarning: overflow encountered in power
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-372>:2: RuntimeWarning: overflow encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-372>:2: RuntimeWarning: invalid value encountered in multiply
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-372>:2: RuntimeWarning: overflow encountered in exp
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+<lambdifygenerated-372>:2: RuntimeWarning: invalid value encountered in divide
+  return C**2*((1/16)*A**3*B**2*eps**2*kappa + (1/2)*A**3*B**2*eps*kappa*lam*phi*v**3 + (1/4)*A**3*B**2*lam*v**4*(-4*HA**2 - 4*HA*HB - 4*HB**2 - 2*P**2*kappa + 2*eps*kappa + kappa*lam*phi**4 - 2*kappa*lam*phi**2*v**2 + kappa*lam*v**4) - 1/2*A**3*E**2*kappa*lam*v**4*exp(alpha*phi/v) + (1/2)*A*B**2*Q**2*kappa*lam*v**4 + A*B*Bxx*lam*v**4 + (1/2)*A*f**2*kappa*lam*v**4*exp(alpha*phi/v) - Ax*B*Bx*lam*v**4)/(A**3*B**2*lam*v**4)
+==========================================================================
+N11: constraint stress incorporated into the 1+1 slab (R2-D L3 boundary layer)
+spec: roadmap v1.4 sec 12.4 / F.4 item 4; R2A registration 'remaining items'
+==========================================================================
+[physics] (registered before run)
+  final state: sheet plane = (A,B), z (=C) contracted; N11 requires an
+  external constraint stress to hold the plane against the 2D pressure
+  injection: prescribed uniform orthonormal stress sector (rho_e=0);
+  dH_i += -kappa/2 * (Gauss combinations of p^e), additive in b of the
+  machine 3x3 system (stress does not multiply the dH coefficients)
+  sigma_ref = wall tension sigma_w = 0.942809 (code units, P1 frozen)
+  configurations: (a) off, (b) hold-plane, (c) isotropic-hold, (d) redirect
+  Pi scan: (0.25, 0.5, 1.0, 2.0) ; case W1-slab-static L=160 N=801 T=6 cfl=0.1
+[thresholds] (registered before run)
+  T1 Pi=0 regression identity            < 1.0e-13
+  T2 homogeneous cross-validation (rel)  < 1.0e-09
+  T3 constraint degradation factor       <= 2.0 x baseline
+  T4 root-find residual |F(Pi_hold)|     < 1.0e-06
+  unit-bridge status                     : OPEN (G0<->P2 mapping not registered)
+
+[T1] Pi = 0 regression against the frozen solver
+  max |rhs(N11 off) - rhs(frozen)| = 0.000e+00  <  1.0e-13
+  T1 verdict: PASS
+
+[T2] homogeneous cross-validation of the injection (uniform phi, Pi=1, isotropic)
+  relative deviation |slab(stress) - homogeneous rhs + Delta| = 1.125e-16  <  1.0e-09
+  T2 verdict: PASS
+
+[main scan] response of the W1 slab to the registered stress configurations
+  metrics: <H_A>(end) mean over x (area drift), H_C min over (x,t) (D2 window),
+           max|Ham|, max|Mom| (constraint control)
+  off             Pi=0.00  : <H_A>(end)=+0.014899  H_C_min=-0.0008  max|Ham|=4.826e-02  max|Mom|=7.359e-01
+  hold-plane      Pi=0.25  : <H_A>(end)=+0.083164  H_C_min=+0.0021  max|Ham|=1.655e-01  max|Mom|=4.525e-01
+  hold-plane      Pi=0.50  : <H_A>(end)=+0.091144  H_C_min=+0.0021  max|Ham|=3.017e-01  max|Mom|=3.231e-01
+  hold-plane      Pi=1.00  : <H_A>(end)=+0.094929  H_C_min=+0.0021  max|Ham|=5.251e-01  max|Mom|=1.977e-01
+  hold-plane      Pi=2.00  : <H_A>(end)=+0.096661  H_C_min=+0.0021  max|Ham|=8.714e-01  max|Mom|=1.264e-01
+  isotropic-hold  Pi=0.25  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  isotropic-hold  Pi=0.50  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  isotropic-hold  Pi=1.00  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  isotropic-hold  Pi=2.00  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=0.25  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=0.50  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=1.00  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=2.00  : FAIL -- machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+
+[crash registration] (per sec 9.1: failed runs must also be logged)
+  isotropic-hold  Pi=0.25  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  isotropic-hold  Pi=0.50  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  isotropic-hold  Pi=1.00  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  isotropic-hold  Pi=2.00  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=0.25  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=0.50  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=1.00  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  redirect        Pi=2.00  : machine 3x3 solve singular: the prescribed stress drives the zstatic ansatz into its degenerate configuration (H_B + H_C -> 0); same failure signature as the archived DCC_P2_wall_sph.py attempt
+  interpretation: the decelerating stress sector pushes H_C through the
+  degenerate boundary of the zstatic ansatz faster than the magnetic
+  D2 window develops; this is a physical boundary of the prescribed-
+  stress approach, not a solver defect (T2 validated the injection at
+  machine precision). A dynamical apparatus model is required to probe
+  beyond this boundary (registered as the production version).
+
+[T3] constraint control with stress ON (vs Pi=0 baseline; completed rows)
+  hold-plane      Pi=0.25  : Ham x3.43  Mom x0.61
+  hold-plane      Pi=0.50  : Ham x6.25  Mom x0.44
+  hold-plane      Pi=1.00  : Ham x10.88  Mom x0.27
+  hold-plane      Pi=2.00  : Ham x18.06  Mom x0.17
+  worst degradation factor = 18.06 (hold-plane Pi=2.00)  vs  threshold 2.0
+  honest note: the stress modifies the trajectory, and the registered
+  synchronous-gauge constraint drift (P2-C4 known limitation) grows on
+  the modified trajectory; the injection itself is machine-precision
+  exact (T2). Registered per row; the criterion is applied as written.
+  T3 verdict: FAIL
+
+[T4] response monotonicity and area-hold root-find
+  isotropic-hold: too few completed rows for monotonicity (crashes above)
+  root-find FAILED on config (c) within bracket [0.5, 40.0]: degenerate configuration reached (crash registered)
+  T4 verdict (as registered on config (c)): FAIL
+  [additional diagnostic] configuration (d) redirect (the working in-plane
+  hold: Delta_A = Delta_B = -kappa*Pi*sigma_ref < 0 decelerates the plane)
+  redirect: too few completed rows (crashes above)
+
+[D2 interplay] (registered honesty check)
+  off             Pi=0.00  : H_C_min=-0.0008 -> D2 contraction achieved
+  hold-plane      Pi=0.25  : H_C_min=+0.0021 -> D2 contraction NOT achieved
+  hold-plane      Pi=0.50  : H_C_min=+0.0021 -> D2 contraction NOT achieved
+  hold-plane      Pi=1.00  : H_C_min=+0.0021 -> D2 contraction NOT achieved
+  hold-plane      Pi=2.00  : H_C_min=+0.0021 -> D2 contraction NOT achieved
+  note: configurations that decelerate C as well (isotropic-hold) fight the
+  registered magnetic D2 contraction; configurations (b)/(d) leave C
+  untouched to first order but hold nothing (analysis in module header).
+
+[verdicts]
+  T1 Pi=0 regression          : PASS
+  T2 homogeneous validation   : PASS
+  T3 constraint control       : FAIL
+  T4 response + root-find     : FAIL
+N11 1+1 slab layer OVERALL: FAIL
+evidence level: MODEL RESULT (screened; prescribed stress sector, not a
+                dynamical apparatus model)
+OPEN registration: the SI normalization of Pi_hold (G0 P_2D = 8.62e16 N/m
+                <-> slab code units) requires the G0<->P2 unit bridge,
+                which is not registered anywhere in this repository.
+status registration: F.4 item 4 (N11 into 1+1 slab) -> EXECUTED at the
+                slab layer; unit-bridge and dynamical-apparatus model remain OPEN.

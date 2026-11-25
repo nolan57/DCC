@@ -1,0 +1,114 @@
+
+================================================================================================
+[0] SOURCE -- the measured plate class (runs/MATRIX2/plate_array_results.txt)
+================================================================================================
+  id       Q0        xi/h     Q2       (thresholds 0.5 / 4.0 / 0.5)
+  PA-8     0.7230    1.66     0.5155   
+  PA-16    0.9307    3.32     0.7718   
+  PA-32    0.9827    6.64     0.8991   
+  PA-16f   0.9307    3.67     0.7899   
+  SHUF-16  0.2836    0.63     -0.1601  
+
+  The pitch instances are the declared class; SHUF-16 is the evidentiality control
+  (it fails all three tiers, so the passes below are not shuffle-invariant).
+
+================================================================================================
+[1] ROW TYPING -- the v2 rule, restated so the grid is readable without v2
+================================================================================================
+  id   combination   scene    class         price
+  ----------------------------------------------------------------------------------------
+  R1   C1&C2&C3      severed  PRICED        R2 knob: weak suppression >= 1e5 (scifi_boundary_v1 s1)
+  R2   C1&C2&~C3     severed  LIVE          0
+  R3   C1&~C2&C3     bonded   UNREALIZED    one constitutive law (modulus / body sigma; KIN-DYN supplies none) + R2 knob: weak suppression >= 1e5 (scifi_boundary_v1 s1)
+  R4   ~C1&C2&C3     --       NO-SCENE      -- (no 2D field exists)
+  R5   C1&~C2&~C3    bonded   UNREALIZED    one constitutive law (modulus / body sigma; KIN-DYN supplies none)
+  R6   ~C1&~C2&~C3   --       NO-SCENE      -- (no 2D field exists)
+  R7   ~C1&~C2&C3    --       NO-SCENE      -- (no 2D field exists)
+  R8   ~C1&~C2&~C3   --       NO-SCENE      -- (no 2D field exists)  (duplicate of R6)
+  R0   ~C1&C2&~C3    --       NO-SCENE      -- (no 2D field exists)  (omitted by sIV; M0)
+
+================================================================================================
+[2] THE GRID   cell = value verdict @condition   (condition = lattice pitch p, h = 1 cell)
+================================================================================================
+  id   scene    L0 Q0               L1 xi/h             L2 Q2               L3 Q3             
+  --------------------------------------------------------------------------------------------
+  R1   severed  0.9307 PASS @p16    3.32 FAIL @p16      0.7718 PASS @p16    0.000 FAIL @RL-0  
+  R2   severed  0.9307 PASS @p16    3.32 FAIL @p16      0.7718 PASS @p16    0.000 FAIL @RL-0  
+  R3   bonded   UNREALIZED          UNREALIZED          UNREALIZED          0.000 FAIL @RL-0  
+  R4   --       NO-SCENE            NO-SCENE            NO-SCENE            NO-SCENE          
+  R5   bonded   UNREALIZED          UNREALIZED          UNREALIZED          0.000 FAIL @RL-0  
+  R6   --       NO-SCENE            NO-SCENE            NO-SCENE            NO-SCENE          
+  R7   --       NO-SCENE            NO-SCENE            NO-SCENE            NO-SCENE          
+  R8   --       NO-SCENE            NO-SCENE            NO-SCENE            NO-SCENE          
+
+  R2 and R5 are the only rows that could carry a measured value; R5 cannot, because the bonded
+  scene needs one constitutive law that the record does not have. R1/R3 differ from R2/R5 only
+  in price (C3), never in scene -- S2 of the v2 registration.
+
+================================================================================================
+[3] PITCH AXIS of the severed row -- the row does not have one cell per column
+================================================================================================
+  p    Q0       L0     xi/h    L1     Q2       L2     vector
+  --------------------------------------------------------------------------
+  8    0.7230   PASS   1.66    FAIL   0.5155   PASS   /Y.Y/.
+  16   0.9307   PASS   3.32    FAIL   0.7718   PASS   /Y.Y/.
+  32   0.9827   PASS   6.64    PASS   0.8991   PASS   /YYY/.
+
+  Last column reads L0/L1/L2/L3: Y = PASS, . = FAIL. L3 is FAIL at RL-0 for every pitch (q = 0).
+  Fill control PA-16f (f = 0.4727 at p = 16): Q0 0.9307, xi/h 3.67, Q2 0.7899 -- the same Q0 as PA-16,
+  which is why Q0 cannot be read as a statement about the object.
+
+================================================================================================
+[4] L3 ACROSS THE RUNG AXIS -- unchanged, because nothing new exists above RL-0
+================================================================================================
+  rung  severed                       bonded
+  ------------------------------------------------------------------
+  RL-0  0.000 FAIL                     0.000 FAIL
+  RL-1  BLOCKED (no compliant sigma_s) BLOCKED (no compliant sigma_s)
+  RL-2  BLOCKED (no compliant sigma_s) PRICED, uncomputed
+  RL-3  BLOCKED (no compliant sigma_s) PRICED, uncomputed
+  RL-4  BLOCKED (no compliant sigma_s) PRICED, uncomputed
+  RL-5  BLOCKED (no compliant sigma_s) PRICED, uncomputed
+  RL-6  BLOCKED (no compliant sigma_s) PRICED, uncomputed
+
+================================================================================================
+[5] COMPRESSION -- counted, not asserted
+================================================================================================
+  nominal  8 rows x 4 columns x 7 rungs : 224
+  canonical (distinct entries)          : 26
+    content                             : 11
+    unrealized                          : 3
+    blocked                             : 7
+    priced                              : 5
+  compression ratio                     : 8.6 : 1
+
+================================================================================================
+[6] PREDICTIONS G1..G5 -- registration runs/MATRIX2/matrix_v2r_registration.md
+================================================================================================
+
+  G1  canonical 26, content 11, ratio 8.6 : 1                  : CONFIRMED  (26 / 11 / 8.6 : 1)
+  G2  no row passes 4 of 4; R5 passes 0 of 4                   : CONFIRMED  (R2 2/4 at p16, R5 0/4)
+  G3  no calibration constant appears as a cell value          : CONFIRMED  (clean: 0.9307 PASS @p16 3.32 FAIL @p16 0.7718 PASS @p16 0.000 FAIL @RL-0 UNREALIZED UNREALIZED UNREALIZED 0.000 FAIL @RL-0)
+  G4  the severed row has >= 2 verdict vectors over the pitch axis : CONFIRMED  (distinct vectors: 2  (p8:Y.Y | p16:Y.Y | p32:YYY))
+  G5  the label PRED disappears from the grid (0 cells, was 3) : CONFIRMED  (PRED count 0)
+
+================================================================================================
+[7] WHAT CHANGED FROM matrix_v2_results.txt (retained unedited)
+================================================================================================
+  1. WITHDRAWN: "R5 is the only row in which all four columns pass". R5's four passes were
+     TILED's calibration values (0.9989 / 27.55 / 0.9417 / 6.316), borrowed from a scene that
+     is not this row's scene. The bonded row now reads UNREALIZED in L0-L2 and BLOCKED in L3,
+     because one constitutive law is missing. V4 stays unanswered.
+  2. WITHDRAWN: the three PRED cells of the severed row. V1-V3 are falsified (erratum E2); the
+     cells now read measured values at a declared pitch.
+  3. ADDED: the pitch axis. One row, three verdict vectors.
+  4. UNCHANGED: the row typing, the L3 column, the rung axis, every threshold. The 224 -> 26
+     compression is recounted, not re-derived by assertion.
+
+  The grid now says a narrower thing than v2 did, and a true one: the severed row PASSES L0 and
+  L2 at every pitch the grid can hold, PASSES L1 only when the lattice is coarse (p >= 19.3 cells),
+  and FAILS L3 at every rung because q = 0 is exact. No row passes four columns -- the "only row
+  that passes everything" was an artefact of borrowing, and it is gone.
+
+PROVENANCE: NEITHER  (re-presentation of measured products; establishes no physics)
+registration to this run : 34.7 s later  -> declared BEFORE evaluation

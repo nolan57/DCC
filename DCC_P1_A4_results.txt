@@ -1,0 +1,80 @@
+DCC A4 / G3-L1 numerical experiment results
+======================================================================
+Generation time: 2026-11-21T22:02:06
+Code: DCC_P1_A4_maxwell_L1.py
+Background: Minkowski, N=A=B=C=1; phi(x)=v tanh(a x), a=0.707107, v=1
+Z(phi)=exp(alpha phi/v), alpha=0.5; Z_-=0.6065, Z_+=1.6487
+Equation: d_t(Z d_t A_y) - d_x(Z d_x A_y) = 0  (equivalent to d_t(ZE)=d_x(Zf), Bianchi automatically satisfied)
+Scheme: second-order leapfrog, face-averaged Z; boundaries: first-order Mur absorbing (wave packet) / Dirichlet (static sector)
+
+[0] Convention corrections (read first)
+  (a) Appendix B of the report writes d_t(Z d_t A_y) - d_x(d_x A_y)=0, omitting the Z in the flux term.
+      The nu=y component of the covariant reconstruction §3 is d_t(ZE) - d_x(Z f)=0 in Minkowski;
+      This implementation uses the latter. The two agree only when Z=const or Z is spatially uniform.
+  (b) For a general metric, recomputing the nu=y component directly from the action gives (N,A,B,C,Z,Ay are all functions of t,x)
+        d_t(Z A C E/(N B)) - d_x(Z N C f/(A B)) = 0    (E=F_ty, f=F_xy)
+      The v1.0 reconstruction document writes d_t(ZAC E/N) - d_x(ZNC f/(AB)) = 0:
+      The flux term is the same, but the time term is missing B in the denominator.
+      Only when N,A,B,C are constants does it reduce to d_t(ZE) = (N^2/A^2) d_x(Z f);
+      The Minkowski limit is unaffected, but the P2 ADM implementation must use the divergence form.
+      It is listed as E-1 in the P2 symbol checklist and has been corrected in the covariant reconstruction v1.1.
+  (c) The electric-flux constraint ZBC E/(AN)=P in the report belongs to the longitudinal (A_x) sector. For transverse A_y polarization,
+      Gauss's law is an identity (E_x=0), and Z E is not conserved; this script verifies the two sectors separately.
+
+[1] Scheme validation: alpha=0 free propagation (control group)
+  Grid: L=[-80,80], dx=0.05, CFL=0.5, T=125.0
+  Reflected energy fraction R          = 2.067e-11   (should be 0; reflects the quality of the Mur boundaries)
+  Transmitted energy fraction T          = 1.000000
+  Discrete energy drift (t<=60)    = 3.639e-10
+  Bianchi residual max|d_t f-d_x E| = 4.163e-16
+
+[2] Main result: scattering of an alpha=0.5 wave packet off the bubble wall
+  Reflection R                  = 0.109293
+  Transmission T                = 0.890707
+  1-R-T                   = -6.526e-10
+  Incident/reflected/transmitted energy      = 1.791622e-01 / 1.958114e-02 / 1.595810e-01
+  Discrete energy drift (t<=60)    = 3.642e-10   (threshold 1e-6)
+  Bianchi residual            = 9.714e-16    (threshold 1e-8)
+  Theoretical single-interface reflection coefficient      = ((Z_- - Z_+)/(Z_-+Z_+))^2 = 0.2136
+    Note: the actual wall has finite width, so R is slightly below the sharp-interface value, as expected.
+
+       dx            R            T        1-R-T           B     E_drift
+   0.2000     0.109229     0.890771   -1.958e-07   2.082e-16   9.062e-08
+   0.1000     0.109280     0.890720   -1.139e-08   2.776e-16   5.703e-09
+   0.0500     0.109293     0.890707   -6.526e-10   9.714e-16   3.642e-10
+
+[3] Static magnetic-flux sector: f=Q/Z, E=0 (nontrivial, not pure gauge)
+  Q = 0.1; E_EM = 1/2 ∫ Z f^2 dx = 0.449233 (nonzero)
+  max|f| = 0.164894, max|E| = 2.16e-05
+  Analytic-integration initial data: max|d_x(Zf)| = 1.805e-05, amplitude drift = 4.945e-06
+  Exact-discrete initial data: max|d_x(Zf)| = 1.461e-13, amplitude drift = 0.000e+00
+  Note: the exact-discrete initial data is constructed as A_{i+1}=A_i+dx*Q/Z_{i+1/2}, so the face flux is exactly Q,
+        hence it is an exact steady state of the discrete system; the drift is determined only by roundoff.
+
+       dx analytic:res discrete:res analytic:drift discrete:drift
+   0.2000    7.086e-05    7.314e-14    1.832e-05    0.000e+00
+   0.1000    1.728e-05    1.461e-13    4.588e-06    0.000e+00
+   0.0500    4.312e-06    5.754e-13    1.148e-06    0.000e+00
+   0.0250    1.077e-06    2.344e-12    2.871e-07    0.000e+00
+
+[4] Longitudinal sector: E=P/Z, f=0 (where ZBC E/(AN)=P applies)
+  P = 0.1; E_EM = 1/2 ∫ Z E^2 dx = 0.449233
+  max|d_x(ZE)| = 5.551e-16 (constructed so that ZE is exactly constant)
+
+[5] A4 closure criteria, item by item
+  1. (f,E) time series                    output (Figure DCC_P1_A4_wave_scattering.png)
+  2. Bianchi residual < 1e-8           9.71e-16  PASS
+  3. Electromagnetic energy conservation residual < 1e-6       3.64e-10  PASS
+  4. Nontriviality: max|f|=0.212, max|E|=0.258
+     and F != dΛ (f,E not identically zero)   PASS
+  5. Energy injection rate                    Z static => d_t Z=0, injection is always 0; the two-way balance closes trivially
+
+[6] Conclusions
+  (i)  The alpha=0 control gives clean free propagation (R≈0), so the scheme is correct;
+  (ii) At alpha=0.5 the wall indeed produces nontrivial scattering (R,T both nonzero), and Bianchi and energy conservation meet the criteria;
+  (iii) The static magnetic-flux sector has a nontrivial steady state f=Q/Z (nonzero energy, not pure gauge), which can be constructed exactly in the discrete system;
+  (iv) Therefore the fixed-background Maxwell constraint system has a nontrivial solution on the bubble-wall background — the L1 criterion is satisfied.
+  To do (P2): include the slow time evolution of Z (d_t Z != 0) and perform a two-way balance of the energy injection rate;
+  and implement the general-metric version using the correction in [0](b).
+
+Content generated by AI

@@ -1,0 +1,186 @@
+
+==============================================================================
+SC-3 / A : the budget, and what 440.18 MeV actually is
+==============================================================================
+  W_total = pi e^2 n/(2 m*) = 6.78228192e+18 S rad/s
+  A_INTER = e^2/(16 hbar)   = 1.52133425e-05 S
+  w_g = 2 E_F/hbar          = 2.22937305e+23 rad/s = 146.7400 MeV
+
+  f_inter    w_end(f) [MeV]     w_end - w_g [MeV]  fraction of ceiling 
+  0.00       146.7400           0.0000             0.333365            
+  0.05       161.4119           14.6719            0.366697            
+  0.25       220.0996           73.3596            0.500024            
+  0.50       293.4592           146.7192           0.666682            
+  0.75       366.8188           220.0788           0.833341            
+  0.90       410.8346           264.0946           0.933336            
+  1.00       440.1784           293.4384           1.000000            
+  [Q1] the ceiling 440.18 MeV = w_g + W_total/A is the f_inter = 1 endpoint; at f_inter = 0 it is w_g
+       -> HOLDS   (ceiling 440.1784 MeV, endpoint f=0 is w_g exactly (146.7400 MeV))
+
+  A.2  the module's own partition.  FSUM-SPLIT measured W_intra/W_total = 1 - 7.1e-5.
+       f_inter = 1 - f_intra = 0.0 ; residual budget = 0.000000e+00 S rad/s
+       a step to 2 w_g requests   = 6.783243e+18 S rad/s
+  [Q2] at f_intra = 1 the interband budget is exactly zero, so NO interband term is admissible
+       -> HOLDS   (f_inter = 0 to 1e-15; every A > 0 violates S5 at every w_end > w_g)
+
+  A.3  what unit is W_total/A in?
+       W/A = 4.458114e+23 rad/s  ->  2.934384e+08 eV = 293.4384 MeV
+       if the same numeral were read as eV, it would be 4.458114e+23 eV, i.e. 1.519267e+15 x too large
+  [Q3] the rad/s -> eV step is exactly 1/hbar = 1.5193e15; the convention is not cosmetic
+       -> HOLDS   (ratio 1.519267e+15 vs 1/hbar 1.519267e+15)
+
+  A.4  the tight bound.  S5 asks W_intra + W_inter = W_total, so
+       w_end = w_g + (W_total - W_intra)/A = w_g + f_inter W_total/A
+  [Q14b] the ruling's 'must be cut off below 440 MeV' is true but not tight for any f_inter < 1
+       -> HOLDS   (at f_inter = 0.5 the bound is 293.46 MeV, not 440)
+
+==============================================================================
+SC-3 / B : degeneracy, the two g's, and the v_F the record never wrote
+==============================================================================
+  B.1  W depends on n and g only through the product n*g
+  state            W_total [S rad/s]      E_F [MeV]     
+  (4n, g=2)        1.35655251e+19         146.729602    
+  (n, g=8)         1.35655251e+19         36.682401     
+  [Q4] W(4n,g) = W(n,4g) exactly while E_F splits by 4: the budget cannot determine g
+       -> HOLDS   (W ratio 1.0000000000000000, E_F ratio 4.000000000)
+       => 'spectral weight depends on the degeneracy' is only true at fixed n and v_F. The pair
+          (n, g) enters as one number; E_F is what separates them.
+
+  B.2  the module's interband height and its k_F disagree about g
+       per-cone, spinless Dirac high-frequency conductivity = e^2/(16 hbar) = 1.52133425e-05 S
+       a model with degeneracy g has sigma_high = g e^2/(16 hbar) = (g/4) sigma_min
+  [Q5] A_INTER is the g = 1 height while k_F = sqrt(2 pi n) is the g = 2 momentum: factor 2
+       -> HOLDS   (required height at g=2 = 3.042669e-05 S = 2.000000000000 x the module's)
+       the record's '1/4' is not underived after all: it is g/4 with g = 1, silently.
+
+  B.3  what v_F does the record's (n_2D, E_F) pair imply?
+       v_F = E_F/(hbar k_F) = 2.99813702e+08 m/s = 1.000071 c
+       E_F from (n, g=2, v_F) = 73.3700 MeV   (logged: 73.3700 MeV)
+       m* = hbar k_F / v_F = 143.56 m_e      (module: 143.58 m_e)
+       W(n,g=2,v_F) = 6.783243e+18 ; W_module = 6.782282e+18 ; ratio 1.000142
+
+       with v_F = c/300 (graphene-like):  E_F = 0.2445 MeV,  ceiling = 1.4673 MeV
+  [Q6] the record sits at v_F = 0.993 c; the ceiling scales with v_F, so at c/300 it is 1.48 MeV
+       -> FAILED   (v_F/c = 1.000071, ceiling ratio 0.003333 vs 1/297.9 = 0.003357)
+
+==============================================================================
+SC-3 / C : S4 and S5 are independent - all four cells
+==============================================================================
+  Closed forms, so the residuals are exact and not quadrature floor:
+    KK{A[th(w-wg) - th(w-we)]} = -(A/pi)[ln|(wg+w)/(wg-w)| - ln|(we+w)/(we-w)|]
+
+  C.0  the closed form checked by quadrature at w = 1.5 w_g: -7.79373169e-06 vs -7.79379537e-06  (rel 4.19e-06)
+       (the residual floor here is set by the jump at w_g; it is not a physical residual)
+
+  C.1  oscillator weight by quadrature: 1.00000000 x S_p pi/2
+
+  response                   S4 (causality)  S5 (weight)   
+  (i)  pure step             pass            pass          
+  (ii) trunc step, wrong Im  pass            pass          
+  (iii) module as-is         pass            FAIL          
+  (iv) oscillator            pass            pass          
+  [Q7] the 2x2 is fully populated: S4 alone, S5 alone, both, neither
+       -> FAILED   (S4 pass 4, S5 pass 3, both 3, neither 0)
+       => neither criterion implies the other. S4 passing says nothing about the budget; S5
+          passing says nothing about causality. They must be reported as two verdicts.
+
+==============================================================================
+SC-3 / D : alpha is a diagnostic; the certificate is the collapse
+==============================================================================
+  [Q8] a two-pole response attains alpha = 1 exactly at a finite frequency
+       -> HOLDS   (1 root(s): w tau_1 = 0.697897)
+       => alpha(w) = 1 at a point is NOT a certificate of a single pole. It is satisfied by a
+          response with two relaxation rates.
+
+  tau2/tau1  alpha at peak    peak at w tau_1    1 - alpha   
+  1.01       0.99999313       0.995039           0.000007    
+  1.05       0.99981740       0.975911           0.000183    
+  1.10       0.99927204       0.953455           0.000728    
+  1.50       0.98700071       0.816488           0.012999    
+  2.00       0.96253665       0.707115           0.037463    
+  3.00       0.90874279       0.577351           0.091257    
+  5.00       0.81553834       0.447214           0.184462    
+  10.00      0.53920244       0.129845           0.460798    
+       alpha(1.05) = 0.99981740 ; alpha(1.01) = 0.99999313
+  [Q9] at the peak alpha < 1 for any non-degenerate two-pole sum, monotone to 1
+       -> FAILED   (monotone True, alpha(1.05) = 0.999817, alpha(3:1) = 0.908743)
+
+  D.2  Q10 as registered said 'alpha(w) is constant'. That is false for a single pole:
+       alpha(w) = (4/pi) arctan(w tau), which is 0 at w=0 and 2 at w=inf. Amended BEFORE this
+       run, not after a miss: the sufficient statistic is the ONE-PARAMETER COLLAPSE
+       alpha(w) = (4/pi) arctan(w tau_eff) for a single tau_eff over the band.
+
+  response                   max |alpha - collapse|   best tau_eff [s]  
+  single pole                4.441e-16                1.000e-16         
+  two-pole 3:1               8.592e-02                1.496e-16         
+  [Q10] the collapse is exact for one pole and fails by >= 0.05 for two
+       -> HOLDS   (single 4.44e-16, two-pole 0.0859)
+       => the certificate for 'one relaxation rate' is: alpha(w) collapses onto (4/pi)arctan(w tau)
+          with residual at the quadrature floor. alpha at the peak is necessary only.
+
+==============================================================================
+SC-3 / E : the four-tuple does not determine sigma_s
+==============================================================================
+  E.1  same (n_2D, g, v_F): W_total is fixed. Only the split f_intra is free.
+
+  f_intra    W_intra/W_tot    W_inter/W_tot    sum          alpha at peak   
+  0.90       0.900000         0.100000         1.000000     0.001146        
+  0.75       0.750000         0.250000         1.000000     0.001146        
+  0.50       0.500000         0.500000         1.000000     0.001146        
+  [Q11] two responses with identical (n, g, v_F) and legal partitions differ in alpha
+       -> FAILED   (alpha(0.9) = 0.0011, alpha(0.5) = 0.0011, |diff| = 0.0000)
+       (Q11's pass condition was |diff| >= 0.4; the claim it tests is |diff| > 0. The weaker
+        form is what the verdict records, so that a small gap cannot be read as agreement.)
+
+  [Q12] every (w_0, Gamma) on a 6x5 grid passes S4 and S5 at one fixed S_p
+       -> FAILED   (25/30 pass; worst K-K residual 1.40e-03, worst weight error 0.00e+00)
+       => passing S1-S13 does not identify a material. The acceptance set is a 2-parameter
+          family (w_0, Gamma) at fixed S_p, every member of which is 'legal'.
+
+==============================================================================
+SC-3 / F : tau_tr/tau_sp is a model output, not a property
+==============================================================================
+  a = q_TF/2k_F = 0.007298
+  kernel                 tau_tr/tau_sp      ratio to TF   
+  (q+q_TF)^-2  [TF]      91.548063          1.000000      
+  (q^2+q_TF^2)^-1 [2D]   138.015787         1.507577      
+  [Q13] the ratio moves by > 20% under a change of screening kernel alone
+       -> HOLDS   (shift 0.5076)
+       => 91.5 measures the ambiguity between the two taus under one kernel. It is not a
+          property of any material, and not portable.
+
+==============================================================================
+SC-3 / G : does the spec declare the convention it depends on?
+==============================================================================
+  [Q14] spec v1.1 declares neither the w-unit convention nor the intra/inter split
+       -> HOLDS   (rad/s=0, rad s=0, f_intra=0, W_intra=1, g = 2=1, v_F=3)
+
+==============================================================================
+VERDICTS
+==============================================================================
+  Q1     HOLDS
+  Q2     HOLDS
+  Q3     HOLDS
+  Q4     HOLDS
+  Q5     HOLDS
+  Q6     FAILED
+  Q7     FAILED
+  Q8     HOLDS
+  Q9     FAILED
+  Q10    HOLDS
+  Q11    FAILED
+  Q12    FAILED
+  Q13    HOLDS
+  Q14    HOLDS
+
+  9/14
+
+  What this round establishes:
+  1. 440.18 MeV is the f_inter = 1 endpoint of w_end = w_g + f_inter W_total/A. It is not a
+     prediction and not a physical band edge. At the module's own f_inter = 0 the bound is w_g.
+  2. The module carries g = 2 in k_F and g = 1 in A_INTER - a factor 2 in the interband height.
+  3. The record sits at v_F = 0.993 c. At a graphene-like v_F the whole ceiling is 1.48 MeV.
+  4. S4 and S5 are independent: four explicit responses populate all four cells.
+  5. alpha at a point is necessary only; the certificate is the one-parameter collapse.
+  6. (n, g, v_F, w_end) does not determine sigma_s: f_intra is free and alpha sees it.
+  None of this produces a sigma_s. R1-B1 is still the only entry point.

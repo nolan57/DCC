@@ -1,0 +1,94 @@
+========================================================================================
+R1-A3: dimer + small-lattice instability thresholds (v1.4 s8.2 R1-A3, screening grade)
+========================================================================================
+registered model: 1D Morse V(r)=D[exp(-2a(r-r0))-2exp(-a(r-r0))], D=5 eV, a=2 1/A, r0=1.4 A
+  dimer mu=7 amu; chain m=14 amu; sites pinned at d=B*r0 (upper-bound stiffness scenario)
+  dimer spectrum: registered mapping V->V(B r); bond survival: V(d), V''(d), V(d)>=0
+registered thresholds: T1/T1b |dE|/|E| < 1e-03; T2/T2b bisection vs closed form < 1e-04;
+  T3 min omega^2(q>0, B=1) > 0; AUX |N_fd - N_exact| <= 5 (grid-limited near-threshold)
+validity window (N8): B >= B_ion = 2.4e-09; nominal compression window B in [B_ion, 1]
+FD grid step h = 5.00e-04 A; spectrum via symmetric tridiagonal bisection eigensolver
+
+[dimer + lattice scan table]
+   B     d[A]     V(d)[eV]   V''[eV/A^2]   E0[eV]       E1[eV]       dE_min[eV]  N_ex N_fd  w_max[rad/s]     h*w_max[eV]
+  0.30   0.4200     181.0090     3748.0625    -4.976844    -4.930693     0.046151   216   214    3.214401e+15      2.115757
+  0.40   0.5600      90.2904     2088.5130    -4.969137    -4.907698     0.061439   162   161    2.399469e+15      1.579359
+  0.50   0.7000      41.6712     1153.3637    -4.961436    -4.884757     0.076679   129   128    1.783117e+15      1.173669
+  0.60   0.8400      16.3181      628.8723    -4.953742    -4.861870     0.091871   108   107    1.316673e+15      0.866650
+  0.70   0.9800       3.6641      336.5898    -4.946053    -4.839037     0.107016    92    92    9.632679e+14      0.634034
+  0.80   1.1200      -2.1825      175.1614    -4.938370    -4.816257     0.122113    81    80    6.948897e+14      0.457385
+  0.90   1.2600      -4.4779       87.1286    -4.930693    -4.793531     0.137162    72    71    4.900913e+14      0.322584
+  1.00   1.4000      -5.0000       40.0000    -4.923022    -4.770859     0.152163    65    64    3.320677e+14      0.218571
+  1.05   1.4700      -4.9147       25.6884    -4.919189    -4.759543     0.159646    62    61    2.661123e+14      0.175158
+  1.10   1.5400      -4.7018       15.4654    -4.915358    -4.748241     0.167117    59    58    2.064795e+14      0.135907
+  1.15   1.6100      -4.4119        8.2550    -4.911527    -4.736952     0.174575    56    56    1.508531e+14      0.099293
+  1.20   1.6800      -4.0807        3.2540    -4.907699    -4.725676     0.182022    54    53    9.471239e+13      0.062341
+continuum threshold E_c = 0.000000 eV for all B (M6: V -> 0 as r -> inf)
+
+[phonon spectrum summary at B=1: omega^2(q) = (2/m) V''(r0) (1 - cos(q a)), a = 1.4 A]
+  q*a = pi/6  : omega = 8.594544e+13 rad/s (hbar*omega = 0.056570 eV)
+  q*a = pi/4  : omega = 1.270768e+14 rad/s (hbar*omega = 0.083643 eV)
+  q*a = pi/3  : omega = 1.660338e+14 rad/s (hbar*omega = 0.109285 eV)
+  q*a = pi/2  : omega = 2.348073e+14 rad/s (hbar*omega = 0.154553 eV)
+  q*a = pi    : omega = 3.320677e+14 rad/s (hbar*omega = 0.218571 eV)
+  omega_max(q=pi/a) = 3.320677e+14 rad/s (hbar*omega_max = 0.218571 eV)
+  sound speed c_s = a*sqrt(V''(r0)/m) = 2.324474e+04 m/s
+  min omega^2 over q>0 grid = 1.700477e+24 rad^2/s^2
+
+[instability thresholds]
+  curvature criterion  V''(d) < 0  <=>  d > r0 + ln2/a  <=>  B > 1 + ln2/(a r0):
+    numerical (bisection) B_curv = 1.24755256
+    analytic  (r0+ln2/a)/r0      = 1.24755256   |dev| = 2.633e-13
+  dissociation criterion V(d) >= 0  <=>  d <= r0 - ln2/a  <=>  B <= (r0-ln2/a)/r0:
+    numerical (bisection) B_diss = 0.75244744
+    analytic  (r0-ln2/a)/r0      = 0.75244744   |dev| = 1.004e-13  (value quoted on the spec line)
+  spec-line sign note: the spec line derives V''<0 at alpha*(r-r0) > ln2 (tension side)
+    but substitutes (r0-ln2/a)/r0 (compression side). Both thresholds are computed here:
+    curvature instability at B = 1.247553 (tension), dissociation at B = 0.752447 (compression).
+  within the registered scan window B in [0.3, 1.2]: omega^2(q) > 0 for all B and q>0;
+    no imaginary frequency in window (first curvature instability at B = 1.247553).
+
+[dimer analytic check]
+  exact Morse levels: E_n(B) = -D + B*c1*(n+1/2) - (B*c1)^2*(n+1/2)^2/(4D)
+  (harmonic spacing term = registered formula hbar*alpha*sqrt(2D/mu)*(n+1/2))
+  c1 = 0.154553 eV ; lambda(B=1) = 2D/c1 = 64.7027 ; exact count N(B) = ceil(lambda(B)-1/2)
+  T1  B=1, lowest 10 levels: max |dE|/|E| = 1.197e-05   (threshold 1.0e-03)
+  T1b all-B E0/E1 (12 B values): max rel dev = 4.551e-07   (threshold 1.0e-03)
+  AUX FD bound count vs exact count: max |diff| = 2   (tolerance 5, grid-limited
+      near-threshold states; exact Morse count is the registered primary)
+
+[s8.4 classification - computed output, no preset]
+  B in [0.300000, 0.752447): V(d) > 0 at the pinned spacing -> pair energy at/above the
+      dissociation continuum -> class C (bound-state instability / structure destruction)
+  B in [0.752447, 1.000]: omega^2 > 0 (all q>0), V(d) < 0, discrete bound spectrum exists.
+      excitation-spectrum data for A/B: dE_min = 0.1522 eV (B=1) down to 0.1149 eV (B=0.7524);
+      registered probe scale E_probe = 9.43 eV (G0 v_probe = 42.47 km/s per nucleon);
+      E_probe/dE_min >= 82 across the window -> excitations accessible -> computed
+      label B (non-adiabatic but still bound); adiabatic-protocol confirmation -> R1-A2
+  B in (1.000, 1.200]: omega^2 > 0 still; curvature instability first at B = 1.247553
+      (outside the window) -> tension-side reference only, outside nominal B <= 1
+  B-window annotation: scanned B in [0.3, 1.2] >> B_ion = 2.4e-09 -> inside N8 window
+
+[findings]
+  F-R1A3-1: spec-line threshold correction (registered): V''(d) < 0 holds on the TENSION
+    side (alpha*(d-r0) > ln2, i.e. B > 1+ln2/(a r0) = 1.247553); the spec-line value
+    (r0-ln2/a)/r0 = 0.752447 is exactly the dissociation criterion V(d) = 0 at the pinned
+    spacing (confirmed numerically, T2b). Compression-side structure destruction is ruled
+    by dissociation (class C), not by imaginary phonons; in [0.3, 1.2] phonons are real.
+  F-R1A3-2: under the registered mapping V->V(B r), compression softens the dimer
+    (curvature B^2*V''(r0); gap dE_min = B*c1*(1-B*c1/(2D)) decreases with B) while the
+    pinned-spacing energy V(d) rises and hits the continuum at B = 0.752447: geometric
+    compression destroys the bond by dissociation while the mapped excitation gap closes.
+  F-R1A3-3: B>1 rows are tension-side reference (outside nominal window B<=1); the chain
+    would lose curvature stability only at B = 1.247553 (stretch beyond the Morse inflection).
+
+[verdicts]
+  T1 dimer B=1 lowest-10 FD vs exact Morse, max|dE|/|E| < 1e-03            : 1.197e-05  PASS
+  T1b dimer E0/E1 all-B FD vs exact Morse, max rel dev < 1e-03             : 4.551e-07  PASS
+  T2 curvature threshold vs (r0+ln2/a)/r0, |dev| < 1e-04                   : 2.633e-13  PASS
+  T2b dissociation threshold vs (r0-ln2/a)/r0 (spec value), |dev| < 1e-04  : 1.004e-13  PASS
+  T3 phonon spectrum B=1 all real: min omega^2(q>0) > 0                    : 1.700e+24  PASS
+  AUX FD bound count vs exact Morse count, max|diff| <= 5 (grid-limited)   : 2          PASS
+
+R1-A3 OVERALL: PASS
+evidence level: MODEL RESULT (registered Morse dimer/chain model; assumptions M1-M6 above)

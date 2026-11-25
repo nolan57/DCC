@@ -1,0 +1,15 @@
+======================================================================
+Two-dimensional degenerate electron gas sheet conductivity sigma_s(omega): frozen state vs neutronized state (analytic Drude + Pauli blocking)
+======================================================================
+
+[Frozen state Z/A=0.522] E_F=73.37 MeV, n_2D=2.2000e+26 m^-2, k_F=0.3718 fm^-1
+    Visible 2.48eV     |sigma|=1.0628e+01 S  R=0.9996
+    X 4.1keV       |σ|=6.9317e-03 S  R=0.6301
+    X 13.8keV      |σ|=2.0594e-03 S  R=0.1308
+
+[Neutronized state HYB] E_F=21.54 MeV, n_2D=1.9000e+25 m^-2, k_F=0.1092 fm^-1
+    Visible 2.48eV     |sigma|=3.1265e+00 S  R=0.9987
+    X 4.1keV       |σ|=2.0391e-03 S  R=0.1285
+    X 13.8keV      |σ|=6.0582e-04 S  R=0.0129
+
+[Render] -> runs/ANALYSIS/instrument_visualization_v2.png

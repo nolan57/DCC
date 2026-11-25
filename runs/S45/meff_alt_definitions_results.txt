@@ -1,0 +1,109 @@
+
+==============================================================================
+[E1] ME1 as proposed:  Phi(p)=Phi(q) <=> p=q  -- tested on a solid ball and a converted plate
+==============================================================================
+  solid ball: N=200, R=0.40, dz_res=1.000e-02 m
+    occupied columns = 5024 ; columns with >=2 resolved points = 5024
+    mu_ov(ball) = 1.000000
+    converted plate: d_par = 1.540e-14 m << dz_res = 1.000e-02 m -> one resolved point per column
+    mu_ov(plate) = 0.000000
+
+  the proposed condition requires mu_ov = 0 for EVERY (p,q).
+  a solid ball gives mu_ov = 1.0000, i.e. it is violated by the whole object, not at a corner.
+  'excluding topological singularities' is the clause that would have to absorb this --
+  and it absorbs the entire object, which is the conclusion it was meant to establish.
+  criterion mu_ov(ball) in [0.9,1.0] and mu_ov(plate)=0 -> MET
+  => the FORM is wrong, the IDEA is right: one declared parameter (dz_res) separates
+     'no object is a graph' from 'this sheet is a graph at optical resolution'.
+
+==============================================================================
+[E2a] ME3 as proposed:  Delta S_vN <= kappa * A_eff  -- is it C_info under another name?
+==============================================================================
+  project model: dH/A = 1.247902e+22 bit/m^2
+  proposed      : dS_vN/A = 1.247902e+22 bit/m^2
+  relative difference = 0.000e+00
+  with delta_info := kappa*A_eff, the cap  dS_vN <= kappa*A_eff  becomes
+      dH/A <= kappa          -- which is exactly the retired C_info inequality.
+  implied A_crit = kappa/(dH/A) = 8.013450e-11 m^2  (C_info probe Q2 gave 8.013e-11)
+  criterion rel.diff < 1e-15 -> MET
+  => ME3 as proposed REINSTATES the constraint dissolved under ruling D-B, unchanged.
+
+==============================================================================
+[E2b] ME3 in general, for ANY extensive entropy:  what does the cap actually bound?
+==============================================================================
+  for an extensive entropy, dS_vN = s * V_conv  and  A_eff ~ A_perp
+      s * V / A = s * H_eff   ->   the cap reads   s * H_eff <= kappa   ->   H_eff <= kappa/s
+  with s = 3.30e+28 bit/m^3 (1 bit per atom), kappa = 1.0e+12 bit/m^2:
+      H_max = 3.0303e-17 m
+      registered object H = 1.75 m  ->  shortfall 16.8 decades
+  the same cap with kappa scaled to admit 1.75 m would admit EVERY object of that height:
+  it is a bound on thickness, not a statement about information.
+  criterion H_max < 1e-10 m -> MET
+  => same defect class as C_info (D3): a size cut wearing an information label.
+
+==============================================================================
+[E3] ME5 as proposed:  |dM_t/dtau| <= Lambda_max  -- can a rate CAP bound exposure above?
+==============================================================================
+  a rate cap bounds the rate FROM ABOVE, hence the elapsed time FROM BELOW:
+      t_conv >= (change) / Lambda_max  >=  1.000e+03 s   for a full conversion at Lambda_max=1e-03 1/s
+  the sheet's tearing time for L = 0.20 m:
+      t_rip = sqrt(2) L/c = 9.4346e-10 s
+      ratio t_conv_min / t_rip = 1.060e+12
+
+  so this configuration SATISFIES the proposed ME5 by a factor 1e+12
+  while being 1e+12 times too slow to photograph. The constraint is satisfied exactly
+  by the L3-impossible case.
+  criterion ratio > 1e6 -> MET
+  => directionally inverted, like C_top was. The binding statement is an UPPER bound on
+     exposure, tau_exp <= t_rip, which is a time scale and not a rate.
+  (also: |dM_t/dtau| is not defined -- M_t is a manifold; a set has no time derivative.)
+
+==============================================================================
+[E4] ME2 as proposed:  delta S_eff/delta phi = 0 retains a conserved current -- what is it?
+==============================================================================
+  S = int [ 1/2(phi_t^2 - |grad phi|^2) - V(phi) ]
+  delta S/delta phi = Derivative(V(phi(t, x, y, z)), phi(t, x, y, z)) + Derivative(phi(t, x, y, z), (t, 2)) - Derivative(phi(t, x, y, z), (x, 2)) - Derivative(phi(t, x, y, z), (y, 2)) - Derivative(phi(t, x, y, z), (z, 2))
+  this is the Euler-Lagrange equation -- the field equation itself, satisfied by
+  every solution of the theory by definition. As a CONSTRAINT it forbids nothing.
+  it also contains no z-reduction statement: the 2D-reduced EOM differs from this one
+  by the z-average term, which is the only place content could live.
+
+  Conservation needs a symmetry of the ACTION (delta S = 0 under a transformation),
+  not a variation of the FIELD. The proposed implication is a category error:
+  'the EOM holds => a nontrivial conserved current survives' does not follow.
+  criterion: EL residual contains z-derivative terms (it does: 1 of 5) -> MET
+  NOTE the criterion is deliberately weak: the finding is that the condition is the EOM
+  (vacuous as a constraint) AND that it is a statement about the matter sector, which S1
+  assigns to the C domain, not to ME. It cannot live in ME at all.
+
+==============================================================================
+[E5] ME4 as proposed:  dchi/dt = 0 'except at phase transition points'
+==============================================================================
+  (i) chi has already changed at converted fraction phi_conv = 1/N_frag = 8.475e-11
+      so the condition holds on a set of measure ~1e-10 of the branch (probe Q5,
+      chi(2D)=1.18e10 vs chi(3D)=2). This is C_top unchanged.
+
+  (ii) falsifiability. 'Piecewise constant, except at transition points' is satisfiable for
+       ANY chi(t): declare every discontinuity a transition point. Test:
+       adversarial chi(t) with 0-5 jumps at arbitrary times: 1000/1000 accommodate the clause
+  criterion 1000/1000 -> MET (falsifiability = 0)
+  => same defect as v0.1's citation condition 2, rejected in the audit as F8:
+     true by construction and therefore unable to fail.
+
+==============================================================================
+[verdicts]
+==============================================================================
+  E1 ME1 form violated by every closed object    PASS  (mu_ov(ball)=1.0000, mu_ov(plate)=0.0)
+  E2a ME3 is C_info renamed                      PASS  (rel.diff 0.0e+00; A_crit 8.013e-11 m^2)
+  E2b ME3 general form is a height cut           PASS  (H_max 3.030e-17 m (16.8 dec short))
+  E3 ME5 directionally inverted                  PASS  (t_conv_min/t_rip = 1.06e+12)
+  E4 ME2 form is the EOM, not a conservation law PASS  (EL residual carries z-derivatives; no reduction content)
+  E5 ME4 re-falsified and unfalsifiable          PASS  (phi_conv=8.5e-11; 1000/1000 satisfiable)
+
+  OVERALL: PASS
+  PASS here means: each proposed formalisation reproduces a defect already recorded
+  against draft v0.1. It says nothing against the intent behind the five clauses.
+
+PROVENANCE: NEITHER  (review of a definitional submission; establishes no physics)
+
+Content generated by AI

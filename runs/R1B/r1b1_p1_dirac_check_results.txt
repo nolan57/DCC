@@ -1,0 +1,147 @@
+
+==============================================================================
+D1 : FLAT GAMMA MATRICES  ({g^a,g^b} = 2 eta^ab, eta = diag(-1,1,1,1))
+==============================================================================
+  [C1] -> VERIFIED
+  (g0)^2 = -1 : g0 anti-Hermitian in this signature (used in C7).
+
+==============================================================================
+D2 : TETRAD AND CURVED GAMMAS  ({g^mu,g^nu} = 2 g^munu, CONTRAVARIANT)
+==============================================================================
+  co-frame: theta^0=dt, theta^1=dx, theta^2=dy, theta^3=B dz
+  vectors : e_0=dt, e_1=dx, e_2=dy, e_3=(1/B) dz
+  [C2] -> VERIFIED
+
+==============================================================================
+D3 : SPIN CONNECTION FROM THE TETRAD POSTULATE
+==============================================================================
+non-zero omega_mu^a_b :
+  omega^t_z(z) = Derivative(B(t), t)
+  omega^z_t(z) = Derivative(B(t), t)
+  [C3] -> VERIFIED
+
+==============================================================================
+D4 : SPINOR CONNECTION -- FIXED BY nabla_mu gamma^nu = 0
+==============================================================================
+  s = +1 : Omega_z = Matrix([[Derivative(B(t), t)/2, 0, 0, 0], [0, -Derivative(B(t), t)/2, 0, 0], [0, 0, -Derivative(B(t), t)/2, 0], [0, 0, 0, Derivative(B(t), t)/2]])   -> nabla g = 0 (16/16): PASS
+  s = -1 : Omega_z = Matrix([[-Derivative(B(t), t)/2, 0, 0, 0], [0, Derivative(B(t), t)/2, 0, 0], [0, 0, Derivative(B(t), t)/2, 0], [0, 0, 0, -Derivative(B(t), t)/2]])   -> nabla g = 0 (16/16): fail
+  [C4] -> VERIFIED
+  fixed: Omega_t = Omega_x = Omega_y = 0, Omega_z = -(B'/2) g0 g3
+
+==============================================================================
+D5 : DIRAC EQUATION AND HAMILTONIAN  (physical form fixed by mass shell)
+==============================================================================
+  mass-form grid (c_m = +/-1); mass shell checked at the FLAT LIMIT
+  (B=1, B'=0): H_flat^2 = (p^2+m^2) 1 -- on-background H^2 carries the
+  1/B z-weight and B' cross-terms legitimately (they are C6's business).
+    c_m = +1 : flat mass shell PASS, norm master PASS
+    c_m = -1 : flat mass shell PASS, norm master PASS
+  [C5] -> VERIFIED
+  both mass signs pass; they differ only in the mass term (H(+m) - H(-m)
+  = 2 i g0 m): the sign is the conventional particle/antiparticle
+  labeling (chiral rotation of the field), registered as IDENT-level.
+  fixed Hamiltonian (A = 0), c_m = +1 :
+[        d                                                               ]
+[      I*--(B(t))                                                        ]
+[        dt                                                              ]
+[p_z - ----------                                                        ]
+[          2                                                             ]
+[----------------     p_x - I*p_y            -m                 0        ]
+[      B(t)                                                              ]
+[                                                                        ]
+[                           d                                            ]
+[                         I*--(B(t))                                     ]
+[                           dt                                           ]
+[                  -p_z - ----------                                     ]
+[                             2                                          ]
+[  p_x + I*p_y     -----------------          0                 -m       ]
+[                        B(t)                                            ]
+[                                                                        ]
+[                                              d                         ]
+[                                            I*--(B(t))                  ]
+[                                              dt                        ]
+[                                     -p_z - ----------                  ]
+[                                                2                       ]
+[       -m                 0          -----------------    -p_x + I*p_y  ]
+[                                           B(t)                         ]
+[                                                                        ]
+[                                                                d       ]
+[                                                              I*--(B(t))]
+[                                                                dt      ]
+[                                                        p_z - ----------]
+[                                                                  2     ]
+[       0                 -m           I*(I*p_x - p_y)   ----------------]
+[                                                              B(t)      ]
+
+==============================================================================
+D6 : STRUCTURE OF H  (alpha weights, mass matrix, identity term)
+==============================================================================
+  trace(H)/4 (the identity coefficient) = -I*Derivative(B(t), t)/(2*B(t))
+  H - (identity term) =
+[   p_z                                                 ]
+[   ----      p_x - I*p_y        -m              0      ]
+[   B(t)                                                ]
+[                                                       ]
+[                -p_z                                   ]
+[p_x + I*p_y     -----            0              -m     ]
+[                B(t)                                   ]
+[                                                       ]
+[                               -p_z                    ]
+[    -m            0            -----       -p_x + I*p_y]
+[                               B(t)                    ]
+[                                                       ]
+[                                               p_z     ]
+[     0           -m       I*(I*p_x - p_y)      ----    ]
+[                                               B(t)    ]
+  [C6] -> VERIFIED
+  -> H = -(a_x p_x + a_y p_y + (a_z/B) p_z) + i c_m g0 m - (i/2)(B'/B) 1
+     (the overall alpha-sign is fixed by the EOM form, not free; the
+     B'-term is a pure IDENTITY compensating the measure B in the conserved
+     norm int B psi^+ psi d^3x -- cf. FLRW -(3iH/2)1 for 3 dimensions).
+
+==============================================================================
+D7 : NORM / CONTINUITY MASTER IDENTITY
+==============================================================================
+  H^dag - H = I*Derivative(B(t), t)/B(t) * 1  (per the C6 identity term)
+  [C7] -> VERIFIED
+  B' 1 + i B (H^dag - H) = 0 : d/dt int B psi^+ psi d^3x = 0 on solutions.
+  This is the time part of current conservation (the mass and gauge parts
+  are Hermitian and drop out); matter coordinate-energy is NOT conserved --
+  that is B-WORK-TERM, not a violation of local covariance.
+
+==============================================================================
+D8 : LIMITS
+==============================================================================
+  [C8a] -> VERIFIED
+  B = 1 : flat Dirac Hamiltonian recovered (signs per fixed EOM form).
+  [C8b] -> VERIFIED
+  B' = 0 : static anisotropy -- z-kinetics weighted by 1/B, no identity term.
+
+==============================================================================
+D9 : LOCAL U(1) GAUGE COVARIANCE  (convention declared and verified)
+==============================================================================
+  declared: psi' = exp(+i q lam) psi ; A'_mu = A_mu - d_mu lam
+  D_mu = d_mu + Om_mu + i q A_mu.
+  component check: D_mu' psi' = e^{i q lam} D_mu psi, all four mu:
+    the +i q d_mu lam from d_mu(e^{iqlam} psi) cancels -i q d_mu lam from
+    i q A'_mu exactly; Om_mu commutes with the scalar phase (Om_z is a
+    matrix, the phase is a scalar) -- identity exact for mu = t,x,y,z.
+  [C9] -> VERIFIED
+
+==============================================================================
+EVIDENCE CLASSIFICATION
+==============================================================================
+CHECK items: C1, C2, C3, C4 (Omega fixed), C5 (EOM form + mass shell +
+     norm master over the mass-sign grid), C6 (identity coefficient),
+     C7, C8a, C8b, C9 -- all VERIFIED.
+REJECTED by C5 (archived): the (i gamma^mu D_mu +/- m) EOM form -- in this
+     signature it yields H^2 = p^2 - m^2 (unphysical); the physical form is
+     (gamma^mu D_mu + c_m m) psi = 0.
+IDENT items: gamma representation; c = 1; coordinate conventions; the
+     c_m = +/-1 mass-sign labeling (conventional chiral rotation).
+P1-B remainder (registered): component-level nabla_mu T^{mu nu} =
+     F^{nu lam} J_lam for the Dirac field; J^mu and T^mu nu variation
+     formulas cited with all ingredients verified above (nabla, gamma^mu,
+     D_mu, sqrt(-g)); real current j^mu = - psi^+ g0 g^mu psi (j^t = psi^+ psi).
+This checker verifies algebra only -- it simulates no physics and computes
+no material parameter.

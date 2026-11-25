@@ -1,0 +1,27 @@
+==================================================================================
+DCC P3-C1 (v2.6 supplementary checklist 1): Optical Indistinguishability Criterion — Unit Conversion and Inequalities
+==================================================================================
+Criterion: L_z(t) = (C(t)/C0)·L0 <= lambda_obs ~ 500 nm (visible light)
+Background: specified contraction ansatz C=C0*(t/t0)^-0.5 (phenomenological; constraint inherited from P2 report §10)
+Contraction depth already reached in P2 (conservative value for the T=2000 magnetic sector): C/C0 ~ 0.10 (relative transverse C/A~1e-2)
+
+Initial physical thickness L0    Required contraction ratio    Achieved ratio    Required t/t0    Verdict   Conclusion
+Macroscopic 1 m (room scale)                 5.000e-07    0.100          4.000e+12      not reached               further contraction needed
+Macroscopic 1 cm (tabletop object)               5.000e-05    0.100          4.000e+08      not reached               further contraction needed
+1 mm (visible small object)                  5.000e-04    0.100          4.000e+06      not reached               further contraction needed
+1 um (micron-scale structure)                  5.000e-01    0.100          4.000e+00      reached               optically indistinguishable
+500 nm (wavelength-scale initially)               1.000e+00    0.100          1.000e+00      reached               optically indistinguishable
+
+Verdict summary:
+  1. The contraction ratio already reached in P2, C/C0~0.10 (transverse ratio C/A~1e-2), is insufficient for any macroscopic L0
+     to become optically indistinguishable (the required ratio lambda_obs/L0 is far below 0.10).
+  2. Under power-law extrapolation (C∝t^(beta_C), beta_C=-1/2), the required t/t0 = (lambda/L0)^(-2):
+     L0=1m → t/t0~4e15 (infeasible); L0=1um → t/t0~4e3 (attainable in the asymptotic regime).
+     That is: only when the initial "third-dimension thickness" is already micron-scale can the specified contraction background, in finite time,
+     yield an optically indistinguishable third dimension.
+  3. Conclusions (allowed/not allowed statements, corresponding to review checkpoint 2):
+     Allowed: "Under the specified contraction background, the physical length in the Z direction contracts as a power law; for micron-scale initial thickness,
+            optical indistinguishability can be reached in the asymptotic regime."
+     Not allowed: "a macroscopic three-dimensional region has been compressed to optical invisibility" (the depth already reached in P2 differs by more than 7 orders of magnitude).
+  4. If strict D3 (C→0) is achieved, optical indistinguishability for any L0 is attained at finite t —
+     this is the physical meaning of the D3 criterion (constraint inherited from P2 report §10).

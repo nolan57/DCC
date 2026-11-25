@@ -1,0 +1,40 @@
+{
+  "cycle_id": "W1-ROW2-ARTIFACT-01",
+  "locked_utc": "2026-11-25T02:54:43Z",
+  "purpose": "pre-registration: stage B must verify these hashes before rendering",
+  "files": {
+    "scene_card": {
+      "path": "runs/W1-ROW2/row2_scene_card_v1.md",
+      "sha256": "bdeec95c0d11afa1f5d66219871a3b2a453259882bc17f2ef69801d044b86be1"
+    },
+    "manifest": {
+      "path": "runs/W1-ROW2/row2_manifest_v1.json",
+      "sha256": "80a973710d04c0676c56c996c2440ac612a1284cdbdfb95681a4ae486d3b11f4"
+    },
+    "solver_spec": {
+      "path": "runs/W1-ROW2/row2_solver_spec_v1.md",
+      "sha256": "fab9fc6fde512942a2452110c59ce0659d31c96e0073318b13acad5cc887724e"
+    },
+    "prediction": {
+      "path": "runs/W1-ROW2/row2_prediction_v1.json",
+      "sha256": "75b78795b9a86348bcc6b60d683dc9f8b0e366219dea94275b670aefc951b401"
+    },
+    "shared_module": {
+      "path": "src/analysis/w1_row2_common_v1.py",
+      "sha256": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+    },
+    "tiers_core": {
+      "path": "src/analysis/tiers_core_v1.py",
+      "sha256": "5f2ec9f8f2b9902b5e93a1fcae91f9e2f3f26afe12aaa15ec13b8a0317837a6d"
+    },
+    "phantom": {
+      "path": "src/analysis/unfold_appearance_v1.py",
+      "sha256": "933838993be612255ff6e1c5258dea0ba5017d1b149f60a9900a7144cb580208"
+    },
+    "threshold_lock": {
+      "path": "runs/MATRIX/threshold_lock.json",
+      "sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d"
+    }
+  },
+  "rendered_artifacts": []
+}

@@ -1,0 +1,20 @@
+==============================================================================
+DCC P2 — L2: Cddot/C (independent short run, t_end=400)
+==============================================================================
+rtol=1e-11, atol=1e-13, t_end=400.0
+Cddot/C = dH_C/dt + H_C^2
+
+case                          H_C min  t(H_C min)    max|CddC|     CddC@min    D2   D3r    C/A fin    C_H max
+----------------------------------------------------------------------------------------------------
+magnetic-only [shear]     -2.9816e-02      4.6623   2.3470e-01   9.0317e-04  True  True  8.428e-03   3.62e-07
+true-vac [shear]          -2.9707e-02      4.6361   2.3470e-01   8.5468e-04  True  True  8.650e-03   3.75e-07
+baseline [shear]           1.6701e-03    400.0000   4.2750e-01  -3.9607e-06 False False  1.130e+00   3.29e-07
+magnetic-only [iso]       -2.6210e-02      5.5462   2.4767e-01   6.8594e-04  True  True  9.525e-03   3.65e-07
+baseline [iso]             1.6730e-03    400.0000   3.2333e-01  -5.4771e-06 False False  6.943e-01   3.28e-07
+baseline [iso] f=3        -5.6850e-03      0.7095   7.4150e+00   2.0444e-03  True False  1.500e-01   3.31e-07
+----------------------------------------------------------------------------------------------------
+
+How to read:
+* For D2 cases, at the minimum of H_C, Cddot/C>0: C is turning from contraction to expansion;
+* max|Cddot/C| is finite, with no C->0-type acceleration divergence;
+* Strict D3 requires C->0; D3r in this table only means C/A<1e-2, not D3-strict.

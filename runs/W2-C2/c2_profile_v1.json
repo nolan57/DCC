@@ -1,0 +1,565 @@
+{
+  "provenance_tag": "PROVENANCE: NEITHER",
+  "cycle_id": "W2_C2VIOL_01",
+  "map": {
+    "s": 1.01,
+    "detJ": 1.0201
+  },
+  "keyframes": {
+    "t0": {
+      "t": 0.0,
+      "state": {
+        "t": 0.0,
+        "zf": 0.0,
+        "layers": 0.0,
+        "plates": 0.0,
+        "fill": 0.0,
+        "z_decayed": 0.0,
+        "sites": 0.0,
+        "V_swept": 0.0,
+        "V_decayed": 0.0,
+        "V_live": 0.0,
+        "m_swept": 0.0,
+        "m_decayed": 0.0,
+        "m_live": 0.0,
+        "z_frac": 0.0
+      },
+      "base_rows": [
+        {
+          "tier": "T0",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "row2-plate-t0"
+        },
+        {
+          "tier": "T1",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "row2-plate-t0"
+        },
+        {
+          "tier": "T2",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "row2-plate-t0"
+        },
+        {
+          "tier": "T3",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "row2-plate-t0"
+        }
+      ],
+      "base_meta": {
+        "field": "t0",
+        "Q0": null,
+        "xi": null,
+        "Q2": null,
+        "Q3": null,
+        "Q3_reflection": null,
+        "C_xi": null,
+        "sigma_over_du": 0.0,
+        "H_bits": 0.0,
+        "P0": 0.0
+      },
+      "stretch_rows": [
+        {
+          "tier": "T0",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "stretched-plate-t0"
+        },
+        {
+          "tier": "T1",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "stretched-plate-t0"
+        },
+        {
+          "tier": "T2",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "stretched-plate-t0"
+        },
+        {
+          "tier": "T3",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "stretched-plate-t0"
+        }
+      ],
+      "stretch_meta": {
+        "field": "t0",
+        "Q0": null,
+        "xi": null,
+        "Q2": null,
+        "Q3": null,
+        "Q3_reflection": null,
+        "C_xi": null,
+        "sigma_over_du": 0.0,
+        "H_bits": 0.0,
+        "P0": 0.0
+      },
+      "canvas_rows": [
+        {
+          "tier": "T0",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "canvas-t0"
+        },
+        {
+          "tier": "T1",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "canvas-t0"
+        },
+        {
+          "tier": "T2",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "canvas-t0"
+        },
+        {
+          "tier": "T3",
+          "value": null,
+          "verdict": "NOT-APPLICABLE",
+          "status": "NOT-APPLICABLE",
+          "note": "no 2D output before the front arrives",
+          "field": "canvas-t0"
+        }
+      ],
+      "canvas_meta": {
+        "field": "t0",
+        "Q0": null,
+        "xi": null,
+        "Q2": null,
+        "Q3": null,
+        "Q3_reflection": null,
+        "C_xi": null,
+        "sigma_over_du": 0.0,
+        "H_bits": 0.0,
+        "P0": 0.0
+      },
+      "conservation": {
+        "s": 1.01,
+        "detJ": 1.0201,
+        "area_change_fraction": 0.020100000000000007,
+        "mass_in_window": 0.0,
+        "mass_outflow": 0.0,
+        "mass_before": 0.0,
+        "conservation_residual": 0.0,
+        "window_deficit_fraction": 0.0,
+        "boundary_rule": "zero-width registered window; image outside it is booked as OUTFLOW",
+        "interpolation": "area-overlap (box) pushforward, no smoothing kernel"
+      },
+      "sha_base": "fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471",
+      "sha_stretch": "fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471"
+    },
+    "t_mid": {
+      "t": 4.0993412372709514e-09,
+      "state": {
+        "t": 4.0993412372709514e-09,
+        "zf": 0.8689999999999999,
+        "layers": 4041860465.116278,
+        "plates": 5888990697.6744175,
+        "fill": 0.499067008277493,
+        "z_decayed": 0.2330441599988503,
+        "sites": 0.49776606713254656,
+        "V_swept": 0.0255336099999997,
+        "V_decayed": 0.003766107196840295,
+        "V_live": 0.021767502803159405,
+        "m_swept": 25.5336099999997,
+        "m_decayed": 3.7661071968402946,
+        "m_live": 21.767502803159406,
+        "z_frac": 0.49999999999999994
+      },
+      "base_rows": [
+        {
+          "tier": "T0",
+          "value": 0.9979901957626627,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q0 = 1 - P0/P0(null)",
+          "field": "row2-plate-t_mid"
+        },
+        {
+          "tier": "T1",
+          "value": 21.859849469131536,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "xi in cells (h = 1 cell), w(1/e) = 0.3640",
+          "field": "row2-plate-t_mid"
+        },
+        {
+          "tier": "T2",
+          "value": 0.9091213054225902,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q2 renormalised conditional entropy, H = 0.8079 bits",
+          "field": "row2-plate-t_mid"
+        },
+        {
+          "tier": "T3",
+          "value": 7.286998965925603,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000",
+          "field": "row2-plate-t_mid"
+        }
+      ],
+      "base_meta": {
+        "field": "row2-plate-t_mid",
+        "Q0": 0.9979901957626627,
+        "xi": 21.859849469131536,
+        "Q2": 0.9091213054225902,
+        "Q3": 7.286998965925603,
+        "Q3_reflection": 0.0,
+        "C_xi": 1.5517275337552334,
+        "sigma_over_du": 0.2635741210923556,
+        "H_bits": 0.8078526585714443,
+        "P0": 0.00011335100446428572
+      },
+      "stretch_rows": [
+        {
+          "tier": "T0",
+          "value": 0.9979901957626627,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q0 = 1 - P0/P0(null)",
+          "field": "stretched-plate-t_mid"
+        },
+        {
+          "tier": "T1",
+          "value": 22.23915395634996,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "xi in cells (h = 1 cell), w(1/e) = 0.3475",
+          "field": "stretched-plate-t_mid"
+        },
+        {
+          "tier": "T2",
+          "value": 0.8946713436083878,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q2 renormalised conditional entropy, H = 1.0455 bits",
+          "field": "stretched-plate-t_mid"
+        },
+        {
+          "tier": "T3",
+          "value": 7.269355164704279,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "q = 1.0 (declared instrument); C_xi = 1.532744; q = 0 channel gives Q3 = 0.000",
+          "field": "stretched-plate-t_mid"
+        }
+      ],
+      "stretch_meta": {
+        "field": "stretched-plate-t_mid",
+        "Q0": 0.9979901957626627,
+        "xi": 22.23915395634996,
+        "Q2": 0.8946713436083878,
+        "Q3": 7.269355164704279,
+        "Q3_reflection": 0.0,
+        "C_xi": 1.532744311423039,
+        "sigma_over_du": 0.2635390798936792,
+        "H_bits": 1.0454901599323934,
+        "P0": 0.00011335100446428572
+      },
+      "canvas_rows": [
+        {
+          "tier": "T0",
+          "value": 0.9989177977183569,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q0 = 1 - P0/P0(null)",
+          "field": "canvas-t_mid"
+        },
+        {
+          "tier": "T1",
+          "value": 39.57001857995575,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "xi in cells (h = 1 cell), w(1/e) = 0.3627",
+          "field": "canvas-t_mid"
+        },
+        {
+          "tier": "T2",
+          "value": 0.7800023873398491,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q2 renormalised conditional entropy, H = 3.5752 bits",
+          "field": "canvas-t_mid"
+        },
+        {
+          "tier": "T3",
+          "value": 5.922201882253885,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "q = 1.0 (declared instrument); C_xi = 0.596402; q = 0 channel gives Q3 = 0.000",
+          "field": "canvas-t_mid"
+        }
+      ],
+      "canvas_meta": {
+        "field": "canvas-t_mid",
+        "Q0": 0.9989177977183569,
+        "xi": 39.57001857995575,
+        "Q2": 0.7800023873398491,
+        "Q3": 5.922201882253885,
+        "Q3_reflection": 0.0,
+        "C_xi": 0.5964016955313145,
+        "sigma_over_du": 0.3002664333606198,
+        "H_bits": 3.5752361505872936,
+        "P0": 6.103515625e-05
+      },
+      "conservation": {
+        "s": 1.01,
+        "detJ": 1.0201,
+        "area_change_fraction": 0.020100000000000007,
+        "mass_in_window": 1748.9162186855028,
+        "mass_outflow": 0.209402936118995,
+        "mass_before": 1749.1256216216216,
+        "conservation_residual": 1.299927647463268e-16,
+        "window_deficit_fraction": 0.00011971863743260284,
+        "boundary_rule": "zero-width registered window; image outside it is booked as OUTFLOW",
+        "interpolation": "area-overlap (box) pushforward, no smoothing kernel"
+      },
+      "sha_base": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e",
+      "sha_stretch": "1daa58097b8054f9ac157f77c8350bf23a7dadbdac8da81dc99b1af02457439e"
+    },
+    "t_end": {
+      "t": 8.198682474541903e-09,
+      "state": {
+        "t": 8.198682474541903e-09,
+        "zf": 1.7379999999999998,
+        "layers": 8083720930.232556,
+        "plates": 11777981395.348835,
+        "fill": 0.998134016554986,
+        "z_decayed": 1.1020441599988502,
+        "sites": 0.9955321342650931,
+        "V_swept": 0.06111149999999947,
+        "V_decayed": 0.03653303393207151,
+        "V_live": 0.024578466067927962,
+        "m_swept": 61.111499999999474,
+        "m_decayed": 36.53303393207151,
+        "m_live": 24.578466067927963,
+        "z_frac": 0.9999999999999999
+      },
+      "base_rows": [
+        {
+          "tier": "T0",
+          "value": 0.9989177977183569,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q0 = 1 - P0/P0(null)",
+          "field": "row2-plate-t_end"
+        },
+        {
+          "tier": "T1",
+          "value": 19.007244546704474,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "xi in cells (h = 1 cell), w(1/e) = 0.3445",
+          "field": "row2-plate-t_end"
+        },
+        {
+          "tier": "T2",
+          "value": 0.906168874312711,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q2 renormalised conditional entropy, H = 0.5069 bits",
+          "field": "row2-plate-t_end"
+        },
+        {
+          "tier": "T3",
+          "value": 7.562600818573552,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "q = 1.0 (declared instrument); C_xi = 1.880470; q = 0 channel gives Q3 = 0.000",
+          "field": "row2-plate-t_end"
+        }
+      ],
+      "base_meta": {
+        "field": "row2-plate-t_end",
+        "Q0": 0.9989177977183569,
+        "xi": 19.007244546704474,
+        "Q2": 0.906168874312711,
+        "Q3": 7.562600818573552,
+        "Q3_reflection": 0.0,
+        "C_xi": 1.8804695721892095,
+        "sigma_over_du": 0.18647319125116543,
+        "H_bits": 0.506868729003564,
+        "P0": 6.103515625e-05
+      },
+      "stretch_rows": [
+        {
+          "tier": "T0",
+          "value": 0.991754649282719,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q0 = 1 - P0/P0(null)",
+          "field": "stretched-plate-t_end"
+        },
+        {
+          "tier": "T1",
+          "value": 20.051827846096554,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "xi in cells (h = 1 cell), w(1/e) = 0.3439",
+          "field": "stretched-plate-t_end"
+        },
+        {
+          "tier": "T2",
+          "value": 0.8879112042027333,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q2 renormalised conditional entropy, H = 0.6618 bits",
+          "field": "stretched-plate-t_end"
+        },
+        {
+          "tier": "T3",
+          "value": 7.542184617163704,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "q = 1.0 (declared instrument); C_xi = 1.853905; q = 0 channel gives Q3 = 0.000",
+          "field": "stretched-plate-t_end"
+        }
+      ],
+      "stretch_meta": {
+        "field": "stretched-plate-t_end",
+        "Q0": 0.991754649282719,
+        "xi": 20.051827846096554,
+        "Q2": 0.8879112042027333,
+        "Q3": 7.542184617163704,
+        "Q3_reflection": 0.0,
+        "C_xi": 1.8539051255566539,
+        "sigma_over_du": 0.18245577357257636,
+        "H_bits": 0.6617869158970796,
+        "P0": 0.00046502976190476166
+      },
+      "canvas_rows": [
+        {
+          "tier": "T0",
+          "value": 0.9981791517166004,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q0 = 1 - P0/P0(null)",
+          "field": "canvas-t_end"
+        },
+        {
+          "tier": "T1",
+          "value": 39.865420204815685,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "xi in cells (h = 1 cell), w(1/e) = 0.3653",
+          "field": "canvas-t_end"
+        },
+        {
+          "tier": "T2",
+          "value": 0.7399364330211023,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "Q2 renormalised conditional entropy, H = 5.0770 bits",
+          "field": "canvas-t_end"
+        },
+        {
+          "tier": "T3",
+          "value": 4.493216806678419,
+          "verdict": "PASS",
+          "status": "MEASURED",
+          "note": "q = 1.0 (declared instrument); C_xi = 0.215213; q = 0 channel gives Q3 = 0.000",
+          "field": "canvas-t_end"
+        }
+      ],
+      "canvas_meta": {
+        "field": "canvas-t_end",
+        "Q0": 0.9981791517166004,
+        "xi": 39.865420204815685,
+        "Q2": 0.7399364330211023,
+        "Q3": 4.493216806678419,
+        "Q3_reflection": 0.0,
+        "C_xi": 0.2152127822468268,
+        "sigma_over_du": 0.24814004371448134,
+        "H_bits": 5.076976133417849,
+        "P0": 0.00010269407242063492
+      },
+      "conservation": {
+        "s": 1.01,
+        "detJ": 1.0201,
+        "area_change_fraction": 0.020100000000000007,
+        "mass_in_window": 954.2442186855023,
+        "mass_outflow": 0.20940293611919708,
+        "mass_before": 954.4536216216216,
+        "conservation_residual": 0.0,
+        "window_deficit_fraction": 0.00021939561166253466,
+        "boundary_rule": "zero-width registered window; image outside it is booked as OUTFLOW",
+        "interpolation": "area-overlap (box) pushforward, no smoothing kernel"
+      },
+      "sha_base": "438e49084161ad063cb9248b43a4ed1e9a0356100e1b0f8931576aa7b763ec38",
+      "sha_stretch": "2a122bc6fbb2b3f9d798bf30722c95c475b5b50daf6c12cd00d7506375951856"
+    }
+  },
+  "t_mid_comparison": {
+    "xi_ratio": 1.017351651380493,
+    "canvas_identical": 1
+  },
+  "effective_2d": {
+    "subsystem": "conduction electrons of the deposited sheet only (declared n_e = 1.0e28 m^-3)",
+    "subsystem_scope_note": "ionic, lattice, collective and non-degenerate modes are NOT assessed; per RESEARCH_PROGRAM_v1 section 4.7 the label must not be extended to them",
+    "model": "Model B surrogate: infinite square well of width L_z = delta, electron mass",
+    "model_status": "SURROGATE -- the registered mechanism supplies no confining potential, so this Delta_E_z is a bound on a declared model, not the system's own level spacing",
+    "L_z_m": 2.15e-10,
+    "Delta_E_z_eV": 24.40433718697257,
+    "Delta_E_z_formula": "3 pi^2 hbar^2 / (2 m_e L_z^2)  (infinite square well, first excitation)",
+    "E_F_eV": 1.6925321878667805,
+    "T_K": 300.0,
+    "E_occ_eV": 1.6925321878667805,
+    "E_occ_source": "max(E_F, k_B T) per effective_2d_definition_v1 section 1",
+    "eps_z": 0.0,
+    "eps_z_definition": "exp(-Delta_E_z / k_B T): Boltzmann occupation of the first z excitation",
+    "probe": "declared optical channel at 2.5 eV, diffraction-limited",
+    "E_probe_eV": 2.5,
+    "probe_wavelength_nm": 495.9367936,
+    "probe_resolution_nm": 247.9683968,
+    "internal_bound": "PASS",
+    "external_excitation": "PASS",
+    "external_resolution": "FAIL",
+    "external_resolution_note": "layer spacing 0.215 nm vs probe point-spread 248.0 nm: the declared optical probe cannot resolve z",
+    "coupling": "NOT-MEASURED (no selection rule or matrix element is registered for this state)",
+    "label": "NOT-MEASURED",
+    "label_rule": "RESEARCH_PROGRAM_v1 section 4.7: NOT-MEASURED when model, subsystem, E_occ, E_probe or eps_z is undeclared",
+    "missing_slot": "model -- no registered Model B/C confining potential for a free-standing atomic layer",
+    "geometric_thinning": "THIN (L_z = 0.215 nm vs body scale 1.7 m)",
+    "visual_flatness": "NOT-ASSESSED (no observer image is rendered in this cycle)",
+    "claim_barred": "the three checks are recorded separately; this record does not license IS_2D, LOOKS_2D, or any readability claim"
+  },
+  "checks": {
+    "S1": 1,
+    "S2": 1,
+    "S3": true,
+    "S4": 1
+  },
+  "verdict": "PASS",
+  "q_reflection": 0.0
+}

@@ -1,0 +1,48 @@
+{
+  "cycle_id": "W2_COUNT_01",
+  "locked_utc": "2026-11-25T23:28:38Z",
+  "purpose": "pre-registration: stage B must verify these hashes before emitting products",
+  "files": {
+    "card": {
+      "path": "runs/W2-COUNT/count_card.md",
+      "sha256": "96a288c8fe73aeca525bff3b64696f9a5c16c828d45d12b07ff43d87de5d8dfb"
+    },
+    "manifest": {
+      "path": "runs/W2-COUNT/count_manifest.json",
+      "sha256": "75b67754184ce5ebc62effa87594b75e0217659ca77be96a37f9d361ff3fec57"
+    },
+    "spec": {
+      "path": "runs/W2-COUNT/count_solver_spec.md",
+      "sha256": "b4ccc5eafbeaadea58b1f8eb50f4321021493bae74eb9a706d0dbb8a4d774b18"
+    },
+    "prediction": {
+      "path": "runs/W2-COUNT/count_prediction.json",
+      "sha256": "8fe2a1817bdb2d3fbfc1b757715a41533acd18b7897b1f52f9dbb7eb300b0aca"
+    },
+    "registration": {
+      "path": "runs/W2-COUNT/count_registration.md",
+      "sha256": "ea9f4affeb26083d3532ac1a01be55dd1592c6b87452e1b5ccff12aed06f4d18"
+    },
+    "shared_module": {
+      "path": "src/analysis/w2_common_v1.py",
+      "sha256": "556e62b1a7699563f288911bccab99a446e1c9a96fa917148e0352a4e7ab2f39"
+    },
+    "scene_module": {
+      "path": "src/analysis/w1_row2_common_v1.py",
+      "sha256": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+    },
+    "front_sweep": {
+      "path": "runs/ANALYSIS/front_sweep_v1.txt",
+      "sha256": "da09efef3f4fb85bdcdcc833df80046fc65dbc2d3e8c4f8e34aa51c479785732"
+    },
+    "w1_manifest": {
+      "path": "runs/W1-ROW2/row2_manifest_v1.json",
+      "sha256": "80a973710d04c0676c56c996c2440ac612a1284cdbdfb95681a4ae486d3b11f4"
+    },
+    "programme": {
+      "path": "docs/program/RESEARCH_PROGRAM_v1.md",
+      "sha256": "f634f8cb07f951617f78a5033fd31c309bc0ab942bf3bb467a836df6c9e6e41d"
+    }
+  },
+  "rendered_artifacts": []
+}

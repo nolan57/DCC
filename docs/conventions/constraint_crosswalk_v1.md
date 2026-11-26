@@ -118,7 +118,9 @@ be settled by choosing a resolution — there is no resolution at which the test
 
 **S6 — constraints are never written in a gate label.** A relaxation commit declares its subject in constraint
 space (`C1`/`C2`/`C3`) or in gate space (`ME1`…`ME5`), and if in gate space it also declares the constraint it
-proxies, or `proxy: none`. Form: `moves: C1 via ME1@Δz_res` / `moves: ME2 (proxy: none — presentational)`.
+proxies, or `proxy: none`. Form (pre-ruling examples): `moves: C1 via ME1@Δz_res` / `moves: ME2 (proxy: none —
+presentational)`. Under the 2026-11-26 `GD1`-B ruling `ME2` is `CM6`, so its relaxation now books as
+`moves: none (observation channel)` under S7, confirming the "presentation" category below by ruling.
 
 **S7 — a proxy relaxation is a constraint relaxation in effect.** Relaxing `ME1` does not change `C1`, but it
 changes what the branch *certifies*, and for branch products certification is the only enforcement `C1` has.
@@ -161,7 +163,7 @@ record contains no `C2` relaxation to order.**
 | `S2` | `D2` discharged | **tightening** | prescribed → solved; rigor increases |
 | `S3` | `C2` (proxy: none) | **presentation** | interlayer texture; buys no physics (§5.2) |
 | `S4` | `C1` via `ME1` | **relaxation** | the only step that trades a constraint for visibility |
-| — | `ME2` (`Δz_tol`) | **presentation** | explicitly fidelity-level-relative (v0.2 ME2) |
+| — | `ME2` → `CM6` (`s_max`) | **presentation** | explicitly fidelity-level-relative (v0.2 ME2); **confirmed by ruling** 2026-11-26 (`gd_rulings_v1.md` §8), not merely asserted by the spec |
 
 **5.4 The order is then forced up to the placement of presentation steps.** Tightenings precede relaxations
 (otherwise a relaxation would be measured against an unrepaired baseline). There is exactly one relaxation, so
@@ -276,6 +278,28 @@ as the independent thickness changes the ratio by `15.4 ×` (`2×10⁴` → `3.0
   three candidate lengths.
 - Evidence: `runs/AX/ax01_axiom_audit_results.txt` `F-001`/`C-005`/`C-016`; repair record
   `runs/RR-DT/rr_dt_01_record_repair_results.txt`.
+
+---
+
+## 9. `ME2` is no longer a gate (governor ruling, 2026-11-26)
+
+`docs/decisions/gd_rulings_v1.md` §8 adopted **Option B** for board note `BN-17`: `ME2` is reclassified out of
+the gate set into the `CM` observation family as **`CM6`**, on the same sentence that moved `ME1` to `CM5` —
+an observation predicate evaluated at a presentation/instrument parameter is not a gate on a physical state.
+`ME2` is a deprecated alias; the number is vacated and must not be refilled.
+
+- **Bridge.** No constraint gains a gate expression. §2's bridge (`C1 ⇒ᵒ CM1`, `C1 ⇒ᵒ CM5`, `C2 ⊥`, `C3 ⊥/⊘`)
+  is unchanged; `CM6` is an additional observation predicate of the `(form, viewer, frame)` triple, not an
+  expression of any constraint. `s_max = Δz_tol/ℓ_samp` is form-conditional by `32/π` (round 55), so it cannot
+  decide `C1` or `C2` on a pair differing only in that constraint.
+- **S6 example.** Read `moves: ME2 (proxy: none — presentational)` in §4 as the pre-ruling form. The live form
+  is `moves: none (observation channel)` under amended S7.
+- **§5 ladder.** The `ME2` row is confirmed as presentation by this ruling. It buys no physics and may not be
+  cited as a constraint relaxation.
+- **Membership.** The live gate set is `ME4 ∧ ME5`, both FROZEN; no observation predicate certifies membership.
+- **No edit to archived products.** `runs/OPTICS/observer_params_results.txt` keeps its numbers and its `ME2`
+  labels as the record of what was computed; under this ruling those labels read as `CM6`. No threshold was
+  registered and no object was certified.
 
 ---
 

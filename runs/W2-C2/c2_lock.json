@@ -1,0 +1,40 @@
+{
+  "cycle_id": "W2_C2",
+  "locked_utc": "2026-11-25T23:15:17Z",
+  "purpose": "pre-registration: stage B must verify these hashes before emitting products",
+  "files": {
+    "card": {
+      "path": "runs/W2-C2/c2_card.md",
+      "sha256": "ca4db4fffe96286d4b0ea645f012053b38dcc0f22f1e79b5bebebc8b96e4b1bf"
+    },
+    "manifest": {
+      "path": "runs/W2-C2/c2_manifest.json",
+      "sha256": "5cd0d444b5d1a35008b0b2712f93bf2af4c871d4f78d34421df149516b6fd6bc"
+    },
+    "spec": {
+      "path": "runs/W2-C2/c2_solver_spec.md",
+      "sha256": "30a31838205fb033a78061f9f76aa35aaa147e244c1802d635a052092b00ce07"
+    },
+    "prediction": {
+      "path": "runs/W2-C2/c2_prediction.json",
+      "sha256": "cf731812f9d415af78600e0242ad7cb2ed5036ba7894831ca799e1e6c421e539"
+    },
+    "registration": {
+      "path": "runs/W2-C2/c2_registration.md",
+      "sha256": "8e97ae97222638053c027c16af78e33414a63f4be98ae19a68d9302649549dbd"
+    },
+    "shared_module": {
+      "path": "src/analysis/w2_common_v1.py",
+      "sha256": "556e62b1a7699563f288911bccab99a446e1c9a96fa917148e0352a4e7ab2f39"
+    },
+    "threshold_lock": {
+      "path": "runs/MATRIX/threshold_lock.json",
+      "sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d"
+    },
+    "scene_module": {
+      "path": "src/analysis/w1_row2_common_v1.py",
+      "sha256": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+    }
+  },
+  "rendered_artifacts": []
+}

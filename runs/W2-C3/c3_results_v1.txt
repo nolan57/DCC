@@ -1,0 +1,59 @@
+========================================================================================
+W2-C3TEST-01 -- C3 CONSUMPTION TEST (HELD VS NEUTRONIZED)
+========================================================================================
+PROVENANCE: NEITHER
+CYCLE: W2-C3TEST-01  (programme section 6.1 item 5)
+TYPE: TECHNICAL closure; held C3 is a counterfactual, not a realizability claim
+LOCK INPUTS: threshold lock 1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d
+LOCK: runs/W2-C3/c3_lock.json
+  status: VERIFIED
+  lock digest d6d38d6b74ad  recorded=d6d38d6b74ad  OK
+    card             df2276fbdb13  OK
+    manifest         29f7b2110159  OK
+    spec             9af619d41eba  OK
+    prediction       b61d3f3ddff1  OK
+    registration     178ff846992d  OK
+    shared_module    556e62b1a769  OK
+    threshold_lock   1224458d58f1  OK
+    conv             3ff3a0979d35  OK
+    scene            a6fbd8e84788  OK
+
+[1] C3 STATE VECTOR AT t_mid
+    held (counterfactual): Y_e=0.522 n_e=0.022004902 fm^-3 E_F=73.372975 MeV (2D kinetic hbar*c*kF (frozen state))
+    NEUTRONIZED_ALL2D: Y_e=0.0043957106 n_e=0.00018530111 fm^-3 mu_e=6.7331055 MeV mu_kin=6.2221055 MeV reduction=118.75213 beta_res=0
+    NEUTRONIZED_ALL3D: Y_e=0.0016197648 n_e=6.8281163e-05 fm^-3 mu_e=24.956566 MeV mu_kin=24.445566 MeV reduction=322.269 beta_res=-3.553e-15
+    NEUTRONIZED_HYB: Y_e=0.045006111 n_e=0.0018972319 fm^-3 mu_e=21.54451 MeV mu_kin=21.03351 MeV reduction=11.598425 beta_res=-3.553e-15
+
+[2] Y_e / n_e / E_F COMPARISON
+    all neutronized branches have lower Y_e and n_e: True
+    mu_kin ratio vs n_e^(2/3) scaling (2D kinetic comparison):
+      NEUTRONIZED_ALL2D: mu_kin/frozen=0.084801053 ; n_e_ratio^(2/3)=0.041390981 ; rel. diff=0.51190486
+      NEUTRONIZED_ALL3D: mu_kin/frozen=0.33316853 ; n_e_ratio^(2/3)=0.021274253 ; rel. diff=0.93614567
+      NEUTRONIZED_HYB: mu_kin/frozen=0.28666563 ; n_e_ratio^(2/3)=0.19516442 ; rel. diff=0.3191914
+    registered 2/3-power scaling within 2% in every convention: False
+    NOTE: the 2/3 power is the prediction fixed in stage A; its failure is recorded,
+    not repaired here. A different exponent would be a new claim requiring a new round.
+
+[3] DOES u CONSUME THE C3 STATE?
+    HELDC3_counterfactual: plate=d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e canvas=1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b
+    NEUTRONIZED_ALL2D: plate=d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e canvas=1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b
+    NEUTRONIZED_ALL3D: plate=d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e canvas=1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b
+    NEUTRONIZED_HYB: plate=d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e canvas=1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b
+    byte identity between held and neutronized branches: True
+    generator graph: ABSENT-FROM-GRAPH ; tokens checked=Y_e, n_e, E_F, sigma_s, TAU_C3, tau_life ; hits={"plate_field": [], "canvas_field": []}
+    verdict: GENERATOR-DOES-NOT-CONSUME
+    byte identity alone is not used as proof; the graph check is required.
+
+[4] OTHER C3 SLOTS (kept separate)
+    sigma_s(omega): NOT-MEASURED -- no compliant sigma_s exists (G6 / DC2)
+    t_life: IMPORTED 3e-09 s (scifi_boundary_v1); not derived by this cycle
+    neutrino luminosity ledger: OUT-OF-SCOPE of the declared closure (section 4.2.6)
+
+[5] PREDICTIONS
+    C1 Y_e / n_e fall            PASS
+    C2 mu_kin / n_e scaling      FAIL
+    C3 u byte identity           PASS
+    C4 generator graph absence   PASS
+    overall: PARTIAL-FALSIFIED
+
+No optical, visibility, effective-2D, or realizability claim follows from this test.

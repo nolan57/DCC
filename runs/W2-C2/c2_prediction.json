@@ -1,0 +1,14 @@
+{
+  "cycle_id": "W2_C2VIOL_01",
+  "utc": "2026-11-25T23:15:17Z",
+  "s": 1.01,
+  "detJ": 1.0201,
+  "predictions": {
+    "S1": "det J = 1.0201 and area change = +2.01% exactly",
+    "S2": "conservation residual on the full (window + outflow) ledger < 1e-12; within-window deficit about 2%",
+    "S3": "plate autocorrelation length xi scales by s within [0.99, 1.03] of the row-2 value",
+    "S4": "T0, T2, T3 verdicts at t_mid remain PASS; canvas profile unchanged"
+  },
+  "row2_tmid_reference": "runs/W1-ROW2/row2_prediction_v1.json (plate xi = 21.85984947 cells)",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

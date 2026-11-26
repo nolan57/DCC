@@ -1,0 +1,44 @@
+{
+  "cycle_id": "W2_C3",
+  "locked_utc": "2026-11-25T23:15:17Z",
+  "purpose": "pre-registration: stage B must verify these hashes before emitting products",
+  "files": {
+    "card": {
+      "path": "runs/W2-C3/c3_card.md",
+      "sha256": "df2276fbdb133483ae2d3eb0276df92c0d05063f154e7887a37ea5a0447dfca0"
+    },
+    "manifest": {
+      "path": "runs/W2-C3/c3_manifest.json",
+      "sha256": "29f7b2110159befffd630ff477b9a6de2705bf6fd7f93ef18ef9d16ae7c5024f"
+    },
+    "spec": {
+      "path": "runs/W2-C3/c3_solver_spec.md",
+      "sha256": "9af619d41eba8b9309248c0bec4820774c0de70bdf8f2001a4bba31b21978c64"
+    },
+    "prediction": {
+      "path": "runs/W2-C3/c3_prediction.json",
+      "sha256": "b61d3f3ddff1b065fb743c32ae33dc94a273434f127b73ddab30bbf68620f0ee"
+    },
+    "registration": {
+      "path": "runs/W2-C3/c3_registration.md",
+      "sha256": "178ff846992d4b614ec6d7a6dcff7a1ba17ed398c4e1952a5291dc0f3160d715"
+    },
+    "shared_module": {
+      "path": "src/analysis/w2_common_v1.py",
+      "sha256": "556e62b1a7699563f288911bccab99a446e1c9a96fa917148e0352a4e7ab2f39"
+    },
+    "threshold_lock": {
+      "path": "runs/MATRIX/threshold_lock.json",
+      "sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d"
+    },
+    "conv": {
+      "path": "src/common/conv.py",
+      "sha256": "3ff3a0979d352016b3c6b7b31e3aa736a7fdc0c966bcb2c297a6a7f626db270d"
+    },
+    "scene": {
+      "path": "src/analysis/w1_row2_common_v1.py",
+      "sha256": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+    }
+  },
+  "rendered_artifacts": []
+}

@@ -1,0 +1,75 @@
+========================================================================================
+W2-COUNT-01 -- M CONTRACT AND COUNT DERIVATION
+========================================================================================
+PROVENANCE: NEITHER
+[0] LOCK
+LOCK: runs/W2-COUNT/count_lock.json
+  status: VERIFIED
+  lock digest 77b9bc725169  recorded=77b9bc725169  OK
+    card             96a288c8fe73  OK
+    manifest         75b67754184c  OK
+    spec             b4ccc5eafbea  OK
+    prediction       8fe2a1817bdb  OK
+    registration     ea9f4affeb26  OK
+    shared_module    556e62b1a769  OK
+    scene_module     a6fbd8e84788  OK
+    front_sweep      da09efef3f4f  OK
+    w1_manifest      80a973710d04  OK
+    programme        f634f8cb07f9  OK
+
+[1] THE MAP M -- five section-2.6 elements (not inferred from appearance)
+    1_history_functional:
+        form: u(t) = M[U(tau), phi(tau); 0 <= tau <= t]
+        markov: NOT PROVED; treated as a history functional per section 2.6
+        extended_state_if_instant: ['deposited field u', 'interface/front state phi', 'per-site layer history']
+        ground: u(t_mid) is built by sweeping the front from tau=0, not from U(t_mid) alone
+    2_domain:
+        reduced_z_interval_at_t: [0.0, 0.8689999999999999]
+        front_parameter: phi(x,y,z,t)=0 is the plane z = v_front*t, normal +z, speed v_front
+        ground: front_sweep_v1 front law; w1_row2_common_v1.state_at
+    3_units_coordinates:
+        z: m, lab frame, +z along front advance
+        u: dimensionless per-site layer-density index; density kg/m^3 for the mass ledger
+        delta: 2.15e-10 m (mechanism property, not a rendering knob)
+    4_single_valued:
+        rule: one deposited value per (x,y) site; where two layers compete the front-most wins
+        tie: equal-front cases take the mean and are counted in the ledger
+        ground: site occupancy is a function, not a multivalued map
+    5_discard_ledger:
+        discards: ['vertical resolution below delta', 'composition detail inside a layer', 'phase', 'momentum']
+        entered_at: section 4.2.3-4.2.4 conservation ledger; mass/volume close by construction
+        outflow: booked, not dropped (w2_common.stretch_pushforward)
+
+[2] COMPONENT TABLE -- runs/ANALYSIS/front_sweep_v1.txt (parsed, not retyped)
+    line  region            z0      z1     components/layer
+      11  calf -> thigh     0.012   0.800      2.00
+      12  pelvis            0.800   0.960      1.00
+      13  abdomen           0.960   1.170      1.00
+      14  chest             1.170   1.380      1.00
+      15  shoulder          1.380   1.470      1.00
+      16  neck              1.470   1.560      1.00
+      17  head              1.560   1.738      1.00
+    7 regions; z-width weights sum to 1 by construction
+
+[3] WEIGHTED DERIVATION OF components/layer
+    weighted mean   = 1.456546929   (registered 1.457, |diff| 0.000453071)
+    weighted sd     = 0.4981082519   (derivation spread, not a physical measurement error)
+
+[4] COUNTS -- recomputed, labelled, with derivation
+    t_mid z_front       = 0.869 m
+    delta               = 2.15e-10 m
+    N_slices(t_mid)     = 4041860465 = z_front/delta   [MODEL COUNT]
+    N_slices(full body)= 8083720930 = H_body/delta     [MODEL COUNT]
+    N_frag(t_mid)       = 5887159449 = N_slices(t_mid) x weighted mean   [MODEL ESTIMATE]
+    N_frag(full body)   = 1.17743189e+10                                        [MODEL ESTIMATE]
+    registered 1.18e10 is the full-body mechanism count; no physical realization is claimed
+
+[5] PREDICTIONS
+    N1 M contract complete (five elements)   PASS
+    N2 weighted mean = 1.457 +/- 0.002        PASS
+    N3 weighted spread nonzero and labelled PASS
+    N4 counts recomputed with derivation    PASS
+    overall: PASS
+
+The fragment count is a MODEL ESTIMATE of the registered component rule; its spread is a derivation
+property of the region table, not an observed uncertainty of a physical phantom.

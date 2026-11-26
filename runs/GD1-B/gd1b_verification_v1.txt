@@ -1,0 +1,639 @@
+========================================================================================
+GD1-B / ME2 -> CM6 -- RULING VERIFICATION (REPORT-ONLY INSTRUMENTS)
+========================================================================================
+PROVENANCE: NEITHER
+Ruling: BN-17, Option B adopted 2026-11-26 by the project governor.
+All commands were run from the repository root. Exit codes are recorded verbatim.
+Embedded "PROVENANCE" lines are omitted so this product has exactly one declaration.
+
+[1] AMENDED AUTHORITY FILES (post-ruling digests)
+    docs/decisions/gd_rulings_v1.md                          a27b116f38ad28f727b4c84411bb754a7a5c4469ec07dccbd02056a7fbffe048
+    docs/specs/meff_boundary_v0_2.md                         8573c6f3154d2d980330c983fc08b71ac8512129f62fae515eb1d7ec7c5c0656
+    docs/conventions/symbol_registry.md                      55bc11c35f88550c0f1bcd5bb16e88ea888082411beec945652889c811696215
+    docs/conventions/constraint_crosswalk_v1.md              e943998008d083ef9137db6db35b9873f9d403546823e86c90a1c163defa885b
+    docs/program/round_queue_v1.json                         faea72e20a44df3599e5851d314b8501d232335e35ed5b4a6e751756ceec353c
+
+[2] LEDGER
+    round 81  GD1-B-ME2  GOVERNANCE-OPTION-B-ADOPTED  (hash chain verified: 0 breaks)
+
+[3] W2 STAGE-A LOCKS (read-only re-verification)
+    W2-DISC VERIFIED / W2-C2 VERIFIED / W2-C3 VERIFIED /
+    W2-XCHECK VERIFIED / W2-RL1 VERIFIED / W2-COUNT VERIFIED
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/program_audit.py --write
+EXIT: 0
+SOURCE SHA256: 7954d5f38e4e3792e3865fb80e2c0cde99f89df5469f56c8bf288af9d104de91  src/common/program_audit.py
+----------------------------------------------------------------------------------------
+==============================================================================
+PROGRAMME AUDIT  (docs/program/COMPLETION_PROTOCOL_v1.md)
+==============================================================================
+  as of round 73  |  queue: docs/program/round_queue_v1.json
+  G-64-01: REPORT-ONLY INSTRUMENT — exit 0 always; findings are facts, never a veto
+
+------------------------------------------------------------------------------
+[CHECK 1] DIGEST INTEGRITY  18 sidecar(s)  (was HARD 1 before G-64-01)
+------------------------------------------------------------------------------
+  UNEXPLAINED  runs/FRONT/demo_lock.json.sha256                   digest mismatch 91098fbe7c68 != 4aaa473d7cf0
+  UNEXPLAINED  runs/MATRIX/locked_path_digest.json.sha256         digest mismatch 97f55cfc2d52 != 4e78227bb8b1
+  UNEXPLAINED  runs/SERIAL/serial_lock.json.sha256                digest mismatch 782a33744108 != 32b1dfbe8809
+  UNEXPLAINED  runs/OPTICS/surface_conductivity_lock.json.sha256  digest mismatch eff7e8b5569a != 9fe1d780c25b
+  DRIFT-OBSERVED 5f324e1513c5 -> 1224458d58f1 [G-64-01 / BN-48] (not a violation: G-64-01)
+
+------------------------------------------------------------------------------
+[CHECK 2] CITATION INTEGRITY  (runs/ paths named in docs/)
+------------------------------------------------------------------------------
+  MISS-ERRATA runs/G0/g0_prime_meta.json                           cited by docs/decisions/G0p_seven_row_verdict_v1.md
+
+------------------------------------------------------------------------------
+[ADVISORY 1] AUTHORITY — decision documents with an unmarked approval block
+------------------------------------------------------------------------------
+  AWAITING-GOVERNOR  docs/decisions/hard_sf_effective_2d_route_proposal_v1.md line(s) 149,150,151
+
+------------------------------------------------------------------------------
+[ADVISORY 2] ORDERING — registration earlier than product (mtime; weak evidence)
+------------------------------------------------------------------------------
+  named registration, earlier : 40
+  fallback (no name match)    : 16
+  ORDER-SUSPECT               : 25   (advisory: a bulk copy produces these too)
+    runs/G0/g0p3_results.txt                             no registration in directory
+    runs/G0/g0p2_results.txt                             no registration in directory
+    runs/R1B/r1b1_p1_closure_check_results.txt           named registration not earlier: r1b1_p1_registration.md
+    runs/R1B/r1b1_p2_eos_scan_results.txt                named registration not earlier: r1b1_p2_registration.md
+    runs/R1B/r1b1_eos_results.txt                        named registration not earlier: r1b1_p1_registration.md, r1b1_p2_registration.md, r1b1_p4_census_registration.md, r1b1_p4_diracbox_registration.md, r1b1_p4_family_surface_registration.md, r1b1_p4_tau_registration.md
+    runs/R1B/r1b1_p1_current_check_results.txt           named registration not earlier: r1b1_p1_registration.md
+    runs/R1B/r1b1_eos_v3_results.txt                     named registration not earlier: r1b1_p1_registration.md, r1b1_p2_registration.md, r1b1_p4_census_registration.md, r1b1_p4_diracbox_registration.md, r1b1_p4_family_surface_registration.md, r1b1_p4_tau_registration.md
+    runs/R1B/r1b1_p1_dirac_check_results.txt             named registration not earlier: r1b1_p1_registration.md
+    runs/LADDER/r2_relief_contrast_results.txt           named registration not earlier: r2_relief_registration.md
+    runs/P1/g1_closeout_results.txt                      named registration not earlier: phase1_symbolic_constraint_registration.md, phase1b_singularity_registration.md, phase1c_repricing_registration.md
+    runs/R1A/r1a1_ptilde_scan_results.txt                no registration in directory
+    runs/R1A/r1a3_lattice_results.txt                    no registration in directory
+    runs/R1A/r1a2_pinney_results.txt                     no registration in directory
+    runs/R1A/r1a1_bogoliubov_results.txt                 no registration in directory
+    runs/R1A/r1a1_kz_results.txt                         no registration in directory
+    runs/FRONT/demo_2d_map_results.txt                   named registration not earlier: demo_obj_registration.md, eff_dim_audit_registration.md, kin_dyn_registration.md, mid_sweep_frame_registration.md, sf_curve_registration.md, t4_floor_registration.md
+    runs/MATRIX/domain_boundary_probe2_results.txt       named registration not earlier: domain_boundary_registration.md
+    runs/R4/r4_cmc_initial_data_results.txt              named registration not earlier: r4_instability_localization_registration.md, r4_localisation_registration.md, r4_p2c2_production_registration.md, r4_screening_registration.md
+    runs/R4/r4_axisym_2p1_results.txt                    named registration not earlier: r4_instability_localization_registration.md, r4_localisation_registration.md, r4_p2c2_production_registration.md, r4_screening_registration.md
+    runs/R2/r2c6_linear_stability_results.txt            no registration in directory
+    runs/R2/r2d_l1_results.txt                           no registration in directory
+    runs/R2/check123_v2_results.txt                      no registration in directory
+    runs/R2/r2d_l3_n11_slab_results.txt                  no registration in directory
+    runs/R2/r2d_l2_results.txt                           no registration in directory
+    runs/R2/check123_v3_results.txt                      no registration in directory
+
+------------------------------------------------------------------------------
+[ADVISORY 3] ROUND LEDGER — runs/PROGRAM/round_ledger.jsonl  35 record(s)
+------------------------------------------------------------------------------
+  round 77  W2-XCHECK-01 TECHNICAL-CITATION-DEFECT runs/W2-XCHECK/xcheck_results_v1.t
+  round 78  W2-RL1-01 TECHNICAL-PASS         runs/W2-RL1/rl1_results_v1.txt
+  round 79  W2-COUNT-01 TECHNICAL-PASS         runs/W2-COUNT/count_results_v1.txt
+  round 80  W2-CONFORM-01 GOVERNANCE-PASS-WITH-FINDINGS runs/W2-AUDIT/conformance_review_v
+  round 81  GD1-B-ME2 GOVERNANCE-OPTION-B-ADOPTED docs/decisions/gd_rulings_v1.md
+  ... 30 earlier record(s)
+
+------------------------------------------------------------------------------
+[ADVISORY 4] QUEUE
+------------------------------------------------------------------------------
+  CLOSED-CONSTRUCTIVE    15
+  CLOSED-NO-GO           2
+  RETIRED-IDENTITY       1
+  FROZEN                 1
+
+==============================================================================
+[DEFINITION OF DONE]  docs/program/COMPLETION_PROTOCOL_v1.md §0
+==============================================================================
+  D1  zero unmarked governor blocks                OPEN  1
+  D2  zero unexplained digest drifts               OPEN  4 unexplained, 1 observed
+  D3  zero broken citations                        MET   0
+  D4  every closed item has a ledger record        MET   18/18
+  D5  ledger chain intact                          MET   
+  D6  every queue item terminal                    MET   0
+  D7  every BLOCKED-ON-INPUT names its physics        MANUAL
+  D8  the terminal answer exists                      MANUAL
+
+  completion: 4/6 machine-checked
+  G-64-01: this score is an instrument reading, not a gate. It never blocks emission,
+  registration or use of a product whose own CHECK/IDENT/NEGCTRL self-tests passed.
+
+
+Content generated by AI
+
+written: runs/PROGRAM/program_audit_results.txt, runs/PROGRAM/governor_digest.txt
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/program_audit.py --check-locks
+EXIT: 0
+SOURCE SHA256: 7954d5f38e4e3792e3865fb80e2c0cde99f89df5469f56c8bf288af9d104de91  src/common/program_audit.py
+----------------------------------------------------------------------------------------
+UNEXPLAINED runs/FRONT/demo_lock.json.sha256  digest mismatch 91098fbe7c68 != 4aaa473d7cf0
+UNEXPLAINED runs/MATRIX/locked_path_digest.json.sha256  digest mismatch 97f55cfc2d52 != 4e78227bb8b1
+UNEXPLAINED runs/SERIAL/serial_lock.json.sha256  digest mismatch 782a33744108 != 32b1dfbe8809
+UNEXPLAINED runs/OPTICS/surface_conductivity_lock.json.sha256  digest mismatch eff7e8b5569a != 9fe1d780c25b
+DRIFT-OBSERVED 5f324e1513c5 -> 1224458d58f1 [G-64-01 / BN-48] (not a violation: G-64-01)
+digest check (report only): 4 unexplained, 1 observed, 18 sidecars
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/program_audit.py --check-citations
+EXIT: 0
+SOURCE SHA256: 7954d5f38e4e3792e3865fb80e2c0cde99f89df5469f56c8bf288af9d104de91  src/common/program_audit.py
+----------------------------------------------------------------------------------------
+citation check (report only): 0 missing
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/locked_path_guard.py
+EXIT: 0
+SOURCE SHA256: cf630997f066be4fac22ac35fdb82dbd232bc6a5ecf47c8c6a4c1080e4d811e0  src/common/locked_path_guard.py
+----------------------------------------------------------------------------------------
+LOCKED-PATH guard -- S9(c)
+  source    : src/route/structure_tiers.py
+  results   : runs/MATRIX/structure_tiers_results.txt
+  baseline  : 2026-11-22T15:51:17+0800  (admission: first baseline)
+  source    : match
+  numbers   : MOVED
+  verdict   : DRIFT  -- numbers moved with the source unchanged -> environment/dependency, not a rename
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/provenance_lint.py
+EXIT: 0
+SOURCE SHA256: e736023706a54695fce5dac9e5269221e1b81f9b220b4364b6bdd7796a7d5b29  src/common/provenance_lint.py
+----------------------------------------------------------------------------------------
+==============================================================================
+==============================================================================
+  scope: runs/  ;  grandfathering: manifest (60 entries)  ;  branch dirs: S45
+  exemption (P9, BN-04): 12 entries, digest verified
+  report only (G-64-01): no physics verdict, no veto, exit code always 0
+
+------------------------------------------------------------------------------
+[VIOLATION]  15 file(s)
+------------------------------------------------------------------------------
+  runs/FRONT/demo_lock.json                                  lock digest mismatch 91098fbe7c68 != 4aaa473d7cf0 (P8)
+  runs/MATRIX/locked_path_digest.json                        lock digest mismatch 97f55cfc2d52 != 4e78227bb8b1 (P8)
+  runs/OPTICS/sc2_results.txt                                exempt file edited after exemption 3bf6f0873250 != 145253c4e0e3 (P9)
+  runs/OPTICS/sc2_results_v1_SUPERSEDED_PREFACTOR.txt        exempt file edited after exemption a2318fe5bcd4 != 61a28cb16057 (P9)
+  runs/OPTICS/sc2_results_v2_SUPERSEDED_ENDPOINT.txt         exempt file edited after exemption 7766f63af19c != 4cc5650b9e45 (P9)
+  runs/OPTICS/sc3_results.txt                                exempt file edited after exemption 9be2fcb53ba5 != c8b0bef3b6f2 (P9)
+  runs/OPTICS/sc3_results_v1_SUPERSEDED_POLARITY.txt         exempt file edited after exemption 258de00ef831 != b5520451cca3 (P9)
+  runs/OPTICS/surface_conductivity_lock.json                 lock digest mismatch eff7e8b5569a != 9fe1d780c25b (P8)
+  runs/R1B/r1b1_p1_closure_check_results.txt                 exempt file edited after exemption 601e1906dcfb != b46d4d7ca6b3 (P9)
+  runs/R1B/r1b1_p1_current_check_results.txt                 exempt file edited after exemption d351ba47273a != 23051b36b7a5 (P9)
+  runs/R1B/r1b1_p1_dirac_check_results.txt                   exempt file edited after exemption fe4d550cb345 != e47346df27f1 (P9)
+  runs/R1B/r1b1_p2_eos_scan_results.txt                      exempt file edited after exemption 362359622766 != dde2ba9e9571 (P9)
+  runs/R1B/r1b1_p3_reachability_results.txt                  exempt file edited after exemption 0e8b05bc003b != fe17456bd26a (P9)
+  runs/R1B/r1b1_p4_response_results.txt                      exempt file edited after exemption 2a2335a5a5d3 != 146db3661263 (P9)
+  runs/SERIAL/serial_lock.json                               lock digest mismatch 782a33744108 != 32b1dfbe8809 (P8)
+
+------------------------------------------------------------------------------
+[MISSING]  10 file(s)
+------------------------------------------------------------------------------
+  runs/W1-ROW2/row2_t0.png                                   binary product without a .display.txt sidecar (P7)
+  runs/W1-ROW2/row2_tend.png                                 binary product without a .display.txt sidecar (P7)
+  runs/W1-ROW2/row2_tmid.png                                 binary product without a .display.txt sidecar (P7)
+
+------------------------------------------------------------------------------
+[DRIFT-OBSERVED]  1 file(s)
+------------------------------------------------------------------------------
+  runs/MATRIX/threshold_lock.json                            P8 digest drift 5f324e1513c5 -> 1224458d58f1 explained by [G-64-01 / BN-48]; fact, not a violation (G-64-01)
+
+------------------------------------------------------------------------------
+[EXEMPT-LEGACY]  1 file(s)
+------------------------------------------------------------------------------
+  runs/OPTICS/sc3_check_v1_SUPERSEDED.py.txt                 named exemption BN-04; digest verified, cannot be tagged (P9)
+
+------------------------------------------------------------------------------
+[OK]  104 file(s)
+------------------------------------------------------------------------------
+  runs/AX/ax01_axiom_audit_results.txt                       NEITHER
+  runs/CONVENTIONS/commit_gate_results.txt                   NEITHER
+  runs/CONVENTIONS/display_lint_results.txt                  NEITHER
+  runs/DIM/dimension_anchors_results.txt                     NEITHER
+  runs/FRONT/demo_2d_map.png                                 NEITHER
+  runs/FRONT/demo_2d_map.png.display.txt                     NEITHER
+  runs/FRONT/demo_2d_map_results.txt                         NEITHER
+  runs/FRONT/eff_dim_audit_results.txt                       NEITHER
+  runs/FRONT/kin_dyn_results.txt                             NEITHER
+  runs/FRONT/mid_sweep_fl1.png                               NEITHER
+  runs/FRONT/mid_sweep_fl1.png.display.txt                   NEITHER
+  runs/FRONT/mid_sweep_frame_results.txt                     NEITHER
+  runs/FRONT/sf_curve_results.txt                            NEITHER
+  runs/FRONT/t4_floor_results.txt                            NEITHER
+  runs/G-73-01/g73_01_manifest.txt                           NEITHER
+  runs/LADDER/r1_observer_results.txt                        NEITHER
+  runs/LADDER/r2_relief_contrast_results.txt                 NEITHER
+  runs/LADDER/r3_illumination_results.txt                    NEITHER
+  runs/MATRIX/domain_boundary_probe2_results.txt             NEITHER
+  runs/MATRIX/domain_boundary_results.txt                    NEITHER
+  runs/MATRIX/fourdim_results.txt                            NEITHER
+  runs/MATRIX/matrix_audit_results.txt                       NEITHER
+  runs/MATRIX/mr2_arap_results.txt                           NEITHER
+  runs/MATRIX/mr2d_potential_results.txt                     NEITHER
+  runs/MATRIX/structure_tiers_results.txt                    NEITHER
+  runs/MATRIX2/matrix_v2_results.txt                         NEITHER
+  runs/MATRIX2/matrix_v2r_results.txt                        NEITHER
+  runs/MATRIX2/plate_array_figure_v1.png                     NEITHER
+  runs/MATRIX2/plate_array_figure_v1.png.display.txt         NEITHER
+  runs/MATRIX2/plate_array_results.txt                       NEITHER
+  runs/ME3/me3_phi_results.txt                               NEITHER
+  runs/OPTICS/observer_params_results.txt                    NEITHER
+  runs/OPTICS/sc_route_results.txt                           NEITHER
+  runs/P1/phase1_symbolic_constraint_results.txt             NEITHER
+  runs/P1/phase1b_singularity_results.txt                    NEITHER
+  runs/P1/phase1c_repricing_results.txt                      NEITHER
+  runs/PROGRAM/governor_digest.txt                           NEITHER
+  runs/PROGRAM/program_audit_results.txt                     NEITHER
+  runs/R1B/r1b1_p4_census_results.txt                        NEITHER
+  runs/R1B/r1b1_p4_diracbox_results.txt                      NEITHER
+  runs/R1B/r1b1_p4_tau_results.txt                           NEITHER
+  runs/R3/n7_recheck_results.txt                             NEITHER
+  runs/R4/r4_localisation_results.txt                        NEITHER
+  runs/ROUTE/deposit_blindness_figure.png                    NEITHER
+  runs/ROUTE/deposit_blindness_figure.png.display.txt        NEITHER
+  runs/ROUTE/deposit_blindness_results.txt                   NEITHER
+  runs/ROUTE/fl_coordinate_results.txt                       NEITHER
+  runs/ROUTE/goal_conformance_results.txt                    NEITHER
+  runs/ROUTE/p0_baseline_results.txt                         NEITHER
+  runs/ROUTE/p1_delta_ov_results.txt                         NEITHER
+  runs/ROUTE/p2_clock_results.txt                            NEITHER
+  runs/ROUTE/p3_me3_results.txt                              NEITHER
+  runs/ROUTE/s0_frame_fl1.png                                NEITHER
+  runs/ROUTE/s0_frame_fl1.png.display.txt                    NEITHER
+  runs/RR-DT/rr_dt_01_invariants.json                        NEITHER
+  runs/RR-DT/rr_dt_01_record_repair_results.txt              NEITHER
+  runs/S45/crosswalk_checks_results.txt                      NEITHER
+  runs/S45/meff_alt_definitions_results.txt                  NEITHER
+  runs/S45/meff_disposition_checks_results.txt               NEITHER
+  runs/S45/phased_route_checks_results.txt                   NEITHER
+  runs/SERIAL/serial_results.txt                             NEITHER
+  runs/W1-ROW2/row2_sequence.display.txt                     NEITHER
+  runs/W1-ROW2/row2_t0.display.txt                           NEITHER
+  runs/W1-ROW2/row2_tend.display.txt                         NEITHER
+  runs/W1-ROW2/row2_tmid.display.txt                         NEITHER
+  runs/W2-AUDIT/instrument_stdout_v1.txt                     NEITHER
+  runs/W2-C2/c2_manifest.json                                NEITHER
+  runs/W2-C2/c2_prediction.json                              NEITHER
+  runs/W2-C2/c2_profile_v1.json                              NEITHER
+  runs/W2-C2/c2_results_v1.txt                               NEITHER
+  runs/W2-C2/c2_run_record_v1.json                           NEITHER
+  runs/W2-C2/c2_sequence.png                                 NEITHER
+  runs/W2-C2/c2_sequence.png.display.txt                     NEITHER
+  runs/W2-C2/c2_t0.png                                       NEITHER
+  runs/W2-C2/c2_t0.png.display.txt                           NEITHER
+  runs/W2-C2/c2_t_end.png                                    NEITHER
+  runs/W2-C2/c2_t_end.png.display.txt                        NEITHER
+  runs/W2-C2/c2_t_mid.png                                    NEITHER
+  runs/W2-C2/c2_t_mid.png.display.txt                        NEITHER
+  runs/W2-C3/c3_manifest.json                                NEITHER
+  runs/W2-C3/c3_prediction.json                              NEITHER
+  runs/W2-C3/c3_profile_v1.json                              NEITHER
+  runs/W2-C3/c3_results_v1.txt                               NEITHER
+  runs/W2-C3/c3_run_record_v1.json                           NEITHER
+  runs/W2-COUNT/count_manifest.json                          NEITHER
+  runs/W2-COUNT/count_prediction.json                        NEITHER
+  runs/W2-COUNT/count_profile_v1.json                        NEITHER
+  runs/W2-COUNT/count_results_v1.txt                         NEITHER
+  runs/W2-COUNT/count_run_record_v1.json                     NEITHER
+  runs/W2-DISC/disc_manifest.json                            NEITHER
+  runs/W2-DISC/disc_prediction.json                          NEITHER
+  runs/W2-DISC/disc_profile_v1.json                          NEITHER
+  runs/W2-DISC/disc_results_v1.txt                           NEITHER
+  runs/W2-DISC/disc_run_record_v1.json                       NEITHER
+  runs/W2-RL1/rl1_manifest.json                              NEITHER
+  runs/W2-RL1/rl1_prediction.json                            NEITHER
+  runs/W2-RL1/rl1_profile_v1.json                            NEITHER
+  runs/W2-RL1/rl1_results_v1.txt                             NEITHER
+  runs/W2-RL1/rl1_run_record_v1.json                         NEITHER
+  runs/W2-XCHECK/xcheck_manifest.json                        NEITHER
+  runs/W2-XCHECK/xcheck_prediction.json                      NEITHER
+  runs/W2-XCHECK/xcheck_profile_v1.json                      NEITHER
+  runs/W2-XCHECK/xcheck_results_v1.txt                       NEITHER
+  runs/W2-XCHECK/xcheck_run_record_v1.json                   NEITHER
+
+------------------------------------------------------------------------------
+[LOCKED-ARTIFACT]  12 file(s)
+------------------------------------------------------------------------------
+  runs/CONVENTIONS/provenance_exemption_bn04.txt             hash-locked (P8); digest verified, cannot be annotated
+  runs/MATRIX/threshold_lock_drift_20261123.json             hash-locked (P8); digest verified, cannot be annotated
+  runs/OPTICS/surface_conductivity_lock_v1_1.json            hash-locked (P8); digest verified, cannot be annotated
+  runs/OPTICS/surface_conductivity_lock_v1_2.json            hash-locked (P8); digest verified, cannot be annotated
+  runs/OPTICS/surface_conductivity_lock_v1_3.json            hash-locked (P8); digest verified, cannot be annotated
+  runs/W1-ROW2/row2_lock_v1.json                             hash-locked (P8); digest verified, cannot be annotated
+  runs/W2-C2/c2_lock.json                                    hash-locked (P8); digest verified, cannot be annotated
+  runs/W2-C3/c3_lock.json                                    hash-locked (P8); digest verified, cannot be annotated
+  runs/W2-COUNT/count_lock.json                              hash-locked (P8); digest verified, cannot be annotated
+  runs/W2-DISC/disc_lock.json                                hash-locked (P8); digest verified, cannot be annotated
+  runs/W2-RL1/rl1_lock.json                                  hash-locked (P8); digest verified, cannot be annotated
+  runs/W2-XCHECK/xcheck_lock.json                            hash-locked (P8); digest verified, cannot be annotated
+
+------------------------------------------------------------------------------
+[LEGACY-UNTAGGED]  59 file(s)
+------------------------------------------------------------------------------
+  runs/ANALYSIS/abandon_assumption_visual_v1.txt             in baseline manifest; not edited (P6)
+  runs/ANALYSIS/assumption_matrix_v1.txt                     in baseline manifest; not edited (P6)
+  runs/ANALYSIS/front_sweep_v1.txt                           in baseline manifest; not edited (P6)
+  runs/ANALYSIS/instrument_visualization_v2.png              pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/instrument_visualization_v2.txt              in baseline manifest; not edited (P6)
+  runs/ANALYSIS/internal_consistency_v1.txt                  in baseline manifest; not edited (P6)
+  runs/ANALYSIS/no_weak_freeze_v1.txt                        in baseline manifest; not edited (P6)
+  runs/ANALYSIS/painting_limits_v1.png                       pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/painting_render_v1.png                       pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/painting_render_v1.txt                       in baseline manifest; not edited (P6)
+  runs/ANALYSIS/persistent_visualization_v1.txt              in baseline manifest; not edited (P6)
+  runs/ANALYSIS/sigma_s_rendering_v1.png                     pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/sigma_s_rendering_v1.txt                     in baseline manifest; not edited (P6)
+  runs/ANALYSIS/slab_visibility_v1.png                       pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/slab_visibility_v1.txt                       in baseline manifest; not edited (P6)
+  runs/ANALYSIS/three_body_comparison_v1.png                 pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/three_body_comparison_v1.txt                 in baseline manifest; not edited (P6)
+  runs/ANALYSIS/unfold_appearance_v1.png                     pre-convention binary in baseline; not edited (P6)
+  runs/ANALYSIS/unfold_appearance_v1.txt                     in baseline manifest; not edited (P6)
+  runs/ANALYSIS/unfold_is_real_v1.txt                        in baseline manifest; not edited (P6)
+  runs/CONVENTIONS/symbol_lint_results.txt                   in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_log.txt                                   in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_results.json                              in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_stdout_raw.txt                            in baseline manifest; not edited (P6)
+  runs/G0/g0_prime_table.csv                                 in baseline manifest; not edited (P6)
+  runs/G0/g0p2_results.txt                                   in baseline manifest; not edited (P6)
+  runs/G0/g0p3_results.txt                                   in baseline manifest; not edited (P6)
+  runs/P1/g1_closeout_results.txt                            in baseline manifest; not edited (P6)
+  runs/R1A/r1a1_bogoliubov_results.txt                       in baseline manifest; not edited (P6)
+  runs/R1A/r1a1_kz_results.txt                               in baseline manifest; not edited (P6)
+  runs/R1A/r1a1_ptilde_scan_results.txt                      in baseline manifest; not edited (P6)
+  runs/R1A/r1a2_pinney_results.txt                           in baseline manifest; not edited (P6)
+  runs/R1A/r1a3_lattice_results.txt                          in baseline manifest; not edited (P6)
+  runs/R1B/r1b1_eos_results.txt                              in baseline manifest; not edited (P6)
+  runs/R1B/r1b1_eos_results_v1_REVOKED.txt                   in baseline manifest; not edited (P6)
+  runs/R1B/r1b1_eos_v3_results.txt                           in baseline manifest; not edited (P6)
+  runs/R1B/r1b234_screening_results_v1_REVOKED.txt           in baseline manifest; not edited (P6)
+  runs/R1B/r1b234_v2_results.txt                             in baseline manifest; not edited (P6)
+  runs/R1B/r1b234_v3_results.txt                             in baseline manifest; not edited (P6)
+  runs/R2/check123_results_v1_REVOKED.txt                    in baseline manifest; not edited (P6)
+  runs/R2/check123_v2_results.txt                            in baseline manifest; not edited (P6)
+  runs/R2/check123_v3_results.txt                            in baseline manifest; not edited (P6)
+  runs/R2/r2c6_linear_stability_results.txt                  in baseline manifest; not edited (P6)
+  runs/R2/r2d_l1_results.txt                                 in baseline manifest; not edited (P6)
+  runs/R2/r2d_l2_results.txt                                 in baseline manifest; not edited (P6)
+  runs/R2/r2d_l3_n11_slab_results.txt                        in baseline manifest; not edited (P6)
+  runs/R3/r31_models_results.txt                             in baseline manifest; not edited (P6)
+  runs/R3/r32_bundle_results.txt                             in baseline manifest; not edited (P6)
+  runs/R3/r33_measure_results.txt                            in baseline manifest; not edited (P6)
+  runs/R4/r4_axisym_2p1_results.txt                          in baseline manifest; not edited (P6)
+  runs/R4/r4_axisym_2p1_results_rerun_check.txt              in baseline manifest; not edited (P6)
+  runs/R4/r4_cmc_initial_data_results.txt                    in baseline manifest; not edited (P6)
+  runs/R4/r4_instability_localization_results.txt            in baseline manifest; not edited (P6)
+  runs/R4/r4_instability_localization_stage2_results.txt     in baseline manifest; not edited (P6)
+  runs/R4/r4_york_initial_data_results.txt                   in baseline manifest; not edited (P6)
+  runs/R5/r5l2_sigma_s_results.txt                           in baseline manifest; not edited (P6)
+  runs/R5/r5l2_sigma_s_results_v1_REVOKED_BASELINE.txt       in baseline manifest; not edited (P6)
+  runs/S45/meff_boundary_probe_results.txt                   in baseline manifest; not edited (P6)
+  runs/S45/meff_boundary_probe_results_v1_LABELS_P.txt       in baseline manifest; not edited (P6)
+
+------------------------------------------------------------------------------
+[N/A]  115 file(s)
+------------------------------------------------------------------------------
+  (documentation; not itemised)
+
+==============================================================================
+[tally]
+  VIOLATION          15
+  MISSING            10
+  DRIFT-OBSERVED     1
+  EXEMPT-LEGACY      1
+  OK                 104
+  LOCKED-ARTIFACT    12
+  LEGACY-UNTAGGED    59
+  N/A                115
+
+  flagged (VIOLATION + MISSING + INCOMPLETE) = 25  [facts; no veto since G-64-01]
+  drift observations (DRIFT-OBSERVED)        = 1
+  informational (RECONSTRUCTION)             = 0
+  grandfathered (LEGACY-UNTAGGED)            = 59
+  exempted      (EXEMPT-LEGACY, P9)          = 1
+
+  Since G-64-01 no tally here blocks emission or registration. A VIOLATION still
+  flags a branch product promoted to chain evidence (ruling D-A) as a FACT to record.
+
+
+Content generated by AI
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/symbol_lint.py
+EXIT: 0
+SOURCE SHA256: 07f78818e2fb9bf8e02ebb1047d1627cec01e10289cbe4262284c8c14dc981e6  src/common/symbol_lint.py
+----------------------------------------------------------------------------------------
+==============================================================================
+SYMBOL NAMESPACE LINT  —  rule S3 of docs/conventions/symbol_registry.md
+==============================================================================
+files scanned: 433   archived under runs/: 231
+(a label inside backticks is a MENTION and is not counted)
+(the registry file is DEFINITION and is not counted)
+
+------------------------------------------------------------------------------
+[A] bracket test IDs [C#]/[B#]/[P#] outside the defining module
+     ERRATA       16
+        src/analysis/persistent_visualization_v1.py:44  [P1]
+        src/analysis/persistent_visualization_v1.py:54  [P2]
+        src/analysis/persistent_visualization_v1.py:61  [P3]
+        src/analysis/persistent_visualization_v1.py:82  [P4]
+        src/analysis/persistent_visualization_v1.py:91  [P5]
+        src/analysis/persistent_visualization_v1.py:99  [P6]
+        src/analysis/front_sweep_v1.py:138  [B1]
+        src/analysis/front_sweep_v1.py:160  [B2]
+        src/analysis/front_sweep_v1.py:190  [B3]
+        src/analysis/front_sweep_v1.py:228  [B4]
+        src/r4_frontier/r4_localisation.py:214  [P1]
+        src/r4_frontier/r4_localisation.py:243  [P4]
+        ... 4 more
+     ARCHIVE     148
+
+------------------------------------------------------------------------------
+[C] a SECOND meaning for K in a rendering/contrast context (K1-K4 are owned by the sci-fi boundary)
+     ARCHIVE       9
+     DEFINITION    6
+
+------------------------------------------------------------------------------
+[D] C_geo / C_phys / C_info / C_top  (rule R4: subscripts do not rescue a letter)
+     ERRATA       30
+        src/s45_branch/meff_alt_definitions_probe.py:27  C_info
+        src/s45_branch/meff_alt_definitions_probe.py:90  C_info
+        src/s45_branch/meff_alt_definitions_probe.py:98  C_info
+        src/s45_branch/meff_alt_definitions_probe.py:100  C_info
+        src/s45_branch/meff_alt_definitions_probe.py:120  C_info
+        src/s45_branch/meff_alt_definitions_probe.py:140  C_top
+        src/s45_branch/meff_alt_definitions_probe.py:182  C_top
+        src/s45_branch/meff_alt_definitions_probe.py:207  C_info
+        src/s45_branch/meff_boundary_probe.py:55  C_info
+        src/s45_branch/meff_boundary_probe.py:56  C_info
+        src/s45_branch/meff_boundary_probe.py:69  C_info
+        src/s45_branch/meff_boundary_probe.py:72  C_geo
+        ... 18 more
+     ARCHIVE      69
+
+------------------------------------------------------------------------------
+[F] bare M1..M9 — ADVISORY: M1-M4 already have FOUR owners (mass, gate M4, painting modes, abandon-assumption metrics); the ME prefix is mandatory (registry S2/R3, and §2a)
+     MUST-FIX     61
+        Macro3D_to_2D_Smooth_Reduction_Roadmap_v1.4.md:1472  M4
+        Macro3D_to_2D_Smooth_Reduction_Roadmap_v1.4.md:1637  M4
+        docs/specs/intrinsic_structure_tiers_v1.md:7  M2
+        docs/specs/intrinsic_structure_tiers_v1.md:7  M6
+        docs/specs/intrinsic_structure_tiers_v1.md:123  M4
+        docs/specs/intrinsic_structure_tiers_v1.md:171  M2
+        docs/specs/intrinsic_structure_tiers_v1.md:171  M6
+        docs/specs/intrinsic_structure_tiers_v1.md:173  M4
+        docs/specs/intrinsic_structure_tiers_v1.md:174  M3
+        docs/specs/intrinsic_structure_tiers_v1.md:174  M8
+        docs/specs/intrinsic_structure_tiers_v1.md:185  M6
+        docs/decisions/exhaustive_matrix_route_v1.md:150  M5
+        ... 49 more
+     ERRATA       40
+        src/analysis/abandon_assumption_visual_v1.py:16  M1
+        src/analysis/abandon_assumption_visual_v1.py:18  M2
+        src/analysis/abandon_assumption_visual_v1.py:20  M3
+        src/analysis/abandon_assumption_visual_v1.py:22  M4
+        src/analysis/painting_render_v1.py:21  M1
+        src/analysis/painting_render_v1.py:22  M2
+        src/analysis/painting_render_v1.py:23  M2
+        src/analysis/painting_render_v1.py:23  M2
+        src/analysis/painting_render_v1.py:236  M1
+        src/analysis/painting_render_v1.py:236  M2
+        src/analysis/painting_render_v1.py:240  M1
+        src/analysis/painting_render_v1.py:243  M2
+        ... 28 more
+     ARCHIVE      98
+
+------------------------------------------------------------------------------
+[H] ME1 — ADVISORY: reconstructed alias of CM5 since GD1 Option B (2026-11-22); new text writes CM5. Not an arithmetic error; provenance banner only
+     ERRATA       78
+        docs/specs/meff_boundary_v0_2.md:46  ME1
+        docs/specs/meff_boundary_v0_2.md:66  ME1
+        docs/specs/meff_boundary_v0_2.md:85  ME1
+        docs/specs/meff_boundary_v0_2.md:140  ME1
+        docs/specs/meff_boundary_v0_2.md:268  ME1
+        docs/conventions/constraint_crosswalk_v1.md:67  ME1
+        reports/reviews/phased_route_v2_audit.md:17  ME1
+        reports/reviews/phased_route_v2_audit.md:18  ME1
+        reports/reviews/phased_route_v2_audit.md:37  ME1
+        reports/reviews/phased_route_v2_audit.md:45  ME1
+        reports/reviews/phased_route_v2_audit.md:46  ME1
+        reports/reviews/phased_route_v2_audit.md:62  ME1
+        ... 66 more
+
+------------------------------------------------------------------------------
+[B] bare L1..L4 — ADVISORY (L is three-way overloaded; staged, not renamed)
+     total line-hits: 452  (optics §6 range excluded as DECLARED)
+     MUST-FIX    130 line-hits across 18 files
+        Macro3D_to_2D_Smooth_Reduction_Roadmap_v1.4.md             95
+        docs/decisions/staged_relaxation_visual_route_v1.md        29
+        docs/decisions/exhaustive_matrix_route_v1.md               18
+        reports/gates/D5_execution_review_v1.md                    11
+        reports/reviews/meff_boundary_v0_1_audit.md                 8
+        docs/specs/meff_boundary_v0_2.md                            5
+        reports/gates/D5_execution_review_v2.md                     5
+        reports/reviews/exhaustive_matrix_route_v1_audit.md         4
+     ERRATA      165 line-hits across 22 files
+        src/route/matrix_audit.py                                  36
+        src/route/structure_tiers.py                               35
+        src/route/matrix_v2r.py                                    29
+        src/route/ladder_r1.py                                     27
+        src/route/plate_array.py                                   25
+        src/r2_redshift/pz_l2_relaxation.py                        11
+        src/route/matrix_v2.py                                      9
+        src/r2_redshift/pz_l1.py                                    7
+     ARCHIVE     145 line-hits across 28 files
+        runs/MATRIX/matrix_audit_results.txt                       31
+        runs/MATRIX/structure_tiers_results.txt                    31
+        runs/MATRIX2/matrix_v2r_results.txt                        16
+        runs/MATRIX2/plate_array_results.txt                       13
+        runs/LADDER/r1_observer_results.txt                        13
+        runs/PROGRAM/governor_digest.txt                           11
+        runs/MATRIX2/matrix_v2_results.txt                         10
+        runs/W2-AUDIT/instrument_stdout_v1.txt                      6
+     DEFINITION   12 line-hits across 2 files
+        docs/conventions/symbol_registry.md                        28
+        src/common/symbol_lint.py                                  10
+     Three meanings: optics layers L1-L4 (§6.2) | R2-D redshift layers
+     L1-L3 (§4, embedded in file paths r2d_l1/l2/l3) | fidelity levels
+     (decision statement, now FL1-FL3). Qualify in all new text.
+
+------------------------------------------------------------------------------
+[E] bare C1..C4 — REPORT ONLY (legal: C is sole owner after the §6.1 rename)
+     runs/MATRIX/matrix_audit_results.txt                       46  (ARCHIVE)
+     src/analysis/w2_stageB_v1.py                               41
+     src/analysis/w2_stageA_v1.py                               35
+     src/route/matrix_audit.py                                  32
+     docs/decisions/staged_relaxation_visual_route_v1.md        27
+     runs/W2-AUDIT/instrument_stdout_v1.txt                     26  (ARCHIVE)
+     src/r4_frontier/instability_localization.py                23
+     runs/R4/r4_instability_localization_registration.md        22  (ARCHIVE)
+     src/s45_branch/crosswalk_checks.py                         20
+     runs/S45/crosswalk_checks_results.txt                      20  (ARCHIVE)
+
+==============================================================================
+------------------------------------------------------------------------------
+[G] S1 scope bleed: an ME label inside a CHAIN directory (advisory)
+------------------------------------------------------------------------------
+     none  — no ME predicate appears in a chain product
+
+MUST-FIX total (A, C, D): 0   [F is advisory: M1-M4 are pre-existing owners]
+Exit code 0 by design — report, not gate.
+
+Content generated by AI
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/display_lint.py
+EXIT: 0
+SOURCE SHA256: 64ff36a9c624b0518346f85b4896bcaf252551092e2de393a27949868b5513ed  src/common/display_lint.py
+----------------------------------------------------------------------------------------
+==============================================================================
+DISPLAY DECLARATION LINT  (rules DC1-DC8)
+==============================================================================
+  scope: runs/**/*.display.txt   found: 13
+  report only: no physics verdict, exit code always 0
+
+[OK]         runs/ROUTE/deposit_blindness_figure.png.display.txt
+[OK]         runs/ROUTE/s0_frame_fl1.png.display.txt
+[OK]         runs/MATRIX2/plate_array_figure_v1.png.display.txt
+[OK]         runs/W2-C2/c2_sequence.png.display.txt
+[OK]         runs/W2-C2/c2_t0.png.display.txt
+[OK]         runs/W2-C2/c2_t_end.png.display.txt
+[OK]         runs/W2-C2/c2_t_mid.png.display.txt
+[OK]         runs/FRONT/demo_2d_map.png.display.txt
+[OK]         runs/FRONT/mid_sweep_fl1.png.display.txt
+[VIOLATION]  runs/W1-ROW2/row2_sequence.display.txt
+               DC1  ME5-COROLLARY = 'PRESENT (the sequence spans t_rip; the 3 ns transient is shorter and is declared)' not in ['NOT-APPLICABLE', 'PRESENT']
+[OK]         runs/W1-ROW2/row2_t0.display.txt
+[OK]         runs/W1-ROW2/row2_tend.display.txt
+[OK]         runs/W1-ROW2/row2_tmid.display.txt
+
+  OK                 12
+  VIOLATION          1
+
+
+
+Content generated by AI
+
+----------------------------------------------------------------------------------------
+COMMAND: python src/common/commit_gate.py
+EXIT: 0
+SOURCE SHA256: 367c8dd241dd7d6938bbd9b09876bdd41c7414c6e4659a1435f0e522cfbac306  src/common/commit_gate.py
+----------------------------------------------------------------------------------------
+==============================================================================
+COMMIT INSTRUMENT  (report only since G-64-01; no veto, no 'do not commit')
+==============================================================================
+
+  symbol_lint      MUST-FIX(A,C,D)                    = 0
+  provenance_lint  flagged(VIOLATION+MISSING+INCOMP)  = 25
+  provenance_lint  drift observations (DRIFT-OBS)    = 1
+  display_lint     VIOLATION                          = 1
+
+  VERDICT: PASS-WITH-NOTES
+    NOTE: 25 provenance flags
+    NOTE: 1 display violations
+    NOTE: 1 registered drift observation(s)
+
+  Note: F is advisory. M1-M4 have five pre-existing legitimate owners;
+  a report cannot retroactively invalidate archived labels (registry s2a).
+  Nothing here blocks emission, registration or use of a product that passed its
+  own CHECK/IDENT/NEGCTRL self-tests (G-64-01 rule 1: product is fact).
+
+Content generated by AI
+

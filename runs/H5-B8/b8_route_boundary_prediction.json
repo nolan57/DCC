@@ -1,0 +1,19 @@
+{
+  "cycle_id": "H5-B8",
+  "declared_utc": "2026-11-26",
+  "provenance_tag": "PROVENANCE: NEITHER",
+  "question": "Does the adopted hard-SF effective-2D route stop exactly at B8 under the registered constraint-relaxation ladder?",
+  "predictions": {
+    "P1": {"boundary_yes_count": 1, "boundary_yes_level": "B8", "source": "runs/RR-DT/rr_dt_01_record_repair_results.txt:88-97"},
+    "P2": {"b1_b7_self_consistent_yes": 7, "b8_self_consistent": "NO", "source": "runs/RR-DT/rr_dt_01_record_repair_results.txt:88-95"},
+    "P3": {"b9": "NOT EVALUATED-BEYOND-BOUNDARY", "b10": "NEVER RELAXED", "match_count": 2, "source": "runs/RR-DT/rr_dt_01_record_repair_results.txt:96-97"},
+    "P4": {"b8_RL6": "2e4", "b8_eff2d": "undefined", "b8_G0prime_row1": "unsayable", "match_count": 3, "source": "runs/RR-DT/constraint_relaxation_record.md:240-243"},
+    "P5": {"phase1_class_ceiling": "constraint-satisfying solution", "denies_evolution_and_joint": true, "match_count": 1, "source": "runs/P1/phase1_symbolic_constraint_results.txt:34-38"},
+    "P6": {"avoidances_recorded": 2, "avoidances_adopted": 0, "source": "runs/RR-DT/constraint_relaxation_record.md:228-234"}
+  },
+  "negative_control": {"id": "N1", "b7_boundary_yes_count": 0, "b8_boundary_yes_count": 1},
+  "identity": {"id": "I1", "repeat_parse_identical": true, "not_evidence": true},
+  "kill_condition": "any P1-P6 mismatch, any stage-A hash mismatch, or NEGCTRL not failing by exactly one level => FALSIFIED; no B8 claim by this cycle",
+  "thresholds_registered": [],
+  "prohibitions": ["no visibility", "no IS_2D", "no membership verdict", "no new threshold", "no field or budget approval", "no gate/terminal/price/queue move", "no avoidance route adopted", "no B9 evaluation", "no B10 relaxation"]
+}

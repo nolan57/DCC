@@ -1,0 +1,254 @@
+{
+  "provenance_tag": "PROVENANCE: NEITHER",
+  "cycle_id": "W2_DISC_01",
+  "front_s": 4.0993412372709514e-09,
+  "baseline": {
+    "delta_m": 2.15e-10,
+    "plate": [
+      {
+        "tier": "T0",
+        "value": 0.9979901957626627,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q0 = 1 - P0/P0(null)",
+        "field": "plate"
+      },
+      {
+        "tier": "T1",
+        "value": 21.859849469131536,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "xi in cells (h = 1 cell), w(1/e) = 0.3640",
+        "field": "plate"
+      },
+      {
+        "tier": "T2",
+        "value": 0.9091213054225902,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q2 renormalised conditional entropy, H = 0.8079 bits",
+        "field": "plate"
+      },
+      {
+        "tier": "T3",
+        "value": 7.286998965925603,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000",
+        "field": "plate"
+      }
+    ],
+    "canvas": [
+      {
+        "tier": "T0",
+        "value": 0.9989177977183569,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q0 = 1 - P0/P0(null)",
+        "field": "canvas"
+      },
+      {
+        "tier": "T1",
+        "value": 39.57001857995575,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "xi in cells (h = 1 cell), w(1/e) = 0.3627",
+        "field": "canvas"
+      },
+      {
+        "tier": "T2",
+        "value": 0.7800023873398491,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q2 renormalised conditional entropy, H = 3.5752 bits",
+        "field": "canvas"
+      },
+      {
+        "tier": "T3",
+        "value": 5.922201882253885,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "q = 1.0 (declared instrument); C_xi = 0.596402; q = 0 channel gives Q3 = 0.000",
+        "field": "canvas"
+      }
+    ],
+    "state": {
+      "t": 4.0993412372709514e-09,
+      "zf": 0.8689999999999999,
+      "layers": 4041860465.116278,
+      "plates": 5888990697.6744175,
+      "fill": 0.499067008277493,
+      "z_decayed": 0.2330441599988503,
+      "sites": 0.49776606713254656,
+      "V_swept": 0.0255336099999997,
+      "V_decayed": 0.003766107196840295,
+      "V_live": 0.021767502803159405,
+      "m_swept": 25.5336099999997,
+      "m_decayed": 3.7661071968402946,
+      "m_live": 21.767502803159406,
+      "z_frac": 0.49999999999999994
+    }
+  },
+  "control": {
+    "delta_m": 2.1500000000000002e-09,
+    "plate": [
+      {
+        "tier": "T0",
+        "value": 0.9979901957626627,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q0 = 1 - P0/P0(null)",
+        "field": "plate-delta10"
+      },
+      {
+        "tier": "T1",
+        "value": 21.859849469131536,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "xi in cells (h = 1 cell), w(1/e) = 0.3640",
+        "field": "plate-delta10"
+      },
+      {
+        "tier": "T2",
+        "value": 0.9091213054225902,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q2 renormalised conditional entropy, H = 0.8079 bits",
+        "field": "plate-delta10"
+      },
+      {
+        "tier": "T3",
+        "value": 7.286998965925603,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000",
+        "field": "plate-delta10"
+      }
+    ],
+    "canvas": [
+      {
+        "tier": "T0",
+        "value": 0.9988834420903682,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q0 = 1 - P0/P0(null)",
+        "field": "canvas-delta10"
+      },
+      {
+        "tier": "T1",
+        "value": 64.0,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "xi in cells (h = 1 cell), w(1/e) = 0.4372",
+        "field": "canvas-delta10"
+      },
+      {
+        "tier": "T2",
+        "value": 0.8738586234128601,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q2 renormalised conditional entropy, H = 0.4532 bits",
+        "field": "canvas-delta10"
+      },
+      {
+        "tier": "T3",
+        "value": 5.3950027347896805,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "q = 1.0 (declared instrument); C_xi = 0.410782; q = 0 channel gives Q3 = 0.000",
+        "field": "canvas-delta10"
+      }
+    ],
+    "state": {
+      "t": 4.0993412372709514e-09,
+      "zf": 0.8689999999999999,
+      "layers": 404186046.5116278,
+      "plates": 588899069.7674417,
+      "fill": 0.0499067008277493,
+      "z_decayed": 0.2330441599988503,
+      "sites": 0.04977660671325466,
+      "V_swept": 0.0255336099999997,
+      "V_decayed": 0.003766107196840295,
+      "V_live": 0.021767502803159405,
+      "m_swept": 25.5336099999997,
+      "m_decayed": 3.7661071968402946,
+      "m_live": 21.767502803159406,
+      "z_frac": 0.49999999999999994,
+      "delta_m": 2.1500000000000002e-09
+    }
+  },
+  "floor": {
+    "plate": [
+      {
+        "tier": "T0",
+        "value": 0.9979901957626627,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q0 = 1 - P0/P0(null)",
+        "field": "plate-floor-repeat"
+      },
+      {
+        "tier": "T1",
+        "value": 21.859849469131536,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "xi in cells (h = 1 cell), w(1/e) = 0.3640",
+        "field": "plate-floor-repeat"
+      },
+      {
+        "tier": "T2",
+        "value": 0.9091213054225902,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "Q2 renormalised conditional entropy, H = 0.8079 bits",
+        "field": "plate-floor-repeat"
+      },
+      {
+        "tier": "T3",
+        "value": 7.286998965925603,
+        "verdict": "PASS",
+        "status": "MEASURED",
+        "note": "q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000",
+        "field": "plate-floor-repeat"
+      }
+    ],
+    "sha256": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e"
+  },
+  "sha256": {
+    "plate_baseline": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e",
+    "plate_control": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e"
+  },
+  "ratios": {
+    "counts": {
+      "layers": 0.09999999999999999,
+      "plates": 0.1,
+      "fragments": 0.1,
+      "sites": 0.1,
+      "fill": 0.09999999999999999
+    },
+    "tiers": {
+      "T0": 1.0,
+      "T1": 1.0,
+      "T2": 1.0,
+      "T3": 1.0
+    },
+    "floor": {
+      "T0": 1.0,
+      "T1": 1.0,
+      "T2": 1.0,
+      "T3": 1.0
+    },
+    "canvas_xi_gain": 0.6173861498366668
+  },
+  "conservation_residual": {
+    "baseline": 0.0,
+    "control": 0.0
+  },
+  "checks": {
+    "D1": 1,
+    "D2": 1,
+    "D3": true,
+    "D4": 1
+  },
+  "verdict": "PASS"
+}

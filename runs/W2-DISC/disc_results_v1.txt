@@ -1,0 +1,77 @@
+========================================================================================
+W2-DISC-01 -- DISCRETIZATION CONTROL (delta x 10), TECHNICAL CLOSURE
+========================================================================================
+PROVENANCE: NEITHER
+CYCLE: W2-DISC-01  (programme section 6.1 item 3)
+TYPE: TECHNICAL closure; not an O0 artifact and not a rendered scene
+LOCK INPUTS: threshold lock 1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d
+LOCK: runs/W2-DISC/disc_lock.json
+  status: VERIFIED
+  lock digest 6a87de0cab87  recorded=6a87de0cab87  OK
+    card             7ce97d964217  OK
+    manifest         533f35b48750  OK
+    spec             372413f7dde1  OK
+    prediction       2164c4b2b439  OK
+    registration     472d96034f63  OK
+    shared_module    556e62b1a769  OK
+    threshold_lock   1224458d58f1  OK
+    scene_module     a6fbd8e84788  OK
+
+[1] MECHANISMS
+    baseline id atomic-layer-slice-v1   delta = 2.15e-10 m
+    control  id atomic-layer-slice-v1-delta10 delta = 2.15e-09 m
+    ratio control/baseline = 10 ; front law and map M unchanged
+
+[2] PLATE FIELD AT t_mid (identical geometry, different z-window census)
+    sha256 baseline  d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e
+    sha256 control   d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e
+    sha256 repeat    d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e  (deterministic floor)
+    baseline tiers:
+    T0  0.9979901958 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+    T1  21.85984947 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3640
+    T2  0.9091213054 PASS             MEASURED     Q2 renormalised conditional entropy, H = 0.8079 bits
+    T3  7.286998966 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000
+    control tiers:
+    T0  0.9979901958 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+    T1  21.85984947 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3640
+    T2  0.9091213054 PASS             MEASURED     Q2 renormalised conditional entropy, H = 0.8079 bits
+    T3  7.286998966 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000
+    repeat tiers:
+    T0  0.9979901958 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+    T1  21.85984947 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3640
+    T2  0.9091213054 PASS             MEASURED     Q2 renormalised conditional entropy, H = 0.8079 bits
+    T3  7.286998966 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000
+    tier value ratios control/baseline: T0=1, T1=1, T2=1, T3=1
+    tier value ratios repeat/baseline:  T0=1, T1=1, T2=1, T3=1
+    verdict flips: none
+
+[3] CANVAS FIELD / CENSUS
+    baseline tiers:
+    T0  0.9989177977 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+    T1  39.57001858 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3627
+    T2  0.7800023873 PASS             MEASURED     Q2 renormalised conditional entropy, H = 3.5752 bits
+    T3  5.922201882 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 0.596402; q = 0 channel gives Q3 = 0.000
+    control tiers:
+    T0  0.9988834421 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+    T1  64         PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.4372
+    T2  0.8738586234 PASS             MEASURED     Q2 renormalised conditional entropy, H = 0.4532 bits
+    T3  5.395002735 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 0.410782; q = 0 channel gives Q3 = 0.000
+    xi cells baseline=39.57001858 control=64 gain=0.617386149837
+    count ratios control/baseline: layers=0.1, plates=0.1, fragments=0.1, sites=0.1, fill=0.1
+
+[4] CONSERVED INTEGRALS AND FRONT
+    m_swept baseline=25.53361 control=25.53361 kg
+    V_swept baseline=0.02553361 control=0.02553361 m^3
+    z_front both=0.869 m
+    conservation residual baseline=0 control=0
+
+[5] PREDICTIONS AGAINST FLOOR
+    D1 plate invariance          PASS
+    D2 census scaling            PASS
+    D3 canvas fill / xi increase PASS
+    D4 mass/volume/front         PASS
+    overall: PASS
+
+No frame is claimed. No result-labelled claim is made. A control difference at or below
+the deterministic floor would be NO-OBSERVED-EFFECT; this cycle uses that floor, not a
+new threshold chosen after seeing the values.

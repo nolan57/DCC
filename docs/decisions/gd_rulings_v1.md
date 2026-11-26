@@ -1,7 +1,8 @@
-# Governor rulings on `GD1`, `GD3`, `GD4`, `GD5`
+# Governor rulings on `GD1`, `GD3`, `GD4`, `GD5` (+ `ME2`/`GD1`-B extension)
 
-**Registered**: 2026-11-22
-**Authority**: project governor, answering `reports/reviews/phased_route_v2_audit.md` §J
+**Registered**: 2026-11-22; extended 2026-11-26 (§8, `ME2` → `CM6`)
+**Authority**: project governor, answering `reports/reviews/phased_route_v2_audit.md` §J; §8 answers
+`docs/program/round_queue_v1.json` `BN-17`
 **Status**: **ADOPTED.** Binds `Meff` spec v0.2, phased route v2, the crosswalk, and the registry.
 **Amends but does not rewrite**: `docs/decisions/phased_relaxation_route_v2.md` (the directive is registered
 verbatim and stays verbatim; the amendments live here and in a `§R` pointer inside that document).
@@ -179,6 +180,71 @@ one member. Phases 0–2 are declarations and gates; Phase 3 is the relaxation; 
   `crosswalk_checks_results.txt` used `ME1` under its old domain; they remain valid *as records of what was
   computed*, and their labels are read as `CM5` under this ruling. No archived stdout is edited (§9.1, P6).
 - It produces no physics result. Evidence level: **RULING** (governance), plus the arithmetic already on file.
+
+---
+
+## 8. `GD1`-B (2026-11-26) — `ME2` leaves the gate set and becomes `CM6`
+
+**Authority.** Project governor, 2026-11-26, answering board note `BN-17` in
+`docs/program/round_queue_v1.json` (owner: governor; "a ruling, not a round"). This is an explicit ruling, not
+an executor inference from round 55.
+
+### 8.1 The ruling
+
+**Option B is adopted.** `ME2` (parallax at the declared sampling scale, `ℓ_samp·‖∇z‖_∞ ≤ Δz_tol`) is **not**
+a gate on a physical state. Its tolerance is presentational in `meff_boundary_v0_2` §2's own words
+("not a physical constant … belongs to the fidelity level (FL1/FL2/FL3), not to the physics"), and round 55
+(`runs/OPTICS/observer_params_results.txt`, RQ-09) measured the criterion to contain one dimension-free number
+`s_max = Δz_tol/ℓ_samp`, invariant under joint rescaling to `1e-15` and form-conditional by `32/π`. A predicate
+that decides on the viewer and the object's form is not a gate on the state. The sentence that moved `ME1` to
+`CM5` therefore applies to `ME2` word for word.
+
+`ME2` is reclassified into the `CM` observation family as **`CM6`** — sampling-scale parallax acceptance,
+`s_max ≤ 1` at a declared `(ℓ_samp, Δz_tol)`. `ME2` survives as a deprecated alias in pre-ruling text; the
+number is vacated and must not be refilled, exactly as with `ME1`.
+
+### 8.2 The membership consequence
+
+With `ME1 → CM5` (2026-11-22), `ME3` retired under O7, and `ME2 → CM6` (this ruling), the live gate set is
+exactly **`ME4 ∧ ME5`** — both FROZEN. `ℳ_eff` is therefore decidable today without registering any new
+threshold. This is the large consequence BN-17 withheld from the executor; it is now ruled, not inferred.
+
+### 8.3 What Option B does *not* do
+
+- It registers **no** value of `s_max`, `ℓ_samp` or `Δz_tol`. A `CM6` verdict states the form, the sampling
+  scale, the accepted depth error and the resulting `s_max`; it may never be cited as evidence that a state
+  *is* two-dimensional — the `CM5` binding wording of §1.3 applies unchanged.
+- It certifies no object in or out of `ℳ_eff` by an observation predicate. `ME4` and `ME5` remain the only
+  membership gates, and their verdicts are the only ones usable for membership.
+- It moves no threshold, changes no archived product, and adds no physics result. Evidence level: **RULING**.
+- It does not make the effective-2D question measured: that slot stays `NOT-MEASURED` with the registered
+  confining-potential model named.
+
+### 8.4 Why not Option A
+
+Option A would have kept `ME2` as a gate by registering a viewer-dependent tolerance. Round 55 shows that no
+such value can be form-independent: the switch sits at different `s_max` for the terraced and sine forms (a
+factor `32/π`), so every candidate value fails one form or the other. Option A would have unblocked the gate by
+choosing the number that decides it — the same failure mode Option B avoided for `ME1`.
+
+### 8.5 Amendments forced by this ruling
+
+1. `meff_boundary_v0_2` §10 amends the membership line and the §2 gate table; §1–§9 remain the pre-ruling
+   record, with §9's "byte-identical" statement qualified by §10.
+2. `symbol_registry.md`: `CM6` registered under Observation channel; the `ME` row now lists `ME4`/`ME5` live,
+   `ME1`/`ME2` vacated, `ME3` retired. Rule `S7` already books `CM` relaxations as observation-strength
+   declarations, so no further S-rule change is needed.
+3. `constraint_crosswalk_v1.md` §9 records that `ME2` is no longer a gate expression, and confirms the §5
+   ladder row `ME2 (Δz_tol) — presentation` by ruling rather than by assertion alone.
+4. `round_queue_v1.json` `BN-17` is closed with this ruling as authority; its "executor position" is now the
+   adopted disposition.
+5. No earlier ledger entry is edited. This ruling is appended as its own round.
+
+### 8.6 Reversal condition
+
+Reopens only on a governor ruling that `ℓ_samp`/`Δz_tol` are physical constants of the object rather than
+properties of the viewer/presentation — the exact mirror of the reversal condition recorded for `ME2` in
+`reports/DCC_terminal_answer_v1.md`. Until then `CM6` is an observation predicate.
 
 ---
 

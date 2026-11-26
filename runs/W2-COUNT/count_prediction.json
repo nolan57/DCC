@@ -1,0 +1,12 @@
+{
+  "cycle_id": "W2_COUNT_01",
+  "utc": "2026-11-25T23:28:38Z",
+  "predictions": {
+    "N1": "the M contract contains all five elements required by section 2.6",
+    "N2": "z-width-weighted mean components/layer reproduces the registered 1.457 to within 0.002",
+    "N3": "the weighted spread is nonzero and reported as derivation spread",
+    "N4": "N_slices and N_frag are recomputed, labelled, and carry derivation and spread"
+  },
+  "kill": "any missing M element, or a weighted mean outside 1.457 +/- 0.002",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

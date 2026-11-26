@@ -1,0 +1,13 @@
+{
+  "cycle_id": "W2_DISC_01",
+  "utc": "2026-11-25T23:15:17Z",
+  "delta_ratio_control_over_baseline": 10.0,
+  "predictions": {
+    "D1": "plate field byte-identical; all four plate tier values equal to the baseline within the deterministic floor (ratio 1.0)",
+    "D2": "layer, sheet and fragment counts scale by exactly 0.1 +/- 1e-12 relative",
+    "D3": "canvas fill at t_mid scales by 0.1 +/- 1e-12; canvas correlation length increases by at least 20 percent",
+    "D4": "deposited mass/volume and front position unchanged to 1e-12 relative; conserved residual 0"
+  },
+  "kill": "any plate tier verdict flip, any nonzero conservation residual, or a census ratio outside 0.1 +/- 1e-12",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

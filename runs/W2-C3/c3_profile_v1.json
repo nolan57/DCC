@@ -1,0 +1,114 @@
+{
+  "provenance_tag": "PROVENANCE: NEITHER",
+  "cycle_id": "W2_C3TEST_01",
+  "states": {
+    "HELDC3_counterfactual": {
+      "Y_e": 0.522,
+      "n_e_fm3": 0.022004902344644424,
+      "E_F_MeV": 73.37297477046224,
+      "E_F_kind": "2D kinetic hbar*c*kF (frozen state)",
+      "state": "frozen Z/A=0.522; counterfactual because C3 is in-action NO-GO"
+    },
+    "NEUTRONIZED_ALL3D": {
+      "Y_e": 0.0016197648421825551,
+      "n_e_fm3": 6.828116316765424e-05,
+      "mu_e_MeV": 24.956566287573427,
+      "mu_kin_MeV": 24.445566287573428,
+      "E_F_kind": "beta-equilibrium total mu_e; mu_kin = mu_e - m_e for kinetic comparison",
+      "reduction": 322.2690025155936,
+      "beta_residual": -3.552713678800501e-15,
+      "state": "beta-equilibrated ALL3D convention"
+    },
+    "NEUTRONIZED_HYB": {
+      "Y_e": 0.045006110746459466,
+      "n_e_fm3": 0.0018972319384829358,
+      "mu_e_MeV": 21.54450983813911,
+      "mu_kin_MeV": 21.03350983813911,
+      "E_F_kind": "beta-equilibrium total mu_e; mu_kin = mu_e - m_e for kinetic comparison",
+      "reduction": 11.598424999233346,
+      "beta_residual": -3.552713678800501e-15,
+      "state": "beta-equilibrated HYB convention"
+    },
+    "NEUTRONIZED_ALL2D": {
+      "Y_e": 0.0043957105738181585,
+      "n_e_fm3": 0.00018530111477430933,
+      "mu_e_MeV": 6.733105514345766,
+      "mu_kin_MeV": 6.222105514345766,
+      "E_F_kind": "beta-equilibrium total mu_e; mu_kin = mu_e - m_e for kinetic comparison",
+      "reduction": 118.75213147770683,
+      "beta_residual": 0.0,
+      "state": "beta-equilibrated ALL2D convention"
+    }
+  },
+  "ratios": {
+    "NEUTRONIZED_ALL2D": {
+      "n_e_ratio": 0.008420901482410264,
+      "mu_kin_ratio": 0.08480105289189664,
+      "n_e_power_2_3": 0.04139098144559382,
+      "relative_difference": 0.5119048639837227
+    },
+    "NEUTRONIZED_ALL3D": {
+      "n_e_ratio": 0.003102997781958918,
+      "mu_kin_ratio": 0.3331685319294766,
+      "n_e_power_2_3": 0.021274252529657815,
+      "relative_difference": 0.9361456725626145
+    },
+    "NEUTRONIZED_HYB": {
+      "n_e_ratio": 0.08621860296256602,
+      "mu_kin_ratio": 0.286665627282248,
+      "n_e_power_2_3": 0.19516442407831686,
+      "relative_difference": 0.3191914010459301
+    }
+  },
+  "generator_graph": {
+    "source": "src/analysis/w1_row2_common_v1.py",
+    "functions_checked": [
+      "canvas_field",
+      "plate_field"
+    ],
+    "tokens": [
+      "Y_e",
+      "n_e",
+      "E_F",
+      "sigma_s",
+      "TAU_C3",
+      "tau_life"
+    ],
+    "hits": {
+      "plate_field": [],
+      "canvas_field": []
+    },
+    "verdict": "ABSENT-FROM-GRAPH",
+    "note": "absence of composition tokens in both field generators; byte identity alone is not used"
+  },
+  "sha256_u": {
+    "HELDC3_counterfactual": {
+      "plate_sha256": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e",
+      "canvas_sha256": "1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b"
+    },
+    "NEUTRONIZED_ALL2D": {
+      "plate_sha256": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e",
+      "canvas_sha256": "1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b"
+    },
+    "NEUTRONIZED_ALL3D": {
+      "plate_sha256": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e",
+      "canvas_sha256": "1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b"
+    },
+    "NEUTRONIZED_HYB": {
+      "plate_sha256": "d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e",
+      "canvas_sha256": "1684eeb5be0783151aefab08ef46350d6f98b4a1a32471281473ddd55e1d0c2b"
+    }
+  },
+  "checks": {
+    "C1": 1,
+    "C2": 0,
+    "C3": 1,
+    "C4": 1
+  },
+  "verdict": "PARTIAL-FALSIFIED",
+  "slots": {
+    "sigma_s": "NOT-MEASURED",
+    "t_life": "IMPORTED",
+    "L_nu": "OUT-OF-SCOPE"
+  }
+}

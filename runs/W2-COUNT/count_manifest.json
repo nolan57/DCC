@@ -1,0 +1,20 @@
+{
+  "cycle_id": "W2_COUNT_01",
+  "cycle_type": "technical closure",
+  "utc": "2026-11-25T23:28:38Z",
+  "programme_item": "2.5 item 10",
+  "sources": {
+    "front_sweep": "runs/ANALYSIS/front_sweep_v1.txt",
+    "w1_manifest": "runs/W1-ROW2/row2_manifest_v1.json",
+    "programme": "docs/program/RESEARCH_PROGRAM_v1.md"
+  },
+  "contract_elements": [
+    "history functional",
+    "domain",
+    "units/coordinates",
+    "single-valued",
+    "discarded quantities and ledger"
+  ],
+  "count_rule": "N_frag = (z_front/delta) * <components/layer>",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

@@ -3,6 +3,9 @@
 **Date**: 2026-11-23
 **Status**: **CANDIDATE — REVISION; no governor marker submitted; does not constitute route approval**
 **Authority**: none. This file only receives and implements governor feedback on `hard_sf_effective_2d_route_proposal_v1.md`; it is not a governing route, and does not move any gate, terminal class, threshold, or governance status.
+**AMENDED 2026-11-26**: adopted as technical content of the governing hard-SF route by
+`docs/decisions/hard_sf_effective_2d_route_adoption_v1.md`; the status and authority lines above are retained as
+the pre-adoption record. This file still carries no approval block of its own.
 **Record**: BN-45 (records only the fact of receipt; no status change).
 **Relation to v1**: What v2 revises is v1's **candidate content**; it does not replace, withdraw, or mark v1. The unmarked governor block at the end of v1 remains the only `AWAITING-GOVERNOR` item (`D1 = OPEN 1`). To keep `D1` and governance status unchanged, v2 **deliberately sets no approval checkbox block**; if v2 is to be adopted in the future, the governor must separately perform the single governance action of "mark v2 + dispose of v1", which is not done in this round.
 **Relation to D8**: The terminal status of `reports/DCC_terminal_answer_v1.md` and the round queue is unchanged; `RQ-11` is not reopened, no `CLOSED-*` is changed to in-progress, and no queue entry or ledger record is created.

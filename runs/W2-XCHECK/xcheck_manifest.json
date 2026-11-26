@@ -1,0 +1,15 @@
+{
+  "cycle_id": "W2_XCHECK",
+  "cycle_type": "technical closure",
+  "programme": "docs/program/RESEARCH_PROGRAM_v1.md v1.1.1",
+  "utc": "2026-11-25T23:15:17Z",
+  "question": "do the four unsuspended authorities satisfy the contracts cited by RESEARCH_PROGRAM_v1?",
+  "authorities": [
+    "docs/conventions/constraint_crosswalk_v1.md",
+    "docs/specs/intrinsic_structure_tiers_v1.md",
+    "docs/specs/relaxation_ladder_v1.md",
+    "docs/program/COMPLETION_PROTOCOL_v1.md"
+  ],
+  "mode": "structural read only; no authority is edited",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

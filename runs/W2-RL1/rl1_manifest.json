@@ -1,0 +1,55 @@
+{
+  "cycle_id": "W2_RL1_01",
+  "cycle_type": "technical closure",
+  "programme": "docs/program/RESEARCH_PROGRAM_v1.md v1.1.1",
+  "utc": "2026-11-25T23:24:41Z",
+  "row": 2,
+  "keyframe": "t_mid",
+  "scene": "runs/W1-ROW2/row2_tmid.png and its two declared fields",
+  "scene_class": "HELD C1 / HELD C2 / VIOLATED C3",
+  "q_definition": {
+    "theta_eye": 0.0,
+    "theta_ideal": 1.0,
+    "theta_fast": "min(1, (C_xi / C*)^2)",
+    "source": "runs/LADDER/r1_observer_registration.md section 1",
+    "C_star_source": "runs/LADDER/r1_observer_results.txt section 4"
+  },
+  "theta": {
+    "band": "declared density channel; no spectral measurement",
+    "gate": "none",
+    "aperture": "none",
+    "distance": "none",
+    "E": "declared density field; no radiance substitution",
+    "G": {
+      "id": "G_A",
+      "n_v": "local normal, zero incidence",
+      "delta_v_rad": 0.01,
+      "note": "declared pose integrated out by the registered scalar estimator"
+    }
+  },
+  "estimator": {
+    "identity": "intrinsic_structure_tiers_v1 v1 (T0 sec.2, T1 sec.3, T2 sec.4, T3 sec.5)",
+    "implementation": "src/analysis/tiers_core_v1.py (verbatim extraction of src/route/structure_tiers.py)",
+    "grid": [
+      128,
+      128
+    ],
+    "bins": 64,
+    "context_levels": 16,
+    "smoothing": "T3: DoG, sigma = xi/2 and 2*xi (cells)",
+    "null_ensemble": "uniform iid, 16 realisations, seeds 4000..4015",
+    "threshold_lock": "/Users/lpcw/Documents/DCC/runs/MATRIX/threshold_lock.json",
+    "threshold_lock_sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+    "threshold_lock_recorded": "5f324e1513c5df0a8c60539c0c50af6ea23bd14924932115b2c926ebbc12b1cc"
+  },
+  "null": {
+    "P0_mean": 0.05639902750651036,
+    "P0_sd": 0.00046869301873620243,
+    "Q2_mean": 0.1382005856936081,
+    "Q2_sd": 0.0007670727221043092,
+    "realisations": 16,
+    "seed_start": 4000
+  },
+  "reproduction": "R2 physical quantities; frame reproduction not claimed",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

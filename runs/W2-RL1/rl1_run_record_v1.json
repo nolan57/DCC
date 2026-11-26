@@ -1,0 +1,19 @@
+{
+  "cycle_id": "W2_RL1_01",
+  "utc": "2026-11-25T23:25:38Z",
+  "python": "3.13.9",
+  "numpy": "2.4.2",
+  "modules": {
+    "src/analysis/w2_common_v1.py": "556e62b1a7699563f288911bccab99a446e1c9a96fa917148e0352a4e7ab2f39",
+    "src/analysis/w2_rl1_stageB_v1.py": "9790d090c18975adb14e2fa27719c68d74cd6e3006f04e31f71e14de29d9177c",
+    "src/analysis/w1_row2_common_v1.py": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f",
+    "src/analysis/tiers_core_v1.py": "5f2ec9f8f2b9902b5e93a1fcae91f9e2f3f26afe12aaa15ec13b8a0317837a6d"
+  },
+  "threshold_lock_sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+  "products": [
+    "runs/W2-RL1/rl1_results_v1.txt",
+    "runs/W2-RL1/rl1_profile_v1.json"
+  ],
+  "rendered_frames": [],
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

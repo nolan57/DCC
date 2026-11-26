@@ -5,9 +5,12 @@ PROGRAMME AUDIT  (docs/program/COMPLETION_PROTOCOL_v1.md)
   G-64-01: REPORT-ONLY INSTRUMENT — exit 0 always; findings are facts, never a veto
 
 ------------------------------------------------------------------------------
-[CHECK 1] DIGEST INTEGRITY  11 sidecar(s)  (was HARD 1 before G-64-01)
+[CHECK 1] DIGEST INTEGRITY  19 sidecar(s)  (was HARD 1 before G-64-01)
 ------------------------------------------------------------------------------
-  OK — every declared digest verifies, every lock file has its sidecar
+  UNEXPLAINED  runs/FRONT/demo_lock.json.sha256                   digest mismatch 91098fbe7c68 != 4aaa473d7cf0
+  UNEXPLAINED  runs/MATRIX/locked_path_digest.json.sha256         digest mismatch 97f55cfc2d52 != 4e78227bb8b1
+  UNEXPLAINED  runs/SERIAL/serial_lock.json.sha256                digest mismatch 782a33744108 != 32b1dfbe8809
+  UNEXPLAINED  runs/OPTICS/surface_conductivity_lock.json.sha256  digest mismatch eff7e8b5569a != 9fe1d780c25b
   DRIFT-OBSERVED 5f324e1513c5 -> 1224458d58f1 [G-64-01 / BN-48] (not a violation: G-64-01)
 
 ------------------------------------------------------------------------------
@@ -18,41 +21,49 @@ PROGRAMME AUDIT  (docs/program/COMPLETION_PROTOCOL_v1.md)
 ------------------------------------------------------------------------------
 [ADVISORY 1] AUTHORITY — decision documents with an unmarked approval block
 ------------------------------------------------------------------------------
-  AWAITING-GOVERNOR  docs/decisions/hard_sf_effective_2d_route_proposal_v1.md line(s) 149,150,151
+  OK — no unmarked block
 
 ------------------------------------------------------------------------------
 [ADVISORY 2] ORDERING — registration earlier than product (mtime; weak evidence)
 ------------------------------------------------------------------------------
-  named registration, earlier : 33
-  fallback (no name match)    : 10
-  ORDER-SUSPECT               : 17   (advisory: a bulk copy produces these too)
-    runs/LADDER/r1_observer_results.txt                  named registration not earlier: r1_observer_registration.md
-    runs/LADDER/r2_relief_contrast_results.txt           named registration not earlier: r2_relief_registration.md
-    runs/LADDER/r3_illumination_results.txt              named registration not earlier: r3_illumination_registration.md
-    runs/MATRIX/domain_boundary_probe2_results.txt       named registration not earlier: domain_boundary_registration.md
-    runs/MATRIX/domain_boundary_results.txt              named registration not earlier: domain_boundary_registration.md
-    runs/MATRIX2/matrix_v2_results.txt                   named registration not earlier: matrix_v2_registration.md
-    runs/OPTICS/sc_route_results.txt                     named registration not earlier: sc_route_registration.md
-    runs/R1A/r1a1_ptilde_scan_results.txt                no registration in directory
+  named registration, earlier : 41
+  fallback (no name match)    : 16
+  ORDER-SUSPECT               : 25   (advisory: a bulk copy produces these too)
+    runs/G0/g0p3_results.txt                             no registration in directory
+    runs/G0/g0p2_results.txt                             no registration in directory
     runs/R1B/r1b1_p1_closure_check_results.txt           named registration not earlier: r1b1_p1_registration.md
+    runs/R1B/r1b1_p2_eos_scan_results.txt                named registration not earlier: r1b1_p2_registration.md
+    runs/R1B/r1b1_eos_results.txt                        named registration not earlier: r1b1_p1_registration.md, r1b1_p2_registration.md, r1b1_p4_census_registration.md, r1b1_p4_diracbox_registration.md, r1b1_p4_family_surface_registration.md, r1b1_p4_tau_registration.md
     runs/R1B/r1b1_p1_current_check_results.txt           named registration not earlier: r1b1_p1_registration.md
+    runs/R1B/r1b1_eos_v3_results.txt                     named registration not earlier: r1b1_p1_registration.md, r1b1_p2_registration.md, r1b1_p4_census_registration.md, r1b1_p4_diracbox_registration.md, r1b1_p4_family_surface_registration.md, r1b1_p4_tau_registration.md
     runs/R1B/r1b1_p1_dirac_check_results.txt             named registration not earlier: r1b1_p1_registration.md
-    runs/R4/r4_axisym_2p1_results.txt                    named registration not earlier: r4_instability_localization_registration.md, r4_localisation_registration.md, r4_p2c2_production_registration.md, r4_screening_registration.md
+    runs/LADDER/r2_relief_contrast_results.txt           named registration not earlier: r2_relief_registration.md
+    runs/P1/g1_closeout_results.txt                      named registration not earlier: phase1_symbolic_constraint_registration.md, phase1b_singularity_registration.md, phase1c_repricing_registration.md
+    runs/R1A/r1a1_ptilde_scan_results.txt                no registration in directory
+    runs/R1A/r1a3_lattice_results.txt                    no registration in directory
+    runs/R1A/r1a2_pinney_results.txt                     no registration in directory
+    runs/R1A/r1a1_bogoliubov_results.txt                 no registration in directory
+    runs/R1A/r1a1_kz_results.txt                         no registration in directory
+    runs/FRONT/demo_2d_map_results.txt                   named registration not earlier: demo_obj_registration.md, eff_dim_audit_registration.md, kin_dyn_registration.md, mid_sweep_frame_registration.md, sf_curve_registration.md, t4_floor_registration.md
+    runs/MATRIX/domain_boundary_probe2_results.txt       named registration not earlier: domain_boundary_registration.md
     runs/R4/r4_cmc_initial_data_results.txt              named registration not earlier: r4_instability_localization_registration.md, r4_localisation_registration.md, r4_p2c2_production_registration.md, r4_screening_registration.md
-    runs/R4/r4_instability_localization_results.txt      named registration not earlier: r4_instability_localization_registration.md
-    runs/R5/r5l2_sigma_s_results.txt                     named registration not earlier: r5l2_rerun_registration.md
-    runs/ROUTE/deposit_blindness_results.txt             named registration not earlier: deposit_blindness_registration.md
-    runs/ROUTE/goal_conformance_results.txt              named registration not earlier: goal_conformance_registration.md
+    runs/R4/r4_axisym_2p1_results.txt                    named registration not earlier: r4_instability_localization_registration.md, r4_localisation_registration.md, r4_p2c2_production_registration.md, r4_screening_registration.md
+    runs/R2/r2c6_linear_stability_results.txt            no registration in directory
+    runs/R2/r2d_l1_results.txt                           no registration in directory
+    runs/R2/check123_v2_results.txt                      no registration in directory
+    runs/R2/r2d_l3_n11_slab_results.txt                  no registration in directory
+    runs/R2/r2d_l2_results.txt                           no registration in directory
+    runs/R2/check123_v3_results.txt                      no registration in directory
 
 ------------------------------------------------------------------------------
-[ADVISORY 3] ROUND LEDGER — runs/PROGRAM/round_ledger.jsonl  27 record(s)
+[ADVISORY 3] ROUND LEDGER — runs/PROGRAM/round_ledger.jsonl  37 record(s)
 ------------------------------------------------------------------------------
-  round 64  P1B-SYM-01 TECHNICAL-REVIEW       runs/P1/phase1b_singularity_result
-  round 65  P1C-REPRICE-01 TECHNICAL-REVIEW       runs/P1/phase1c_repricing_results.
-  round 68  AX-01   AXIOM-AUDIT            runs/AX/ax01_axiom_audit_results.t
-  round 71  RR-DT-01 RECORD-REPAIR-DUAL-TRACK runs/RR-DT/rr_dt_01_record_repair_
-  round 73  G-73-01 ADIABATICITY-PROVENANCE-B3-ANALYSIS runs/G-73-01/g73_01_manifest.txt
-  ... 22 earlier record(s)
+  round 79  W2-COUNT-01 TECHNICAL-PASS         runs/W2-COUNT/count_results_v1.txt
+  round 80  W2-CONFORM-01 GOVERNANCE-PASS-WITH-FINDINGS runs/W2-AUDIT/conformance_review_v
+  round 81  GD1-B-ME2 GOVERNANCE-OPTION-B-ADOPTED docs/decisions/gd_rulings_v1.md
+  round 82  H5-ROUTE-01 GOVERNANCE-ROUTE-ADOPTED docs/decisions/hard_sf_effective_2
+  round 83  H5-B8-01 CLOSED-CONSTRUCTIVE    runs/H5-B8/b8_route_boundary_resul
+  ... 32 earlier record(s)
 
 ------------------------------------------------------------------------------
 [ADVISORY 4] QUEUE
@@ -65,8 +76,8 @@ PROGRAMME AUDIT  (docs/program/COMPLETION_PROTOCOL_v1.md)
 ==============================================================================
 [DEFINITION OF DONE]  docs/program/COMPLETION_PROTOCOL_v1.md §0
 ==============================================================================
-  D1  zero unmarked governor blocks                OPEN  1
-  D2  zero unexplained digest drifts               MET   0 unexplained, 1 observed
+  D1  zero unmarked governor blocks                MET   0
+  D2  zero unexplained digest drifts               OPEN  4 unexplained, 1 observed
   D3  zero broken citations                        MET   0
   D4  every closed item has a ledger record        MET   18/18
   D5  ledger chain intact                          MET   

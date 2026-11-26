@@ -1,0 +1,62 @@
+========================================================================================
+W2-RL1-01 -- RL-1 q(theta_fast) ON THE ROW-2 DEPOSIT SCENE
+========================================================================================
+PROVENANCE: NEITHER
+CYCLE: W2-RL1-01  (programme section 6.1 item 6)
+TYPE: TECHNICAL closure; RL-1 on the deposit's own 2D-ified field
+LOCK: runs/W2-RL1/rl1_lock.json
+  status: VERIFIED
+  lock digest 0684fc17b8c5  recorded=0684fc17b8c5  OK
+    card             8624c66dc137  OK
+    manifest         1b43e556f4fa  OK
+    spec             3193324afb46  OK
+    prediction       7eb6f719f2e1  OK
+    registration     de85361c94b0  OK
+    shared_module    556e62b1a769  OK
+    scene_module     a6fbd8e84788  OK
+    estimator        5f2ec9f8f2b9  OK
+    threshold_lock   1224458d58f1  OK
+    q_registration   c004e5961e40  OK
+    flux_chain       9024c92b91fe  OK
+    w1_prediction    75b78795b9a8  OK
+
+[1] REGISTERED CHARGE CHAIN (not re-priced)
+    source: runs/LADDER/r1_observer_results.txt line 98
+    shortfall at contrast 1e-7 = 3.4387e+10
+    C* = 1e-7 sqrt(shortfall) = 0.01854373209
+    q(theta_fast) = min(1, (C_xi/C*)^2)  [runs/LADDER/r1_observer_registration.md line 23]
+
+[2] ROW-2 SCENE AT t_mid
+    t = 4.099341237e-09 s ; z_front = 0.869 m
+    delta = 2.15e-10 m ; constraints C1 HELD / C2 HELD / C3 VIOLATED
+    theta: band = declared density channel; gate/aperture/distance = none
+    E = declared density field (no radiance substitution)
+    G = G_A, local normal at zero incidence, delta_v = 0.01 rad (integrated out by the estimator)
+    effective 2D: NOT-MEASURED ; missing slot: model -- no registered Model B/C confining potential for a free-standing atomic layer
+
+[3] MEASURED CONTRAST AND CHANNEL FACTORS
+    xi = 21.85984947 cells ; C_xi = 1.551727534 ; C_xi/C* = 83.67935461
+    q(theta_eye)=0 ; q(theta_ideal)=1 ; q(theta_fast)=1
+    Q3(theta_eye)=0 ; Q3(theta_ideal)=7.28699896593 ; Q3(theta_fast)=7.28699896593
+    shortfall at the measured C_xi = 0.000142811557652
+
+[4] TIER PROFILE AGAINST W1-ROW2 t_mid PLATE
+    T0 measured=0.997990195763 reference=0.997990195763 verdict=PASS reference_verdict=PASS ok=True
+      Q0 = 1 - P0/P0(null)
+    T1 measured=21.8598494691 reference=21.8598494691 verdict=PASS reference_verdict=PASS ok=True
+      xi in cells (h = 1 cell), w(1/e) = 0.3640
+    T2 measured=0.909121305423 reference=0.909121305423 verdict=PASS reference_verdict=PASS ok=True
+      Q2 renormalised conditional entropy, H = 0.8079 bits
+    T3 measured=7.28699896593 reference=7.28699896593 verdict=PASS reference_verdict=PASS ok=True
+      q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000
+
+[5] PREDICTIONS
+    R1 q_fast saturation        PASS
+    R2 Q3 channel identity      PASS
+    R3 tier profile identity    PASS
+    R4 flux gate open           PASS
+    overall: PASS
+
+This is a channel contrast measurement. It does not claim effective two-dimensionality, physical
+realizability, or legibility from the declared viewing geometry: the estimator has no angular variable.
+The old stand-in result in runs/LADDER is not substituted for this scene measurement.

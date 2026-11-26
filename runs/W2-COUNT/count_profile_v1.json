@@ -1,0 +1,165 @@
+{
+  "cycle_id": "W2_COUNT_01",
+  "utc": "2026-11-25T23:29:17Z",
+  "sweep_source": "runs/ANALYSIS/front_sweep_v1.txt",
+  "component_rows": [
+    {
+      "line": 11,
+      "region": "calf -> thigh",
+      "z0": 0.012,
+      "z1": 0.8,
+      "components": 2.0,
+      "a0": 0.0063,
+      "a1": 0.0221
+    },
+    {
+      "line": 12,
+      "region": "pelvis",
+      "z0": 0.8,
+      "z1": 0.96,
+      "components": 1.0,
+      "a0": 0.0457,
+      "a1": 0.0457
+    },
+    {
+      "line": 13,
+      "region": "abdomen",
+      "z0": 0.96,
+      "z1": 1.17,
+      "components": 1.0,
+      "a0": 0.0464,
+      "a1": 0.0516
+    },
+    {
+      "line": 14,
+      "region": "chest",
+      "z0": 1.17,
+      "z1": 1.38,
+      "components": 1.0,
+      "a0": 0.054,
+      "a1": 0.054
+    },
+    {
+      "line": 15,
+      "region": "shoulder",
+      "z0": 1.38,
+      "z1": 1.47,
+      "components": 1.0,
+      "a0": 0.049,
+      "a1": 0.049
+    },
+    {
+      "line": 16,
+      "region": "neck",
+      "z0": 1.47,
+      "z1": 1.56,
+      "components": 1.0,
+      "a0": 0.0098,
+      "a1": 0.0098
+    },
+    {
+      "line": 17,
+      "region": "head",
+      "z0": 1.56,
+      "z1": 1.738,
+      "components": 1.0,
+      "a0": 0.0202,
+      "a1": 0.0303
+    }
+  ],
+  "weighted_stats": {
+    "mean": 1.4565469293163384,
+    "sd": 0.49810825193742847,
+    "var": 0.24811183064816072,
+    "weights": [
+      0.4565469293163384,
+      0.0926998841251448,
+      0.1216685979142526,
+      0.1216685979142526,
+      0.05214368482039402,
+      0.05214368482039402,
+      0.1031286210892236
+    ],
+    "components": [
+      2.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "registered_mean": 1.457,
+  "t_mid": {
+    "t": 4.0993412372709514e-09,
+    "zf": 0.8689999999999999,
+    "layers": 4041860465.116278,
+    "plates": 5888990697.6744175,
+    "fill": 0.499067008277493,
+    "z_decayed": 0.2330441599988503,
+    "sites": 0.49776606713254656,
+    "V_swept": 0.0255336099999997,
+    "V_decayed": 0.003766107196840295,
+    "V_live": 0.021767502803159405,
+    "m_swept": 25.5336099999997,
+    "m_decayed": 3.7661071968402946,
+    "m_live": 21.767502803159406,
+    "z_frac": 0.49999999999999994
+  },
+  "counts": {
+    "N_slices_mid": 4041860465.116278,
+    "N_slices_full": 8083720930.232558,
+    "N_frag_mid": 5887159449.190223,
+    "N_frag_full": 11774318898.380447,
+    "label": "MODEL COUNT / MODEL ESTIMATE (mechanism output, not observation)"
+  },
+  "m_contract": {
+    "1_history_functional": {
+      "form": "u(t) = M[U(tau), phi(tau); 0 <= tau <= t]",
+      "markov": "NOT PROVED; treated as a history functional per section 2.6",
+      "extended_state_if_instant": [
+        "deposited field u",
+        "interface/front state phi",
+        "per-site layer history"
+      ],
+      "ground": "u(t_mid) is built by sweeping the front from tau=0, not from U(t_mid) alone"
+    },
+    "2_domain": {
+      "reduced_z_interval_at_t": [
+        0.0,
+        0.8689999999999999
+      ],
+      "front_parameter": "phi(x,y,z,t)=0 is the plane z = v_front*t, normal +z, speed v_front",
+      "ground": "front_sweep_v1 front law; w1_row2_common_v1.state_at"
+    },
+    "3_units_coordinates": {
+      "z": "m, lab frame, +z along front advance",
+      "u": "dimensionless per-site layer-density index; density kg/m^3 for the mass ledger",
+      "delta": "2.15e-10 m (mechanism property, not a rendering knob)"
+    },
+    "4_single_valued": {
+      "rule": "one deposited value per (x,y) site; where two layers compete the front-most wins",
+      "tie": "equal-front cases take the mean and are counted in the ledger",
+      "ground": "site occupancy is a function, not a multivalued map"
+    },
+    "5_discard_ledger": {
+      "discards": [
+        "vertical resolution below delta",
+        "composition detail inside a layer",
+        "phase",
+        "momentum"
+      ],
+      "entered_at": "section 4.2.3-4.2.4 conservation ledger; mass/volume close by construction",
+      "outflow": "booked, not dropped (w2_common.stretch_pushforward)"
+    }
+  },
+  "checks": {
+    "N1": 1,
+    "N2": 1,
+    "N3": 1,
+    "N4": 1
+  },
+  "verdict": "PASS",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

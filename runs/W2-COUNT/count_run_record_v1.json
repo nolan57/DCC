@@ -1,0 +1,18 @@
+{
+  "cycle_id": "W2_COUNT_01",
+  "utc": "2026-11-25T23:29:17Z",
+  "python": "3.13.9",
+  "numpy": "2.4.2",
+  "modules": {
+    "src/analysis/w2_common_v1.py": "556e62b1a7699563f288911bccab99a446e1c9a96fa917148e0352a4e7ab2f39",
+    "src/analysis/w2_count_stageB_v1.py": "62bb233dd42d2a87aacae75f00a317b83e03a7ef86b3c7f1a550615fb42a37b4",
+    "src/analysis/w1_row2_common_v1.py": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+  },
+  "threshold_lock_sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+  "products": [
+    "runs/W2-COUNT/count_results_v1.txt",
+    "runs/W2-COUNT/count_profile_v1.json"
+  ],
+  "rendered_frames": [],
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

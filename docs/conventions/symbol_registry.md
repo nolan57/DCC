@@ -67,7 +67,8 @@ they still occupy `C`. See §3 item 5.
 | **FL1** | Fidelity levels | Digital-enhanced discernibility | presentation ladder | originally `L1` in the decision statement |
 | **FL2** | Fidelity levels | Natural-band presentation | presentation ladder | originally `L2` |
 | **FL3** | Fidelity levels | Naked-eye visible reflection | presentation ladder | originally `L3` |
-| **ME2–ME5** | M_eff boundary | parallax at sampling scale · perpendicular energy fraction · fragment census · lifetime | S3→S4 branch | **ADOPTED** 2026-11-22 (ruling D-B); **`ME1` VACATED** by `GD1` Option B → `CM5`. The number must not be refilled: reusing it would recreate the gate/observation conflation the ruling removed. Spec `docs/specs/meff_boundary_v0_2.md` |
+| **CM6** | Observation channel | **Sampling-scale parallax acceptance**: `ℓ_samp·‖∇z‖_∞ ≤ Δz_tol`, i.e. `s_max ≤ 1` at a declared `(ℓ_samp, Δz_tol)` and fidelity level | S0–S4, observation only | **NEW 2026-11-26** (`gd_rulings_v1.md` §8, `GD1`-B Option B): the former `ME2`, reclassified out of the gate set. `ME2` is now a **deprecated alias**; one registered value of `s_max` would be a threshold for one object form (`32/π` form-conditionality) |
+| **ME4**, **ME5** | M_eff boundary | fragment census · lifetime | S3→S4 branch | **LIVE GATE SET = `ME4 ∧ ME5`**, both FROZEN, as of 2026-11-26 (`gd_rulings_v1.md` §8). **`ME1` VACATED** → `CM5`; **`ME2` VACATED** → `CM6`; **`ME3` RETIRED** under O7. Vacated numbers must not be refilled: reusing them would recreate the gate/observation conflation the rulings removed. Spec `docs/specs/meff_boundary_v0_2.md` §10 |
 | `C_geo` `C_phys` `C_info` `C_top` | — | **RETIRED** — v0.1 draft constraints | historical only | **retired** under R4; may not be reintroduced. `C_info` **dissolved**, not replaced |
 | **Q1–Q6** | Probe checks | the six checks of `meff_boundary_probe` | audit only | renamed from `P1–P6` (§3 item 4) |
 | — | Gates | `G3′`, `G4`, `G5′`, `G6`, `P1a`, `P2`, `P2-C2`, `P2-C6`, `D5` | gates | unchanged |
@@ -323,7 +324,9 @@ after §2a showed there are five.)
 
 **S6 — constraints are never written in a gate label.** A relaxation commit declares its subject in constraint
 space (`C1`/`C2`/`C3`) or in gate space (`ME1`…`ME5`); if in gate space it also declares the constraint it proxies,
-or `proxy: none`. Form: `moves: C1 via ME1@Δz_res` · `moves: ME2 (proxy: none — presentational)`. The crosswalk and
+or `proxy: none`. Form (pre-ruling examples): `moves: C1 via ME1@Δz_res` · `moves: ME2 (proxy: none —
+presentational)`. Since 2026-11-26 `ME1`/`ME2` are `CM5`/`CM6`, so relaxations of them take the `CM` form
+`moves: none (observation channel)` under S7. The crosswalk and
 the relation types (`⇒ᵍ`, `⇒ᵒ`, `⊥`) are in `docs/conventions/constraint_crosswalk_v1.md`.
 
 **S7 — a relaxation must be booked where it operates (amended 2026-11-22).** Original wording: *a proxy

@@ -46,6 +46,10 @@ choice, made because the sweep parameter `B` already obeys a measure theorem (`�
 ℳ_eff := { (𝐱, t, ε) ∈ 𝒫  |  ME1 ∧ ME2 ∧ ME3 ∧ ME4 ∧ ME5 }
 ```
 
+> **AMENDED 2026-11-26 (`gd_rulings_v1.md` §8, `GD1`-B Option B).** The formula above is retained as the
+> pre-ruling record. The live membership is **`ℳ_eff := { … | ME4 ∧ ME5 }`** — `ME1` → `CM5`, `ME2` → `CM6`,
+> `ME3` retired under O7, and `ME4`/`ME5` both FROZEN. See §10; no new threshold was registered.
+
 ---
 
 ## 2. The constraint set — `ME2`–`ME5` (adopted) plus `CM5` (observation channel)
@@ -60,7 +64,7 @@ Summary, then each in full.
 | id | Name | Replaces | Tolerance status |
 | --- | --- | --- | --- |
 | ~~**ME1**~~ | **RECLASSIFIED → `CM5`** (2026-11-22, `docs/decisions/gd_rulings_v1.md` GD1 Option B). An observation predicate evaluated at an instrument resolution is not a gate on a physical state | — | `δ_ov` **OPEN**, natural value `0`; `Δz_res` **OPEN** |
-| **ME2** | Parallax at the declared sampling scale | `C_geo` (retired) | `Δz_tol`, `ℓ_samp` **OPEN**, presentational |
+| ~~**ME2**~~ | **RECLASSIFIED → `CM6`** (2026-11-26, `gd_rulings_v1.md` §8, `GD1`-B Option B): an observation predicate evaluated at a presentation scale is not a gate on a physical state | `C_geo` (retired) | `s_max = Δz_tol/ℓ_samp` **OPEN**, observation-channel; the ratio is form-conditional by `32/π` |
 | **ME3** | Perpendicular energy fraction | `C_phys` (retired) | `δ_E` **OPEN**, needs own basis |
 | **ME4** | Fragment census | `C_top` (retired) | **FROZEN** — registered census numbers |
 | **ME5** | Lifetime | *new* — the decisive omission | **FROZEN** — exact, scale-free |
@@ -72,6 +76,11 @@ Summary, then each in full.
 > reused as a new gate label. Phase 0's gate is now `ME4` (`gd_rulings_v1.md` §1). The binding consequence:
 > a `CM5` verdict may never be cited as evidence that a state *is* two-dimensional — only that it is
 > indistinguishable from a graph at a stated `Δz_res`.
+
+> **RECLASSIFIED 2026-11-26 (`GD1`-B Option B).** `ME2` is now **`CM6`**, an observation-channel predicate
+> (`s_max ≤ 1` at declared `(ℓ_samp, Δz_tol)`), not a gate. The statement and every number computed under
+> `ME2` are unchanged; only its domain changes. `ME2` survives as a deprecated alias in pre-ruling text and
+> may **not** be reused as a new gate label. The adopted gate set is **`ME4` ∧ `ME5`** only. See §10.
 
 ### ME1 — Injectivity (now `CM5`)
 
@@ -111,7 +120,11 @@ project has already committed once (the A5 bogus PASS) and is prohibited.
 
 **Protocol.** Direct evaluation on any density field already in the repository; no new machinery.
 
-### ME2 — Parallax at the declared sampling scale
+### ME2 — Parallax at the declared sampling scale (now `CM6`)
+
+> **RECLASSIFIED 2026-11-26 (`gd_rulings_v1.md` §8).** This predicate is now `CM6` in the observation family;
+> it is **not** a member of the gate set. The statement, the formula and every number computed under it are
+> unchanged — only the domain changes. `ME2` remains a deprecated alias for `CM6` in pre-ruling text.
 
 **Statement.** With `ℓ_samp` the lateral sampling scale of the presentation and `Δz_tol` the acceptable
 depth error,
@@ -384,8 +397,10 @@ tolerance stand exactly as adopted. No value was supplied to make anything pass.
 
 This section **registers no threshold** and changes no adoption. It records what round 55
 (`runs/OPTICS/observer_params_results.txt`) measured about the four OPEN tolerances, so that a later ruling has
-the arithmetic in front of it. §1–§8 are byte-identical; nothing here is a ruling, and no object is certified in
-or out of `ℳ_eff`.
+the arithmetic in front of it. Nothing here is a ruling, and no object is certified in or out of `ℳ_eff`.
+§1–§8 were byte-identical **when §9 was written on 2026-11-23**; the dated amendment of §8.5/§10 of 2026-11-26
+supersedes the membership line and the `ME2` gate row, and this qualification is the only change to the
+pre-ruling record.
 
 **9.1 — `Δz_res` is a function of `θ`, not a free parameter.** With `Δz = λ/(2NA²)` over the declared `1–3 eV`
 band it is `[207 nm, 62.0 µm]` (2.477 decades); with a range gate it is `c·δt/2`. §8.1's statement that the pass
@@ -416,6 +431,39 @@ a physical state."* That sentence applies to `ME2` word for word, and applying i
 `ℳ_eff = ME4 ∧ ME5` — both **FROZEN**, i.e. a decidable membership set as of today. Reclassifying a gate is a
 governor act (`GD1` was one, and was an *Option B*), so the finding is recorded as board note `BN-17` and **not
 performed here**. Until it is ruled on, `ME2` remains a gate with a tolerance that is a function of the viewer.
+
+---
+
+## 10. Ruling on `BN-17` (2026-11-26) — `ME2` → `CM6`, membership decidable
+
+**Authority.** `docs/decisions/gd_rulings_v1.md` §8 (`GD1`-B). The project governor adopted **Option B**:
+`ME2` is reclassified out of the gate set into the `CM` observation family as **`CM6`**, for the same reason
+that moved `ME1` to `CM5` — an observation predicate evaluated at an instrument/presentation parameter is not
+a gate on a physical state. `ME2` is a deprecated alias; the number is vacated and must not be refilled.
+
+**10.1 Membership, as now live.**
+
+```
+ℳ_eff := { (𝐱, t, ε) ∈ 𝒫  |  ME4 ∧ ME5 }
+```
+
+`ME4` (fragment census) and `ME5` (lifetime) are both **FROZEN**; no threshold is OPEN in the live membership
+set. `ME1`/`ME2` are observation predicates (`CM5`/`CM6`) and `ME3` is retired under O7, so none of them can
+certify membership. The superseded four- and five-conjunct formulae in §1 are retained only as the record of
+what was adopted before this ruling.
+
+**10.2 What `CM6` asserts and what it forbids.** `CM6` is `ℓ_samp·‖∇z‖_∞ ≤ Δz_tol`, equivalently
+`s_max = Δz_tol/ℓ_samp ≤ 1`, evaluated at a declared sampling scale and fidelity level. Round 55 measured
+`s_max` to be invariant under joint rescaling to `1e-15` and form-conditional by `32/π`; it is therefore one
+dimension-free acceptance number of the `(form, viewer, frame)` triple, not a physical constant. Every `CM6`
+verdict states the form, `ℓ_samp`, `Δz_tol` and `s_max`. No value is registered here, and a `CM6` pass may
+**never** be cited as evidence that a state is two-dimensional — exactly the §1.3 binding wording for `CM5`.
+
+**10.3 What is unchanged.** No threshold moved; no archived product was edited; no object was certified in
+or out of `ℳ_eff` by this section; no visibility or effective-2D claim is made. The `CM6` verdicts already
+computed under the name `ME2` (`runs/OPTICS/observer_params_results.txt`) remain valid as records of what was
+measured, with the label read under its new domain. Reversal requires a governor ruling that `ℓ_samp` and
+`Δz_tol` are physical constants of the object rather than presentation properties.
 
 ---
 

@@ -3,6 +3,10 @@
 **Date**: 2026-11-23
 **Status**: **CANDIDATE — TECHNICAL REVISION; conditionally accepted as a candidate research framework; not approved to enter the formal implementation chain**
 **Authority**: none. This file implements the governor's verdict of "conditionally accept v2, first make technical revisions." It is not a governing route, does not authorize formal numerical implementation, and does not move any gate, terminal class, threshold, or governance status.
+**AMENDED 2026-11-26**: v2.1's four technical revisions are the **binding technical content** of the adopted
+route; see `docs/decisions/hard_sf_effective_2d_route_adoption_v1.md`. The status and authority lines above are
+retained as the pre-adoption record. The route still stops at the B8 boundary and no field, budget, or
+threshold is approved by this amendment.
 **Relation to v2 / v1**: v2.1 only revises the technical premises of `hard_sf_effective_2d_route_candidate_v2.md`; it **does not replace, withdraw, or mark** v1 or v2. v1's unmarked block remains the sole `AWAITING-GOVERNOR` item, `D1 = OPEN 1`. To maintain that status, this file **sets no approval checkbox block**.
 **Record**: BN-46 (records only the fact of receipt, with no status change).
 **Relation to D8**: `reports/DCC_terminal_answer_v1.md` and the round queue terminal status are unchanged; `RQ-11` is not reopened; no queue, ledger, lock, or threshold is created.

@@ -1,0 +1,65 @@
+{
+  "provenance_tag": "PROVENANCE: NEITHER",
+  "cycle_id": "W2_XCHECK_01",
+  "files": {
+    "crosswalk": {
+      "path": "docs/conventions/constraint_crosswalk_v1.md",
+      "sha256": "15e5f4822f213ae213bf7c27e00fcfa296ea292aab6d7d8d1470896dba4d70d4"
+    },
+    "tiers": {
+      "path": "docs/specs/intrinsic_structure_tiers_v1.md",
+      "sha256": "c5e239178b0dade91487140d3b714a4ae3c092529730e4deba14d1d0b45a07d8"
+    },
+    "ladder": {
+      "path": "docs/specs/relaxation_ladder_v1.md",
+      "sha256": "db64114ec3912f0b3c8835880f581b4ad8d53e2cdb30da7b8495948739db2231"
+    },
+    "protocol": {
+      "path": "docs/program/COMPLETION_PROTOCOL_v1.md",
+      "sha256": "54bd5a784754019e3cfc0ff7850b3aed4cda9c66674be29490150aeaf272b9a8"
+    },
+    "programme": {
+      "path": "docs/program/RESEARCH_PROGRAM_v1.md",
+      "sha256": "f634f8cb07f951617f78a5033fd31c309bc0ab942bf3bb467a836df6c9e6e41d"
+    }
+  },
+  "ids": {
+    "C1": 1,
+    "C2": 1,
+    "C3": 1
+  },
+  "thresholds": {
+    "lock": {
+      "L0": 0.5,
+      "L1": 4.0,
+      "L2": 0.5,
+      "L3": 2.0
+    },
+    "spec": {
+      "L0": 0.5,
+      "L1": 4.0,
+      "L2": 0.5,
+      "L3": 2.0
+    }
+  },
+  "rungs": {
+    "RL-1": 1,
+    "RL-2": 1,
+    "RL-3": 1,
+    "RL-4": 1,
+    "RL-5": 1,
+    "RL-6": 1
+  },
+  "protocol": {
+    "wip": 1,
+    "report_phrases": [],
+    "programme_report_phrases": []
+  },
+  "checks": {
+    "X1": 1,
+    "X2": 1,
+    "X3": 1,
+    "X4": 0
+  },
+  "verdict": "CITATION-DEFECT"
+}

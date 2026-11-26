@@ -1,0 +1,100 @@
+========================================================================================
+W2-C2VIOL-01 -- NOT-C2 UNIFORM DILATION s=1.01 (ROW 4)
+========================================================================================
+PROVENANCE: NEITHER
+CYCLE: W2-C2VIOL-01  (programme section 6.1 item 4)
+TYPE: artifact cycle, row 4 = C1 HELD / C2 VIOLATED / C3 VIOLATED
+LOCK INPUTS: threshold lock 1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d
+LOCK: runs/W2-C2/c2_lock.json
+  status: VERIFIED
+  lock digest 4c02cdd034bd  recorded=4c02cdd034bd  OK
+    card             ca4db4fffe96  OK
+    manifest         5cd0d444b5d1  OK
+    spec             30a31838205f  OK
+    prediction       cf731812f9d4  OK
+    registration     8e97ae972226  OK
+    shared_module    556e62b1a769  OK
+    threshold_lock   1224458d58f1  OK
+    scene_module     a6fbd8e84788  OK
+
+[1] DECLARED MAP AND PRICE
+    (x,y) -> (1.01 x, 1.01 y) about the registered 128x128 window origin
+    Jacobian det J = 1.0201 ; area change = 0.0201
+    C1 kept by pushforward Sigma'(x') = Sigma(x'/s)/s^2 (area-overlap interpolation)
+    conservation ledger: mass before=1749.125622, inside window=1748.916219, outflow=0.2094029361, residual=1.3e-16
+    boundary: zero-width registered window; image outside it is booked as OUTFLOW
+    detection observable: conservation ledger and T1 scale shift
+
+[2] TIER PROFILES (q=1 declared instrumented channel)
+    t0 t=0 s
+      row-2 plate:
+        T0  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T1  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T2  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T3  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+      stretched  :
+        T0  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T1  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T2  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T3  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+      canvas     :
+        T0  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T1  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T2  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+        T3  n/a        NOT-APPLICABLE   NOT-APPLICABLE no 2D output before the front arrives
+      sha256 row2=fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471 stretched=fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471
+    t_mid t=4.0993412e-09 s
+      row-2 plate:
+        T0  0.9979901958 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+        T1  21.85984947 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3640
+        T2  0.9091213054 PASS             MEASURED     Q2 renormalised conditional entropy, H = 0.8079 bits
+        T3  7.286998966 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 1.551728; q = 0 channel gives Q3 = 0.000
+      stretched  :
+        T0  0.9979901958 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+        T1  22.23915396 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3475
+        T2  0.8946713436 PASS             MEASURED     Q2 renormalised conditional entropy, H = 1.0455 bits
+        T3  7.269355165 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 1.532744; q = 0 channel gives Q3 = 0.000
+      canvas     :
+        T0  0.9989177977 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+        T1  39.57001858 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3627
+        T2  0.7800023873 PASS             MEASURED     Q2 renormalised conditional entropy, H = 3.5752 bits
+        T3  5.922201882 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 0.596402; q = 0 channel gives Q3 = 0.000
+      sha256 row2=d707923009a817d3ad5e3e4c267a00934b8d06c7883cd52688758507b1bfc15e stretched=1daa58097b8054f9ac157f77c8350bf23a7dadbdac8da81dc99b1af02457439e
+    t_end t=8.1986825e-09 s
+      row-2 plate:
+        T0  0.9989177977 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+        T1  19.00724455 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3445
+        T2  0.9061688743 PASS             MEASURED     Q2 renormalised conditional entropy, H = 0.5069 bits
+        T3  7.562600819 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 1.880470; q = 0 channel gives Q3 = 0.000
+      stretched  :
+        T0  0.9917546493 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+        T1  20.05182785 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3439
+        T2  0.8879112042 PASS             MEASURED     Q2 renormalised conditional entropy, H = 0.6618 bits
+        T3  7.542184617 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 1.853905; q = 0 channel gives Q3 = 0.000
+      canvas     :
+        T0  0.9981791517 PASS             MEASURED     Q0 = 1 - P0/P0(null)
+        T1  39.8654202 PASS             MEASURED     xi in cells (h = 1 cell), w(1/e) = 0.3653
+        T2  0.739936433 PASS             MEASURED     Q2 renormalised conditional entropy, H = 5.0770 bits
+        T3  4.493216807 PASS             MEASURED     q = 1.0 (declared instrument); C_xi = 0.215213; q = 0 channel gives Q3 = 0.000
+      sha256 row2=438e49084161ad063cb9248b43a4ed1e9a0356100e1b0f8931576aa7b763ec38 stretched=2a122bc6fbb2b3f9d798bf30722c95c475b5b50daf6c12cd00d7506375951856
+
+[3] EFFECTIVE 2D (not merged into a scene verdict)
+    subsystem: conduction electrons of the deposited sheet only (declared n_e = 1.0e28 m^-3)
+    label: NOT-MEASURED ; missing slot: model -- no registered Model B/C confining potential for a free-standing atomic layer
+    scope note: ionic, lattice, collective and non-degenerate modes are NOT assessed; per RESEARCH_PROGRAM_v1 section 4.7 the label must not be extended to them
+
+[4] t_mid COMPARISON AGAINST ROW 2
+    xi row2=21.85984947 cells ; xi stretched=22.23915396 ; ratio=1.017351651
+    Q3 row2=7.286999 ; stretched=7.2693552 ; q=0 channel=0
+    canvas profile identical to row 2 at t_mid: True
+
+[5] PREDICTIONS
+    S1 Jacobian / area factor  PASS
+    S2 conservation ledger    PASS
+    S3 xi scales with s       PASS
+    S4 tier / canvas profile  PASS
+    overall: PASS
+
+The q=0 reflected channel is reported separately; it is not used as a scene verdict.
+No visibility, readability, realizability or COUNTERFACTUAL(C3) claim is made. C3 is violated here.
+The frames are citable only together with their DISPLAY-DECLARATION sidecars.

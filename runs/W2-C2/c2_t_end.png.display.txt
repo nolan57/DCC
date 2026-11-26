@@ -1,0 +1,13 @@
+DISPLAY-DECLARATION v1
+FRAME:            c2_t_end.png
+PROVENANCE:       NEITHER
+STAGE:            S0
+FIDELITY:         FL1
+BAND:             NONE (declared density channel; no spectral measurement)
+COLOUR:           DECLARED-CONVENTION
+COLOUR-BASIS:     panel A: violet sequential ramp encodes the pushed-forward tissue-density index and pale marks sites the front has not reached; panel B: violet sequential ramp encodes per-site mean layer density; panel C: greyscale is the absolute difference between the stretched and row-2 plate fields at the same time slot. No wavelength information is carried
+SCALAR:           tissue-density index (dimensionless); per-site mean layer density (dimensionless); absolute density difference (dimensionless); time (ns); area factor det J (dimensionless)
+TIME:             t_span = 8.1986825e-09 s (single snapshot) ; compression = 1 ; t_rip = 8.1986825e-09 s ; ratio = 1
+GEOMETRY:         PRESCRIBED (D2)
+ENHANCEMENT:      none
+ME5-COROLLARY:    PRESENT

@@ -1,0 +1,12 @@
+{
+  "cycle_id": "W2_RL1_01",
+  "utc": "2026-11-25T23:24:41Z",
+  "predictions": {
+    "R1": "C_xi on the row-2 plate at t_mid exceeds C*, so q(theta_fast) saturates at 1",
+    "R2": "Q3(theta_fast) equals Q3(theta_ideal) to 1e-12 and Q3(theta_eye) = 0 exactly",
+    "R3": "the T0-T3 profile at q=1 matches the registered W1-ROW2 t_mid profile with no verdict flip",
+    "R4": "the shortfall evaluated at C_xi is < 1, i.e. the registered flux gate is already open"
+  },
+  "kill": "q(theta_fast) < 1, Q3_fast != Q3_ideal within 1e-12, or any tier verdict flip",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

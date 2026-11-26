@@ -1,0 +1,37 @@
+{
+  "provenance_tag": "PROVENANCE: NEITHER",
+  "cycle_id": "W2_C2VIOL_01",
+  "utc": "2026-11-25T23:21:07Z",
+  "python": "3.13.9",
+  "numpy": "2.4.2",
+  "modules": {
+    "src/analysis/w2_common_v1.py": "556e62b1a7699563f288911bccab99a446e1c9a96fa917148e0352a4e7ab2f39",
+    "src/analysis/w2_stageB_v1.py": "d8007fa31083ae604a37e6c611fb4cf47e90cac2d1c57c88f9c3fde124099aa6",
+    "src/analysis/w1_row2_common_v1.py": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f",
+    "src/analysis/tiers_core_v1.py": "5f2ec9f8f2b9902b5e93a1fcae91f9e2f3f26afe12aaa15ec13b8a0317837a6d"
+  },
+  "thresholds": {
+    "L0": 0.5,
+    "L1": 4.0,
+    "L2": 0.5,
+    "L3": 2.0
+  },
+  "threshold_lock_sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+  "products": [
+    "runs/W2-C2/c2_results_v1.txt",
+    "runs/W2-C2/c2_profile_v1.json"
+  ],
+  "rendered_frames": [
+    "runs/W2-C2/c2_t0.png",
+    "runs/W2-C2/c2_t_mid.png",
+    "runs/W2-C2/c2_t_end.png",
+    "runs/W2-C2/c2_sequence.png"
+  ],
+  "display_sidecars": [
+    "runs/W2-C2/c2_t0.png.display.txt",
+    "runs/W2-C2/c2_t_mid.png.display.txt",
+    "runs/W2-C2/c2_t_end.png.display.txt",
+    "runs/W2-C2/c2_sequence.png.display.txt"
+  ],
+  "reproduction": "R2 (physical quantities); frame reproduction R3 not claimed"
+}

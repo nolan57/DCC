@@ -1,0 +1,12 @@
+{
+  "cycle_id": "W2_C3TEST_01",
+  "utc": "2026-11-25T23:15:17Z",
+  "predictions": {
+    "C1": "Y_e and n_e decrease under neutronization in all three conventions",
+    "C2": "mu_kin decreases; the ratio follows (n_e_neut / n_e_frozen)^(2/3) in the 2D kinetic convention",
+    "C3": "u fields are byte-identical across branches (same sha256)",
+    "C4": "composition tokens are absent from both field generators -> GENERATOR-DOES-NOT-CONSUME"
+  },
+  "kill": "any composition token found in a field generator, or any byte difference in u with no declared mechanism",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

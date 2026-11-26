@@ -1,0 +1,57 @@
+{
+  "cycle_id": "W2_DISC",
+  "cycle_type": "technical closure",
+  "programme": "docs/program/RESEARCH_PROGRAM_v1.md v1.1.1",
+  "utc": "2026-11-25T23:15:17Z",
+  "row": 2,
+  "keyframe": "t_mid",
+  "mechanism_baseline": {
+    "id": "atomic-layer-slice-v1",
+    "delta_m": 2.15e-10
+  },
+  "mechanism_control": {
+    "id": "atomic-layer-slice-v1-delta10",
+    "delta_m": 2.15e-09
+  },
+  "front_law": "z_f = min(H, c t / sqrt(2))",
+  "map": "M assigns layer k to site k in raster order (bijection); unchanged",
+  "constraints": {
+    "C1": "HELD",
+    "C2": "HELD",
+    "C3": "VIOLATED (IMPORTED tau_life)"
+  },
+  "theta": {
+    "q": 1.0,
+    "band": "declared density channel, no spectral measurement",
+    "gate": "none",
+    "aperture": "none",
+    "distance": "none",
+    "E": "not applicable to a density channel",
+    "G": "not applicable"
+  },
+  "estimator": {
+    "identity": "intrinsic_structure_tiers_v1 v1 (T0 sec.2, T1 sec.3, T2 sec.4, T3 sec.5)",
+    "implementation": "src/analysis/tiers_core_v1.py (verbatim extraction of src/route/structure_tiers.py)",
+    "grid": [
+      128,
+      128
+    ],
+    "bins": 64,
+    "context_levels": 16,
+    "smoothing": "T3: DoG, sigma = xi/2 and 2*xi (cells)",
+    "null_ensemble": "uniform iid, 16 realisations, seeds 4000..4015",
+    "threshold_lock": "/Users/lpcw/Documents/DCC/runs/MATRIX/threshold_lock.json",
+    "threshold_lock_sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d",
+    "threshold_lock_recorded": "5f324e1513c5df0a8c60539c0c50af6ea23bd14924932115b2c926ebbc12b1cc"
+  },
+  "null": {
+    "P0_mean": 0.05639902750651036,
+    "P0_sd": 0.00046869301873620243,
+    "Q2_mean": 0.1382005856936081,
+    "Q2_sd": 0.0007670727221043092,
+    "realisations": 16,
+    "seed_start": 4000
+  },
+  "deterministic_seed": "phantom fixed; null seeds 4000..4015",
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

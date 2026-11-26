@@ -1,0 +1,46 @@
+{
+  "cycle_id": "W2_C3",
+  "cycle_type": "technical closure",
+  "programme": "docs/program/RESEARCH_PROGRAM_v1.md v1.1.1",
+  "utc": "2026-11-25T23:15:17Z",
+  "question": "which C3 variables change and are they consumed by the row-2 u generator?",
+  "branches": {
+    "HELDC3_counterfactual": "frozen Z/A",
+    "NEUTRONIZED": "conv.beta_envelope over ALL3D, HYB, ALL2D"
+  },
+  "state_vector": [
+    "Y_e",
+    "n_e",
+    "E_F",
+    "sigma_s",
+    "t_life",
+    "L_nu"
+  ],
+  "closure_scope": {
+    "in_scope": [
+      "Y_e",
+      "n_e",
+      "E_F / mu_e",
+      "u byte identity",
+      "generator graph"
+    ],
+    "out_of_scope": [
+      "sigma_s(omega) (G6/DC2 blocker)",
+      "derived t_life",
+      "L_nu energy ledger"
+    ]
+  },
+  "t_life_s_imported": 3e-09,
+  "theta": {
+    "q": 1.0,
+    "band": "declared density channel",
+    "E": "not applicable",
+    "G": "not applicable"
+  },
+  "keyframe": "t_mid",
+  "sources": {
+    "conv": "src/common/conv.py",
+    "scene": "src/analysis/w1_row2_common_v1.py"
+  },
+  "provenance_tag": "PROVENANCE: NEITHER"
+}

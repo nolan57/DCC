@@ -1,0 +1,56 @@
+{
+  "cycle_id": "W2_RL1_01",
+  "locked_utc": "2026-11-25T23:24:41Z",
+  "purpose": "pre-registration: stage B must verify these hashes before emitting products",
+  "files": {
+    "card": {
+      "path": "runs/W2-RL1/rl1_card.md",
+      "sha256": "8624c66dc137e210852303cad774c103cfe8c0e665c4e2c979f513994bde7177"
+    },
+    "manifest": {
+      "path": "runs/W2-RL1/rl1_manifest.json",
+      "sha256": "1b43e556f4fafa952cd6e3e613c06b37edf8b50f1dfa415daa1176d550e1212f"
+    },
+    "spec": {
+      "path": "runs/W2-RL1/rl1_solver_spec.md",
+      "sha256": "3193324afb463ac3d55d95a43d8d297e7cef2eb194cdf597fc7e702ff8c7752a"
+    },
+    "prediction": {
+      "path": "runs/W2-RL1/rl1_prediction.json",
+      "sha256": "7eb6f719f2e1729dfd62a3a80b043c2e7ecd74d7ff30ea3361643b43669be740"
+    },
+    "registration": {
+      "path": "runs/W2-RL1/rl1_registration.md",
+      "sha256": "de85361c94b028a6158a6b5c20533ef5c99de0ebcfa33beabd297c74da5518e8"
+    },
+    "shared_module": {
+      "path": "src/analysis/w2_common_v1.py",
+      "sha256": "556e62b1a7699563f288911bccab99a446e1c9a96fa917148e0352a4e7ab2f39"
+    },
+    "scene_module": {
+      "path": "src/analysis/w1_row2_common_v1.py",
+      "sha256": "a6fbd8e84788f6518ca305b5586e656f4a5a73cce4a4b8893fc187d99b2b286f"
+    },
+    "estimator": {
+      "path": "src/analysis/tiers_core_v1.py",
+      "sha256": "5f2ec9f8f2b9902b5e93a1fcae91f9e2f3f26afe12aaa15ec13b8a0317837a6d"
+    },
+    "threshold_lock": {
+      "path": "runs/MATRIX/threshold_lock.json",
+      "sha256": "1224458d58f179f8d3cbcec7ea65f6df5c1fe72fe88169ca313b0bbf5bc5a20d"
+    },
+    "q_registration": {
+      "path": "runs/LADDER/r1_observer_registration.md",
+      "sha256": "c004e5961e400bd93a07e12a4176cfe6e1142bf12b750c9b0f231f0b7fce1798"
+    },
+    "flux_chain": {
+      "path": "runs/LADDER/r1_observer_results.txt",
+      "sha256": "9024c92b91fee9fd45936e0db8aa544bca3d5f550a3fc7fad5decf312a7cf5ce"
+    },
+    "w1_prediction": {
+      "path": "runs/W1-ROW2/row2_prediction_v1.json",
+      "sha256": "75b78795b9a86348bcc6b60d683dc9f8b0e366219dea94275b670aefc951b401"
+    }
+  },
+  "rendered_artifacts": []
+}

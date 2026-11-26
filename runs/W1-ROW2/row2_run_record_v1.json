@@ -1,6 +1,6 @@
 {
   "cycle_id": "W1-ROW2-ARTIFACT-01",
-  "utc": "2026-11-25T03:02:35Z",
+  "utc": "2026-11-26T06:11:04Z",
   "python": "3.13.12",
   "numpy": "2.4.6",
   "matplotlib": "3.11.0",
@@ -115,7 +115,7 @@
     },
     "row2_results_v1.txt": {
       "path": "runs/W1-ROW2/row2_results_v1.txt",
-      "sha256": "bb63278b0badc2b552b4a2328c09f15073f0f1787d34719709661e77de2a6ee7"
+      "sha256": "ceeaf14fa79edef5c119d083e750e076af22d2bdfc38d32d543cf94e9c224498"
     }
   },
   "reproduction_level": "R2 (physical quantities); frame reproduction not claimed (R3)",

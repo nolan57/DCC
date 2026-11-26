@@ -504,9 +504,9 @@ A("      present a completed deposit: the 'after the sweep' frame is mostly deca
 A("      only the last 3 ns of swept material is still converted. This is a property of the")
 A("      declared transient, not a derivation of it (tau is imported).")
 A("")
-A("  F3  The declared optical probe can neither excite nor resolve the z degree of freedom at")
-A("      %.3f nm, yet the cell is still NOT-MEASURED: 'cannot see z' and 'is 2D' are different" % C.DELTA_NM)
-A("      claims, and the missing slot is the confining potential -- not the probe.")
+A("  F3  The declared optical probe can neither excite nor resolve z (layer spacing %.3f nm," % C.DELTA_NM)
+A("      probe point-spread %.1f nm), yet the cell is still NOT-MEASURED: 'cannot see z' and" % E2D["probe_resolution_nm"])
+A("      'is 2D' are different claims, and the missing slot is the confining potential, not the probe.")
 A("")
 A("  F4  The profile does not rank the two fields, and the tiers move in opposite directions:")
 A("      the canvas field is smoother than the sheet field (xi = %.1f vs %.1f cells) yet has" %
